@@ -45,7 +45,7 @@ root install.
 | `mini-apps/cardano-assets/` | Mini app | Assets. | Active |
 | `mini-apps/cardano-transactions/` | Mini app | Transactions; `npm run dev:example` works without a host. | Active |
 | `mini-apps/stake/` | Mini app | Early code, uses yarn. | Early |
-| `mini-apps/ai/`, `governance/`, `launchpad/`, `minterr/`, `swap/` | Mini apps | README only. | Placeholder |
+| `mini-apps/ai/`, `cardano-explorer/`, `governance/`, `launchpad/`, `minterr/`, `swap/` | Mini apps | README only. | Placeholder |
 
 ## Dependencies
 

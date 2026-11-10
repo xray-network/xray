@@ -28,6 +28,7 @@ Mini apps run inside XRAY hosts through the Mini App Bridge in XRAY/JS.
 | Cardano Wallet | Cardano wallet | [`mini-apps/cardano-wallet/`](mini-apps/cardano-wallet/) |
 | Cardano Assets | Assets of the connected Cardano account | [`mini-apps/cardano-assets/`](mini-apps/cardano-assets/) |
 | Cardano Transactions | Transactions of the connected Cardano account | [`mini-apps/cardano-transactions/`](mini-apps/cardano-transactions/) |
+| Cardano Explorer | Cardano explorer | [`mini-apps/cardano-explorer/`](mini-apps/cardano-explorer/) |
 | Stake | Staking | [`mini-apps/stake/`](mini-apps/stake/) |
 | AI | AI | [`mini-apps/ai/`](mini-apps/ai/) |
 | Governance | Governance | [`mini-apps/governance/`](mini-apps/governance/) |
