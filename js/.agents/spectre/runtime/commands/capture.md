@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 An ordinary `capture` command requires an existing unversioned provider guide. An explicit compound
 queue may first prepare a missing guide from a human-supplied provider identity and authoritative
@@ -12,11 +12,17 @@ bytes and reference unchanged files in earlier captures. No changes means no new
 ## 12. Provider preparation and security
 
 Use this workflow only for an explicit `/spectre capture <provider>` invocation, its host-native
-equivalent, or one explicitly stated capture item in a normalized compound queue. An ordinary
-capture selects one existing provider guide and includes discovery, comparison, validation and
-publication when needed. No separate check or validation command is required or supported. All
-work is human-triggered: no schedules, GitHub Actions, background monitoring, inferred plans or
-implementations.
+equivalent, one explicitly stated capture item in a normalized compound queue, or the capture step
+of a plan (§8). An ordinary capture selects one existing provider guide and includes discovery,
+comparison, validation and publication when needed. No separate check or validation command is
+required or supported. All work is human-triggered: no schedules, GitHub Actions, background
+monitoring, inferred plans or implementations.
+
+Planning captures the providers it relies on, so a standalone capture is never a planning
+prerequisite. Use a standalone capture to track upstream changes between plans: its `CAPTURE.md`
+reports what changed and recommends work, and it never creates a plan. A capture run by a plan
+follows this same workflow, stops at its own outcome, and then returns control to the plan; it
+never changes the provider guide's selection rules.
 
 ### Compound-queue provider preparation
 
@@ -47,10 +53,10 @@ preparation is a reported no-op and capture uses it; never overwrite or silently
 PROVIDER.md explains source authority, tracking and maintained-consumer context. Each numbered
 SNAPSHOT.md owns the complete specification and resolved inventory; CAPTURE.md summarizes only
 that capture. All published capture files remain immutable. Load core, selectors, references,
-the provider template, validation rules, repository guidance, the guide and applicable snapshots.
-Reconcile every numbered directory and guide entry; never trust a latest link alone. §14 permits
-existing full numbered snapshots as historical baselines without rewriting them. A root-level
-rolling capture requires explicit adoption before numbered capture; never migrate it implicitly.
+providers, the provider template, validation and evidence checks, repository guidance, the guide and
+applicable snapshots.
+Reconcile every numbered directory and guide entry; never trust a latest link alone. Captures
+from earlier versions remain valid baselines without rewriting them (`providers.md`).
 
 ### Discovery and comparison
 
@@ -100,9 +106,9 @@ states. Never treat an earlier conversation report as a verified current source 
 1. After discovery, stop without tracked writes for NO-CHANGE. Do not allocate a capture number,
    create a directory, refresh timestamps or rewrite provenance, summaries or guide metadata.
 2. For a material update, reconcile the provider-local sequence across directories and guide
-   entries, including legacy NNNN-<provider> names. Allocate one above the maximum, beginning at
+   entries. Allocate one above the maximum, beginning at
    0001; never fill gaps, reuse a published ID or silently choose a different baseline. Duplicate
-   numbers or incomplete/corrupt directories block publication. Stop at 9999. New names use NNNN.
+   numbers or incomplete/corrupt directories block publication. Stop at 9999. Directories use NNNN.
 3. Stage the new directory outside the provider tree. For the first capture, collect the full
    selected baseline. For later captures, store only new/changed artifact bytes and build a full
    resolved inventory pointing unchanged/reusable entries directly to earlier physical files.

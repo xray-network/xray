@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ### Archive workflow
 
@@ -15,9 +15,21 @@ record. Keep `PLANNED` and `REVIEW` records and rows active. Already archived re
 moved again. If no eligible rows exist, report that nothing was archived and change no files;
 do not create an empty archive or directory.
 
+A forced archive, `/spectre archive [target] --force: <reason>`, is a human decision and never a
+queue item. It changes this workflow in two ways and nowhere else:
+
+- **Close open records.** Before step 2, close every active `PLANNED` and `REVIEW` row in scope as
+  `CANCELLED` with the human reason, under the decision workflow above. Archives still contain only
+  terminal records, and the closed rows are archived with the rest.
+- **Record existing defects.** In step 1, a validation failure that already exists in records,
+  archives, or evidence, such as an unresolvable legacy link, does not refuse the archive. Record
+  each one in the new manifest's `Known issues` table instead. A defect introduced by this operation
+  still blocks it, and so does any failure in the selected records' own bytes, digests, or rows.
+
 1. Read the active ledger, all archive manifests, and selected terminal instructions and results.
    Validate the installation using §13 before mutation. Refuse missing or duplicate records,
-   invalid states, unresolved references, hash mismatches, or an incomplete previous archive.
+   invalid states, unresolved references, hash mismatches, or an incomplete previous archive. An
+   issue already listed in an earlier manifest's `Known issues` table does not refuse the archive.
 2. Collect every eligible row in the selected scope and its exact record files. An `ACCEPTED` or
    `REJECTED` row requires a result; preserve a `CANCELLED` row's optional result when present.
    Capture the original repository-relative paths, record bytes and SHA-256 digests, ledger rows,
@@ -54,12 +66,13 @@ not a fourth installed template. It becomes immutable when the archive operation
 ```markdown
 # SPECTRE archive <archive-id>
 
-Archive-Version: v1
+Archive-Version: v2
 Archive-ID: <archive-id>
 Created: YYYYMMDDTHHMMSSZ
-Protocol-Version: 1.0.0
+Protocol-Version: 2.0.0
 Storage-Mode: <flat|nested>
 Scope: <target|ALL>
+Forced: <no|yes: human reason>
 
 ## Archived implementations
 
@@ -75,7 +88,16 @@ Target: <target>
 | Original path | Archived file | SHA-256 |
 | --- | --- | --- |
 | `.agents/spectre/implementations/<record-file>` | [Record](implementations/<record-file>) | `<sha256>` |
+
+## Known issues
+
+| File | Issue | Found by |
+| --- | --- | --- |
 ```
+
+`Known issues` holds `None.` instead of rows unless a forced archive recorded existing defects.
+Each row names the repository-relative file, the exact failed check, and the archive ID that found
+it. Listed issues stay listed; later archives do not repeat or remove them.
 
 Populate the manifest with only this batch's selected rows. Repeat the target section for each
 selected target, ordered by slug, and order rows by numeric ID. Preserve every cell's original

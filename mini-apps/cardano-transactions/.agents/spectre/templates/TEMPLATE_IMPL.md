@@ -34,7 +34,7 @@ Provider-Evidence: <provider pin IDs from the input table or NONE>
 
 ## Provider pins
 
-NONE, or one row per PROVIDER input using the complete pin format from references.md:
+NONE, or one row per PROVIDER input using the complete pin format from providers.md:
 
 | Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
 | --- | --- | --- | --- | --- |
@@ -64,7 +64,8 @@ None.
 Input kinds are `PROVIDER`, `IMPLEMENTATION_RESULT`, and `LOCAL`. A `PLANNED` instruction must be
 implementation-ready; unresolved source selection, semantic mapping, ownership, compatibility,
 or validation design is a blocker. PROVIDER input rows reference their pin IDs. A latest-capture
-alias cannot replace a snapshot/hash pin; record the owning repository separately from upstream sources.
+alias cannot replace a snapshot/hash pin. The owning repository is always `SELF`; record upstream
+sources separately. Every link in an instruction or result stays inside the installation.
 
 ## Result
 

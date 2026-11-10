@@ -124,7 +124,7 @@ not merely a delta list. Physical references are explicit regular-file paths fro
 root, either inside this capture's artifacts/ or inside an earlier same-provider capture's
 artifacts/. Resolve them directly, never via latest aliases, symlinks, hardlinks or patch replay.
 Every reused file must be owned by a hash-pinned earlier snapshot and match its size/hash. Earlier
-snapshots may be legacy numbered directories under §14. Predecessor references strictly decrease;
+snapshots may come from an earlier protocol version. Predecessor references strictly decrease;
 artifact owners never point forward. Do not consult today's guide to interpret a past specification.
 
 Source and artifact inventories must agree through the declared mapping, using independently
@@ -166,7 +166,7 @@ Provider-Capture-Version: v1
 Provider: <provider>
 Capture: <NNNN>
 Snapshot: SNAPSHOT.md
-Previous-Capture: <provider-root-relative CAPTURE.md path or NONE; legacy summary location if applicable>
+Previous-Capture: <provider-root-relative CAPTURE.md path, the predecessor's SNAPSHOT.md when it has no CAPTURE.md, or NONE>
 
 ## Summary
 

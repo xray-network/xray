@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ### Decision workflow
 
@@ -8,7 +8,14 @@ Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
 REVIEW rows, each with a matching instruction and result. `cancel <records>: <reason>` requires one
 or a bounded set of active PLANNED rows, each with an instruction and optional result. The current
 human must explicitly invoke exactly one decision operation and supply one proof/reason that applies
-to the complete set; never infer approval from tests, merges, discussion, or a compound queue.
+to the complete set; never infer approval from tests, merges, discussion, or a compound queue. When
+exactly one record is selected and the human gives no proof or reason, record the verbatim command
+and UTC date as the Decision proof, for example `Human command "spectre accept typescript/0026" on
+2026-11-10.` A set of two or more records requires a human-written proof or reason.
+
+A forced archive (§9) closes every active `PLANNED` and `REVIEW` row in its scope as `CANCELLED`
+with its one human reason. It follows this workflow's preflight, single ledger edit, and
+validation rules for those rows, and is the only way a `REVIEW` row becomes `CANCELLED`.
 
 Resolve, freeze, and report the complete set under the decision batch selectors before mutation.
 Read every selected row and record, then recheck all identities, states, eligibility, and proof

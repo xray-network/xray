@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ## 4. Repository discovery and target selection
 
@@ -57,8 +57,11 @@ Every normative input must be an explicit row in the instruction's input table. 
   linked result matches the implementation ID. Resolve relocated inputs through the §9 archive
   path map; archiving does not revoke acceptance or require rewriting the consuming instruction.
 - A provider input names an immutable numbered snapshot using the pin format and resolution rules
-  in `references.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
+  in `providers.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
 - A local input names an exact tracked path, requirement, decision, or human-approved statement.
+- Every input resolves inside the installation boundary (§3). A derived input is a result of this
+  installation; anything from another project, including a sibling in the same monorepo, is a
+  provider input.
 - An accepted result exports a semantic contract. It does not authorize copying source, private
   internals, dependencies, licenses, or nominal types from another target.
 - Do not silently fetch, refresh, substitute, or broaden a declared input during implementation.
@@ -75,24 +78,32 @@ target selector using §1 and §4 before allocating an ID or creating records.
 1. Read repository guidance, relevant decisions, applicable source/tests/manifest/README, the
    applicable section in root `SPECTRE.md`, status and implementation templates, and candidate
    declared inputs. Read the provider template only when provider evidence is involved.
-2. Reconcile the applicable sequence: repository-wide in flat mode or target-local in nested mode.
+2. Capture first. If the plan relies on provider evidence, report every existing provider guide it
+   relies on, then run the §12 capture workflow for each, in provider slug order, before allocating
+   an ID. A CAPTURED or NO-CHANGE outcome leaves the provider's latest capture as the plan's pin; a
+   BLOCKED outcome stops planning without creating an instruction. These captures belong to this
+   plan operation and need no separate command. Planning never prepares a missing provider guide or
+   changes a provider's selection rules; report either need as a blocker. A plan that relies on no
+   provider evidence (`LOCAL` or `DERIVED`) captures nothing.
+3. Reconcile the applicable sequence: repository-wide in flat mode or target-local in nested mode.
    Read active records and every archive manifest in that sequence. The next ID is one greater
    than the highest instruction, result, or ledger ID across both locations. Never fill gaps,
    reuse IDs, or restart after archiving, even when the active ledger is empty. Refuse incomplete
    or conflicting history; if the highest ID is `9999`, stop and report sequence exhaustion.
-3. Confirm that prerequisite results are `ACCEPTED` and provider snapshots pass their complete
-   resolved-inventory checks, including every reused file. Resolve pins under `references.md`;
+4. Confirm that prerequisite results are `ACCEPTED` and provider snapshots pass their complete
+   resolved-inventory checks, including every reused file. Resolve pins under `providers.md`;
    incomplete captures or missing inherited artifacts block planning against that evidence. Do not
    substitute a different capture. Check owned source and existing active/accepted plans before
    proposing work; do not duplicate work already covered.
-4. Select one evidence mode and resolve all inputs.
-5. Bound one coherent objective. Split independently reviewable or deployable changes.
-6. Define every change, compatibility requirement, validation command, completion criterion,
+5. Select one evidence mode and resolve all inputs inside the installation boundary (§3).
+6. Bound one coherent objective. Split independently reviewable or deployable changes.
+7. Define every change, compatibility requirement, validation command, completion criterion,
    out-of-scope item, and blocker.
-7. If a material question remains unresolved, record it as a blocker and do not create a
+8. If a material question remains unresolved, record it as a blocker and do not create a
    misleading `PLANNED` row.
-8. Create `NNNN-IMPL-INSTR.md` and its matching `PLANNED` ledger row in the same change. Give the
-   row a short title matching the instruction objective. Do not create a result or modify source.
+9. Verify that every reference in the new instruction resolves inside the installation boundary,
+   then create `NNNN-IMPL-INSTR.md` and its matching `PLANNED` ledger row in the same change. Give
+   the row a short title matching the instruction objective. Do not create a result or modify source.
 
 Every change row receives a stable Change ID such as `C01`. IDs are unique within the instruction
 and are used unchanged by the result.

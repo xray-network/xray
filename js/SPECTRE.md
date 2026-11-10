@@ -1,8 +1,8 @@
 # SPECTRE implementations
 
-Protocol-Version: 1.0.0
+Protocol-Version: 2.0.0
 Protocol: [.agents/spectre/SPECTRE-PROTOCOL.md](.agents/spectre/SPECTRE-PROTOCOL.md)
-Status-Schema-Version: v1
+Status-Schema-Version: v2
 Storage-Mode: nested
 
 This is the sole active lifecycle ledger. Archived decision rows and record paths are preserved
@@ -16,7 +16,6 @@ Target: cardano
 
 | ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- | --- |
-
 No implementation records.
 
 ## Mini App Bridge implementation status
@@ -27,8 +26,7 @@ Target: mini-app-bridge
 
 | ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0019` | Clarify bridge response outcomes | [Instruction](.agents/spectre/implementations/mini-app-bridge/0019-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/mini-app-bridge/0019-IMPL-RESULT.md) | `LOCAL` | reviewed and approved by xray-robot on 2026-11-10 |
-| `0020` | Simplify bridge source and types | [Instruction](.agents/spectre/implementations/mini-app-bridge/0020-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/mini-app-bridge/0020-IMPL-RESULT.md) | `LOCAL` | reviewed and approved by xray-robot on 2026-11-10 |
+No implementation records.
 
 ## Repository implementation status
 
@@ -38,7 +36,6 @@ Target: repository
 
 | ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- | --- |
-
 No implementation records.
 
 ## Runtime implementation status
@@ -49,5 +46,4 @@ Target: runtime
 
 | ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- | --- |
-
 No implementation records.

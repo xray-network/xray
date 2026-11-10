@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ### Natural-language selectors
 
@@ -15,8 +15,10 @@ completed: reviewed their results and checks`, `/spectre archive the backend ser
 1. Parse one supported operation, or normalize one explicitly authorized compound queue under the
    rules above. A colon separates selector and objective/changes/proof/reason; preserve the payload.
    Unambiguous natural phrasing such as `reject the login change because the timeout check is missing`
-   is valid. Ask if the split is unclear or required payload is missing. `reject last implementation`
-   therefore needs human rejection proof before a decision.
+   is valid. Ask if the split is unclear or required payload is missing. A decision that selects
+   exactly one record may omit its proof or reason: the human's verbatim command and the UTC date
+   become the Decision proof. A decision selecting two or more records, and a forced archive, require
+   a human-written proof or reason.
 2. Prefer exact IDs; never repair an invalid/missing explicit ID with a fuzzy match. Otherwise match
    ledger titles, then relevant instruction objectives/scope, repository names/paths, or provider
    descriptions. Bare IDs must identify one target. Clear spelling variations in descriptive prose
@@ -45,9 +47,10 @@ completed: reviewed their results and checks`, `/spectre archive the backend ser
    writing, and ask if new records changed a relative selector's meaning while waiting. Report the
    canonical identity on completion. Store canonical IDs/paths, never relative phrases such as `last`.
 
-Omitted `list`/`archive` target means all targets; omitted `help` operation means all commands. An unresolved supplied selector is never omitted scope.
+Omitted `list`/`archive`/`recall` target means all targets; omitted `help` operation means all commands. An unresolved supplied selector is never omitted scope.
 Archive accepts a whole existing target, not a record; ask before expanding `the login change` to
-its target. Planning discovers targets under §4; never invent a package/slug from a synonym. An
+its target. A forced archive takes the same target selector and requires its human reason after a
+colon: `/spectre archive [target] --force: <reason>`. Planning discovers targets under §4; never invent a package/slug from a synonym. An
 ordinary capture command requires an existing provider guide; only explicit compound provider
 preparation may create a missing guide. Help names an operation, not a repository target. Only
 `implement`, `accept`, `reject`, and `cancel` accept bounded record sets. No selector combines
@@ -87,7 +90,9 @@ Resolve and freeze the complete nonempty set before mutation. Report every canon
 current state, and location. Reject duplicates, gaps in explicit ranges, missing or ambiguous
 records, archived records, and selections containing any state ineligible for that decision; never
 filter or silently skip them. The one human-supplied proof or reason must apply to every selected
-record. If it does not, require narrower decision commands. Decision order has no lifecycle meaning;
+record. If it does not, require narrower decision commands. A set of two or more records always
+requires a human-written proof or reason; only a single-record decision may use the verbatim
+command and UTC date as its proof. Decision order has no lifecycle meaning;
 use target slug and numeric ID for deterministic reporting and ledger validation.
 
 For `list`, parse the optional final explicit state before the final `--archived` flag, treating

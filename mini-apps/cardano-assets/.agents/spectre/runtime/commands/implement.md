@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ## 6. Evidence modes and inputs
 
@@ -20,8 +20,11 @@ Every normative input must be an explicit row in the instruction's input table. 
   linked result matches the implementation ID. Resolve relocated inputs through the §9 archive
   path map; archiving does not revoke acceptance or require rewriting the consuming instruction.
 - A provider input names an immutable numbered snapshot using the pin format and resolution rules
-  in `references.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
+  in `providers.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
 - A local input names an exact tracked path, requirement, decision, or human-approved statement.
+- Every input resolves inside the installation boundary (§3). A derived input is a result of this
+  installation; anything from another project, including a sibling in the same monorepo, is a
+  provider input.
 - An accepted result exports a semantic contract. It does not authorize copying source, private
   internals, dependencies, licenses, or nominal types from another target.
 - Do not silently fetch, refresh, substitute, or broaden a declared input during implementation.
@@ -64,7 +67,8 @@ continuation that explicitly mentions SPECTRE, complete this workflow for one re
    `SUPERSEDED`. Record actual inputs, paths changed, checks, deviations, and remaining review.
 6. Move the ledger row to `REVIEW` only when the bounded objective and required checks are complete
    and the matching result exists. Write result and ledger updates as part of this item, validate
-   their IDs, links, Change IDs and state, and verify the files before reporting completion.
+   their IDs, links, Change IDs and state, confirm every reference in the result stays inside the
+   installation boundary (§3) and resolves, and verify the files before reporting completion.
 7. On failure or interruption, preserve the existing work, record a partial result and the actual
    failed/not-run checks and blocker, and leave the row `PLANNED` with that reason and result link.
    Do not claim review-readiness or roll back unrelated work. If record writes themselves fail,

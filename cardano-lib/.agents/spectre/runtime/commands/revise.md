@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 ## 6. Evidence modes and inputs
 
@@ -20,8 +20,11 @@ Every normative input must be an explicit row in the instruction's input table. 
   linked result matches the implementation ID. Resolve relocated inputs through the §9 archive
   path map; archiving does not revoke acceptance or require rewriting the consuming instruction.
 - A provider input names an immutable numbered snapshot using the pin format and resolution rules
-  in `references.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
+  in `providers.md`. A provider root, latest alias, branch, tag or `HEAD` alone is not an input pin.
 - A local input names an exact tracked path, requirement, decision, or human-approved statement.
+- Every input resolves inside the installation boundary (§3). A derived input is a result of this
+  installation; anything from another project, including a sibling in the same monorepo, is a
+  provider input.
 - An accepted result exports a semantic contract. It does not authorize copying source, private
   internals, dependencies, licenses, or nominal types from another target.
 - Do not silently fetch, refresh, substitute, or broaden a declared input during implementation.
@@ -67,7 +70,8 @@ For an explicit `/spectre revise <record>: <changes>` invocation (or its host-na
      without claiming completion.
    - Synchronize the ledger title, evidence mode, result link, and decision proof where affected,
      while keeping the row `PLANNED` and retaining any unresolved blocker or unfinished-work reason.
-     Validate the revised record and its declared inputs, then stop. A later explicit `implement`
+     Validate the revised record and its declared inputs, including that every reference stays
+     inside the installation boundary (§3) and resolves, then stop. A later explicit `implement`
      operation is required to change source or move the record to `REVIEW`.
 5. For `REVIEW`:
    - Confirm the requested changes remain within the instruction's declared inputs, compatibility
@@ -79,7 +83,8 @@ For an explicit `/spectre revise <record>: <changes>` invocation (or its host-na
      ran if it did not.
    - Update the existing result in place with the final dispositions, outcome, actual changes,
      validation, deviations, remaining review, and reproducibility. Record the human revision
-     request and any superseded review outcome honestly.
+     request and any superseded review outcome honestly. Every reference in the updated result
+     stays inside the installation boundary (§3) and resolves.
    - Keep the ledger row and result link in `REVIEW`; update only its review proof when needed to
      describe the revised work awaiting human decision. Stop without accepting or rejecting it.
 

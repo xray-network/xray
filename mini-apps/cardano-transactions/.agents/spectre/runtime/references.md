@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 1.0.0
-Source-SHA256: dd914ac6745507d3c1c7bd11174a843e09c524291517d9c4da52101672bdb66d
+Runtime-Version: 2.0.0
+Source-SHA256: 34cb0adc3a4dbd5fc9b9cba7e88b09b83c24694c6dc4d98ffc4320c7d93bb3f1
 
 The two implementation forms in the tree are alternatives and must not be mixed:
 
@@ -27,34 +27,46 @@ implementation instructions or results.
 Archive directories are created only by a nonempty `/spectre archive` operation. Each batch
 preserves the installation's flat or nested layout under its `implementations/` directory.
 IDs remain unique across active records and every archive within their original sequence.
+Archiving never resets a sequence: the next ID follows the highest ID used by any active or
+archived record of that target.
 
-### Pinned provider evidence
+### Installation boundary
 
-A provider pin contains a stable pin ID; the evidence-owning repository identity (`SELF` for this
-repository, otherwise an explicit identity and local locator); the provider and capture ID; the
-repository-relative SNAPSHOT.md path and its SHA-256; and selected logical artifact paths and
-SHA-256 values, inline or in a pinned manifest. PROVIDER input rows and Provider-Evidence name
-these pin IDs. Upstream Source-Commit is provenance, not the capture's local identity.
+The installation root is the folder that holds `.agents/spectre/`. Every reference in a record,
+ledger, manifest, or provider file resolves to a file inside that root. A reference that leaves it,
+such as `../other-project/...`, an absolute path, or a symbolic link pointing outside, is invalid
+even when the target exists, including another installation in the same repository. Check this
+whenever a record is written, not only during archive.
 
-Resolve the pinned SNAPSHOT.md, verify its hash and complete specification, then resolve every
-entry in its full logical inventory directly to the declared physical file in this or an earlier
-same-provider capture. Verify membership, sizes, hashes, source mapping and counts before consuming
-the selected subset. The snapshot contains the complete resolved inventory, not just additions or
-patch instructions. No replay of earlier deltas, Git checkout or upstream fetch is needed to obtain
-the effective evidence. Verify referenced earlier snapshot hashes and their ownership of reused
-files; validate the predecessor chain as an acyclic, strictly decreasing sequence.
+Anything an implementation uses from another project, including a sibling project in the same
+monorepo, enters as provider evidence: a numbered capture in this installation's `providers/`,
+like any upstream source. Capture the other project's published interface, such as its README,
+exported types, and package version or commit, never its SPECTRE records. A plan names the capture
+it relies on instead of requiring another project's result to be `ACCEPTED`.
 
-Reject missing files, unsafe paths, duplicate logical entries, forward/cross-provider references,
-cycles, altered descriptors or hash mismatches. Never substitute the provider's latest capture,
-an upstream ref or a similarly named file. A missing retained artifact is a blocker, not authority
-to recapture it or silently read Git history. CAPTURE.md is advisory; it cannot override SNAPSHOT.md.
+### Immovable evidence and migrations
 
-Plans select an explicit completed immutable capture and record its pin. Capture publication and
-integrity validation are required; a separate Git commit is not a protocol prerequisite. Version
-control remains recommended repository practice and commands never auto commit. Keep all referenced
-numbered directories and artifacts available to active and archived consumers. Numbered evidence
-and hashes provide stable inputs without requiring a Git-only history store. New provider updates
-never overwrite those files. Legacy references retain the explicit §14 handling rules.
+Published capture directories, their files, and every record file keep their path forever. Never
+rename, move, or rewrite them, including to adopt a new naming scheme. Before deleting, merging, or
+moving the repository or project that holds an installation, run full §13 validation and resolve
+every failure, so no evidence depends on history that is about to disappear.
+
+When a human explicitly authorizes an unavoidable evidence move, keep the original file at its
+original path whenever its license and the human's authorization allow it, place the copy at the new
+path, and record the move in `.agents/spectre/MIGRATIONS.md`. Remove an original only when the human
+authorization requires it. Create the file with the first migration:
+
+```markdown
+# SPECTRE migrations
+
+| Date | Original path | New path | SHA-256 before | SHA-256 after | Original kept | Reason |
+| --- | --- | --- | --- | --- | --- | --- |
+```
+
+Append one row per moved file; never edit or remove a row. `SHA-256 after` differs from `SHA-256
+before` only when the authorization requires a byte change, and the reason states why. A reference
+to an original path that no longer exists resolves through exactly one row of this table to its new
+path, whose bytes must match `SHA-256 after`. Never follow a chain of rows.
 
 ### Resolving archived records and references
 
@@ -68,44 +80,18 @@ repository-relative reference from a record:
 
 1. Use the containing file's original repository location as the base. For an archived record,
    obtain that location from its Record paths entry; for an active record, use its current path.
-   Explicit repository-root-relative references keep the repository root as their base.
-2. Normalize the referenced path within the repository, retaining any fragment. If it names an
-   Original path in an archive manifest, resolve it to that row's Archived file. Otherwise use
-   the repository file at that path. Direct links already naming an archived file remain valid.
+   Explicit repository-root-relative references keep the installation root as their base.
+2. Normalize the referenced path within the installation root (§3), retaining any fragment. If it
+   names an Original path in an archive manifest, resolve it to that row's Archived file. If it
+   names a missing Original path in `MIGRATIONS.md`, resolve it to that row's New path. Otherwise
+   use the file at that path. Direct links already naming an archived file remain valid.
 3. Require a unique existing destination. Reject conflicting active and archived copies, duplicate
-   mappings, missing destinations, or escaping paths. For an archived destination, verify its
-   digest and the matching decision row before using it as evidence. Never follow a mapping chain.
+   mappings, missing destinations, or paths that leave the installation root. For an archived or
+   migrated destination, verify its digest and, for a record, the matching decision row before using
+   it as evidence. Never follow a mapping chain.
 
 Apply this to `Depends-On`, input tables, `Instruction`, result references, and provider links;
 provider files themselves stay in place. An archived file's raw relative link may require this
 original-location resolution rather than ordinary Markdown navigation. The manifest's record
 links must work directly, and `status` must return usable links to the resolved files. Do not
 rewrite immutable records merely to make their embedded links relative to the archive directory.
-
-### Explicit development-layout adoption
-
-While 1.0.0 is in development, a human may explicitly request refreshing the installed protocol,
-runtime and templates in place. Source edits never update installed files automatically. Inventory
-existing provider layouts and all active/archived input references before changing evidence storage.
-
-Existing full numbered snapshots, including NNNN-<provider> directories and their original schemas,
-remain immutable at their original paths. Validate them against their original resolved rules,
-including retained contract files when needed. They may be the immediate predecessor and direct
-artifact owners for a new incremental capture. Count their numeric IDs in the same provider-local
-sequence, and create only the next unused higher NNNN directory. Legacy absence of CAPTURE.md is
-permitted: link its existing snapshot summary location without creating invented historical data.
-New snapshots carry the complete current rules/inventory even when reusing legacy artifact bytes.
-If required legacy rules or inventory cannot be resolved, report a blocker instead of guessing.
-
-A root-level rolling CAPTURE.md/artifacts layout requires explicit human-authorized adoption.
-Freeze its validated state into the next numbered baseline with separate specification and summary,
-recording original paths/hashes and the adoption provenance. Do not claim this was a fresh upstream
-check. Moving/copying that baseline is permitted only within the authorized migration scope and
-when existing references remain resolvable. Old path-only inputs require retaining their original
-files; Git-pinned inputs still require their exact committed history and hash verification. Neither
-can be silently redirected to the new baseline. Do not rewrite terminal records or archive manifests.
-
-Preserve referenced provider contracts and old duplicated files when removal would break a consumer.
-Do not rewrite old numbered snapshots into deltas merely to save space. New captures enforce reuse;
-automatic cleanup or history rewriting is not authorized. Any separately requested cleanup must
-prove every reference remains valid before removing a file, including transitive artifact owners.
