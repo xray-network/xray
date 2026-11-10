@@ -1,12 +1,40 @@
 # Protocol releases
 
-Finalized release directories are immutable. Version 1.0.0 is still in development and is updated
-in place; installed copies remain pinned to their own bytes. Installation pins a complete versioned URL. The default
-prompt starts from the current-release mirror to discover that version; you can also choose a
-specific release directly.
+Release directories are immutable once published; installed copies remain pinned to their own
+bytes. Installation pins a complete versioned URL. The default prompt starts from the
+current-release mirror to discover that version; you can also choose a specific release directly.
 
 The <a href="/spectre/SPECTRE-PROTOCOL.md">current-release mirror</a> is convenient for reading and
 repository discovery. The build generates it directly from the latest versioned protocol source.
+
+## 2.0.0
+
+- <a href="/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md">Read or download <code>SPECTRE-PROTOCOL.md</code></a>
+
+A major release. Existing installations archive under 1.0.0 before upgrading (see
+[Versioning](../versioning)).
+
+- **Installation boundary.** Every reference stays inside its installation. Anything from another
+  project, including a sibling in the same monorepo, enters as a provider capture of its published
+  interface; provider pins are always `SELF`.
+- **Immovable evidence.** Capture and record files never move. An unavoidable, human-authorized move
+  keeps the original and is recorded in `.agents/spectre/MIGRATIONS.md`.
+- **Capture-first planning.** `plan` captures every provider it relies on before writing the
+  instruction. A standalone `capture` tracks upstream changes between plans.
+- **Forced archive.** `archive [target] --force: <reason>` closes open records as `CANCELLED` with the
+  reason and lists existing defects in the manifest's `Known issues` instead of failing.
+- **Canonical tables.** Ledgers and manifests use one exact table format with qualified
+  `target/NNNN` IDs (`Status-Schema-Version: v2`, `Archive-Version: v2`).
+- **Checks on every write.** Plan, implement, and revise verify every link they write; validation is
+  a numbered checklist with exact pass conditions.
+- **Recall.** `recall [target]: <question>` answers why something exists or what was decided,
+  citing the records; it is read-only.
+- **Simpler decisions.** A single-record decision may use the verbatim command and date as its
+  proof; a batch needs a written proof.
+- **Commands in every agent.** Optional host adapters register `/spectre` in Claude Code, Cursor,
+  GitHub Copilot, Gemini CLI, and Windsurf; Codex keeps `$spectre`.
+- **Versioning.** Releases are frozen once published. Patch and minor releases refresh in place;
+  a major release archives first, and older archives are verified only by their hashes.
 
 ## 1.0.0
 
@@ -30,8 +58,8 @@ is an internal workflow requirement, not a standalone command. Plans
 pin the numbered snapshot and hashes, preserving stable evidence without duplicate full trees.
 The archive command moves terminal records and decision history into immutable batches while
 preserving references and implementation IDs.
-This development release also defines explicit adoption rules for existing provider layouts;
-protocol source updates never migrate an installation automatically.
+This release also defines explicit adoption rules for existing provider layouts; protocol source
+updates never migrate an installation automatically. It is frozen as published.
 
 The complete file contains marked runtime sections. Installation extracts shared rules and command
 modules locally from the pinned protocol, with its SHA-256 in each header. Normal invocations load

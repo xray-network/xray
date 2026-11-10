@@ -35,14 +35,14 @@ Each service lives in its own folder with its own setup notes and Docker Compose
 After cloning, fetch it at the pinned commit (the `koios-tiny` Docker build needs it):
 
 ```sh
-git submodule update --init graph-services/koios-tiny/koios/koios-artifacts
+git submodule update --init mini-apps/graph-services/koios-tiny/koios/koios-artifacts
 ```
 
 To move it to the latest upstream commit:
 
 ```sh
-git submodule update --init --remote graph-services/koios-tiny/koios/koios-artifacts
+git submodule update --init --remote mini-apps/graph-services/koios-tiny/koios/koios-artifacts
 git submodule status
-git add graph-services/koios-tiny/koios/koios-artifacts
-git commit -m "graph-services: bump koios-artifacts"
+git add mini-apps/graph-services/koios-tiny/koios/koios-artifacts
+git commit -m "mini-apps/graph-services: bump koios-artifacts"
 ```

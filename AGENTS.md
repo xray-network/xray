@@ -34,7 +34,7 @@ root install.
 | `js/` | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, Mini App Bridge, docs site (`docs/`). | Active |
 | `design/` | XRAY/DESIGN | Interface protocol and visual reference. Current standard: `protocol/v1.0.0/DESIGN.md`. | Active |
 | `spectre/` | XRAY/SPECTRE | SPECTRE protocol source (Markdown only). | Active |
-| `graph-services/` | XRAY/GRAPH | Docker services behind Graph: cardano-node, db-sync, ogmios, postgres, koios-tiny + TS client, kubo, traefik. | Active |
+| `mini-apps/graph-services/` | XRAY/GRAPH | Docker services behind Graph: cardano-node, db-sync, ogmios, postgres, koios-tiny + TS client, kubo, traefik. | Active |
 | `wiki/` | XRAY Wiki | Rspress knowledge base (wiki.xraynetwork.io). | Active |
 | `cdn/` | — | Static assets and fonts, Cloudflare. | Active |
 | `vault/` | XRAY/VAULT | README only. | Placeholder |
@@ -64,7 +64,7 @@ cardano-lib/libs/typescript ──▶ js ──▶ mini-apps/*, wiki
 - **Mini App Bridge (mini app side):** `js/packages/mini-app-bridge/`: `README-PLATFORM.md`,
   `README-CARDANO.md`, `README-CARDANO-CIP30.md`.
 - **UI and design rules:** `design/protocol/v1.0.0/DESIGN.md`.
-- **Graph infrastructure and start order:** `graph-services/README.md`.
+- **Graph infrastructure and start order:** `mini-apps/graph-services/README.md`.
 - **New mini app:** start from the standalone template repository
   `xray-network/xray-mini-app-template-react` (not in this repository).
 
@@ -86,8 +86,9 @@ search. Do not bypass it (`--no-ignore`) unless the task is about those files.
 
 ## Adding a project
 
-1. Place it by kind: `mini-apps/<name>/` (chain-specific: `<chain>-<name>`), or a top-level folder
-   for SDKs, libraries, sites, and service stacks (`<product>-services/`).
+1. Place it by kind: `mini-apps/<name>/` (chain-specific: `<chain>-<name>`), with a mini app's
+   service stack beside it as `mini-apps/<name>-services/`, or a top-level folder for SDKs,
+   libraries, and sites.
 2. Add a row to the map above.
 3. Give it a `README.md`, and an `AGENTS.md` if it has agent rules.
 4. Copy the root `LICENSE` into it and follow "Licensing" above.

@@ -1,17 +1,28 @@
 import assert from "node:assert/strict"
 import { createHash } from "node:crypto"
-import { readFile } from "node:fs/promises"
+import { readdir, readFile } from "node:fs/promises"
 
 // Verify that a selective installation receives every rule it needs from the
 // canonical source, without adding a second maintained runtime or publishing it.
-const source = await readFile(new URL("../../protocol/v1.0.0/SPECTRE-PROTOCOL.md", import.meta.url), "utf8")
+// Every published release under protocol/ is checked; releases are immutable once published.
+const protocolRoot = new URL("../../protocol/", import.meta.url)
+const releases = (await readdir(protocolRoot, { withFileTypes: true }))
+  .filter((entry) => entry.isDirectory() && /^v\d+\.\d+\.\d+$/.test(entry.name))
+  .map((entry) => entry.name)
+  .sort((a, b) => a.slice(1).split(".").map(Number).reduce((r, n, i) => r || n - b.slice(1).split(".").map(Number)[i], 0))
+assert.ok(releases.length > 0, "no protocol releases found")
+
+for (const release of releases) {
+const source = await readFile(new URL(`${release}/SPECTRE-PROTOCOL.md`, protocolRoot), "utf8")
 const version = /^Standard-Version: (\S+)$/m.exec(source)?.[1]
-assert.equal(version, "1.0.0")
-assert.match(source, /^Canonical-URL: https:\/\/wiki\.xraynetwork\.io\/spectre\/protocol\/v1\.0\.0\/SPECTRE-PROTOCOL\.md$/m)
+assert.equal(`v${version}`, release)
+const major = Number(version.split(".")[0])
+assert.ok(source.includes(`Canonical-URL: https://wiki.xraynetwork.io/spectre/protocol/${release}/SPECTRE-PROTOCOL.md\n`), `${release} must declare its canonical URL`)
 assert.ok(!source.includes("\r"), "protocol must use LF line endings")
 
-const names = ["core.md", "selectors.md", "references.md", "validation.md", ...[
-  "help", "list", "status", "plan", "implement", "revise", "decide", "capture", "archive"
+const names = ["core.md", "selectors.md", "references.md", "validation.md",
+  ...(major >= 2 ? ["providers.md", "validation-full.md", "validation-evidence.md"] : []), ...[
+  "help", "list", "status", ...(major >= 2 ? ["recall"] : []), "plan", "implement", "revise", "decide", "capture", "archive"
 ].map((name) => `commands/${name}.md`)]
 const blocks = new Map(names.map((name) => [name, []]))
 let active
@@ -49,8 +60,8 @@ for (const [name, heading] of [
   ["selectors.md", "### Decision batch selectors"],
   ["commands/implement.md", "### Sequential batch execution"],
   ["commands/decide.md", "### Decision workflow"],
-  ["references.md", "### Pinned provider evidence"],
-  ["references.md", "### Explicit development-layout adoption"],
+  [major >= 2 ? "providers.md" : "references.md", "### Pinned provider evidence"],
+  ...(major >= 2 ? [["providers.md", "### Captures from earlier versions"]] : [["references.md", "### Explicit development-layout adoption"]]),
   ["commands/capture.md", "### Publish a numbered incremental capture"],
   ["validation.md", "## 13. Validation invariants"]
 ]) assert.ok(runtime.get(name).includes(heading), `${name} is missing ${heading}`)
@@ -114,10 +125,45 @@ for (const name of ["plan", "implement", "revise"]) {
   assert.match(skill, new RegExp(`\\| ${name} \\|[^\\n]+references\\.md`), `${name} must load pin resolution`)
 }
 assert.ok(runtime.get("commands/plan.md").includes("incomplete captures or missing inherited artifacts block"))
-assert.ok(runtime.get("references.md").includes("The snapshot contains the complete resolved inventory"))
-assert.ok(runtime.get("references.md").includes("a separate Git commit is not a protocol prerequisite"))
+const pins = major >= 2 ? "providers.md" : "references.md"
+assert.ok(runtime.get(pins).includes("The snapshot contains the complete resolved inventory"))
+assert.ok(runtime.get(pins).includes("a separate Git commit is not a protocol prerequisite"))
 assert.ok(runtime.get("commands/capture.md").includes("stop without tracked writes for NO-CHANGE"))
-assert.ok(runtime.get("validation.md").includes("No pin silently follows latest"))
+assert.ok(runtime.get(major >= 2 ? "validation-evidence.md" : "validation.md").includes("No pin silently follows latest"))
 assert.ok(source.includes(`Require all ${names.length} files.`), "runtime file count does not match extraction")
 assert.ok(!source.includes("versions/vN/PROVIDER.md"), "no separate provider contract history")
+if (major >= 2) {
+  // 2.0.0 rules: forced archive, installation boundary, migrations, capture-first planning,
+  // canonical tables, checklist validation, host adapters, and the upgrade procedure.
+  assert.ok(runtime.get("commands/help.md").includes("/spectre archive [target] --force: <reason>"), "help must list forced archive")
+  assert.ok(runtime.get("core.md").includes("A forced archive closes open records as `CANCELLED`, so it is a decision too"), "forced archive must stay out of queues")
+  assert.ok(runtime.get("core.md").includes("### Shared runtime checks") && runtime.get("core.md").includes("installation boundary (§3)"), "every write must check the boundary")
+  assert.ok(runtime.get("references.md").includes("### Installation boundary"), "references must define the installation boundary")
+  assert.ok(runtime.get("references.md").includes("### Immovable evidence and migrations"), "references must define migrations")
+  assert.ok(runtime.get("providers.md").includes("which is always\n`SELF`"), "provider pins must be SELF only")
+  assert.ok(runtime.get("commands/plan.md").includes("2. Capture first."), "planning must capture first")
+  assert.ok(runtime.get("commands/capture.md").includes("a standalone capture is never a planning\nprerequisite"), "standalone capture must be tracking only")
+  assert.ok(runtime.get("commands/decide.md").includes("is the only way a `REVIEW` row becomes `CANCELLED`"), "only forced archive cancels REVIEW")
+  assert.ok(runtime.get("commands/decide.md").includes("A set of two or more records requires a human-written proof or reason"), "batch decisions need written proof")
+  assert.ok(runtime.get("commands/archive.md").includes("Archive-Version: v2") && runtime.get("commands/archive.md").includes("## Known issues"), "manifests must be v2 with known issues")
+  assert.ok(runtime.get("validation-full.md").includes("30. Version: a manifest is governed by its own"), "old archives must be checked by hash only")
+  assert.ok(runtime.get("validation-full.md").includes("1. Runtime: all 17 modules"), "full validation must count every module")
+  assert.ok(runtime.get("validation-evidence.md").includes("20. Pins:") && !runtime.get("validation.md").includes("20. Pins:"), "evidence checks must live in their own module")
+  assert.ok(!runtime.get("validation.md").includes("1. Runtime:") && !runtime.get("references.md").includes("### Pinned provider evidence"), "split modules must not duplicate rules")
+  for (const row of ["| capture |", "| plan |", "| implement |", "| revise |"]) {
+    assert.ok(skill.split("\n").find((line) => line.startsWith(row))?.includes("validation-evidence.md"), `${row} must load evidence checks`)
+  }
+  assert.ok(skill.split("\n").find((line) => line.startsWith("| archive |"))?.includes("validation-full.md"), "archive must load full validation")
+  assert.ok(!skill.split("\n").find((line) => line.startsWith("| accept / reject / cancel |"))?.includes("validation-full.md"), "decisions must not load full validation")
+  assert.ok(runtime.get("validation.md").includes("16. Boundary:"), "validation must check the boundary")
+  assert.ok(source.includes("### Optional host adapters"), "install must define host adapters")
+  assert.ok(source.includes("### Upgrade procedure"), "versioning must define upgrades")
+  assert.ok(source.includes("Canonical table format, for this ledger and every archive manifest table:"), "templates must define the canonical table format")
+  assert.ok(skill.includes("Never place accept, reject, cancel, or a forced archive in a compound queue"), "router must keep forced archive out of queues")
+  assert.ok(runtime.get("commands/recall.md").includes("### Recall"), "recall must have its own module")
+  assert.ok(runtime.get("commands/recall.md").includes("It is read-only"), "recall must stay read-only")
+  assert.ok(runtime.get("commands/help.md").includes("/spectre recall [target]: <question>"), "help must list recall")
+  assert.match(skill, /\| recall \| runtime\/commands\/recall\.md \|[^\n]+references\.md/, "router must load recall with reference resolution")
+}
 console.log(`SPECTRE ${version}: ${names.length} runtime modules extract correctly; router, templates and workflow rule placement verified. SHA-256 ${hash}`)
+}

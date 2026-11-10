@@ -18,11 +18,13 @@ implementation. Accept, reject, and cancel remain separate commands and can neve
 /spectre implement --batch <records>
 /spectre revise <record>: <changes>
 /spectre status <record>
+/spectre recall [target]: <question>
 /spectre list [target] [state] [--archived]
 /spectre accept <records>: <proof>
 /spectre reject <records>: <proof>
 /spectre cancel <records>: <reason>
 /spectre archive [target]
+/spectre archive [target] --force: <reason>
 /spectre capture <provider>
 /spectre help [operation]
 ```
@@ -34,7 +36,10 @@ implementation. Accept, reject, and cancel remain separate commands and can neve
 | Host | Example |
 | --- | --- |
 | Codex | `$spectre plan api: add health endpoint` |
-| Slash-command hosts | `/spectre plan api: add health endpoint` |
+| Claude Code, Cursor, GitHub Copilot, Gemini CLI, Windsurf | `/spectre plan api: add health endpoint`, after installing the host adapter |
+
+Host adapters are optional, installed on request at the repository root. Each one only points to the
+installed router, so every agent follows the same rules.
 
 After installation, the adopting repository's skill lives at `.agents/skills/spectre/SKILL.md`.
 Installed state, immutable records, templates, and provider evidence live separately under
@@ -43,12 +48,13 @@ Installed state, immutable records, templates, and provider evidence live separa
 The router loads `runtime/core.md` plus the selected command file. It adds selector/reference rules
 and templates only where required. For a compound queue, it first loads selector rules and reports
 the normalized queue, then loads each operation's dependencies when that item begins. For example,
-rejection loads `core.md`, `selectors.md`, `references.md`, and `commands/decide.md`, then the relevant
-ledger and records. It does not read installation instructions, provider templates, or every other
-command. Source-hash checks use local tools without loading the full protocol text. Required workflow
-validation and evidence reads are preserved. Internal `runtime/validation.md` supplies mandatory
-checks; installation, protocol updates and archiving validate the full installation. Other workflows
-validate their affected scope.
+rejection loads `core.md`, `selectors.md`, `references.md`, `validation.md`, and
+`commands/decide.md`, then the relevant ledger and records. It does not read installation
+instructions, provider rules, or every other command. Source-hash checks use local tools without
+loading the full protocol text. Validation is split by need: `validation.md` holds the record checks
+every workflow applies, `validation-evidence.md` and `providers.md` load only when provider evidence
+is captured or consumed, and `validation-full.md` loads for archive and upgrade, which validate the
+full installation.
 
 For example, `/spectre implement api/0002` explicitly starts implementation. In Codex, use
 `$spectre implement api/0002`. After a human or SPECTRE report identifies that existing plan in the
@@ -205,6 +211,9 @@ The agent resolves and reports the complete set before changing anything. Comma-
 target-local ranges, and bounded plural descriptions are supported. An unqualified `all`, `these`,
 or `them` needs an established target or conversation scope; cross-target ID lists are qualified.
 
+A decision on exactly one record may omit its proof; the agent then records your verbatim command
+and the date. A set of two or more records always needs a written proof or reason.
+
 Every selected record must be eligible: accept and reject require active REVIEW records, while
 cancel requires active PLANNED records. Missing, duplicate, ambiguous, archived, terminal, or
 wrong-state records invalidate the complete selection. Nothing is silently filtered or partially
@@ -227,8 +236,9 @@ validation command. It reports `CAPTURED` with the new ID, `NO-CHANGE` without t
 evidence was removed or unchanged. Discovery and publication proceed under the same authorization;
 no second command or redundant approval is needed. An explicitly queued preparation may create a
 missing provider guide from a human-supplied authoritative source immediately before capture;
-ordinary capture still requires an existing guide. Planning remains a separate operation, even
-when separately included later in the same compound queue.
+ordinary capture still requires an existing guide. A standalone capture tracks upstream changes
+between plans; planning captures the providers it relies on by itself, so you never need to capture
+before planning.
 
 ```text
 providers/<provider>/
@@ -283,35 +293,58 @@ removal-only or specification-only update may have zero new artifact files and o
 Publication verifies the entire new snapshot and reused evidence before making one new directory
 visible; it never overwrites old captures.
 
-After capture, separately request a plan:
+A plan captures what it needs first. It reports the providers it relies on, captures each one,
+and then pins the results:
 
 ```text
-/spectre plan typescript: implement the relevant changes from uplc capture 0002
+/spectre plan typescript: implement the relevant UPLC conformance changes
 ```
 
-Plans pin the evidence repository, provider/capture ID, SNAPSHOT.md path/hash and selected logical
+A `NO-CHANGE` capture leaves the plan pinned to the latest capture; a `BLOCKED` capture stops the
+plan. Plans without provider evidence capture nothing. A plan never changes a provider's selection
+rules or creates a missing provider guide. Anything used from another project, including a sibling
+in the same monorepo, is also a provider: capture its published interface rather than linking to it.
+
+Plans pin the evidence repository (always this installation), provider/capture ID, SNAPSHOT.md path/hash and selected logical
 artifact hashes. Implementation verifies the complete resolved inventory and uses those exact
 files, never the latest capture. A separate Git commit is not a protocol prerequisite; version
 control remains recommended repository practice. SPECTRE never commits automatically.
 
-Everything is human-triggered: no schedules, GitHub Actions or automatic implementation. During
-1.0.0 development, existing full numbered captures can be retained as baselines and artifact owners
-without rewriting them. Their IDs count toward the sequence, including legacy `NNNN-<provider>`
-names; new directories use `NNNN`. Adopting a root-level rolling layout requires an explicit
-migration. Preserve old references and terminal records; source updates do not migrate installations.
+Everything is human-triggered: no schedules, GitHub Actions or automatic implementation. Existing
+full numbered captures, including those from earlier protocol versions, are retained as baselines
+and artifact owners without rewriting them; each stays governed by the version that created it.
+Capture directories never move or get renamed, and their IDs count toward the sequence. Preserve
+old references and terminal records; source updates do not migrate installations.
+
+## Recall past decisions
+
+```text
+/spectre recall why does the API reject duplicate certificates
+/spectre recall typescript: how is UPLC conformance tested
+```
+
+`recall` answers a question about past work using only the records. It searches the active ledger
+and every archive, reads the relevant instructions and results, and answers with accepted decisions
+first. Pending, planned, superseded, rejected, and cancelled records are labeled separately. Every
+statement cites the record's ID and links to its instruction or result, with its decision proof,
+validation, and any provider capture it pinned. When the records do not answer the question, recall
+says so. It is read-only: it changes no files and creates no records.
 
 ## Lifecycle boundaries
 
-- `plan` creates one `PLANNED` instruction and does not modify product source.
+- `plan` captures the providers it relies on, then creates one `PLANNED` instruction, and does not
+  modify product source.
 - `implement` completes each selected item through validation, result and `REVIEW`; batches run
   sequentially and stop at blockers. `revise` refines one PLANNED instruction or updates one REVIEW
   implementation and result, keeping the record in its current state.
-- `status`, `list`, and `help` do not change tracked files or lifecycle state.
+- `status`, `recall`, `list`, and `help` do not change tracked files or lifecycle state.
 - Validation is automatic inside workflows: complete installation checks for install/update/archive,
   affected records and inputs for lifecycle changes, and complete candidate evidence for capture.
 - `accept`, `reject`, and `cancel` require a separate explicit current-human decision and proof or
   reason. Each may atomically select one or a bounded eligible record set; none may enter a queue.
-- `capture` records provider evidence but does not plan or implement product work.
+- `capture` tracks provider evidence between plans but does not plan or implement product work.
+- `archive --force: <reason>` is also a decision: it closes open records as `CANCELLED` before
+  archiving and never enters a queue.
 - `archive` moves terminal records and their decision rows into a dated archive, removes only
   those rows from the active ledger, validates, and stops. It does not change lifecycle states.
 
@@ -329,6 +362,17 @@ migration. Preserve old references and terminal records; source updates do not m
 `ACCEPTED`, `REJECTED`, and `CANCELLED` records move. `PLANNED` and `REVIEW` stay active. If no
 eligible records exist, the command changes nothing. An unknown or ambiguous supplied target
 requires clarification; it never becomes an all-target archive.
+
+A forced archive closes everything instead:
+
+```text
+/spectre archive --force: closing before the SPECTRE upgrade
+```
+
+It first moves every `PLANNED` and `REVIEW` record in scope to `CANCELLED` with your reason, then
+archives all terminal records. An existing defect, such as an unresolvable legacy link, is listed
+in the manifest's `Known issues` table instead of blocking the archive; a defect the archive itself
+would create still blocks it. Already archived records keep their state.
 
 Each batch lives at `.agents/spectre/archive/<archive-id>/`, using a UTC timestamp and a numeric
 suffix if needed to avoid collisions. It contains unchanged instruction and result files and an

@@ -12,9 +12,6 @@ Architecture decisions are grouped by their scope. Active implementation records
 templates live below `.agents/spectre/templates/`, and aggregate active lifecycle state lives in
 `SPECTRE.md`. Shared provider evidence lives below `.agents/spectre/providers/`.
 
-The pages below `docs/src/impl/` preserve the former XRAY Updates documentation snapshot. They are
-historical mirrors, not active SPECTRE lifecycle records.
-
 ## Repository decisions
 
 | ADR | Decision | Status |

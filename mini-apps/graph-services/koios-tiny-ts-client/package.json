@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xray-network/xray.git",
-    "directory": "graph-services/koios-tiny-ts-client"
+    "directory": "mini-apps/graph-services/koios-tiny-ts-client"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

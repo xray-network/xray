@@ -21,8 +21,8 @@ It also extracts compact runtime files from marked sections of the protocol. Lat
 shared rules and their own operation files instead of rereading the complete specification.
 Required source, evidence, and validation checks still apply.
 
-SPECTRE 1.0.0 is still in development. It defines installation and explicit development adoption
-rules and pins the protocol locally, so remote edits cannot silently change your repository’s rules.
+SPECTRE 2.0.0 is the current release. Installation pins the protocol locally, so later releases
+cannot silently change your repository’s rules.
 
 ## 2. Check the setup
 
@@ -33,6 +33,8 @@ Ask for the command reference:
 ```
 
 **Using Codex?** Use `$spectre` instead of `/spectre` for every command, for example `$spectre help`.
+For Claude Code, Cursor, GitHub Copilot, Gemini CLI, or Windsurf, ask the agent to install the
+SPECTRE host adapters; each registers `/spectre` and points to the same router.
 
 The installer validates the complete structure automatically before reporting success. Installing
 SPECTRE does not enable automatic tracking. Each message must mention the standalone word `spectre`,
@@ -88,11 +90,15 @@ SPECTRE.md                    # active implementation ledger
     │   ├── core.md           # shared authority and lifecycle rules
     │   ├── selectors.md      # natural-language target resolution
     │   ├── references.md     # active/archive record links
-    │   ├── validation.md     # internal checks used by workflows
+    │   ├── providers.md      # provider pins
+    │   ├── validation.md     # record checks used by every workflow
+    │   ├── validation-full.md      # installation and archive checks
+    │   ├── validation-evidence.md  # provider-evidence checks
     │   └── commands/
     │       ├── help.md
     │       ├── list.md
     │       ├── status.md
+    │       ├── recall.md
     │       ├── plan.md
     │       ├── implement.md
     │       ├── revise.md
@@ -114,14 +120,14 @@ nonempty archive operation.
 Runtime files contain a version and source hash. Commands check these against the pinned protocol;
 full validation checks that every module exactly matches its source blocks. A missing or stale
 module is reported without an automatic repair or protocol update. Do not edit generated modules
-independently; this release still defines fresh installation, without record migrations.
+independently; upgrades follow the protocol's versioning rules.
 
 ## Install a specific version
 
 To choose a release explicitly, use its versioned URL and include the version in your request:
 
 ```text wrapCode
-Read https://wiki.xraynetwork.io/spectre/protocol/v1.0.0/SPECTRE-PROTOCOL.md completely and install SPECTRE v1.0.0 in this repository.
+Read https://wiki.xraynetwork.io/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md completely and install SPECTRE v2.0.0 in this repository.
 ```
 
 An explicitly requested version takes precedence over the current-release mirror. Neither prompt
@@ -132,21 +138,26 @@ automatically upgrades or migrates an existing installation.
 Copy and send this prompt to your agent:
 
 ```text wrapCode
-Read https://wiki.xraynetwork.io/spectre/SPECTRE-PROTOCOL.md completely and update the existing SPECTRE installation in this repository according to its explicit update and adoption rules. Preserve all active and archived implementation records, provider evidence, and existing references. Validate the complete installation and report any blocker without rewriting history.
+Read https://wiki.xraynetwork.io/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md completely and upgrade the existing SPECTRE installation in this repository to v2.0.0 using its upgrade procedure. Preserve all archived implementation records, provider evidence, and existing references. Validate the complete installation before and after, and report any blocker without rewriting history.
 ```
 
-The agent compares the published protocol with the locally installed copy and applies only an
-update or migration that the selected protocol explicitly permits. Conflicting files, unsupported
-layouts, unresolved evidence, or references that cannot be preserved block the update instead of
-being overwritten or redirected.
-
-Optionally, move completed terminal records out of the active ledger with the
-[archive command](./commands#archive-completed-work). Archiving is not required for an update;
-records still in `PLANNED` or `REVIEW` remain active and are never archived automatically.
+The agent follows the target release's [upgrade procedure](./versioning#upgrading). A major release
+such as 2.0.0 needs every terminal record archived first, so decide any `REVIEW` records and archive
+before upgrading:
 
 ```text
 /spectre archive
 ```
+
+To close everything instead, use a forced archive. It cancels open `PLANNED` and `REVIEW` records
+with your reason and lists existing defects in the manifest instead of failing:
+
+```text
+/spectre archive --force: closing before the 2.0.0 upgrade
+```
+
+Conflicting files, unresolved evidence, or references that cannot be preserved block the upgrade
+instead of being overwritten or redirected.
 
 ## Manual download
 
@@ -155,7 +166,7 @@ If you prefer to download the protocol yourself, run this from the repository ro
 ```sh
 mkdir -p .agents/spectre
 curl -fsSLo .agents/spectre/SPECTRE-PROTOCOL.md \
-  https://wiki.xraynetwork.io/spectre/protocol/v1.0.0/SPECTRE-PROTOCOL.md
+  https://wiki.xraynetwork.io/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md
 ```
 
 Then ask your coding agent to read the local file completely and perform its installation section.

@@ -16,7 +16,8 @@ queue item.
 
 - `https://wiki.xraynetwork.io/spectre/` — documentation
 - `https://wiki.xraynetwork.io/spectre/SPECTRE-PROTOCOL.md` — current-release mirror
-- `https://wiki.xraynetwork.io/spectre/protocol/v1.0.0/SPECTRE-PROTOCOL.md` — v1.0.0 protocol (in development)
+- `https://wiki.xraynetwork.io/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md` — v2.0.0 protocol (current)
+- `https://wiki.xraynetwork.io/spectre/protocol/v1.0.0/SPECTRE-PROTOCOL.md` — v1.0.0 protocol (frozen)
 
 ## Install
 
@@ -35,8 +36,9 @@ The pinned standard installs as `.agents/spectre/SPECTRE-PROTOCOL.md`, with its 
 implementation summary and sole active lifecycle ledger. Archived decisions remain in immutable
 batch manifests under `.agents/spectre/archive/`.
 
-Installation also extracts `runtime/core.md`, `selectors.md`, `references.md`, `validation.md`,
-and nine command modules from marked sections of the complete protocol. The small skill router loads only shared
+Installation also extracts `runtime/core.md`, `selectors.md`, `references.md`, `providers.md`,
+`validation.md`, `validation-full.md`, `validation-evidence.md`, and ten command modules from marked
+sections of the complete protocol. The small skill router loads only shared
 rules and the selected operation's dependencies on each call. Templates, record contents, and
 required evidence load when needed; installation and full integrity checks retain their full scope.
 Runtime files are generated verbatim, checked against the pinned protocol, and never maintained
@@ -50,17 +52,20 @@ as separate summaries. Missing or stale modules block a command without an impli
 /spectre implement --batch <records>
 /spectre revise <record>: <changes>
 /spectre status <record>
+/spectre recall [target]: <question>
 /spectre list [target] [state] [--archived]
 /spectre accept <records>: <proof>
 /spectre reject <records>: <proof>
 /spectre cancel <records>: <reason>
 /spectre archive [target]
+/spectre archive [target] --force: <reason>
 /spectre capture <provider>
 /spectre help [operation]
 ```
 
 `/spectre` is the cross-agent spelling. In Codex, invoke the repository skill with `$spectre` and
-the same arguments. Record selectors accept IDs or natural descriptions; target and provider
+the same arguments. Optional host adapters register `/spectre` in Claude Code, Cursor, GitHub
+Copilot, Gemini CLI, and Windsurf. Record selectors accept IDs or natural descriptions; target and provider
 selectors accept descriptions too. For example:
 
 ```text
@@ -107,20 +112,25 @@ queue may explicitly prepare a missing provider guide from a human-supplied auth
 immediately before capturing it; ordinary capture still requires an existing guide. A no-change
 capture creates no folder or summary. Validation runs automatically inside the workflows; it does
 not require a separate command. Plans pin a numbered snapshot and hashes, including resolved earlier artifacts; a separate
-Git commit is not a protocol prerequisite. Capture, planning and implementation remain separate
-human-triggered operations even when queued together. See [provider captures](docs/src/pages/commands.md#provider-captures).
+Git commit is not a protocol prerequisite. A plan captures the providers it relies on before
+writing its instruction; a standalone capture tracks upstream changes between plans. Anything from
+another project enters as a provider capture, never as a link outside the installation. See [provider captures](docs/src/pages/commands.md#provider-captures).
 
 `archive [target]` moves terminal implementations and their decision rows into a dated archive,
 clearing those rows from the active ledger. `PLANNED` and `REVIEW` stay active. Record contents,
 decision proofs, and reference identity are preserved; implementation IDs never restart. Use
 `list --archived` to browse history and `status <record>` to find a record in either location.
+`archive [target] --force: <reason>` first closes open records as `CANCELLED` with that reason and
+lists existing defects in the manifest instead of failing.
 
 ## Repository layout
 
 ```text
 .
 ├── protocol/
-│   └── v1.0.0/
+│   ├── v1.0.0/                  # frozen
+│   │   └── SPECTRE-PROTOCOL.md
+│   └── v2.0.0/                  # current
 │       └── SPECTRE-PROTOCOL.md
 ├── ideas/                       # proposals, not part of the protocol
 └── docs/
@@ -129,11 +139,12 @@ decision proofs, and reference identity are preserved; implementation IDs never 
     └── wrangler.jsonc
 ```
 
-`protocol/` is the single canonical release source. Version 1.0.0 is still in development and
-these changes update it in place; no new standard or record-schema version is introduced. The documentation build generates both
-the public current-release mirror and versioned raw assets directly from it. This source
-repository does not install its own `.agents/` tracking or command structure; the v1 protocol
-instructs adopting repositories to create it during installation.
+`protocol/` is the single canonical release source. Each release directory is frozen once
+published; every later change becomes a new semantic version. The documentation build generates
+both the public current-release mirror (the highest version) and versioned raw assets directly from
+it. `docs/scripts/check-protocol.mjs` checks runtime extraction and rule placement for every release.
+This source repository does not install its own `.agents/` tracking or command structure; the
+protocol instructs adopting repositories to create it during installation.
 
 Adopting repositories extract runtime modules locally from the pinned protocol during installation.
 The docs publisher does not generate separate runtime downloads.

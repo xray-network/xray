@@ -50,9 +50,9 @@ This is the complete text of the example's repository-root ledger. Its links are
 ```markdown
 # SPECTRE implementations
 
-Protocol-Version: 1.0.0
+Protocol-Version: 2.0.0
 Protocol: [.agents/spectre/SPECTRE-PROTOCOL.md](.agents/spectre/SPECTRE-PROTOCOL.md)
-Status-Schema-Version: v1
+Status-Schema-Version: v2
 Storage-Mode: flat
 
 This is the sole active lifecycle ledger. Archived decision rows and record paths are preserved
@@ -66,11 +66,11 @@ Target: beacon-api
 
 | ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0001` | Install SPECTRE | [Instruction](.agents/spectre/implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of SPECTRE. |
-| `0002` | Add health endpoint | [Instruction](.agents/spectre/implementations/0002-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0002-IMPL-RESULT.md) | `LOCAL` | Human reviewed the response format and passing endpoint checks. |
-| `0003` | Add request logging | [Instruction](.agents/spectre/implementations/0003-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0003-IMPL-RESULT.md) | `LOCAL` | Human verified request IDs and sensitive-field redaction. |
-| `0004` | Add rate limiting | [Instruction](.agents/spectre/implementations/0004-IMPL-INSTR.md) | `REVIEW` | [Result](.agents/spectre/implementations/0004-IMPL-RESULT.md) | `LOCAL` | Implementation and checks recorded; awaiting human review. |
-| `0005` | Add readiness endpoint | [Instruction](.agents/spectre/implementations/0005-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Plan recorded; implementation has not started. |
+| `beacon-api/0001` | Install SPECTRE | [Instruction](.agents/spectre/implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of SPECTRE. |
+| `beacon-api/0002` | Add health endpoint | [Instruction](.agents/spectre/implementations/0002-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0002-IMPL-RESULT.md) | `LOCAL` | Human reviewed the response format and passing endpoint checks. |
+| `beacon-api/0003` | Add request logging | [Instruction](.agents/spectre/implementations/0003-IMPL-INSTR.md) | `ACCEPTED` | [Result](.agents/spectre/implementations/0003-IMPL-RESULT.md) | `LOCAL` | Human verified request IDs and sensitive-field redaction. |
+| `beacon-api/0004` | Add rate limiting | [Instruction](.agents/spectre/implementations/0004-IMPL-INSTR.md) | `REVIEW` | [Result](.agents/spectre/implementations/0004-IMPL-RESULT.md) | `LOCAL` | Implementation and checks recorded; awaiting human review. |
+| `beacon-api/0005` | Add readiness endpoint | [Instruction](.agents/spectre/implementations/0005-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Plan recorded; implementation has not started. |
 ```
 
 The ledger summarizes state and decisions; the linked instruction and result hold the detailed
