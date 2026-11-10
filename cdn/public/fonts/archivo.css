@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Archivo';
+  src: url('archivo/Archivo-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('archivo/Archivo-VariableItalic.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: auto;
+  font-style: italic;
+}

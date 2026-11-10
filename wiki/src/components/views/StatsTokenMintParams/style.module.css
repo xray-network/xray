@@ -1,0 +1,91 @@
+@reference "../../../styles/tailwind.css";
+
+.container {
+  @apply bg-gray-100 p-8 pb-2 rounded-2xl relative overflow-hidden;
+}
+
+.section {
+  @apply mb-5;
+}
+
+.sectionTitle {
+  @apply text-black text-lg flex items-center mb-2;
+}
+
+.sectionAmount {
+  @apply text-black text-2xl font-extrabold leading-snug;
+}
+
+.sectionAmountLarge {
+  @apply text-3xl;
+}
+
+.sectionDescr {
+  @apply text-gray-500 text-sm leading-5;
+}
+
+.address {
+  @apply block wrap-break-word pe-5 max-w-70;
+}
+
+.icon {
+  @apply h-5 w-5 block mr-2 rounded-lg;
+}
+
+.iconSuccess {
+  @apply bg-green-500;
+}
+
+.iconDanger {
+  @apply bg-red-500;
+}
+
+.iconPrimary {
+  @apply bg-blue-500;
+}
+
+.iconOrange {
+  @apply bg-orange-500;
+}
+
+.chart {
+  @apply flex gap-1;
+}
+
+.chart > div {
+  @apply rounded-lg h-15 p-2.5 text-white;
+}
+
+.chartOne {
+  @apply flex-[0_1_56.56%] bg-green-500;
+}
+
+.chartTwo {
+  @apply flex-[0_1_15.44%] bg-green-500;
+}
+
+.chartThree {
+  @apply flex-[0_1_18%] bg-blue-500;
+}
+
+.chartFour {
+  @apply flex-[0_1_10%] bg-orange-500;
+}
+
+:global(html.dark) {
+  .container {
+    @apply bg-gray-900;
+  }
+
+  .sectionTitle {
+    @apply text-white;
+  }
+
+  .sectionAmount {
+    @apply text-white;
+  }
+
+  .sectionDescr {
+    @apply text-gray-500;
+  }
+}

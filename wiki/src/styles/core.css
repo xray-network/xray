@@ -1,0 +1,46 @@
+:root {
+  color-scheme: light;
+}
+
+:root.rp-dark,
+:root.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--rp-c-bg);
+  font-family: var(--rp-font-family-base);
+}
+
+body {
+  color: var(--rp-c-text-2);
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--rp-c-text-1);
+  font-family: var(--rp-font-family-base);
+  font-weight: 700 !important;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--rp-font-family-mono);
+}
+
+[data-disable-transitions="true"],
+[data-disable-transitions="true"] * {
+  transition: none !important;
+}

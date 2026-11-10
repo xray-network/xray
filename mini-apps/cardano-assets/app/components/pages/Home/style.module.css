@@ -1,0 +1,9 @@
+@import "@/styles/tailwind.css";
+
+.icon {
+  @apply w-7 h-7 rounded-full mr-2 text-center overflow-hidden;
+
+  img {
+    @apply w-7 min-w-7 float-left;
+  }
+}

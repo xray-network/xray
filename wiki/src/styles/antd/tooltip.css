@@ -1,0 +1,5 @@
+@reference "../tailwind.css";
+
+.ant-tooltip {
+  line-height: 1.2;
+}

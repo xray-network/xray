@@ -1,0 +1,18 @@
+{
+  "name": "rapidoc-koios",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "",
+  "author": "XRAY/Network <hello@xray.app>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "schema": "node schema/generate.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.0"
+  }
+}

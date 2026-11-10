@@ -1,0 +1,224 @@
+@import "./spectre.css";
+
+/* Rspress variables mapped from XRAY/App's shared design-system tokens. */
+html:root {
+  --rp-font-family-base: var(--font-sans);
+  --rp-font-family-mono: var(--font-mono);
+  --rp-c-brand: #1940ed;
+  --rp-c-brand-light: #3f5ff0;
+  --rp-c-brand-lighter: #c3cdfa;
+  --rp-c-brand-dark: #0f2fbf;
+  --rp-c-brand-darker: #0b228b;
+  --rp-c-brand-tint: rgb(25 64 237 / 12%);
+  --rp-c-gray: #6e758d;
+  --rp-c-gray-light-1: #9ca3af;
+  --rp-c-gray-light-2: #d1d5db;
+  --rp-c-gray-light-3: #e5e7eb;
+  --rp-c-gray-light-4: #f3f4f6;
+  --rp-c-gray-light-5: #f9fafb;
+  --rp-radius: 20px;
+  --rp-radius-small: 10px;
+  --rp-radius-large: 20px;
+  --rp-shadow-2: 0 6px 30px 0 rgb(0 0 0 / 3%), 0 3px 6px -4px rgb(0 0 0 / 3%), 0 9px 28px 8px rgb(0 0 0 / 3%);
+}
+
+:where(html:not(.rp-dark)) {
+  --rp-c-bg: #ffffff;
+  --rp-c-bg-soft: #f6f7f2;
+  --rp-c-bg-mute: #f3f4f6;
+  --rp-c-bg-alt: #ffffff;
+  --rp-c-divider: #d1d5db;
+  --rp-c-divider-light: #e5e7eb;
+  --rp-c-text-0: #000000;
+  --rp-c-text-1: #1e2232;
+  --rp-c-text-2: #55556d;
+  --rp-c-text-3: #6e758d;
+  --rp-c-text-4: #9ca3af;
+  --rp-c-text-code: #2f222c;
+  --rp-c-text-code-bg: #f6f7f2;
+  --rp-c-text-code-border: #e5e7eb;
+  --rp-c-link: #1940ed;
+  --rp-code-title-bg: #eeefe7;
+  --rp-code-block-color: #2f222c;
+  --rp-code-block-bg: #f6f7f2;
+  --rp-code-block-border: 1px solid #e5e7eb;
+  --rp-container-note-border: #e5e7eb;
+  --rp-container-note-text: #55556d;
+  --rp-container-note-bg: #f6f7f2;
+  --rp-container-tip-border: #54ebc3;
+  --rp-container-tip-text: #07874d;
+  --rp-container-tip-bg: #f0fcfa;
+  --rp-container-info-border: #8b9ef6;
+  --rp-container-info-text: #071657;
+  --rp-container-info-bg: #c3cdfa;
+  --rp-container-warning-border: #ffb88a;
+  --rp-container-warning-text: #995011;
+  --rp-container-warning-bg: #fff4e6;
+  --rp-container-danger-border: #fca5a5;
+  --rp-container-danger-text: #b91c1c;
+  --rp-container-danger-bg: #fef2f2;
+}
+
+:where(html.rp-dark, html.dark) {
+  --rp-c-brand: #5e69ff;
+  --rp-c-brand-light: #8fa5ff;
+  --rp-c-brand-lighter: #bfd6ff;
+  --rp-c-brand-dark: #4c56e6;
+  --rp-c-brand-darker: #363cbf;
+  --rp-c-brand-tint: rgb(94 105 255 / 18%);
+  --rp-c-bg: #000000;
+  --rp-c-bg-soft: #1e2232;
+  --rp-c-bg-mute: #1f2937;
+  --rp-c-bg-alt: #000000;
+  --rp-c-divider: #374151;
+  --rp-c-divider-light: #1f2937;
+  --rp-c-text-0: #ffffff;
+  --rp-c-text-1: #f9fafb;
+  --rp-c-text-2: #f3f4f6;
+  --rp-c-text-3: #d1d5db;
+  --rp-c-text-4: #9ca3af;
+  --rp-c-text-code: #f0f7ff;
+  --rp-c-text-code-bg: #1e2232;
+  --rp-c-text-code-border: #374151;
+  --rp-c-link: #5e69ff;
+  --rp-code-title-bg: #2f222c;
+  --rp-code-block-color: #f0f7ff;
+  --rp-code-block-bg: #1e2232;
+  --rp-code-block-border: 1px solid #374151;
+  --rp-container-note-border: #374151;
+  --rp-container-note-text: #d1d5db;
+  --rp-container-note-bg: #1e2232;
+  --rp-container-tip-border: #0cab6b;
+  --rp-container-tip-text: #bef7ec;
+  --rp-container-tip-bg: #02421e;
+  --rp-container-info-border: #363cbf;
+  --rp-container-info-text: #f0f7ff;
+  --rp-container-info-bg: #080b4a;
+  --rp-container-warning-border: #cc5e13;
+  --rp-container-warning-text: #ffeadc;
+  --rp-container-warning-bg: #190d03;
+  --rp-container-danger-border: #dc2626;
+  --rp-container-danger-text: #fee2e2;
+  --rp-container-danger-bg: #450a0a;
+  --rp-shadow-2: 0 0 60px 0 rgb(60 60 70 / 50%);
+}
+
+.rp-nav,
+.rp-sidebar,
+.rp-doc-layout__content {
+  background: var(--rp-c-bg);
+}
+
+.rp-nav__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.rp-sidebar-item,
+.rp-nav-menu__item,
+.rp-nav-menu__item--active {
+  border-radius: 10px;
+}
+
+.rp-codeblock,
+.rp-codeblock__title {
+  border-radius: 10px;
+}
+
+/* Wiki homepage additions built on the SPECTRE documentation shell. */
+.wiki-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: var(--xr-link);
+  font: 600 11px/1.5 var(--xr-font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.wiki-hero-kicker::before {
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.wiki-fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 26px;
+  border: 1px solid var(--xr-border-strong);
+  border-radius: var(--spectre-home-radius);
+  background: var(--xr-panel);
+}
+
+.wiki-fact {
+  min-width: 0;
+  padding: 20px;
+}
+
+.wiki-fact + .wiki-fact {
+  border-left: 1px solid var(--xr-border-strong);
+}
+
+.wiki-fact strong,
+.wiki-fact span {
+  display: block;
+}
+
+.wiki-fact strong {
+  color: var(--xr-fg);
+  font-size: 16px;
+  letter-spacing: -.02em;
+}
+
+.wiki-fact span {
+  margin-top: 4px;
+  color: var(--xr-fg-muted);
+  font: 500 10px/1.5 var(--xr-font-mono);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.wiki-card-link {
+  color: inherit;
+}
+
+.wiki-card-link:hover {
+  color: var(--xr-link);
+}
+
+.wiki-resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wiki-resource-grid .spectre-resource:nth-child(odd) {
+  border-left: 0;
+}
+
+.wiki-resource-grid .spectre-resource:nth-child(n + 3) {
+  border-top: 1px solid var(--xr-border-strong);
+}
+
+.wiki-section-intro {
+  margin-bottom: 28px !important;
+  font-size: 14px;
+}
+
+@media (max-width: 520px) {
+  .wiki-fact-grid,
+  .wiki-resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-fact + .wiki-fact {
+    border-left: 0;
+    border-top: 1px solid var(--xr-border-strong);
+  }
+
+  .wiki-resource-grid .spectre-resource + .spectre-resource {
+    border-left: 0;
+    border-top: 1px solid var(--xr-border-strong);
+  }
+}

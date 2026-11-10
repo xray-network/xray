@@ -1,0 +1,17 @@
+@reference "../tailwind.css";
+
+.shared-tag {
+  @apply bg-gray-100 text-gray-100 inline-block rounded-lg px-2 py-0.5 text-sm me-2;
+}
+
+.shared-tag-success {
+  @apply bg-green-500 text-white;
+}
+
+.shared-tag-primary {
+  @apply bg-blue-500 text-white;
+}
+
+.shared-tag-gray {
+  @apply bg-gray-500 text-white;
+}

@@ -1,0 +1,21 @@
+@import "@/styles/tailwind.css";
+
+.card {
+  @apply relative flex flex-col text-sm p-4 h-30 border border-gray-200 rounded-2xl cursor-pointer text-black;
+  @apply hover:border-gray-300;
+  @apply dark:border-gray-800 dark:text-white;
+  @apply dark:hover:border-gray-700;
+}
+
+.add {
+  @apply flex items-center justify-center;
+}
+
+.disabled {
+  @apply opacity-40 cursor-not-allowed;
+}
+
+.close {
+  @apply absolute top-2 right-2 text-gray-400;
+  @apply hover:text-red-500;
+}

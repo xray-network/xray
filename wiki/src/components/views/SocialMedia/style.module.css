@@ -1,0 +1,43 @@
+@reference "../../../styles/tailwind.css";
+
+.item {
+  @apply flex items-center border border-gray-300 rounded-2xl p-5 relative hover:border-blue-500;
+}
+
+.ext {
+  @apply ms-auto size-6 text-black text-2xl;
+}
+
+.itemIcon {
+  @apply w-10 h-10 me-5;
+}
+
+.itemTitle {
+  @apply flex flex-col text-black text-lg font-bold;
+}
+
+.itemTitle small {
+  @apply text-xs text-gray-500 uppercase font-normal;
+}
+
+:global(html.dark) {
+  .item {
+    @apply border-gray-700 hover:border-blue-400;
+  }
+
+  .itemIcon {
+    @apply invert;
+  }
+
+  .itemTitle {
+    @apply text-white;
+  }
+
+  .itemTitle small {
+    @apply text-gray-400;
+  }
+
+  .ext {
+    @apply text-white;
+  }
+}

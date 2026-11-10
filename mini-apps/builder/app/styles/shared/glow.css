@@ -1,0 +1,70 @@
+@import "@/styles/tailwind.css";
+
+.shared-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.shared-glow::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    137deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0) content-box;
+  mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  opacity: 0.3;
+  border-radius: inherit;
+}
+
+.shared-glow::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 26%,
+    rgba(255, 255, 255, 0) 73%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0) content-box;
+  mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+  opacity: 0.4;
+  border-radius: inherit;
+}
+
+[data-theme="dark"] {
+  .shared-glow::before {
+    opacity: 0.1;
+  }
+
+  .shared-glow::after {
+    opacity: 0.2;
+  }
+}

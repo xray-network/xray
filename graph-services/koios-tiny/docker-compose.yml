@@ -1,0 +1,100 @@
+services:
+  koios-tiny:
+    build:
+      context: ..
+      dockerfile: koios-tiny/Dockerfile
+      target: koios-tiny
+      args:
+        - NETWORK=${NETWORK}
+        - CARDANO_NODE_ID=${CARDANO_NODE_ID}
+    container_name: koios-tiny-${NETWORK}-${ID}
+    environment:
+      - NETWORK=${NETWORK}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGHOST=${POSTGRES_HOST}
+      - PGPORT=${POSTGRES_PORT}
+      - PGRST_DB_URI=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    ports:
+      - ${KOIOS_TINY_PORT}:8050
+    networks:
+      - xray-graph-services
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.koios-tiny-${NETWORK}-${ID}.loadbalancer.server.port=8050
+      - traefik.http.routers.koios-tiny-${NETWORK}-${ID}.rule=Header(`X-XRAY-GRAPH-ID`,`koios-tiny-${NETWORK}-${ID}`)
+      - traefik.http.routers.koios-tiny-${NETWORK}-${ID}.entrypoints=websecure
+      - traefik.http.routers.koios-tiny-${NETWORK}-${ID}.tls=true
+      - traefik.http.routers.koios-tiny-${NETWORK}-${ID}.service=koios-tiny-${NETWORK}-${ID}
+      - traefik.http.routers.koios-tiny-${NETWORK}-${ID}.middlewares=koios-tiny-${NETWORK}-${ID}
+      - traefik.http.middlewares.koios-tiny-${NETWORK}-${ID}.replacepathregex.regex=^/(.*)
+      - traefik.http.middlewares.koios-tiny-${NETWORK}-${ID}.replacepathregex.replacement=/rpc/$1
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  koios-tiny-rapidoc:
+    build:
+      context: ..
+      dockerfile: koios-tiny/Dockerfile
+      target: koios-tiny-rapidoc
+    container_name: koios-tiny-rapidoc-${NETWORK}-${ID}
+    ports:
+      - ${KOIOS_TINY_RAPIDOC_PORT}:2700
+    networks:
+      - xray-graph-services
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.koios-tiny-rapidoc-${NETWORK}-${ID}.loadbalancer.server.port=2700
+      - traefik.http.routers.koios-tiny-rapidoc-${NETWORK}-${ID}.rule=(Header(`X-XRAY-GRAPH-ID`,`koios-tiny-${NETWORK}-${ID}`) && (Path(`/`) || Path(`/openapi.json`)))
+      - traefik.http.routers.koios-tiny-rapidoc-${NETWORK}-${ID}.entrypoints=websecure
+      - traefik.http.routers.koios-tiny-rapidoc-${NETWORK}-${ID}.tls=true
+      - traefik.http.routers.koios-tiny-rapidoc-${NETWORK}-${ID}.service=koios-tiny-rapidoc-${NETWORK}-${ID}
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  koios-tiny-ogmios-proxy:
+    build:
+      context: .
+      target: koios-tiny-ogmios-proxy
+    container_name: koios-tiny-ogmios-proxy-${NETWORK}-${ID}
+    environment:
+      - OGMIOS_HOST=${OGMIOS_HOST}
+      - OGMIOS_PORT=${OGMIOS_PORT}
+    ports:
+      - ${KOIOS_TINY_OGMIOS_PROXY_PORT}:8700
+    networks:
+      - xray-graph-services
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.koios-tiny-ogmios-proxy-${NETWORK}-${ID}.rule=(Header(`X-XRAY-GRAPH-ID`,`koios-tiny-${NETWORK}-${ID}`) && (PathPrefix(`/submittx`) || PathPrefix(`/ogmios`)))
+      - traefik.http.routers.koios-tiny-ogmios-proxy-${NETWORK}-${ID}.entrypoints=websecure
+      - traefik.http.routers.koios-tiny-ogmios-proxy-${NETWORK}-${ID}.tls=true
+      - traefik.http.routers.koios-tiny-ogmios-proxy-${NETWORK}-${ID}.service=koios-tiny-ogmios-proxy-${NETWORK}-${ID}
+      - traefik.http.services.koios-tiny-ogmios-proxy-${NETWORK}-${ID}.loadbalancer.server.port=8700
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+networks:
+  xray-graph-services:
+    name: xray-graph-services
+
+volumes:
+  db-sync-data:
+  node-db:
+  node-ipc:
+  postgres-data:

@@ -1,0 +1,14 @@
+@reference "../../../styles/tailwind.css";
+
+.roadmap {
+  :global(.ant-steps-item-icon) {
+    @apply size-14 -mt-3.5! -ms-5.5! bg-white!;
+    @apply dark:bg-black!;
+  }
+}
+
+:global(html.dark) {
+  :global(.ant-steps-item-icon) {
+    @apply bg-black!;
+  }
+}

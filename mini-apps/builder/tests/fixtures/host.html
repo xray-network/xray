@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>XRAY host fixture</title>
+  <button id="route">Host navigate</button
+  ><button id="disconnect">Fail next status</button>
+  <p id="host-route"></p>
+  <p id="requests">0</p>
+  <iframe
+    title="Builder"
+    id="builder"
+    style="width: 100%; height: calc(100dvh - 130px); min-height: 400px; border: 0"
+    allow="local-network-access"
+  ></iframe>
+  <script>
+    const params = new URLSearchParams(location.search)
+    const builder = document.getElementById("builder")
+    builder.src = "http://127.0.0.1:7210" + (params.get("route") || "/")
+    let failStatus = false
+    const context = { blockchain: "cardano", network: "preview" }
+    document.getElementById("disconnect").onclick = () => {
+      failStatus = true
+    }
+    document.getElementById("route").onclick = () =>
+      builder.contentWindow.postMessage(
+        {
+          type: "xray.bridge.event",
+          scope: "platform",
+          version: "v1",
+          event: "routeChanged",
+          payload: params.get("next") || "/",
+          context,
+        },
+        "http://127.0.0.1:7210"
+      )
+    window.addEventListener("message", (event) => {
+      if (event.source !== builder.contentWindow || event.origin !== "http://127.0.0.1:7210") return
+      const message = event.data
+      if (message.type !== "xray.bridge.request") return
+      document.getElementById("requests").textContent = Number(document.getElementById("requests").textContent) + 1
+      if (message.method === "routeChanged") {
+        document.getElementById("host-route").textContent = message.payload
+        return
+      }
+      const response = {
+        type: "xray.bridge.response",
+        scope: message.scope,
+        version: message.version,
+        requestId: message.requestId,
+        method: message.method,
+        ok: !(message.method === "getStatus" && failStatus),
+      }
+      if (message.method === "getStatus" && failStatus)
+        response.error = { code: "HOST_ERROR", message: "Host unavailable" }
+      else {
+        response.context = context
+        response.payload =
+          {
+            getStatus: { host: "xray.app" },
+            getTheme: "light",
+            getCurrency: "usd",
+            getLocale: "en",
+            getHideBalances: false,
+            getExplorer: "cardanoscan",
+            getTip: { hash: "tip", epochNo: 1, absSlot: 123, epochSlot: 123, blockNo: 1, blockTime: 1 },
+          }[message.method] ?? null
+      }
+      setTimeout(
+        () => builder.contentWindow.postMessage(response, "http://127.0.0.1:7210"),
+        Number(params.get("delay") || 0)
+      )
+    })
+  </script>
+</html>

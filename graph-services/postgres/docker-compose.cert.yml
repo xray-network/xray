@@ -1,0 +1,82 @@
+services:
+  postgres-init-certs:
+    image: alpine:3.20
+    container_name: postgres-init-certs
+    volumes:
+      - postgres-certs:/certs
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        apk add --no-cache openssl
+        if [ ! -f /certs/server.crt ]; then
+          echo "Generating self-signed server certificate for $CERTIFICATE_HOST"
+
+          openssl req -x509 -nodes -newkey rsa:4096 \
+            -keyout /certs/server.key \
+            -out /certs/server.crt \
+            -days 7300 \
+            -subj "/CN=${CERTIFICATE_HOST}" \
+            -addext "subjectAltName=DNS:${CERTIFICATE_HOST}"
+
+          chown 70:70 /certs/server.key /certs/server.crt
+          chmod 600 /certs/server.key
+          chmod 644 /certs/server.crt
+        fi
+    restart: "no"
+
+  postgres:
+    build:
+      context: .
+      target: postgres
+    container_name: postgres
+    depends_on:
+      postgres-init-certs:
+        condition: service_completed_successfully
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    shm_size: 2gb
+    command:
+      - postgres
+      - -c
+      - config_file=/etc/postgresql/postgresql.conf
+      - -c
+      - hba_file=/etc/postgresql/pg_hba.conf
+      - -c
+      - password_encryption=scram-sha-256
+      - -c
+      - ssl=on
+      - -c
+      - ssl_cert_file=/etc/postgresql/certs/server.crt
+      - -c
+      - ssl_key_file=/etc/postgresql/certs/server.key
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - postgres-certs:/etc/postgresql/certs
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./config/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+      - ./config/01_init.sql:/docker-entrypoint-initdb.d/01_init.sql
+    networks:
+      - xray-graph-services
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+volumes:
+  postgres-data:
+  postgres-certs:
+
+networks:
+  xray-graph-services:
+    name: xray-graph-services

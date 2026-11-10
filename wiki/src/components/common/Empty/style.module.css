@@ -1,0 +1,10 @@
+@reference "../../../styles/tailwind.css";
+
+.empty {
+  @apply text-center text-black;
+  @apply dark:text-white;
+}
+
+.item {
+  @apply text-gray-500;
+}

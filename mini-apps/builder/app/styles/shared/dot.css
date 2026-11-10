@@ -1,0 +1,27 @@
+@import "@/styles/tailwind.css";
+
+.shared-dot {
+  @apply inline-block bg-green-500 relative rounded-full h-2 w-2;
+}
+
+.shared-dot:before {
+  content: "";
+  animation: rotation 0.5s linear infinite;
+  transform: rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  @apply block absolute -top-0.75 -left-0.75 w-3.5 h-3.5 rounded-full border-2 border-transparent border-t-2 border-t-green-500;
+}
+
+.shared-dot-animate:before {
+  opacity: 1;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

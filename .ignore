@@ -1,0 +1,32 @@
+# Search exclusions for ripgrep-based tools (Claude Code Grep/Glob, VS Code search, rg).
+# Unlike .gitignore, this file works even without a .git folder and does not affect commits.
+
+# Dependencies, build output, caches
+node_modules/
+build/
+dist/
+.react-router/
+.wrangler/
+.cache/
+coverage/
+test-results/
+playwright-report/
+vcpkg_installed/
+**/volumes/*
+
+# Large or generated files that are committed but rarely useful to read
+package-lock.json
+yarn.lock
+*.tsbuildinfo
+
+# SPECTRE history and captured upstream evidence (read only when a SPECTRE task needs it)
+**/.agents/spectre/archive/
+**/.agents/spectre/providers/
+
+# Secrets
+.env
+.env.*
+!.env*.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example

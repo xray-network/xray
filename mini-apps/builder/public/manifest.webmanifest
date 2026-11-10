@@ -1,0 +1,16 @@
+{
+  "name": "XRAY Mini App Builder",
+  "short_name": "XRAY Builder",
+  "description": "Build and preview XRAY mini apps",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

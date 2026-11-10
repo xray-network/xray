@@ -1,0 +1,9 @@
+@reference "../tailwind.css";
+
+.ant-dropdown-menu-item-divider {
+  @apply bg-transparent! my-2!;
+}
+
+.ant-dropdown-menu {
+  @apply bg-white dark:bg-gray-900!;
+}

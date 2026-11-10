@@ -1,0 +1,32 @@
+services:
+  cardano-node:
+    image: ghcr.io/intersectmbo/cardano-node:11.0.1
+    container_name: cardano-node-${NETWORK}-${ID}
+    environment:
+      - NETWORK=${NETWORK}
+    ports:
+      - ${CARDANO_NODE_PORT}:3001
+    volumes:
+      - ../volumes/cardano-node-${NETWORK}-${ID}/db:/data/db
+      - ../volumes/cardano-node-${NETWORK}-${ID}/ipc:/ipc
+      - ../volumes/cardano-node-${NETWORK}-${ID}/config:/config
+    entrypoint:
+      - bash
+      - -c
+      - |
+        cp -rn /opt/cardano/config/$NETWORK/. /config/
+        rm -rf /opt/cardano/config/$NETWORK
+        ln -s /config /opt/cardano/config/$NETWORK
+        exec /usr/local/bin/entrypoint "$@"
+      - --
+    networks:
+      - xray-graph-services
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+networks:
+  xray-graph-services:
+    name: xray-graph-services

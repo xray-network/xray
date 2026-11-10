@@ -1,0 +1,27 @@
+@reference "../../../styles/tailwind.css";
+
+.description {
+  @apply mb-3 text-gray-500;
+}
+
+.informerContainer {
+  @apply mb-8 bg-gray-100 p-6 pb-3 rounded-2xl;
+}
+
+.informerContainerInner {
+  @apply flex items-center flex-wrap rounded-2xl;
+}
+
+.informer {
+  @apply me-10 mb-3 text-xl;
+}
+
+.textWrap {
+  @apply wrap-break-word!;
+}
+
+:global(html.dark) {
+  .informerContainer {
+    @apply bg-gray-900;
+  }
+}

@@ -1,0 +1,172 @@
+.workspace {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+}
+.preview {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  height: 100%;
+  border: 0;
+  background: var(--xr-white);
+}
+.panel {
+  flex: 0 0 400px;
+  width: 400px;
+  max-width: calc(100% - 64px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid var(--xr-gray-200);
+  background: var(--xr-white);
+}
+.panel[hidden],
+.floatingActions[hidden] {
+  display: none;
+}
+.floatingActions {
+  position: fixed;
+  z-index: 40;
+  right: 20px;
+  top: 50%;
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+.floatingActions :global(.ant-btn) {
+  box-shadow: 0 4px 24px rgb(0 0 0 / 12%);
+}
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 8px 24px;
+  flex-shrink: 0;
+}
+.backButton {
+  margin-inline-start: -15px;
+  padding-inline-start: 12px !important;
+}
+.tabs {
+  flex: 1;
+  min-height: 0;
+}
+.tabs :global(.ant-tabs-nav) {
+  margin: 0 24px;
+  flex-shrink: 0;
+}
+.tabs :global(.ant-tabs-body-holder) {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.tabs :global(.ant-tabs-body),
+.tabs :global(.ant-tabs-content) {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.appControls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+}
+.eyebrow {
+  color: var(--xr-gray-500);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.projectName {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 6px 0 0;
+  overflow-wrap: anywhere;
+}
+.connection {
+  background: var(--xr-gray-50);
+  border: 1px solid var(--xr-gray-100);
+  border-radius: 18px;
+  padding: 16px;
+}
+.connectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--xr-gray-400);
+  flex-shrink: 0;
+}
+.statusDot[data-connected="true"] {
+  background: var(--xr-green-500);
+  box-shadow: 0 0 0 3px rgb(34 197 94 / 10%);
+}
+.statusDetails {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  font-size: 12px;
+}
+.statusDetails > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.statusDetails dt {
+  color: var(--xr-gray-500);
+}
+.statusDetails dd {
+  margin: 0;
+}
+.fieldLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.inputGroup :global(.ant-input) {
+  flex: 1;
+  min-width: 0;
+}
+.inputGroup :global(.ant-btn),
+.inputGroup > span {
+  flex-shrink: 0;
+}
+:global([data-theme="dark"]) .workspace {
+  background: var(--xr-gray-950);
+}
+:global([data-theme="dark"]) .panel,
+:global([data-theme="dark"]) .preview {
+  background: var(--xr-black);
+  border-color: var(--xr-gray-800);
+}
+:global([data-theme="dark"]) .connection {
+  background: var(--xr-gray-950);
+  border-color: var(--xr-gray-800);
+}
+@media (max-width: 420px) {
+  .appControls {
+    padding: 20px;
+    gap: 20px;
+  }
+  .panelHeader {
+    padding-left: 20px;
+  }
+}

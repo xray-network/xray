@@ -1,0 +1,41 @@
+@import "@/styles/tailwind.css";
+
+.ant-modal {
+  @media (width < 768px) {
+    @apply py-1;
+    top: 0 !important;
+    max-width: calc(100% - 21px) !important;
+  }
+}
+
+.ant-modal-header {
+  @apply bg-transparent! mb-5! text-3xl!;
+}
+
+.ant-modal-title {
+  @apply text-2xl! font-bold!;
+}
+
+.ant-modal-close {
+  left: 14px;
+  right: auto;
+}
+
+.ant-modal-container {
+  @apply border-0! pt-15!;
+  @apply dark:border-gray-700!;
+}
+
+.ant-modal-confirm-confirm .ant-modal-container {
+  @apply pt-10!;
+}
+
+.ant-modal-wrap {
+  scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  .ant-modal-wrap {
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "wiki-xray-network-docs",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "XRAY/Network <hello@xray.app>",
+  "description": "XRAY/Network ecosystem documentation",
+  "packageManager": "npm@11.16.0",
+  "homepage": "https://wiki.xraynetwork.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xray-network/xray.git",
+    "directory": "wiki"
+  },
+  "bugs": {
+    "url": "https://github.com/xray-network/xray/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "rspress dev --host 0.0.0.0 --port 10005",
+    "build": "rspress build",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "rspress preview --host 0.0.0.0 --port 10005",
+    "serve": "rspress preview --host 0.0.0.0 --port 10005",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md,mdx,css,scss}\""
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@xray-network/xray-js": "file:../js/packages/runtime",
+    "antd": "^6.1.3",
+    "chart.js": "^4.5.1",
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
+    "lodash": "^4.17.21",
+    "prettier": "^3.7.4",
+    "react": "latest",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "latest",
+    "wrangler": "^4.54.0"
+  },
+  "devDependencies": {
+    "@rsbuild/plugin-svgr": "latest",
+    "@rsbuild/plugin-tailwindcss": "latest",
+    "@rspress/core": "latest",
+    "@types/lodash": "^4.17.21",
+    "@types/react": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

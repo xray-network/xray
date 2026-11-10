@@ -1,0 +1,14 @@
+{
+  "name": "cdn",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "description": "",
+  "author": "XRAY/Network <hello@xray.app>",
+  "scripts": {
+    "deploy": "wrangler pages deploy"
+  },
+  "dependencies": {
+    "wrangler": "^4.14.4"
+  }
+}

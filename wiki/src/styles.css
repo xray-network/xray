@@ -1,0 +1,4 @@
+@import "./styles/tailwind.css";
+@import "./styles/core.css";
+@import "./styles/antd/style.css";
+@import "./styles/shared/style.css";

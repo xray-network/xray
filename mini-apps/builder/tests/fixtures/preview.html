@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>Mini app fixture</title>
+  <h1>Local mini app</h1>
+  <button id="status">Ask XRAY status</button
+  ><button id="navigate">App navigate</button>
+  <button id="tip">Request Cardano tip</button
+  ><button id="reload">Reload document</button
+  ><button id="flood">Send many events</button>
+  <p id="app-route" data-count="0"></p>
+  <p id="status-events">0</p>
+  <p id="result"></p>
+  <p id="tip-result"></p>
+  <script>
+    const params = new URLSearchParams(location.search)
+    const request = (method, payload = null, scope = "platform") => {
+      const requestId = crypto.randomUUID()
+      parent.postMessage(
+        { type: "xray.bridge.request", scope, version: "v1", method, requestId, payload },
+        "http://127.0.0.1:7210"
+      )
+      return requestId
+    }
+    document.getElementById("status").onclick = () => request("getStatus")
+    document.getElementById("navigate").onclick = () => request("routeChanged", "/from-app?x=a%2Fb#tab")
+    document.getElementById("tip").onclick = () => request("getTip", null, "cardano")
+    document.getElementById("reload").onclick = () => location.reload()
+    document.getElementById("flood").onclick = () => {
+      for (let i = 0; i < 220; i++) request("routeChanged", "/from-app?x=a%2Fb#tab")
+    }
+    window.addEventListener("message", (event) => {
+      if (event.source !== parent || event.origin !== "http://127.0.0.1:7210") return
+      const m = event.data
+      if (m.type === "xray.bridge.event" && m.event === "routeChanged") {
+        const route = document.getElementById("app-route")
+        route.textContent = m.payload
+        route.dataset.count = Number(route.dataset.count) + 1
+        route.dataset.context = JSON.stringify(m.context)
+      }
+      if (m.type === "xray.bridge.event" && m.event === "status")
+        document.getElementById("status-events").textContent =
+          Number(document.getElementById("status-events").textContent) + 1
+      if (m.type === "xray.bridge.response")
+        document.getElementById(m.scope === "cardano" ? "tip-result" : "result").textContent = JSON.stringify(m)
+    })
+    window.addEventListener("load", () => {
+      if (!params.has("silent")) setTimeout(() => request("getStatus"), 100)
+    })
+  </script>
+</html>

@@ -1,0 +1,5 @@
+@reference "../tailwind.css";
+
+.ant-btn {
+  @apply font-bold;
+}

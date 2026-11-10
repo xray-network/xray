@@ -1,0 +1,74 @@
+@import "@/styles/tailwind.css";
+
+.shared-apps-tabs .ant-tabs-nav-list {
+  @apply px-4 md:px-0;
+}
+
+.shared-apps-tabs .ant-tabs-nav {
+  @apply m-0!;
+}
+
+.shared-apps-tabs .ant-tabs-nav:before {
+  @apply hidden;
+}
+
+.shared-apps-tabs .ant-tabs-tab {
+  @apply h-10 ms-1! m-0! p-0! border-0! rounded-full! bg-transparent!;
+}
+
+.shared-apps-tabs .ant-tabs-tab:first-child {
+  @apply ms-0!;
+}
+
+.shared-apps-tabs .ant-tabs-tab a {
+  @apply font-bold text-shadow-none flex items-center px-4 h-10 rounded-full bg-gray-100 text-black transition-all duration-200;
+  @apply hover:text-blue-500 hover:bg-gray-200;
+  @apply dark:bg-gray-800 dark:text-white;
+  @apply dark:hover:text-blue-200 dark:hover:bg-gray-700;
+}
+
+.shared-apps-tabs .ant-tabs-tab-active a {
+  @apply bg-blue-500! text-white!;
+}
+
+.shared-apps-tabs .ant-tabs-tab-with-remove {
+  @apply shrink-0;
+}
+
+.shared-apps-tabs .ant-tabs-tab-with-remove a {
+  @apply pe-9!;
+}
+
+.shared-apps-tabs .ant-tabs-tab-active .ant-tabs-tab-remove {
+  @apply text-white! opacity-50;
+  @apply hover:opacity-100;
+}
+
+.shared-apps-tabs .ant-tabs-tab-remove {
+  @apply absolute right-3 size-7;
+  font-size: 10.5px;
+}
+
+.shared-apps-tabs .ant-tabs-ink-bar {
+  @apply hidden;
+}
+
+.shared-apps-tabs .ant-tabs-tab-active .shared-spinner {
+  @apply border-transparent! border-t-white!;
+}
+
+.shared-apps-tabs .ant-tabs-nav-add {
+  @apply rounded-full! bg-gray-100! border-0! ms-1!;
+  @apply hover:bg-gray-200!;
+  @apply dark:bg-gray-800!;
+  @apply dark:hover:bg-gray-700!;
+}
+
+.shared-apps-tabs-popup .ant-tabs-dropdown-menu-item a {
+  @apply text-black flex items-center;
+  @apply dark:text-white;
+}
+
+.shared-apps-tabs-popup .ant-tabs-dropdown-menu-item a img {
+  @apply -ms-1!;
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "noImplicitAny": true,
+    "sourceMap": false,
+    "declaration": true,
+  },
+  "include": ["src/**/*.ts"]
+}

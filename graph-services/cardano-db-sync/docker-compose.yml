@@ -1,0 +1,63 @@
+services:
+  cardano-db-sync:
+    image: ghcr.io/intersectmbo/cardano-db-sync:13.7.1.0
+    container_name: cardano-db-sync-${NETWORK}-${ID}
+    security_opt:
+      - seccomp:unconfined
+    entrypoint:
+      - sh
+      - -c
+      - |
+        export PGPASSWORD="$POSTGRES_PASSWORD"
+        if [ "$(psql \
+          -h "$POSTGRES_HOST" \
+          -p "$POSTGRES_PORT" \
+          -U "$POSTGRES_USER" \
+          -d postgres \
+          -tAc "SELECT COUNT(*) FROM pg_database WHERE datname='$POSTGRES_DB'")" = "0" ]
+        then
+          createdb \
+            -h "$POSTGRES_HOST" \
+            -p "$POSTGRES_PORT" \
+            -U "$POSTGRES_USER" \
+            "$POSTGRES_DB"
+        fi
+        exec "$(cat /nix/var/nix/profiles/default/bin/entrypoint 2>/dev/null || \
+          find /nix/store -name entrypoint -type f | head -1)" "$@"
+      - --
+    command:
+      - "--config"
+      - /config/config.json
+      - "--socket-path"
+      - /node-ipc/node.socket
+    environment:
+      - EKG=Y
+      - RESTORE_SNAPSHOT=${RESTORE_SNAPSHOT:-}
+      - RESTORE_RECREATE_DB=N
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./snapshots:/snapshots
+      - ./config/${NETWORK}:/config
+      - ../volumes/cardano-node-${NETWORK}-${CARDANO_NODE_ID}/config:/cardano-config
+      - ../volumes/cardano-node-${NETWORK}-${CARDANO_NODE_ID}/ipc:/node-ipc
+      - db-sync-data:/var/lib/cexplorer
+    networks:
+      - xray-graph-services
+    restart: on-failure
+    stop_signal: SIGINT
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+networks:
+  xray-graph-services:
+    name: xray-graph-services
+
+volumes:
+  db-sync-data:

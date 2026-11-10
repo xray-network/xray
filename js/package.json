@@ -1,0 +1,30 @@
+{
+  "name": "@xray-network/xray-js-workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "workspaces": [
+    "packages/cardano",
+    "packages/mini-app-bridge",
+    "packages/runtime"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run build && npm run test --workspaces --if-present",
+    "test:integration": "npm run build && npm run test:integration --workspaces --if-present",
+    "typecheck": "npm run build && npm run typecheck --workspaces --if-present",
+    "check": "npm run build && npm run test --workspaces --if-present && npm run typecheck --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3"
+  }
+}

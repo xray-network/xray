@@ -1,0 +1,54 @@
+@reference "../../../styles/tailwind.css";
+
+.title {
+  @apply text-base font-bold mb-5 uppercase text-gray-900;
+  @apply dark:text-white;
+}
+
+.section {
+  @apply mb-10;
+}
+
+.link {
+  @apply flex items-start px-5 py-4 rounded-xl bg-gray-100 text-black hover:text-black;
+  @apply dark:bg-gray-900 dark:text-white;
+}
+
+.link:hover {
+  @apply bg-gray-200;
+  @apply dark:bg-gray-700;
+}
+
+.linkHeader {
+  @apply flex items-start;
+}
+
+.linkIcon {
+  @apply mt-1 me-3;
+}
+
+.linkIcon svg {
+  @apply size-5 text-gray-400;
+}
+
+.linkTitle {
+  @apply font-bold;
+}
+
+.linkDescr {
+  @apply text-gray-500 text-sm;
+}
+
+.linkArrow {
+  @apply ms-auto size-5 text-gray-400 self-center;
+}
+
+:global(html.dark) {
+  .title {
+    @apply text-white;
+  }
+
+  .link {
+    @apply bg-gray-900 hover:bg-gray-700 text-white;
+  }
+}

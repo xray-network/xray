@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme inline {
+  --spacing: 3.5px;
+
+  --font-sans: var(--xr-font-sans);
+  --font-mono: var(--xr-font-mono);
+
+  --color-white: var(--xr-white);
+  --color-black: var(--xr-black);
+  --color-td: var(--xr-td);
+  --color-td-hover: var(--xr-td-hover);
+  --color-td-dark: var(--xr-td-dark);
+  --color-td-dark-hover: var(--xr-td-dark-hover);
+
+  --color-blue: var(--xr-blue);
+  --color-blue-50: var(--xr-blue-50);
+  --color-blue-100: var(--xr-blue-100);
+  --color-blue-200: var(--xr-blue-200);
+  --color-blue-300: var(--xr-blue-300);
+  --color-blue-400: var(--xr-blue-400);
+  --color-blue-500: var(--xr-blue-500);
+  --color-blue-600: var(--xr-blue-600);
+  --color-blue-700: var(--xr-blue-700);
+  --color-blue-800: var(--xr-blue-800);
+  --color-blue-900: var(--xr-blue-900);
+  --color-blue-950: var(--xr-blue-950);
+
+  --color-green: var(--xr-green);
+  --color-green-50: var(--xr-green-50);
+  --color-green-100: var(--xr-green-100);
+  --color-green-200: var(--xr-green-200);
+  --color-green-300: var(--xr-green-300);
+  --color-green-400: var(--xr-green-400);
+  --color-green-500: var(--xr-green-500);
+  --color-green-600: var(--xr-green-600);
+  --color-green-700: var(--xr-green-700);
+  --color-green-800: var(--xr-green-800);
+  --color-green-900: var(--xr-green-900);
+  --color-green-950: var(--xr-green-950);
+
+  --color-gray: var(--xr-gray);
+  --color-gray-50: var(--xr-gray-50);
+  --color-gray-100: var(--xr-gray-100);
+  --color-gray-200: var(--xr-gray-200);
+  --color-gray-300: var(--xr-gray-300);
+  --color-gray-400: var(--xr-gray-400);
+  --color-gray-500: var(--xr-gray-500);
+  --color-gray-600: var(--xr-gray-600);
+  --color-gray-700: var(--xr-gray-700);
+  --color-gray-800: var(--xr-gray-800);
+  --color-gray-900: var(--xr-gray-900);
+  --color-gray-950: var(--xr-gray-950);
+
+  --color-orange-500: var(--xr-orange-500);
+  --color-red-500: var(--xr-red-500);
+  --color-primary: var(--xr-primary);
+  --color-success: var(--xr-success);
+  --color-warning: var(--xr-warning);
+  --color-error: var(--xr-error);
+}
