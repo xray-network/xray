@@ -34,11 +34,11 @@ on-wire rule, and applies protocol-11 universe and constructor bounds.
 
 ## Artifacts consumed
 
-- `../../providers/uplc/0001-uplc/artifacts/SHA256SUMS`
-- All 24 byte-exact files under `../../providers/uplc/0001-uplc/artifacts/cardano-ledger/`
-- `../../providers/uplc/0001-uplc/artifacts/conformance/README.md`
-- `../../providers/uplc/0001-uplc/artifacts/conformance/corpus.json`
-- All 113 byte-exact files under `../../providers/uplc/0001-uplc/artifacts/plutus/`, including the Plutus legal/provenance files,
+- `../../providers/uplc/0001/artifacts/SHA256SUMS`
+- All 24 byte-exact files under `../../providers/uplc/0001/artifacts/cardano-ledger/`
+- `../../providers/uplc/0001/artifacts/conformance/README.md`
+- `../../providers/uplc/0001/artifacts/conformance/corpus.json`
+- All 113 byte-exact files under `../../providers/uplc/0001/artifacts/plutus/`, including the Plutus legal/provenance files,
   conformance runner evidence, 68 selected Plutus Core files, and 38 selected Plutus Ledger API
   files
 
@@ -79,7 +79,7 @@ executing 1,003 UPLC programs. The captured source identities remain official Pl
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| `shasum -a 256 -c SHA256SUMS` from `../../providers/uplc/0001-uplc/artifacts/` | PASS | All 139 captured artifacts matched |
+| `shasum -a 256 -c SHA256SUMS` from `../../providers/uplc/0001/artifacts/` | PASS | All 139 captured artifacts matched |
 | `npm --prefix libs/typescript run build` | PASS | All TypeScript project references built |
 | `node --test libs/typescript/packages/crypto/test/*.test.mjs` | PASS | Existing and UPLC crypto vectors, malformed inputs, and dependency policy passed |
 | `node --test libs/typescript/packages/plutus/test/*.test.mjs` | PASS | API, Data, Flat, cost, CEK, ledger, and all 1,003 applicable official programs passed |

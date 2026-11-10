@@ -19,9 +19,9 @@ reviewed source; package tests consume the snapshot artifacts directly.
 
 ## Artifacts consumed
 
-- 38 CDDL files below `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/specs/`.
-- Three CML license files below `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/legal/`.
-- The complete `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/` corpus.
+- 38 CDDL files below `../../providers/cardano-multiplatform-lib/0001/artifacts/specs/`.
+- Three CML license files below `../../providers/cardano-multiplatform-lib/0001/artifacts/legal/`.
+- The complete `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/` corpus.
 
 ## Test-vector artifacts consumed
 
@@ -35,7 +35,7 @@ storage forms, expected outcomes, source revisions, and license hashes.
 
 ## Project changes
 
-- Moved the reusable vector corpus into this snapshot's `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/`.
+- Moved the reusable vector corpus into this snapshot's `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/`.
 - Updated chain and runtime tests to consume the snapshot path directly.
 - Updated imported-byte handling, active documentation, provider definitions, and snapshot
   workflow.

@@ -53,13 +53,13 @@ from the seven declared official era artifacts.
   and additional cryptography contract.
 - `updates/implementations/typescript/0004-IMPL-RESULT.md` — official era validation and narrow historical
   compatibility contract.
-- `updates/providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md`
+- `updates/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md`
   — six genesis fixtures and 86 historical block outcomes.
-- `updates/providers/message-signing/0001-message-signing/SNAPSHOT.md` — CIP-8 wire,
+- `updates/providers/message-signing/0001/SNAPSHOT.md` — CIP-8 wire,
   checksum, signing, and compatibility evidence.
-- `updates/providers/uplc/0001-uplc/SNAPSHOT.md` — 139 integrity artifacts, 3,013
+- `updates/providers/uplc/0001/SNAPSHOT.md` — 139 integrity artifacts, 3,013
   embedded corpus entries, 1,003 applicable programs, cost models, contexts, and crypto vectors.
-- `updates/providers/cardano-ledger/0001-cardano-ledger/SNAPSHOT.md` — seven official
+- `updates/providers/cardano-ledger/0001/SNAPSHOT.md` — seven official
   Byron-through-Conway CDDL artifacts and Ledger legal material.
 - `docs/adr/repository/0001-repository-architecture.md` — independent-workspace, package
   ownership, evidence, lifecycle, and documentation rules.

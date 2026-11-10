@@ -5,14 +5,14 @@ Implementation-ID: typescript/0009
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0003-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`typescript/0003`](./0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted typed Data, UPLC, serialized-script, and Plutus V1/V2/V3 ownership |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable CIP-0057 specification and complete captured meta-schema set |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable CIP-0057 specification and complete captured meta-schema set |
 | Captured `CIP-0057/README.md` and `schemas/README.md` | `PROVIDER` | Yes | Document structure, vocabulary, validation semantics, and schema inventory |
 | Captured five `CIP-0057/schemas/*.json` files | `PROVIDER` | Yes | Exact blueprint, argument, parameter, Data, and builtin schema constraints |
 | `libs/typescript/packages/plutus/` and runtime facade | `LOCAL` | Yes | Existing package, Data, script codec, hash, export, and security boundaries |

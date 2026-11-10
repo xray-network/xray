@@ -25,18 +25,18 @@ Blake2b owners are reused, and no production dependency was added.
 
 ## Artifacts consumed
 
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/README.md`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/Cargo.toml`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/lib.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/builders.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/serialization.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/cbor.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/utils.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/crypto.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/error.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/upstream/examples/rust/src/main.rs`
-- `../../providers/message-signing/0001-message-signing/artifacts/legal/LICENSE`
-- `../../providers/message-signing/0001-message-signing/artifacts/SHA256SUMS`
+- `../../providers/message-signing/0001/artifacts/upstream/README.md`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/Cargo.toml`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/lib.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/builders.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/serialization.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/cbor.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/utils.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/crypto.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/rust/src/error.rs`
+- `../../providers/message-signing/0001/artifacts/upstream/examples/rust/src/main.rs`
+- `../../providers/message-signing/0001/artifacts/legal/LICENSE`
+- `../../providers/message-signing/0001/artifacts/SHA256SUMS`
 
 All eleven byte-exact upstream artifacts passed the authoritative SHA-256 inventory before and
 after implementation. The captured source identity remains EMURGO Message Signing tag `1.1.0`,

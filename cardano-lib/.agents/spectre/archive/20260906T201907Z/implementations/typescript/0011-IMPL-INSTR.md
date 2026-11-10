@@ -5,14 +5,14 @@ Implementation-ID: typescript/0011
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`typescript/0004`](./0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted Byron-through-Conway models, lossless CBOR, and transaction ownership |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable active CIP-0021 transaction restrictions |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable active CIP-0021 transaction restrictions |
 | Captured `CIP-0021/README.md` | `PROVIDER` | Yes | Exact deterministic restrictions and explicitly time-sensitive appendix boundary |
 | `libs/typescript/packages/{core,chain,cip,runtime}/` | `LOCAL` | Yes | Existing lossless CBOR nodes, transaction owner, package exports, and tests |
 

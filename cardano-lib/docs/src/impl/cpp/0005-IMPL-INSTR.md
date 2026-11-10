@@ -5,7 +5,7 @@ Implementation-ID: cpp/0005
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 

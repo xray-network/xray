@@ -5,7 +5,7 @@ Implementation-ID: typescript/0002
 Created: 20260727T084625Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/message-signing/0001-message-signing/SNAPSHOT.md
+Provider-Evidence: ../../providers/message-signing/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
@@ -58,18 +58,18 @@ dependency.
 
 | Artifact | Upstream source and revision | Preservation and integrity | License | Intended consumers |
 | --- | --- | --- | --- | --- |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/README.md` | `README.md` at `f76a82442594c8435fb577cb85da3ad594cf1063` | Byte-exact; listed in `../../providers/message-signing/0001-message-signing/artifacts/SHA256SUMS` | MIT | Scope and usage evidence |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/Cargo.toml` | `rust/Cargo.toml` at the source commit | Byte-exact; checksum recorded | MIT | Version, dependency, and artifact-policy review |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/lib.rs` | `rust/src/lib.rs` at the source commit | Byte-exact; checksum recorded | MIT | Public signing models and behavior |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/builders.rs` | `rust/src/builders.rs` at the source commit | Byte-exact; checksum recorded | MIT | Builders, label enums, public COSE key behavior |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/serialization.rs` | `rust/src/serialization.rs` at the source commit | Byte-exact; checksum recorded | MIT | Exact COSE map/array/null/tag and malformed-input behavior |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/cbor.rs` | `rust/src/cbor.rs` at the source commit | Byte-exact; checksum recorded | MIT | Generic-value comparison with the existing core owner |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/utils.rs` | `rust/src/utils.rs` at the source commit | Byte-exact; checksum recorded | MIT | Integer, decoding, and byte-serialization comparison |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/crypto.rs` | `rust/src/crypto.rs` at the source commit | Byte-exact; checksum recorded | MIT | Blake2b-224 and FNV-1a behavior |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/rust/src/error.rs` | `rust/src/error.rs` at the source commit | Byte-exact; checksum recorded | MIT | Duplicate, missing, malformed, and tag error behavior |
-| `../../providers/message-signing/0001-message-signing/artifacts/upstream/examples/rust/src/main.rs` | `examples/rust/src/main.rs` at the source commit | Byte-exact; checksum recorded | MIT | End-to-end Sign1/AAD/Ed25519 compatibility test |
-| `../../providers/message-signing/0001-message-signing/artifacts/legal/LICENSE` | `LICENSE` at the source commit | Byte-exact; checksum recorded | MIT | Legal review |
-| `../../providers/message-signing/0001-message-signing/artifacts/SHA256SUMS` | Snapshot-local control artifact | Deterministic inventory of all eleven byte-exact artifacts | Repository metadata | Preparation and implementation integrity checks |
+| `../../providers/message-signing/0001/artifacts/upstream/README.md` | `README.md` at `f76a82442594c8435fb577cb85da3ad594cf1063` | Byte-exact; listed in `../../providers/message-signing/0001/artifacts/SHA256SUMS` | MIT | Scope and usage evidence |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/Cargo.toml` | `rust/Cargo.toml` at the source commit | Byte-exact; checksum recorded | MIT | Version, dependency, and artifact-policy review |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/lib.rs` | `rust/src/lib.rs` at the source commit | Byte-exact; checksum recorded | MIT | Public signing models and behavior |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/builders.rs` | `rust/src/builders.rs` at the source commit | Byte-exact; checksum recorded | MIT | Builders, label enums, public COSE key behavior |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/serialization.rs` | `rust/src/serialization.rs` at the source commit | Byte-exact; checksum recorded | MIT | Exact COSE map/array/null/tag and malformed-input behavior |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/cbor.rs` | `rust/src/cbor.rs` at the source commit | Byte-exact; checksum recorded | MIT | Generic-value comparison with the existing core owner |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/utils.rs` | `rust/src/utils.rs` at the source commit | Byte-exact; checksum recorded | MIT | Integer, decoding, and byte-serialization comparison |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/crypto.rs` | `rust/src/crypto.rs` at the source commit | Byte-exact; checksum recorded | MIT | Blake2b-224 and FNV-1a behavior |
+| `../../providers/message-signing/0001/artifacts/upstream/rust/src/error.rs` | `rust/src/error.rs` at the source commit | Byte-exact; checksum recorded | MIT | Duplicate, missing, malformed, and tag error behavior |
+| `../../providers/message-signing/0001/artifacts/upstream/examples/rust/src/main.rs` | `examples/rust/src/main.rs` at the source commit | Byte-exact; checksum recorded | MIT | End-to-end Sign1/AAD/Ed25519 compatibility test |
+| `../../providers/message-signing/0001/artifacts/legal/LICENSE` | `LICENSE` at the source commit | Byte-exact; checksum recorded | MIT | Legal review |
+| `../../providers/message-signing/0001/artifacts/SHA256SUMS` | Snapshot-local control artifact | Deterministic inventory of all eleven byte-exact artifacts | Repository metadata | Preparation and implementation integrity checks |
 
 ## Cardano Lib change map
 

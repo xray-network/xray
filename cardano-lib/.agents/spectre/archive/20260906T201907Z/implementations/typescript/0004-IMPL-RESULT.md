@@ -41,23 +41,23 @@ expose the same bindings.
 
 ## Artifacts consumed
 
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/byron.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/byron.cddl` —
   `bc6f7fc1c6295046a2944ad784ce4b5ea544a185400add4aa7b122cd8e46a107`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/shelley.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/shelley.cddl` —
   `3a4723732bcd9dafbbb5d2e6c29d9ae3347575212adbf6bbd5e4de16a6790791`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/allegra.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/allegra.cddl` —
   `e71cbf08f4fe62bb654f8371f4934eba750c17546b7d44c0c4f38b470eaabcd6`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/mary.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/mary.cddl` —
   `aa13e8687343658c5195b115d54fa1f4dfd7beeb70020f3e6c57f63f9be7aef1`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/alonzo.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/alonzo.cddl` —
   `7460f60206160f3b459ee58befb1b912acf1812402113faa3963bf4bda0cf98d`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/babbage.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/babbage.cddl` —
   `fcca168539a91a16c45b55c724b52e34bd85ff6499148a976ae5e01b66cff272`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/cddl/eras/conway.cddl` —
+- `../../providers/cardano-ledger/0001/artifacts/cddl/eras/conway.cddl` —
   `316ed8ee090ea172983083329e849f24f4360a236d26be0a6f2094c6078f1e1f`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/legal/LICENSE` —
+- `../../providers/cardano-ledger/0001/artifacts/legal/LICENSE` —
   `0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594`
-- `../../providers/cardano-ledger/0001-cardano-ledger/artifacts/legal/NOTICE` —
+- `../../providers/cardano-ledger/0001/artifacts/legal/NOTICE` —
   `58721f8b6ca67f0fcbe1cd739b384fec3126a35f7d79951aedaa2bc3863a3162`
 
 The exact provider inventory is present, every selected artifact is a regular file, and all nine

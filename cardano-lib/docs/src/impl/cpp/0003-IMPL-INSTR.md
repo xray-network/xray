@@ -5,7 +5,7 @@ Implementation-ID: cpp/0003
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md, ../../providers/uplc/0001-uplc/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md
 
 ## Inputs and authority
 

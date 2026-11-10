@@ -5,7 +5,7 @@ Implementation-ID: typescript/0003
 Created: 20260727T100703Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/uplc/0001-uplc/SNAPSHOT.md
+Provider-Evidence: ../../providers/uplc/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
@@ -81,14 +81,14 @@ No upstream code or runtime artifact is shipped or executed.
 
 | Artifact | Upstream source and revision | Preservation and integrity | License | Intended consumers |
 | --- | --- | --- | --- | --- |
-| `../../providers/uplc/0001-uplc/artifacts/plutus/LICENSE.md`, `NOTICE.md`, `README.adoc` | Official Plutus root at `91e8c2af9c7bec705b035c6cf8e679c35c4c2ad5` | Three byte-exact files; checksums recorded | Apache-2.0 | Legal and source review |
-| `../../providers/uplc/0001-uplc/artifacts/plutus/plutus-conformance/` excluding test cases | Official conformance metadata and runner source at the Plutus commit | Four byte-exact files; checksums recorded | Apache-2.0 | Corpus semantics and test-reader design |
-| `../../providers/uplc/0001-uplc/artifacts/plutus/plutus-core/` | Selected official Flat, UPLC, CEK, builtin, cryptographic, costing, default model, and golden paths at the Plutus commit | Exactly 68 byte-exact files; checksums recorded | Apache-2.0 | Internal codec, evaluator, builtins, costs, tests |
-| `../../providers/uplc/0001-uplc/artifacts/plutus/plutus-ledger-api/` | Selected official ledger API, protocol, language, script, cost-model, and V1/V2/V3 Data paths at the Plutus commit | Exactly 38 byte-exact files; checksums recorded | Apache-2.0 | Protocol selection, application, contexts, tests |
-| `../../providers/uplc/0001-uplc/artifacts/conformance/corpus.json` | Deterministic transform of all regular files below official `plutus-conformance/test-cases` at the Plutus commit | 3,013 entries, 807,307 decoded bytes, per-entry size/SHA-256/base64; artifact checksum recorded | Apache-2.0 | Evaluator and budget conformance tests |
-| `../../providers/uplc/0001-uplc/artifacts/conformance/README.md` | Snapshot-local control artifact | Authored consumer and provenance guidance; checksum recorded | Repository metadata | Safe corpus consumption |
-| `../../providers/uplc/0001-uplc/artifacts/cardano-ledger/` | Selected official Cardano Ledger phase-two/context paths at `a624de4c8db7286a6c065da149679ea55f7d5629` | Exactly 24 byte-exact files; checksums recorded | Apache-2.0 | Raw transaction valuation and context tests |
-| `../../providers/uplc/0001-uplc/artifacts/SHA256SUMS` | Snapshot-local control artifact | 139 sorted entries covering every other artifact; final inventory is 140 regular files | Repository metadata | Preparation and implementation integrity |
+| `../../providers/uplc/0001/artifacts/plutus/LICENSE.md`, `NOTICE.md`, `README.adoc` | Official Plutus root at `91e8c2af9c7bec705b035c6cf8e679c35c4c2ad5` | Three byte-exact files; checksums recorded | Apache-2.0 | Legal and source review |
+| `../../providers/uplc/0001/artifacts/plutus/plutus-conformance/` excluding test cases | Official conformance metadata and runner source at the Plutus commit | Four byte-exact files; checksums recorded | Apache-2.0 | Corpus semantics and test-reader design |
+| `../../providers/uplc/0001/artifacts/plutus/plutus-core/` | Selected official Flat, UPLC, CEK, builtin, cryptographic, costing, default model, and golden paths at the Plutus commit | Exactly 68 byte-exact files; checksums recorded | Apache-2.0 | Internal codec, evaluator, builtins, costs, tests |
+| `../../providers/uplc/0001/artifacts/plutus/plutus-ledger-api/` | Selected official ledger API, protocol, language, script, cost-model, and V1/V2/V3 Data paths at the Plutus commit | Exactly 38 byte-exact files; checksums recorded | Apache-2.0 | Protocol selection, application, contexts, tests |
+| `../../providers/uplc/0001/artifacts/conformance/corpus.json` | Deterministic transform of all regular files below official `plutus-conformance/test-cases` at the Plutus commit | 3,013 entries, 807,307 decoded bytes, per-entry size/SHA-256/base64; artifact checksum recorded | Apache-2.0 | Evaluator and budget conformance tests |
+| `../../providers/uplc/0001/artifacts/conformance/README.md` | Snapshot-local control artifact | Authored consumer and provenance guidance; checksum recorded | Repository metadata | Safe corpus consumption |
+| `../../providers/uplc/0001/artifacts/cardano-ledger/` | Selected official Cardano Ledger phase-two/context paths at `a624de4c8db7286a6c065da149679ea55f7d5629` | Exactly 24 byte-exact files; checksums recorded | Apache-2.0 | Raw transaction valuation and context tests |
+| `../../providers/uplc/0001/artifacts/SHA256SUMS` | Snapshot-local control artifact | 139 sorted entries covering every other artifact; final inventory is 140 regular files | Repository metadata | Preparation and implementation integrity |
 
 ## Public API contract
 
@@ -164,7 +164,7 @@ remain package-private.
 
 | Upstream change | Evidence | Local owner | Required implementation | Compatibility | Tests |
 | --- | --- | --- | --- | --- | --- |
-| Stable Flat program, term, builtin, constant, list, pair, Data, array, value, BLS, and padding encodings | `../../providers/uplc/0001-uplc/artifacts/plutus/plutus-core/**/Flat*.hs`, `Default/{Builtins,Universe}.hs`, `Value.hs`, Flat golden | `libs/typescript/packages/plutus/src/uplc/{ast,flat,index}.ts` | Implement and expose iterative complete Flat decoding/encoding for UPLC 1.0.0/1.1.0, De Bruijn indices, term tags 0-9, builtin tags 0-100, universe tags and constant payloads; preserve exact canonical output | `apply_params_to_script` is strict and rejects CBOR/Flat remainder, malformed tags/padding, free variables, double wrapping, and inputs over 16 MiB | Flat golden, every constant/term, malformed/truncated/padding/tag/version, deep iterative and size-bound cases |
+| Stable Flat program, term, builtin, constant, list, pair, Data, array, value, BLS, and padding encodings | `../../providers/uplc/0001/artifacts/plutus/plutus-core/**/Flat*.hs`, `Default/{Builtins,Universe}.hs`, `Value.hs`, Flat golden | `libs/typescript/packages/plutus/src/uplc/{ast,flat,index}.ts` | Implement and expose iterative complete Flat decoding/encoding for UPLC 1.0.0/1.1.0, De Bruijn indices, term tags 0-9, builtin tags 0-100, universe tags and constant payloads; preserve exact canonical output | `apply_params_to_script` is strict and rejects CBOR/Flat remainder, malformed tags/padding, free variables, double wrapping, and inputs over 16 MiB | Flat golden, every constant/term, malformed/truncated/padding/tag/version, deep iterative and size-bound cases |
 | Parameter application is iterated term application to Data constants inside one CBOR byte-string envelope | `Common/Eval.hs`, `SerialisedScript.hs`, `MkPlc.hs`, `MkUPlc.hs` | `libs/typescript/packages/plutus/src/api.ts`, existing chain Plutus Data owner | Decode a CBOR array of complete Plutus Data fragments, decode the complete serialized program, apply constants left-to-right without evaluation, scope-check, and return one canonical CBOR byte string | Preserve caller bytes; empty params still canonicalize the valid script | Empty/one/many/order-sensitive params, exact envelope, non-array/malformed/trailing/double-CBOR, defensive-copy tests |
 | CEK compute/return machine, discharge, scope, logs, restricting budget, step batching, and memory accounting | UPLC `Cek*.hs`, `CommonAPI.hs`, machine budget/memory/cost paths, conformance corpus | `libs/typescript/packages/plutus/src/uplc/machine.ts` | Implement and expose all term states including Constr/Case and builtin application, official startup/step/builtin charging and final flush, bigint counters, out-of-budget behavior, and Trace log order | Avoid JS recursion for adversarial terms; charge before expensive primitives; evaluation is bounded by each supplied max budget | CEK unit cases, exact CPU/memory goldens, boundary exhaustion, nontermination guard, logs, deep terms, full applicable corpus |
 | Builtin tags 0-100 and semantics variants A-E are protocol/language-sensitive | `Default/Builtins.hs`, `Bitwise.hs`, `Value.hs`, crypto paths, `ProtocolVersions.hs`, `Versions.hs`, `MachineParameters.hs` | `libs/typescript/packages/plutus/src/uplc/{machine,cost-model}.ts`; crypto primitives remain in `libs/typescript/packages/crypto/src/primitives/crypto.ts` | Implement exact force/arity/type/error order and denotation for every builtin; select A/B/C/D/E and builtin availability from `(language, protocolMajorVersion)` | No unavailable builtin may deserialize; protocol 11 bounded integer/bytes and UTF-8 semantics must not leak into earlier variants | All official builtin corpus vectors by semantics, availability matrix 5-11, malformed crypto/group/value/array inputs, browser execution |
@@ -209,7 +209,7 @@ remain package-private.
 
 ## Validation
 
-- Verify `../../providers/uplc/0001-uplc/artifacts/SHA256SUMS`; verify all 3,013 corpus entry sizes and SHA-256 digests before
+- Verify `../../providers/uplc/0001/artifacts/SHA256SUMS`; verify all 3,013 corpus entry sizes and SHA-256 digests before
   consuming a vector.
 - `npm --prefix libs/typescript run build`
 - `node --test libs/typescript/packages/crypto/test/crypto.test.mjs libs/typescript/packages/crypto/test/dependency-policy.test.mjs`

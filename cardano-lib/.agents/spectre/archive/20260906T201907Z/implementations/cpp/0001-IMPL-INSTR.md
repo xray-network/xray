@@ -5,7 +5,7 @@ Implementation-ID: cpp/0001
 Created: 20260730T073858Z
 Evidence-Mode: HYBRID
 Depends-On: ../typescript/0001-IMPL-RESULT.md, ../typescript/0002-IMPL-RESULT.md, ../typescript/0003-IMPL-RESULT.md, ../typescript/0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md, ../../providers/message-signing/0001-message-signing/SNAPSHOT.md, ../../providers/uplc/0001-uplc/SNAPSHOT.md, ../../providers/cardano-ledger/0001-cardano-ledger/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/message-signing/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md, ../../providers/cardano-ledger/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
@@ -15,10 +15,10 @@ Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multip
 | [`typescript/0002`](../typescript/0002-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | CIP-8 COSE, signing, hashing, and user-facing encoding contract |
 | [`typescript/0003`](../typescript/0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | UPLC, phase-two valuation, cost-model, context, and additional cryptography contract |
 | [`typescript/0004`](../typescript/0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Official era validation and documented historical compatibility contract |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL comparison corpus, genesis vectors, and historical block vectors |
-| [`0001-message-signing`](../../providers/message-signing/0001-message-signing/SNAPSHOT.md) | `PROVIDER` | Yes | CIP-8 wire and signing evidence |
-| [`0001-uplc`](../../providers/uplc/0001-uplc/SNAPSHOT.md) | `PROVIDER` | Yes | Official UPLC, conformance, cost-model, cryptography, and phase-two evidence |
-| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001-cardano-ledger/SNAPSHOT.md) | `PROVIDER` | Yes | Official Byron-through-Conway ledger grammar |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL comparison corpus, genesis vectors, and historical block vectors |
+| [`0001-message-signing`](../../providers/message-signing/0001/SNAPSHOT.md) | `PROVIDER` | Yes | CIP-8 wire and signing evidence |
+| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official UPLC, conformance, cost-model, cryptography, and phase-two evidence |
+| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official Byron-through-Conway ledger grammar |
 | `docs/adr/repository/0001-repository-architecture.md` | `LOCAL` | Yes | Independent workspace, package ownership, evidence, lifecycle, and documentation rules |
 
 ## Objective

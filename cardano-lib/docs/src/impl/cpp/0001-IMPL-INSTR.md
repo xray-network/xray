@@ -5,7 +5,7 @@ Implementation-ID: cpp/0001
 Created: 20260730T073858Z
 Evidence-Mode: HYBRID
 Depends-On: ../typescript/0001-IMPL-RESULT.md, ../typescript/0002-IMPL-RESULT.md, ../typescript/0003-IMPL-RESULT.md, ../typescript/0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md, ../../providers/message-signing/0001-message-signing/SNAPSHOT.md, ../../providers/uplc/0001-uplc/SNAPSHOT.md, ../../providers/cardano-ledger/0001-cardano-ledger/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/message-signing/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md, ../../providers/cardano-ledger/0001/SNAPSHOT.md
 
 ## Inputs and authority
 

@@ -5,15 +5,15 @@ Implementation-ID: cpp/0003
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md, ../../providers/uplc/0001-uplc/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cpp/0001`](./0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted workspace, component graph, package, historical-block, UPLC, and completion baseline |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable historical block and genesis benchmark fixtures |
-| [`0001-uplc`](../../providers/uplc/0001-uplc/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable Flat/text/CEK and phase-two benchmark fixtures |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable historical block and genesis benchmark fixtures |
+| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable Flat/text/CEK and phase-two benchmark fixtures |
 | `libs/cpp/CMakeLists.txt`, `libs/cpp/CMakePresets.json`, and `libs/cpp/cmake/` | `LOCAL` | Yes | Current host restrictions, target exports, dependency discovery, and validation workflows |
 
 ## Objective

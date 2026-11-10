@@ -5,14 +5,14 @@ Implementation-ID: cpp/0004
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cpp/0001`](./0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted crypto, asset-name, Bech32, CIP component, ownership, and packaging baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md) | `PROVIDER` | Yes | Captured CIP-14 algorithm, HRP, size rules, and eight normative vectors |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured CIP-14 algorithm, HRP, size rules, and eight normative vectors |
 | `libs/cpp/include/cardano/crypto/primitives.hpp` and `libs/cpp/include/cardano/chain/builder.hpp` | `LOCAL` | Yes | Existing primitive and `ScriptHash`/`AssetName` owners to reuse |
 
 ## Objective

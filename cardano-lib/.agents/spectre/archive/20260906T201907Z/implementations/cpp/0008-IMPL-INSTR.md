@@ -5,14 +5,14 @@ Implementation-ID: cpp/0008
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cpp/0001`](./0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted lossless CBOR metadata, era validation, transaction, CIP-36, limit, error, and package baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md) | `PROVIDER` | Yes | Captured active CIP-21 interoperability rules and explicitly time-sensitive device appendix |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured active CIP-21 interoperability rules and explicitly time-sensitive device appendix |
 | `libs/cpp/include/cardano/core/cbor.hpp` and `libs/cpp/include/cardano/chain/era_models.hpp` | `LOCAL` | Yes | Existing preserved-wire and transaction owners used for read-only inspection |
 
 ## Objective

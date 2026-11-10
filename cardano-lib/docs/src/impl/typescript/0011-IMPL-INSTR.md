@@ -5,7 +5,7 @@ Implementation-ID: typescript/0011
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 

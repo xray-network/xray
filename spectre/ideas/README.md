@@ -6,3 +6,4 @@ adopted into `protocol/`.
 | Idea | Status |
 | --- | --- |
 | [IMLP 1 — Recall project decisions](IMLP-1.md) | Deferred |
+| [IMLP 2 — Capture other projects as providers](IMLP-2.md) | Proposed |

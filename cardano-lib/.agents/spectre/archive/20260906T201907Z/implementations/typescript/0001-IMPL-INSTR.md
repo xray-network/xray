@@ -5,13 +5,13 @@ Implementation-ID: typescript/0001
 Created: 20260723T122735Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL, historical vectors, provenance, and licensing |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL, historical vectors, provenance, and licensing |
 
 ## Objective
 
@@ -45,12 +45,12 @@ outcomes, wire behavior, or public API. Its provenance pins Dolos commit
 
 | Artifact scope | Upstream source | Integrity | License | Intended consumers |
 | --- | --- | --- | --- | --- |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/specs/` | Selected CML `specs/` files at the source commit | Exact 38-file provider inventory | MIT | CDDL comparison evidence |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/legal/` | CML repository license files | Three byte-exact files | Recorded per file | Legal review |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/genesis/` | CML Byron and Shelley genesis data | Six byte-exact files with manifest checksums | MIT | Chain genesis tests |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/blocks/mainnet/` | CML-carried Dolos blocks | 34 byte-exact files with manifest checksums | Apache-2.0 | Multi-era and runtime tests |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/blocks/pallas/` | CML-carried Pallas blocks | 52 byte-exact files with manifest checksums | Apache-2.0 | Multi-era and runtime tests |
-| `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/PROVENANCE.md` | CML golden-vector provenance | Byte-exact with supplemental checksum | Upstream document | Provenance review |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/specs/` | Selected CML `specs/` files at the source commit | Exact 38-file provider inventory | MIT | CDDL comparison evidence |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/legal/` | CML repository license files | Three byte-exact files | Recorded per file | Legal review |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/genesis/` | CML Byron and Shelley genesis data | Six byte-exact files with manifest checksums | MIT | Chain genesis tests |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/blocks/mainnet/` | CML-carried Dolos blocks | 34 byte-exact files with manifest checksums | Apache-2.0 | Multi-era and runtime tests |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/blocks/pallas/` | CML-carried Pallas blocks | 52 byte-exact files with manifest checksums | Apache-2.0 | Multi-era and runtime tests |
+| `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/PROVENANCE.md` | CML golden-vector provenance | Byte-exact with supplemental checksum | Upstream document | Provenance review |
 | Test-vector control metadata | Snapshot-authored manifest, provenance, README, Git attributes, and license text | Deterministic five-file control set | Recorded in provenance | Integrity tests and consumers |
 
 All 92 vectors remain byte-exact. The manifest records their checksums, storage forms, expected
@@ -60,8 +60,8 @@ results, and stable repository paths.
 
 | Upstream change | Evidence | Local owner | Required implementation | Compatibility | Tests |
 | --- | --- | --- | --- | --- | --- |
-| Frozen CDDL comparison corpus | `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/specs/` | Snapshot evidence; package TypeScript remains package-owned | Preserve exact scope and nested specification paths without generating source | No runtime or public API change | Provider inventory review |
-| Genesis and historical block corpus | `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/` | `libs/typescript/packages/chain/test/`, `libs/typescript/packages/runtime/test/` | Consume the single snapshot-owned corpus directly | Preserve 85 byte-exact round trips and one recorded rejection | Genesis, multi-era, vector-integrity, and indexer tests |
+| Frozen CDDL comparison corpus | `../../providers/cardano-multiplatform-lib/0001/artifacts/specs/` | Snapshot evidence; package TypeScript remains package-owned | Preserve exact scope and nested specification paths without generating source | No runtime or public API change | Provider inventory review |
+| Genesis and historical block corpus | `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/` | `libs/typescript/packages/chain/test/`, `libs/typescript/packages/runtime/test/` | Consume the single snapshot-owned corpus directly | Preserve 85 byte-exact round trips and one recorded rejection | Genesis, multi-era, vector-integrity, and indexer tests |
 | Deterministic provenance and checksums | Manifest and provenance control files | `libs/typescript/packages/chain/test/upstream-vectors.test.mjs` | Validate inventory, paths, bytes, expected outcomes, revisions, and licenses | Artifact integrity and legal traceability | Upstream-vector integrity test |
 | Snapshot ownership | Complete snapshot | Root documentation and all vector consumers | Remove the separate root vector corpus and use stable snapshot paths | No duplicated evidence or fixture ownership | Root build, tests, and package smoke checks |
 
@@ -69,7 +69,7 @@ results, and stable repository paths.
 
 1. Preserve the exact 38-file CDDL selection and three CML legal files.
 2. Preserve the exact genesis, block, and provenance selections defined by the provider.
-3. Store vectors deterministically below `../../providers/cardano-multiplatform-lib/0001-cardano-multiplatform-lib/artifacts/test-vectors/`.
+3. Store vectors deterministically below `../../providers/cardano-multiplatform-lib/0001/artifacts/test-vectors/`.
 4. Generate and validate the snapshot-local manifest and provenance mapping.
 5. Point package tests directly at the snapshot artifacts without copying data into packages.
 6. Remove the separate repository-level vector corpus and update active documentation.

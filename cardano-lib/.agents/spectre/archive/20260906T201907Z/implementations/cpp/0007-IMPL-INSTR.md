@@ -5,14 +5,14 @@ Implementation-ID: cpp/0007
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md
+Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cpp/0001`](./0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted asset-name, policy, typed Data, CIP-25, error, ownership, and packaging baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001-cardano-cips/SNAPSHOT.md) | `PROVIDER` | Yes | Captured proposed CIP-67 algorithm/registry/schema and active CIP-68 version-4 specification |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured proposed CIP-67 algorithm/registry/schema and active CIP-68 version-4 specification |
 | `libs/cpp/include/cardano/chain/builder.hpp` and `libs/cpp/include/cardano/plutus/data.hpp` | `LOCAL` | Yes | Existing `AssetName`, `ScriptHash`, and typed `Data` owners to reuse |
 
 ## Objective
