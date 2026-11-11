@@ -385,12 +385,12 @@ To download this specific release manually, run from the repository root:
 ```sh
 mkdir -p .agents/spectre
 curl -fsSLo .agents/spectre/SPECTRE-PROTOCOL.md \
-  https://wiki.xraynetwork.io/spectre/protocol/v2.0.0/SPECTRE-PROTOCOL.md
+  https://wiki.xraynetwork.io/spectre/protocol/v2.1.0/SPECTRE-PROTOCOL.md
 ```
 
 Then prompt a coding agent:
 
-> Read `.agents/spectre/SPECTRE-PROTOCOL.md` completely and install SPECTRE v2.0.0 in this repository.
+> Read `.agents/spectre/SPECTRE-PROTOCOL.md` completely and install SPECTRE v2.1.0 in this repository.
 > Preserve all existing `AGENTS.md` instructions, select flat or monorepo storage from repository
 > evidence, infer targets only when nested storage applies, create only the tracking structure,
 > create the accepted SPECTRE installation record, and do not modify product source.
@@ -432,7 +432,7 @@ Prepend these three lines and a blank line to each extracted file:
 
 ```text
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
-Runtime-Version: 2.0.0
+Runtime-Version: 2.1.0
 Source-SHA256: <SHA-256 of the complete installed protocol file bytes>
 ```
 
@@ -1252,7 +1252,7 @@ not a fourth installed template. It becomes immutable when the archive operation
 Archive-Version: v2
 Archive-ID: <archive-id>
 Created: YYYYMMDDTHHMMSSZ
-Protocol-Version: 2.0.0
+Protocol-Version: 2.1.0
 Storage-Mode: <flat|nested>
 Scope: <target|ALL>
 Forced: <no|yes: human reason>
@@ -1409,7 +1409,7 @@ the target section once for every target in monorepo mode.
 ```markdown
 # SPECTRE implementations
 
-Protocol-Version: 2.0.0
+Protocol-Version: 2.1.0
 Protocol: [.agents/spectre/SPECTRE-PROTOCOL.md](.agents/spectre/SPECTRE-PROTOCOL.md)
 Status-Schema-Version: v2
 Storage-Mode: <flat|nested>
@@ -1474,7 +1474,7 @@ An aggregate ledger with one empty target therefore contains:
 ```markdown
 # SPECTRE implementations
 
-Protocol-Version: 2.0.0
+Protocol-Version: 2.1.0
 Protocol: [.agents/spectre/SPECTRE-PROTOCOL.md](.agents/spectre/SPECTRE-PROTOCOL.md)
 Status-Schema-Version: v2
 Storage-Mode: <flat|nested>

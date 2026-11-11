@@ -1,6 +1,6 @@
 <!-- Generated from SPECTRE-PROTOCOL.md; do not edit. -->
 Runtime-Version: 2.1.0
-Source-SHA256: fc237632d244610124a5b830d96b3ec3fa261a8f45919bbc1e4e825512260b84
+Source-SHA256: a4ab931b976a8c0d1cc2c9893623d0a13cff273b5ff2cd2dd9072e3c5b3deb07
 
 The command prefix, operation, help-operation argument, lifecycle-state filter, and `--archived` flag are ASCII
 case-insensitive, as are the implementation `--batch` and archive `--force` flags. Lowercase is canonical. Selectors follow `runtime/selectors.md` when required by the router. Preserve
