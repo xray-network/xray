@@ -23,8 +23,7 @@ root install.
 8. **Do not copy files between projects.** Each project owns its `.agents/`, `SPECTRE.md`, and
    configs.
 9. **SPECTRE** records live per project (`<project>/SPECTRE.md`). Apply a SPECTRE request to the
-   named project's ledger; never create one at the root. If no project is named, ask. The protocol
-   source is `spectre/`.
+   named project's ledger; never create one at the root. If no project is named, ask.
 
 ## Map
 
@@ -32,8 +31,6 @@ root install.
 | --- | --- | --- | --- |
 | `cardano-lib/` | XRAY/CARDANO-LIB | Cardano protocol libraries. `libs/typescript/` is maintained; `libs/cpp/` is an unmaintained concept. | Active |
 | `js/` | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, Mini App Bridge, docs site (`docs/`). | Active |
-| `design/` | XRAY/DESIGN | Interface protocol and visual reference. Current standard: `protocol/v1.0.0/DESIGN.md`. | Active |
-| `spectre/` | XRAY/SPECTRE | SPECTRE protocol source (Markdown only). | Active |
 | `mini-apps/graph-services/` | XRAY/GRAPH | Docker services behind Graph: cardano-node, db-sync, ogmios, postgres, koios-tiny + TS client, kubo, traefik. | Active |
 | `wiki/` | XRAY Wiki | Rspress knowledge base (wiki.xraynetwork.io). | Active |
 | `cdn/` | — | Static assets and fonts, Cloudflare. | Active |
@@ -63,7 +60,6 @@ cardano-lib/libs/typescript ──▶ js ──▶ mini-apps/*, wiki
 
 - **Mini App Bridge (mini app side):** `js/packages/mini-app-bridge/`: `README-PLATFORM.md`,
   `README-CARDANO.md`, `README-CARDANO-CIP30.md`.
-- **UI and design rules:** `design/protocol/v1.0.0/DESIGN.md`.
 - **Graph infrastructure and start order:** `mini-apps/graph-services/README.md`.
 - **New mini app:** start from the standalone template repository
   `xray-network/xray-mini-app-template-react` (not in this repository).

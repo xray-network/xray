@@ -10,8 +10,6 @@ build, and release.
 | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, and the Mini App Bridge | [`js/`](js/) |
 | XRAY/CARDANO-LIB | Cardano protocol and application libraries | [`cardano-lib/`](cardano-lib/) |
 | XRAY/GRAPH | Blockchain data services: Cardano node, db-sync, Ogmios, Koios, IPFS | [`mini-apps/graph-services/`](mini-apps/graph-services/) |
-| XRAY/DESIGN | Interface protocol and visual component reference | [`design/`](design/) |
-| XRAY/SPECTRE | Evidence-backed implementation protocol for humans and coding agents | [`spectre/`](spectre/) |
 | XRAY Wiki | XRAY/Network knowledge base | [`wiki/`](wiki/) |
 | XRAY CDN | Static assets, fonts, and data files | [`cdn/`](cdn/) |
 | XRAY/VAULT | Vault | [`vault/`](vault/) |
