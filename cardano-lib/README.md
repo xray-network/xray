@@ -11,20 +11,22 @@ The project emphasizes lossless data handling, explicit package boundaries, brow
 runtime behavior, reproducible dependencies, and evidence-backed compatibility.
 
 Repository-wide guidance for contributors and coding agents is documented in
-[`AGENTS.md`](./AGENTS.md). This repository adopts
-[`SPECTRE 1.0.0`](./.agents/spectre/SPECTRE-PROTOCOL.md) for evidence-backed implementation tracking.
+[`AGENTS.md`](./AGENTS.md). Implementation tracking uses the xray repository's single
+[SPECTRE](../.agents/spectre/ROUTER.md) installation at the repository root, with targets
+`cardano-lib-typescript`, `cardano-lib-cpp`, and `cardano-lib-repository`.
 
 ## Current libraries
 
 | Library | Description | Source | Implementation history |
 | --- | --- | --- | --- |
-| TypeScript | The only maintained implementation, covering encoding, cryptography, ledger eras, transactions, CIPs, Plutus Data, and UPLC | [`libs/typescript/`](./libs/typescript/) | [SPECTRE archive](./.agents/spectre/archive/20260906T201907Z/ARCHIVE.md) |
-| C++ | Unmaintained C++23 concept retained for experimentation and design exploration; not a supported feature-parity implementation | [`libs/cpp/`](./libs/cpp/) | [SPECTRE archive](./.agents/spectre/archive/20260906T201907Z/ARCHIVE.md) |
+| TypeScript | The only maintained implementation, covering encoding, cryptography, ledger eras, transactions, CIPs, Plutus Data, and UPLC | [`libs/typescript/`](./libs/typescript/) | [SPECTRE archive](../.agents/spectre/archive/20260906T201907Z/ARCHIVE.md) |
+| C++ | Unmaintained C++23 concept retained for experimentation and design exploration; not a supported feature-parity implementation | [`libs/cpp/`](./libs/cpp/) | [SPECTRE archive](../.agents/spectre/archive/20260906T201907Z/ARCHIVE.md) |
 
 ## Project model
 
 - `libs/` contains language-owned source, manifests, tests, and implementation documentation.
-- `.agents/spectre/implementations/<language>/` contains active numbered instructions and results.
+- SPECTRE paths below are relative to the xray repository root.
+- `.agents/spectre/implementations/cardano-lib-<language>/` contains active numbered instructions and results.
 - `SPECTRE.md` is the aggregate active lifecycle ledger; terminal history is preserved below
   `.agents/spectre/archive/`.
 - `.agents/spectre/providers/` contains shared provider guides and immutable captured evidence.
@@ -34,8 +36,8 @@ Repository-wide guidance for contributors and coding agents is documented in
 Every active implementation change uses a pair directly below the SPECTRE implementation directory:
 
 ```text
-.agents/spectre/implementations/<language>/NNNN-IMPL-INSTR.md
-.agents/spectre/implementations/<language>/NNNN-IMPL-RESULT.md
+.agents/spectre/implementations/cardano-lib-<language>/NNNN-IMPL-INSTR.md
+.agents/spectre/implementations/cardano-lib-<language>/NNNN-IMPL-RESULT.md
 ```
 
 The instruction defines the bounded objective and inputs. The result records actual changes,
@@ -63,11 +65,11 @@ bytes. Capture automatically detects changes and validates evidence; no changes 
 Instructions and results record library-local consumption. Captured artifacts remain evidence rather than generated source or runtime
 dependencies.
 
-See the [implementation overview](./.agents/spectre/README.md),
-[implementation workflow](./.agents/spectre/templates/TEMPLATE_IMPL.md),
-[status schema](./.agents/spectre/templates/TEMPLATE_STATUS.md),
-[provider workflow](./.agents/spectre/templates/TEMPLATE_PROVIDER.md), and the
-[active ledger](./SPECTRE.md).
+See the [SPECTRE router](../.agents/spectre/ROUTER.md),
+[implementation workflow](../.agents/spectre/runtime/templates/TEMPLATE_IMPL.md),
+[status schema](../.agents/spectre/runtime/templates/TEMPLATE_STATUS.md),
+[provider workflow](../.agents/spectre/runtime/templates/TEMPLATE_PROVIDER.md), and the
+[active ledger](../SPECTRE.md).
 
 ## Repository layout
 
@@ -75,25 +77,6 @@ See the [implementation overview](./.agents/spectre/README.md),
 libs/
   typescript/
   cpp/
-
-.agents/
-  skills/spectre/SKILL.md
-  spectre/
-    SPECTRE-PROTOCOL.md
-    README.md
-    templates/
-      TEMPLATE_IMPL.md
-      TEMPLATE_PROVIDER.md
-      TEMPLATE_STATUS.md
-    implementations/             # active records, empty until work is planned
-    archive/                      # terminal history
-    providers/
-      <provider>/
-        PROVIDER.md
-        <NNNN>/
-          SNAPSHOT.md              # complete inventory, including earlier artifact references
-          CAPTURE.md               # baseline/update summary
-          artifacts/               # full first baseline; only new bytes thereafter
 
 docs/
   src/
@@ -103,3 +86,6 @@ docs/
         0001-IMPL-INSTR.md
         0001-IMPL-RESULT.md
 ```
+
+SPECTRE records, archives, and provider evidence live in the xray repository's root
+`.agents/spectre/`, not in this folder.

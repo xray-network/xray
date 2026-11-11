@@ -4,7 +4,7 @@ import test from "node:test";
 import { runConformanceCorpus } from "./support/conformance.mjs";
 
 const corpusPath = new URL(
-  "../../../../../.agents/spectre/providers/uplc/0001/artifacts/conformance/corpus.json",
+  "../../../../../../.agents/spectre/providers/uplc/0001/artifacts/conformance/corpus.json",
   import.meta.url,
 );
 

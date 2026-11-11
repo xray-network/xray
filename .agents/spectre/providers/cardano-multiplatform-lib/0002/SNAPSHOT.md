@@ -276,7 +276,7 @@ SNAPSHOT.md and CAPTURE.md are immutable metadata, not artifact inventory member
 
 | Earlier snapshot path from provider root | SHA-256 | Role |
 | --- | --- | --- |
-| `0001/SNAPSHOT.md` | `08cd6c6fd13e0ccab4b5726eadf51d21be0794d2778e4f7ef8315571b523cd80` | Immediate predecessor and owner of every reused artifact |
+| `0001/SNAPSHOT.md` | `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | Immediate predecessor and owner of every reused artifact |
 
 ### Physical storage counts
 

@@ -4,7 +4,9 @@ XRAY Cardano Lib is a language-first polyglot repository. Source, provider evide
 history have separate ownership:
 
 - `libs/<language>/` owns implementation source, packages, tests, manifests, and validation.
-- `.agents/spectre/implementations/<language>/` owns active numbered instructions and results.
+- SPECTRE paths in this guide are relative to the xray repository root, which holds the single
+  SPECTRE installation for every project.
+- `.agents/spectre/implementations/cardano-lib-<language>/` owns active numbered instructions and results.
 - `SPECTRE.md` owns aggregate active lifecycle state; `.agents/spectre/archive/` owns terminal history.
 - `.agents/spectre/providers/` owns shared provider guides and captured evidence.
 - `docs/` owns the Rspress site and architecture decisions.
@@ -14,13 +16,13 @@ concept. Each target owns an independent sequence represented in the aggregate l
 
 ## Before making a change
 
-1. Read the root `README.md`; on a SPECTRE command or authorized implementation continuation, follow `.agents/skills/spectre/SKILL.md`.
+1. Read the root `README.md`; on a SPECTRE command or authorized implementation continuation, follow `.agents/spectre/ROUTER.md`.
 2. Read `docs/README.md` and relevant active ADRs.
-3. Read `.agents/spectre/templates/TEMPLATE_IMPL.md` and
-   `.agents/spectre/templates/TEMPLATE_STATUS.md` for
+3. Read `.agents/spectre/runtime/templates/TEMPLATE_IMPL.md` and
+   `.agents/spectre/runtime/templates/TEMPLATE_STATUS.md` for
    implementation-ledger work.
 4. Read the owning library or package README, manifest, source, and tests.
-5. For provider work, read `.agents/spectre/templates/TEMPLATE_PROVIDER.md` and the selected provider
+5. For provider work, read `.agents/spectre/runtime/templates/TEMPLATE_PROVIDER.md` and the selected provider
    guide.
 
 There is no root build command. Each language owns its workspace and completion gate.
@@ -40,8 +42,8 @@ There is no root build command. Each language owns its workspace and completion 
 ## Implementation records
 
 - `SPECTRE.md` is the sole active lifecycle and decision-proof authority for every library target
-  and follows `.agents/spectre/templates/TEMPLATE_STATUS.md`.
-- Each bounded active change uses a matching pair directly under `.agents/spectre/implementations/<language>/`:
+  and follows `.agents/spectre/runtime/templates/TEMPLATE_STATUS.md`.
+- Each bounded active change uses a matching pair directly under `.agents/spectre/implementations/cardano-lib-<language>/`:
   `NNNN-IMPL-INSTR.md` and `NNNN-IMPL-RESULT.md`.
 - The instruction declares `DIRECT`, `DERIVED`, `HYBRID`, or `LOCAL` evidence mode.
 - Preparation creates the complete instruction and `PLANNED` row without changing source.

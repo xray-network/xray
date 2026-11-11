@@ -1,8 +1,8 @@
 # C++ API parity ledger
 
 This file maps the frozen C++ 0001 instruction to independently owned C++ bindings and validation.
-It is completed alongside the implementation. The canonical implementation status remains in
-`.agents/spectre/archive/20260906T201907Z/ARCHIVE.md`.
+It is completed alongside the implementation. The canonical implementation status remains in the xray
+repository's `.agents/spectre/archive/20260906T201907Z/ARCHIVE.md`, as target `cardano-lib-cpp`.
 
 | Change | Owner | Current mapping | Validation |
 | --- | --- | --- | --- |

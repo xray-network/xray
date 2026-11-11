@@ -94,7 +94,7 @@ their original paths and hashes; resolve their legacy directory through this map
 | Descriptor | SHA-256 before migration | SHA-256 after migration |
 | --- | --- | --- |
 | [0001/SNAPSHOT.md](0001/SNAPSHOT.md) | `614c88a7ae99d209e8328caa873eefa7db6a9140cea8bd9131ec2f4f34a674e5` | `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` |
-| [0002/SNAPSHOT.md](0002/SNAPSHOT.md) | `a222826872ecc1138d407621da713f4ace5c8744525a70ecf1cab5dc74e13f44` | `63404d662cf7a1b4c069afc50f4f46ccd8dbb1f427ca485ebb9c29cda0b3731f` |
+| [0002/SNAPSHOT.md](0002/SNAPSHOT.md) | `a222826872ecc1138d407621da713f4ace5c8744525a70ecf1cab5dc74e13f44` | `e0eca38dcf564e097bfeb2f7d72da0903389fa0856ad50134f4a60aa22acedad` |
 
 Only path-bearing generated controls changed; captured upstream sources, vectors, licenses, and
 corpus payloads remain byte-identical. Resolved inventories, summary hashes, predecessor pins,

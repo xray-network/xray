@@ -4,7 +4,7 @@ endif()
 
 file(
   READ
-  "${CARDANO_REPOSITORY_ROOT}/.agents/spectre/archive/20260906T201907Z/implementations/cpp/0001-IMPL-INSTR.md"
+  "${CARDANO_REPOSITORY_ROOT}/../.agents/spectre/archive/20260906T201907Z/implementations/cardano-lib-cpp/0001-IMPL-INSTR.md"
   CARDANO_INSTRUCTION
 )
 file(

@@ -95,7 +95,7 @@ There are several concrete reuse and correctness boundaries:
   corpus exists, with adoption questions recorded separately. Captured evidence is not proof
   that the current runtime passes it.
   [Conformance test](../../packages/plutus/test/conformance.test.mjs),
-  [UPLC capture findings](../../../../.agents/spectre/providers/uplc/0002/CAPTURE.md).
+  [UPLC capture findings](../../../../../.agents/spectre/providers/uplc/0002/CAPTURE.md).
 
 The library's no-native/no-WASM policy fits this direction. Producer key handling remains a
 separate concern: JavaScript cannot guarantee constant-time execution or secret erasure.
@@ -463,22 +463,22 @@ storage concurrency contract. No thread pool has been implemented or benchmarked
 This revision recommends captures; it does not create provider guides, snapshots, implementation
 records or ledger rows. The installed router distinguishes discussing evidence from authorizing
 a lifecycle operation. Future provider preparation/capture and implementation planning must
-select explicit scopes. See the [SPECTRE skill](../../../../.agents/skills/spectre/SKILL.md) and
-[provider format](../../../../.agents/spectre/templates/TEMPLATE_PROVIDER.md).
+select explicit scopes. See the [SPECTRE router](../../../../../.agents/spectre/ROUTER.md) and
+[provider format](../../../../../.agents/spectre/runtime/templates/TEMPLATE_PROVIDER.md).
 
 | Existing provider | Available captures inspected at metadata level | Useful coverage | Additional work needed |
 | --- | --- | --- | --- |
-| `cardano-ledger` | [0001](../../../../.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md) | Seven Byron–Conway CDDL files plus legal material | Explicitly expand future selection to transition rules, state, epoch/era logic and tests; the present capture is not a ledger-engine specification |
-| `uplc` | [0001](../../../../.agents/spectre/providers/uplc/0001/SNAPSHOT.md), [0002](../../../../.agents/spectre/providers/uplc/0002/SNAPSHOT.md) | UPLC implementation/costs/corpus and selected ledger integration | Resolve corpus adoption and protocol availability; expand source closure for any newly selected behavior |
-| `cardano-multiplatform-lib` | [0001](../../../../.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md), [0002](../../../../.agents/spectre/providers/cardano-multiplatform-lib/0002/SNAPSHOT.md) | Historical vectors, serialization, selected builder/collection behavior | Reuse as comparison; official ledger remains semantic authority |
-| `cardano-cips` | [0001](../../../../.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md) | Selected encodings, addresses, keys, assets and governance formats | CIP-30 is explicitly excluded from that capture; add a separately authorized selection for wallet signing and relevant CIP-8 material |
-| `message-signing` | [0001](../../../../.agents/spectre/providers/message-signing/0001/SNAPSHOT.md) | CIP-8/COSE implementation evidence | Reuse for message signing only; not a substitute for transaction-signing rules |
+| `cardano-ledger` | [0001](../../../../../.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md) | Seven Byron–Conway CDDL files plus legal material | Explicitly expand future selection to transition rules, state, epoch/era logic and tests; the present capture is not a ledger-engine specification |
+| `uplc` | [0001](../../../../../.agents/spectre/providers/uplc/0001/SNAPSHOT.md), [0002](../../../../../.agents/spectre/providers/uplc/0002/SNAPSHOT.md) | UPLC implementation/costs/corpus and selected ledger integration | Resolve corpus adoption and protocol availability; expand source closure for any newly selected behavior |
+| `cardano-multiplatform-lib` | [0001](../../../../../.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md), [0002](../../../../../.agents/spectre/providers/cardano-multiplatform-lib/0002/SNAPSHOT.md) | Historical vectors, serialization, selected builder/collection behavior | Reuse as comparison; official ledger remains semantic authority |
+| `cardano-cips` | [0001](../../../../../.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md) | Selected encodings, addresses, keys, assets and governance formats | CIP-30 is explicitly excluded from that capture; add a separately authorized selection for wallet signing and relevant CIP-8 material |
+| `message-signing` | [0001](../../../../../.agents/spectre/providers/message-signing/0001/SNAPSHOT.md) | CIP-8/COSE implementation evidence | Reuse for message signing only; not a substitute for transaction-signing rules |
 
 The UPLC provider currently declares maintained protocols 5–11; its newer captured upstream
 contains future functionality outside that scope. Define support from the selected network and
 release before claiming current-mainnet coverage. Era names, ledger protocol versions, Plutus
 language/semantics versions and node-to-node versions are separate compatibility dimensions.
-[UPLC provider guidance](../../../../.agents/spectre/providers/uplc/PROVIDER.md).
+[UPLC provider guidance](../../../../../.agents/spectre/providers/uplc/PROVIDER.md).
 
 **Use this source catalogue for future captures.** `E01`–`E13` are planning labels only, not
 SPECTRE pin IDs or reserved capture numbers. Repositories and documentation below were checked
@@ -781,8 +781,8 @@ Follow the installed incremental format: the first snapshot stores the full sele
 later snapshots list the complete effective inventory and directly reuse unchanged earlier
 artifacts. Freeze `SNAPSHOT.md` and `CAPTURE.md` together. A no-change check creates no capture.
 Implementation pins include snapshot and selected-artifact hashes, not a mutable `latest` path.
-[Provider capture rules](../../../../.agents/spectre/templates/TEMPLATE_PROVIDER.md),
-[evidence pin rules](../../../../.agents/spectre/runtime/references.md).
+[Provider capture rules](../../../../../.agents/spectre/runtime/templates/TEMPLATE_PROVIDER.md),
+[evidence pin rules](../../../../../.agents/spectre/runtime/references.md).
 
 Capture raw source and test vectors as inert evidence. Do not execute captured scripts or use
 them to generate owned source/tests. A separately provisioned, pinned reference-node binary may

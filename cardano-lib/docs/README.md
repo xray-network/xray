@@ -7,9 +7,9 @@ description: Architecture decisions for the XRAY Cardano Lib polyglot repository
 
 This directory is the Rspress documentation package. Run `npm install` and `npm run dev` here for local development, or `npm run deploy` to build and deploy the `wiki-xray-cardano-lib-docs` Worker.
 
-Architecture decisions are grouped by their scope. Active implementation records live below
-`.agents/spectre/implementations/`, terminal history lives below `.agents/spectre/archive/`, workflow
-templates live below `.agents/spectre/templates/`, and aggregate active lifecycle state lives in
+Architecture decisions are grouped by their scope. SPECTRE lives at the xray repository root: active implementation records live below
+`.agents/spectre/implementations/cardano-lib-<language>/`, terminal history lives below `.agents/spectre/archive/`, workflow
+templates live below `.agents/spectre/runtime/templates/`, and aggregate active lifecycle state lives in
 `SPECTRE.md`. Shared provider evidence lives below `.agents/spectre/providers/`.
 
 ## Repository decisions

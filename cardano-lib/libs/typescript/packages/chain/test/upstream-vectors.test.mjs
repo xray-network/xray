@@ -5,9 +5,10 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-const workspaceRoot = fileURLToPath(new URL("../../../../../", import.meta.url));
+// The SPECTRE installation, and its provider evidence, live at the root of the xray repository.
+const repositoryRoot = fileURLToPath(new URL("../../../../../../", import.meta.url));
 const fixtureRoot = path.join(
-  workspaceRoot,
+  repositoryRoot,
   ".agents",
   "spectre",
   "providers",
@@ -203,7 +204,7 @@ test("upstream Cardano vectors retain exact provenance and checksums", async () 
     "fixture Apache-2.0 license checksum mismatch",
   );
   assert.deepEqual(
-    (await readFile(path.join(workspaceRoot, ".gitattributes"), "utf8"))
+    (await readFile(path.join(repositoryRoot, ".gitattributes"), "utf8"))
       .split("\n")
       .filter(Boolean)
       .sort(),

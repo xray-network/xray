@@ -129,7 +129,7 @@ async function main() {
   add('bls_miller_loop', () => crypto.bls12_381_miller_loop(g1, g2), { unit: 'operations', note: 'Compressed point parse and Miller loop; no final exponentiation.' });
   add('bls_final_verify', () => crypto.bls12_381_final_verify(mlLeft, mlRight), { unit: 'operations', note: 'Distinct Miller outputs whose final exponentiations agree: e(P,Q)*e(2P,Q)=e(3P,Q).' });
 
-  const fixtureRoot = resolve(root, '.agents/spectre/providers/cardano-multiplatform-lib/0001/artifacts/test-vectors');
+  const fixtureRoot = resolve(root, '../.agents/spectre/providers/cardano-multiplatform-lib/0001/artifacts/test-vectors');
   const manifest = JSON.parse(readFileSync(resolve(fixtureRoot, 'manifest.json')));
   for (const era of ['alonzo', 'babbage', 'conway']) {
     const candidates = manifest.fixtures.goldenBlocks.filter(x => x.era === era && x.expected === 'byte-exact-round-trip').toSorted((x, y) => x.decodedCborBytes - y.decodedCborBytes);
