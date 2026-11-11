@@ -1,3 +1,3 @@
-[submodule "mini-apps/graph-services/koios-tiny/koios/koios-artifacts"]
-	path = mini-apps/graph-services/koios-tiny/koios/koios-artifacts
+[submodule "graph-services/koios-tiny/koios/koios-artifacts"]
+	path = graph-services/koios-tiny/koios/koios-artifacts
 	url = https://github.com/cardano-community/koios-artifacts

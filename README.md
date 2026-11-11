@@ -9,7 +9,7 @@ build, and release.
 | --- | --- | --- |
 | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, and the Mini App Bridge | [`js/`](js/) |
 | XRAY/CARDANO-LIB | Cardano protocol and application libraries | [`cardano-lib/`](cardano-lib/) |
-| XRAY/GRAPH | Blockchain data services: Cardano node, db-sync, Ogmios, Koios, IPFS | [`mini-apps/graph-services/`](mini-apps/graph-services/) |
+| XRAY/GRAPH | Blockchain data services: Cardano node, db-sync, Ogmios, Koios, IPFS | [`graph-services/`](graph-services/) |
 | XRAY Wiki | XRAY/Network knowledge base | [`wiki/`](wiki/) |
 | XRAY CDN | Static assets, fonts, and data files | [`cdn/`](cdn/) |
 | XRAY/VAULT | Vault | [`vault/`](vault/) |
@@ -22,17 +22,17 @@ Mini apps run inside XRAY hosts through the Mini App Bridge in XRAY/JS.
 
 | Mini app | What it is | Folder |
 | --- | --- | --- |
-| XRAY/BUILDER | Connects a developer's local dev server to the XRAY SDK | [`mini-apps/builder/`](mini-apps/builder/) |
-| Cardano Wallet | Cardano wallet | [`mini-apps/cardano-wallet/`](mini-apps/cardano-wallet/) |
-| Cardano Assets | Assets of the connected Cardano account | [`mini-apps/cardano-assets/`](mini-apps/cardano-assets/) |
-| Cardano Transactions | Transactions of the connected Cardano account | [`mini-apps/cardano-transactions/`](mini-apps/cardano-transactions/) |
-| Cardano Explorer | Cardano explorer | [`mini-apps/cardano-explorer/`](mini-apps/cardano-explorer/) |
-| Stake | Staking | [`mini-apps/stake/`](mini-apps/stake/) |
-| AI | AI | [`mini-apps/ai/`](mini-apps/ai/) |
-| Governance | Governance | [`mini-apps/governance/`](mini-apps/governance/) |
-| Launchpad | Launchpad | [`mini-apps/launchpad/`](mini-apps/launchpad/) |
-| Minterr | Minterr | [`mini-apps/minterr/`](mini-apps/minterr/) |
-| Swap | Swap | [`mini-apps/swap/`](mini-apps/swap/) |
+| XRAY/BUILDER | Connects a developer's local dev server to the XRAY SDK | [`mini-app-builder/`](mini-app-builder/) |
+| Cardano Wallet | Cardano wallet | [`mini-app-cardano-wallet/`](mini-app-cardano-wallet/) |
+| Cardano Assets | Assets of the connected Cardano account | [`mini-app-cardano-assets/`](mini-app-cardano-assets/) |
+| Cardano Transactions | Transactions of the connected Cardano account | [`mini-app-cardano-transactions/`](mini-app-cardano-transactions/) |
+| Cardano Explorer | Cardano explorer | [`mini-app-cardano-explorer/`](mini-app-cardano-explorer/) |
+| Stake | Staking | [`mini-app-stake/`](mini-app-stake/) |
+| AI | AI | [`mini-app-ai/`](mini-app-ai/) |
+| Governance | Governance | [`mini-app-governance/`](mini-app-governance/) |
+| Launchpad | Launchpad | [`mini-app-launchpad/`](mini-app-launchpad/) |
+| Minterr | Minterr | [`mini-app-minterr/`](mini-app-minterr/) |
+| Swap | Swap | [`mini-app-swap/`](mini-app-swap/) |
 
 ## Development
 
