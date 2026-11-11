@@ -30,7 +30,7 @@ Repository-wide guidance for contributors and coding agents is documented in
 - `SPECTRE.md` is the aggregate active lifecycle ledger; terminal history is preserved below
   `.agents/spectre/archive/`.
 - `.agents/spectre/providers/` contains shared provider guides and immutable captured evidence.
-- `docs/` contains the Rspress documentation package, architecture decisions, and implementation
+- `wiki/` contains the Rspress documentation package, architecture decisions, and implementation
   instruction/result mirrors.
 
 Every active implementation change uses a pair directly below the SPECTRE implementation directory:
@@ -78,7 +78,7 @@ libs/
   typescript/
   cpp/
 
-docs/
+wiki/
   src/
     adr/
     impl/                         # historical XRAY documentation snapshot

@@ -30,8 +30,8 @@ root install.
 | Folder | Product | What it is | State |
 | --- | --- | --- | --- |
 | `cardano-lib/` | XRAY/CARDANO-LIB | Cardano protocol libraries. `libs/typescript/` is maintained; `libs/cpp/` is an unmaintained concept. | Active |
-| `js/` | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, Mini App Bridge, docs site (`docs/`). | Active |
-| `graph-services/` | XRAY/GRAPH | Docker services behind Graph: cardano-node, db-sync, ogmios, postgres, koios-tiny + TS client, kubo, traefik. | Active |
+| `js/` | XRAY/JS | JavaScript SDK: runtime, Cardano APIs, Mini App Bridge, wiki site (`wiki/`). | Active |
+| `mini-app-graph-services/` | XRAY/GRAPH | Docker services behind Graph: cardano-node, db-sync, ogmios, postgres, koios-tiny + TS client, kubo, traefik. | Active |
 | `wiki/` | XRAY Wiki | Rspress knowledge base (wiki.xraynetwork.io). | Active |
 | `cdn/` | — | Static assets and fonts, Cloudflare. | Active |
 | `vault/` | XRAY/VAULT | README only. | Placeholder |
@@ -60,7 +60,7 @@ cardano-lib/libs/typescript ──▶ js ──▶ mini-app-*, wiki
 
 - **Mini App Bridge (mini app side):** `js/packages/mini-app-bridge/`: `README-PLATFORM.md`,
   `README-CARDANO.md`, `README-CARDANO-CIP30.md`.
-- **Graph infrastructure and start order:** `graph-services/README.md`.
+- **Graph infrastructure and start order:** `mini-app-graph-services/README.md`.
 - **New mini app:** start from the standalone template repository
   `xray-network/xray-mini-app-template-react` (not in this repository).
 

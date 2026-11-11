@@ -136,3 +136,8 @@ migration, nested relay and navigation, event-log rerenders, timeout/recovery, s
 and blocked embedding. Manual acceptance still needs the deployed HTTPS XRAY host and a real
 user-started development server, including server stop/restart, permission refusal/recovery, and
 browser/OS details. See the 0017 result for what was actually validated.
+
+## Wiki
+
+The independent Rspress wiki lives in [`wiki/`](wiki/README.md). Run its development,
+build, and deployment commands from that directory.

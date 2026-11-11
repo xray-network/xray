@@ -9,7 +9,7 @@ history have separate ownership:
 - `.agents/spectre/implementations/cardano-lib-<language>/` owns active numbered instructions and results.
 - `SPECTRE.md` owns aggregate active lifecycle state; `.agents/spectre/archive/` owns terminal history.
 - `.agents/spectre/providers/` owns shared provider guides and captured evidence.
-- `docs/` owns the Rspress site and architecture decisions.
+- `wiki/` owns the Rspress site and architecture decisions.
 
 TypeScript under `libs/typescript/` is maintained. C++ under `libs/cpp/` is an unmaintained, opt-in
 concept. Each target owns an independent sequence represented in the aggregate lifecycle ledger.
@@ -17,7 +17,7 @@ concept. Each target owns an independent sequence represented in the aggregate l
 ## Before making a change
 
 1. Read the root `README.md`; on a SPECTRE command or authorized implementation continuation, follow `.agents/spectre/ROUTER.md`.
-2. Read `docs/README.md` and relevant active ADRs.
+2. Read `wiki/README.md` and relevant active ADRs.
 3. Read `.agents/spectre/runtime/templates/TEMPLATE_IMPL.md` and
    `.agents/spectre/runtime/templates/TEMPLATE_STATUS.md` for
    implementation-ledger work.
@@ -80,14 +80,14 @@ records owned by that target.
 
 ## Documentation and ADRs
 
-- Add Rspress pages below `docs/src/` and update `docs/rspress.config.ts` navigation.
-- Put shared decisions in `docs/src/adr/repository/` and language decisions in
-  `docs/src/adr/<language>/`.
+- Add Rspress pages below `wiki/src/` and update `wiki/rspress.config.ts` navigation.
+- Put shared decisions in `wiki/src/adr/repository/` and language decisions in
+  `wiki/src/adr/<language>/`.
 - Keep the root README focused on the repository and implementation model.
 - Keep package details in their owning README.
 - Keep active implementation records under `.agents/spectre/implementations/` and terminal records
   under immutable `.agents/spectre/archive/` batches.
-- Treat existing `docs/src/impl/` pages as historical XRAY Updates mirrors, not active SPECTRE records.
+- Treat existing `wiki/src/impl/` pages as historical XRAY Updates mirrors, not active SPECTRE records.
 - Update relative links when content moves.
 
 ## TypeScript implementation

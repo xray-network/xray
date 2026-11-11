@@ -164,8 +164,8 @@ Internal source folders are not package subpaths. Importing emitted files direct
 - Cryptographic dependencies are exactly pinned in the workspace lockfile. Dependency pinning and
   tests are not substitutes for an independent audit.
 
-See the [security and dependency policy](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/src/adr/typescript/0002-cryptography-dependency-policy.md)
-and [cryptography decision](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/src/adr/typescript/0004-cryptography-primitives.md) for the
+See the [security and dependency policy](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/src/adr/typescript/0002-cryptography-dependency-policy.md)
+and [cryptography decision](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/src/adr/typescript/0004-cryptography-primitives.md) for the
 current threat model and review status.
 
 ## Source map
@@ -225,7 +225,7 @@ installed-consumer behavior.
 ## Documentation
 
 See the [TypeScript package overview](https://github.com/xray-network/xray/blob/main/cardano-lib/libs/typescript/README.md) and
-[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/README.md).
+[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/README.md).
 
 ## License
 

@@ -99,7 +99,7 @@ There are several concrete reuse and correctness boundaries:
 
 The library's no-native/no-WASM policy fits this direction. Producer key handling remains a
 separate concern: JavaScript cannot guarantee constant-time execution or secret erasure.
-[Crypto ADR](../../../../docs/src/adr/typescript/0004-cryptography-primitives.md).
+[Crypto ADR](../../../../wiki/src/adr/typescript/0004-cryptography-primitives.md).
 
 **Verification results should state exactly what has been checked.**
 
@@ -267,7 +267,7 @@ make a loaded signing key non-exportable. An external signer changes the trust b
 must support the required Cardano key/signature format; generic KMS support must be verified.
 Keep remote signing in application adapters rather than replacing local library cryptography.
 [Workers secrets](https://developers.cloudflare.com/workers/configuration/secrets/),
-[repository crypto policy](../../../../docs/src/adr/typescript/0002-cryptography-dependency-policy.md).
+[repository crypto policy](../../../../wiki/src/adr/typescript/0002-cryptography-dependency-policy.md).
 
 **Workers deployment constraints should shape the implementation, not settle feasibility by themselves.**
 
@@ -1368,7 +1368,7 @@ build, integration and deployed-host gates; the existing library command does no
 a Workers deployment or a full node.
 
 For a stable security-sensitive release, consider the optional independent review recommended by the
-[security ADR](../../../../docs/src/adr/typescript/0002-cryptography-dependency-policy.md). If commissioned
+[security ADR](../../../../wiki/src/adr/typescript/0002-cryptography-dependency-policy.md). If commissioned
 for a producer, include consensus decisions, VRF/KES acceptance, secret lifecycle and recovery. Define supported
 network/protocol versions, migration and rollback procedures, and a halt/degrade behavior for
 unknown future semantics. Do not substitute source compilation, capture completion, or a

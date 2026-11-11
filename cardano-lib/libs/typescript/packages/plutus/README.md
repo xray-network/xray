@@ -116,7 +116,7 @@ npm --prefix libs/typescript run check
 ## Documentation
 
 See the [TypeScript package overview](https://github.com/xray-network/xray/blob/main/cardano-lib/libs/typescript/README.md) and
-[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/README.md).
+[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/README.md).
 
 ## License
 

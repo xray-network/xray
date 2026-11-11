@@ -4,7 +4,7 @@ These instructions apply to the whole repository.
 
 ## Repository guidance
 
-- Before changing files, read `README.md`, `CONTRIBUTING.md`, `docs/README.md`, and relevant
+- Before changing files, read `README.md`, `CONTRIBUTING.md`, `wiki/README.md`, and relevant
   active ADRs. Follow `CONTRIBUTING.md` for ownership, validation, and documentation conventions.
 - For implementation work, also read the owning library README, manifest, source, and tests.
   Each `libs/<language>/` is an independent workspace; there is no root build command.

@@ -36,7 +36,7 @@ The external crypto dependencies are already concentrated in the crypto package 
 | [UPLC cryptography](../../packages/crypto/src/primitives/uplc.ts) | BLS groups, hashing to groups, compression and pairing operations | Retain Noble and owned wrappers |
 | [Plutus machine](../../packages/plutus/src/uplc/machine.ts) | Synchronous execution and builtin costing | No implicit Promise-returning replacement of builtins |
 
-[CONTRIBUTING.md](../../../../CONTRIBUTING.md) prohibits published code from importing `node:*`, using `Buffer`/`require`, or shipping native/WASM artifacts. [ADR 0002](../../../../docs/src/adr/typescript/0002-cryptography-dependency-policy.md) explicitly permits standards-based Web Crypto. [ADR 0004](../../../../docs/src/adr/typescript/0004-cryptography-primitives.md) preserves Cardano semantics in owned wrappers.
+[CONTRIBUTING.md](../../../../CONTRIBUTING.md) prohibits published code from importing `node:*`, using `Buffer`/`require`, or shipping native/WASM artifacts. [ADR 0002](../../../../wiki/src/adr/typescript/0002-cryptography-dependency-policy.md) explicitly permits standards-based Web Crypto. [ADR 0004](../../../../wiki/src/adr/typescript/0004-cryptography-primitives.md) preserves Cardano semantics in owned wrappers.
 
 Consequently:
 

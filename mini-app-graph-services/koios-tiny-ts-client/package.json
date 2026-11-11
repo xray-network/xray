@@ -1,0 +1,44 @@
+{
+  "name": "cardano-koios-client",
+  "version": "1.1.2",
+  "description": "TypeScript client for XRAY/Graph Koios Tiny API and original Koios.REST API",
+  "author": "XRAY/Network <hello@xray.app>",
+  "homepage": "https://xray.app",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xray-network/xray.git",
+    "directory": "mini-app-graph-services/koios-tiny-ts-client"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts",
+    "schema": "node src/schema/generate.mjs",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,scss,css}\"",
+    "test": "vitest --run",
+    "pub": "yarn build && yarn publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^2.8.8",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.17.0"
+  }
+}

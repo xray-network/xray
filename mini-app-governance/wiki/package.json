@@ -1,0 +1,29 @@
+{
+  "name": "wiki-mini-apps-governance-docs",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.8.2",
+  "description": "The home for governance in the XRAY mini-app ecosystem.",
+  "homepage": "https://wiki.xraynetwork.io/mini-apps/governance/",
+  "scripts": {
+    "dev": "rspress dev --host 0.0.0.0 --port 10019",
+    "build": "rspress build",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "rspress preview --host 0.0.0.0 --port 10019"
+  },
+  "devDependencies": {
+    "@rspress/core": "2.0.21",
+    "@types/react": "19.2.18",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "5.9.3",
+    "wrangler": "4.54.0"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  }
+}

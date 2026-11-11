@@ -20,7 +20,7 @@ The Mini App Bridge documentation includes focused guides for
 [Cardano v1](./packages/mini-app-bridge/README-CARDANO.md), and
 [Cardano CIP-30 v1](./packages/mini-app-bridge/README-CARDANO-CIP30.md).
 
-The standalone Rspress website package lives in [`docs/`](./docs/).
+The standalone Rspress website package lives in [`wiki/`](./wiki/).
 
 ## Repository requirements
 

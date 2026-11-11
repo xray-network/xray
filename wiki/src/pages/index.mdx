@@ -1,107 +1,126 @@
-import { HeroArtwork, HeroDiagram, Link } from "@rspress/core/theme"
+---
+title: "Project wikis"
+description: "Find documentation for every project in the XRAY ecosystem."
+pageType: doc-wide
+sidebar: false
+outline: false
+footer: false
+---
 
-<div className="spectre-home rp-not-doc">
-  <section className="spectre-hero" aria-labelledby="xray-wiki-title">
-    <div className="spectre-hero-grid">
-      <HeroArtwork />
-      <HeroDiagram />
-      <div className="spectre-hero-copy">
-        <span className="wiki-hero-kicker">XRAY/Network knowledge base</span>
-        <h1 id="xray-wiki-title">Everything XRAY, in one place.</h1>
-        <p className="spectre-lead">Understand the network, explore its Cardano products, and find the technical resources you need to build across the ecosystem.</p>
-        <div className="spectre-actions">
-          <a className="spectre-button spectre-button--primary" href="#explore">Explore the ecosystem <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="m12 5 7 7-7 7M19 12H5" /></svg></a>
-          <Link className="spectre-button spectre-button--secondary" href="/dev/cardano-web3-js">Developer resources</Link>
-        </div>
-        <div className="wiki-fact-grid" aria-label="XRAY ecosystem at a glance">
-          <div className="wiki-fact"><strong>Cardano native</strong><span>Blockchain ecosystem</span></div>
-          <div className="wiki-fact"><strong>Open source</strong><span>Products and tooling</span></div>
-          <div className="wiki-fact"><strong>30,000+ wallets</strong><span>Distribution participants</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div className="spectre-home wiki-directory rp-not-doc">
+  <header className="wiki-directory-heading">
+    <span className="spectre-eyebrow">XRAY/Network knowledge base</span>
+    <h1>Project wikis</h1>
+  </header>
 
-  <section className="spectre-start" id="explore" aria-labelledby="explore-title">
-    <div className="spectre-section-heading">
-      <div><span className="spectre-eyebrow">01 / Orientation</span><h2 id="explore-title">Start with the ecosystem</h2></div>
-      <Link className="spectre-text-link" href="/xray-network">About XRAY/Network <span aria-hidden="true">↗</span></Link>
-    </div>
-    <p className="wiki-section-intro">XRAY brings together DeFi products, developer infrastructure, and community-led initiatives on Cardano.</p>
-    <ol className="spectre-workflow-list">
-      <li>
-        <span className="spectre-step" aria-hidden="true">01</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/xray-network">Understand the network</Link></h3><span className="spectre-state spectre-state--planned">FOUNDATION</span></div>
-          <p>Learn how XRAY/Network connects users, builders, infrastructure, governance, and open-source work across Cardano.</p>
-        </div>
-      </li>
-      <li>
-        <span className="spectre-step" aria-hidden="true">02</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/xray-app">Explore XRAY/App</Link></h3><span className="spectre-state spectre-state--review">PRODUCTS</span></div>
-          <p>Discover the extensible DeFi experience for managing assets, staking, trading, and using integrated Mini Apps.</p>
-        </div>
-      </li>
-      <li>
-        <span className="spectre-step" aria-hidden="true">03</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/xray-tokenomics">Follow the XRAY token</Link></h3><span className="spectre-state spectre-state--accepted">COMMUNITY</span></div>
-          <p>Review the utility, governance role, minting parameters, and community distribution history of XRAY.</p>
-        </div>
-      </li>
-    </ol>
-    <div className="spectre-callout"><span className="spectre-callout-mark" aria-hidden="true">↳</span><div><strong>Built for users and builders.</strong><p>The wiki connects product guidance with technical documentation, so you can move from learning to shipping without losing context.</p></div></div>
-  </section>
-
-  <section className="spectre-workflow" id="build" aria-labelledby="build-title">
-    <div className="spectre-section-heading">
-      <div><span className="spectre-eyebrow">02 / Build on XRAY</span><h2 id="build-title">Tools for Cardano developers</h2></div>
-    </div>
-    <p className="wiki-section-intro">Use XRAY’s libraries, data infrastructure, and modular app model to create Cardano experiences.</p>
-    <ol className="spectre-workflow-list">
-      <li>
-        <span className="spectre-step" aria-hidden="true">01</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/dev/cardano-web3-js">CardanoWeb3.js</Link></h3><span className="spectre-state spectre-state--review">TYPESCRIPT</span></div>
-          <p>Connect wallets, build and sign transactions, work with smart contracts, and retrieve blockchain data in Node.js or the browser.</p>
-        </div>
-      </li>
-      <li>
-        <span className="spectre-step" aria-hidden="true">02</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/dev/xray-graph">XRAY/Graph</Link></h3><span className="spectre-state spectre-state--planned">DATA APIs</span></div>
-          <p>Query real-time Cardano data through distributed infrastructure built on XRAY indexers and trusted open-source services.</p>
-        </div>
-      </li>
-      <li>
-        <span className="spectre-step" aria-hidden="true">03</span>
-        <div className="spectre-workflow-content">
-          <div className="spectre-workflow-title"><h3><Link className="wiki-card-link" href="/mini-apps">Mini Apps</Link></h3><span className="spectre-state spectre-state--accepted">EXTENSIBLE</span></div>
-          <p>Build focused tools and services that run inside XRAY/App while remaining isolated in a modular iframe-based architecture.</p>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <nav className="spectre-resources wiki-resource-grid" aria-label="Explore XRAY documentation">
-    <Link className="spectre-resource" href="/ecosystem-metrics">
-      <span className="spectre-resource-label">NETWORK <span aria-hidden="true">↗</span></span>
-      <h2>Ecosystem metrics</h2><p>See network nodes, infrastructure, funding, and other indicators of ecosystem growth.</p>
-    </Link>
-    <Link className="spectre-resource" href="/xray-vault">
-      <span className="spectre-resource-label">SECURITY <span aria-hidden="true">↗</span></span>
-      <h2>XRAY/Vault</h2><p>Learn how remote transaction approval keeps private keys safely on the user’s device.</p>
-    </Link>
-    <Link className="spectre-resource" href="/roadmap">
-      <span className="spectre-resource-label">DIRECTION <span aria-hidden="true">↗</span></span>
-      <h2>Roadmap</h2><p>Follow product priorities, ecosystem milestones, and the work shaping XRAY’s next releases.</p>
-    </Link>
-    <Link className="spectre-resource" href="/latest-updates">
-      <span className="spectre-resource-label">ACTIVITY <span aria-hidden="true">↗</span></span>
-      <h2>Latest updates</h2><p>Keep up with feature releases, infrastructure improvements, and ecosystem initiatives.</p>
-    </Link>
+  <nav className="wiki-card-grid" aria-label="Project wikis">
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/js/">
+      <span className="spectre-resource-label">JavaScript SDK<span aria-hidden="true">↗</span></span>
+      <h2>XRAY JS</h2>
+      <p>The JavaScript SDK for XRAY applications, Cardano APIs, and the Mini App Bridge.</p>
+      <span className="wiki-card-path">/js/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/cardano-lib/">
+      <span className="spectre-resource-label">Protocol libraries<span aria-hidden="true">↗</span></span>
+      <h2>XRAY Cardano Lib</h2>
+      <p>Modular Cardano protocol libraries for TypeScript.</p>
+      <span className="wiki-card-path">/cardano-lib/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/app/">
+      <span className="spectre-resource-label">XRAY ecosystem<span aria-hidden="true">↗</span></span>
+      <h2>XRAY App</h2>
+      <p>The wallet and home for XRAY mini apps.</p>
+      <span className="wiki-card-path">/app/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/design/">
+      <span className="spectre-resource-label">Interface standard<span aria-hidden="true">↗</span></span>
+      <h2>XRAY Design</h2>
+      <p>The interface protocol, visual language, and component reference for XRAY products.</p>
+      <span className="wiki-card-path">/design/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/spectre/">
+      <span className="spectre-resource-label">Implementation protocol<span aria-hidden="true">↗</span></span>
+      <h2>SPECTRE</h2>
+      <p>Plan, track, and review code changes with AI.</p>
+      <span className="wiki-card-path">/spectre/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/">
+      <span className="spectre-resource-label">XRAY ecosystem<span aria-hidden="true">↗</span></span>
+      <h2>Mini Apps</h2>
+      <p>The home for mini-app documentation.</p>
+      <span className="wiki-card-path">/mini-apps/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/graph/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Graph</h2>
+      <p>Explore XRAY Graph services and blockchain data APIs.</p>
+      <span className="wiki-card-path">/mini-apps/graph/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/builder/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Builder</h2>
+      <p>Connect your development server to XRAY and build mini apps with the SDK.</p>
+      <span className="wiki-card-path">/mini-apps/builder/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/cardano-wallet/">
+      <span className="spectre-resource-label">Cardano mini app<span aria-hidden="true">↗</span></span>
+      <h2>Cardano Wallet</h2>
+      <p>Your Cardano wallet inside XRAY App.</p>
+      <span className="wiki-card-path">/mini-apps/cardano-wallet/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/cardano-assets/">
+      <span className="spectre-resource-label">Cardano mini app<span aria-hidden="true">↗</span></span>
+      <h2>Cardano Assets</h2>
+      <p>Explore your Cardano assets inside XRAY App.</p>
+      <span className="wiki-card-path">/mini-apps/cardano-assets/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/cardano-transactions/">
+      <span className="spectre-resource-label">Cardano mini app<span aria-hidden="true">↗</span></span>
+      <h2>Cardano Transactions</h2>
+      <p>View and explore Cardano transactions inside XRAY App.</p>
+      <span className="wiki-card-path">/mini-apps/cardano-transactions/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/stake/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Stake</h2>
+      <p>The home for staking in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/stake/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/ai/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>AI</h2>
+      <p>The home for AI tools in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/ai/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/cardano-explorer/">
+      <span className="spectre-resource-label">Cardano mini app<span aria-hidden="true">↗</span></span>
+      <h2>Cardano Explorer</h2>
+      <p>The home for Cardano exploration in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/cardano-explorer/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/governance/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Governance</h2>
+      <p>The home for governance in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/governance/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/launchpad/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Launchpad</h2>
+      <p>The home for project launches in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/launchpad/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/minterr/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Minterr</h2>
+      <p>The home for minting in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/minterr/</span>
+    </a>
+    <a className="spectre-resource" href="https://wiki.xraynetwork.io/mini-apps/swap/">
+      <span className="spectre-resource-label">Mini app<span aria-hidden="true">↗</span></span>
+      <h2>Swap</h2>
+      <p>The home for token swaps in the XRAY mini-app ecosystem.</p>
+      <span className="wiki-card-path">/mini-apps/swap/</span>
+    </a>
   </nav>
-
-  <div className="spectre-home-footer"><span>XRAY/NETWORK <span aria-hidden="true">/</span> Open infrastructure for Cardano.</span><Link href="/social-media">Join the community <span aria-hidden="true">→</span></Link></div>
 </div>

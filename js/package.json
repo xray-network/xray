@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@types/node": "20.19.43",
+    "@xray-network/xray-cardano-lib-chain": "file:../cardano-lib/libs/typescript/packages/chain",
+    "@xray-network/xray-cardano-lib-crypto": "file:../cardano-lib/libs/typescript/packages/crypto",
     "prettier": "3.9.6",
     "typescript": "5.9.3"
   }

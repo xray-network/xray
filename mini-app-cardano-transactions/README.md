@@ -13,3 +13,8 @@ and raw data for visual review of every transaction tab.
 
 Example mode is development-only. Normal `npm run dev` and production builds continue to use the
 XRAY bridge and the selected network's live Koios endpoint.
+
+## Wiki
+
+The independent Rspress wiki lives in [`wiki/`](wiki/README.md). Run its development,
+build, and deployment commands from that directory.

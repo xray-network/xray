@@ -162,13 +162,13 @@ npm --prefix libs/typescript run check
 `npm --prefix libs/typescript run check` validates captured input provenance, package boundaries, focused codec and
 historical-vector tests, security checks, and packed ESM consumers.
 
-See [ADR 0002](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/src/adr/typescript/0002-cryptography-dependency-policy.md) for the security policy and
+See [ADR 0002](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/src/adr/typescript/0002-cryptography-dependency-policy.md) for the security policy and
 vulnerability reporting.
 
 ## Documentation
 
 See the [TypeScript package overview](https://github.com/xray-network/xray/blob/main/cardano-lib/libs/typescript/README.md) and
-[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/README.md).
+[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/README.md).
 
 ## License
 

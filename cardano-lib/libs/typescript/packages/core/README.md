@@ -84,7 +84,7 @@ default limits or lower them when inputs are expected to be small. Treat malform
 range failures as untrusted input errors rather than retryable transport failures.
 
 Please report suspected vulnerabilities according to
-[ADR 0002](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/src/adr/typescript/0002-cryptography-dependency-policy.md). Do not include private keys,
+[ADR 0002](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/src/adr/typescript/0002-cryptography-dependency-policy.md). Do not include private keys,
 seed phrases, or production signing material in a report.
 
 ## Source layout
@@ -150,7 +150,7 @@ rules, and packed-package imports.
 ## Documentation
 
 See the [TypeScript package overview](https://github.com/xray-network/xray/blob/main/cardano-lib/libs/typescript/README.md) and
-[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/docs/README.md).
+[architecture decisions](https://github.com/xray-network/xray/blob/main/cardano-lib/wiki/README.md).
 
 ## License
 
