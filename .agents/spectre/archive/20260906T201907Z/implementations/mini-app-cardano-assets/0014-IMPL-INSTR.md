@@ -1,10 +1,11 @@
-# xray-mini-app-assets implementation 0014 instruction
+# Mini App Cardano Assets implementation 0014 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0014
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260812T112201Z
 Evidence-Mode: LOCAL
-Depends-On: xray-js/cardano/0007
+Depends-On: ../js-cardano/0007-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Assets utilities and strict xray-js Cardano Lib boundary | `LOCAL` | Yes | Migrate CIP-67 access without behavior changes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

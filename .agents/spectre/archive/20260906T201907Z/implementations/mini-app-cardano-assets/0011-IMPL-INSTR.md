@@ -1,7 +1,8 @@
-# xray-mini-app-assets implementation 0011 instruction
+# Mini App Cardano Assets implementation 0011 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0011
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260811T211000Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | `package.json` and `package-lock.json` | `LOCAL` | Yes | Define dependency ownership. |
 | Human request to restore `@react-router/serve` | `LOCAL` | Yes | Authorize restoration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

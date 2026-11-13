@@ -1,4 +1,4 @@
-# xray-mini-app-transactions implementation 0017 result
+# Mini App Cardano Transactions implementation 0017 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0017
@@ -7,13 +7,13 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                                                                       | Validation                                                                                                     |
-| --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Expanded live `tx_info` requests to include inputs, metadata, assets, withdrawals, certificates, scripts, bytecode, collateral/reference inputs, and governance data while retaining the Koios path. | Typecheck and production build pass; the existing live settings, pagination, and summary flow remain in place. |
-| C02       | `IMPLEMENTED` | Enabled Metadata, Withdrawals, Certificates, Contracts, TokenMint, Collateral, InputRefs, and Raw, with shared empty states for absent optional data.                                                | Typecheck and both builds pass; the example bundle contains all eight tab labels.                              |
-| C03       | `IMPLEMENTED` | Added reusable detail sections, structured values, UTXO-shaped cards, copy affordances, deterministic raw JSON, wrapping, scrolling, and responsive light/dark styling based on the existing UI.     | Typecheck and builds pass; the human visually confirmed the implementation on 2026-09-01.                      |
-| C04       | `IMPLEMENTED` | Added one typed, deterministic, full-featured transaction fixture selected only by Vite `example` mode; example mode bypasses bridge-dependent Koios requests.                                       | Example build passes; its client bundle contains the representative tabs and excludes `graph.xray.app`.        |
-| C05       | `IMPLEMENTED` | Added and documented `npm run dev:example`, using the existing development host and port with Vite mode `example`.                                                                                   | Example server returned HTTP 200 on an alternate strict port; `git diff --check` passes.                       |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Expanded live `tx_info` requests to include inputs, metadata, assets, withdrawals, certificates, scripts, bytecode, collateral/reference inputs, and governance data while retaining the Koios path. | Typecheck and production build pass; the existing live settings, pagination, and summary flow remain in place. |
+| C02 | `IMPLEMENTED` | Enabled Metadata, Withdrawals, Certificates, Contracts, TokenMint, Collateral, InputRefs, and Raw, with shared empty states for absent optional data. | Typecheck and both builds pass; the example bundle contains all eight tab labels. |
+| C03 | `IMPLEMENTED` | Added reusable detail sections, structured values, UTXO-shaped cards, copy affordances, deterministic raw JSON, wrapping, scrolling, and responsive light/dark styling based on the existing UI. | Typecheck and builds pass; the human visually confirmed the implementation on 2026-09-01. |
+| C04 | `IMPLEMENTED` | Added one typed, deterministic, full-featured transaction fixture selected only by Vite `example` mode; example mode bypasses bridge-dependent Koios requests. | Example build passes; its client bundle contains the representative tabs and excludes `graph.xray.app`. |
+| C05 | `IMPLEMENTED` | Added and documented `npm run dev:example`, using the existing development host and port with Vite mode `example`. | Example server returned HTTP 200 on an alternate strict port; `git diff --check` passes. |
 
 ## Outcome
 
@@ -35,13 +35,13 @@ Every existing transaction-detail tab is enabled and backed by transaction data,
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                                            | Compatibility                                                                                       | Downstream action |
-| --------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------- |
-| C01       | Live expanded transaction responses now request every optional group consumed by the detail views.         | Existing endpoint, network selection, loading, refresh, pagination, ordering, and summaries remain. | None.             |
-| C02       | All declared detail tabs render their corresponding transaction fields and remain enabled when empty.      | Existing tab keys and UTXO meaning are retained.                                                    | None.             |
-| C03       | Unknown nested Koios values use a reusable, read-only structured presentation with safe overflow behavior. | Existing informers, shared boxes, theme behavior, and page styling remain authoritative.            | None.             |
-| C04       | Vite mode `example` uses a local full-transaction source and makes no Koios request.                       | Normal development and production continue to use bridge settings and live Koios data.              | None.             |
-| C05       | Developers can run the complete fixture through `npm run dev:example`.                                     | Existing scripts are unchanged.                                                                     | None.             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Live expanded transaction responses now request every optional group consumed by the detail views. | Existing endpoint, network selection, loading, refresh, pagination, ordering, and summaries remain. | None. |
+| C02 | All declared detail tabs render their corresponding transaction fields and remain enabled when empty. | Existing tab keys and UTXO meaning are retained. | None. |
+| C03 | Unknown nested Koios values use a reusable, read-only structured presentation with safe overflow behavior. | Existing informers, shared boxes, theme behavior, and page styling remain authoritative. | None. |
+| C04 | Vite mode `example` uses a local full-transaction source and makes no Koios request. | Normal development and production continue to use bridge settings and live Koios data. | None. |
+| C05 | Developers can run the complete fixture through `npm run dev:example`. | Existing scripts are unchanged. | None. |
 
 ## Validation
 

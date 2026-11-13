@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0015 instruction
+# Mini App Cardano Transactions implementation 0015 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0015
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260819T091039Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,12 +10,16 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                                         | Kind    | Required | Purpose                                                               |
-| --------------------------------------------------------------------------------------------- | ------- | -------- | --------------------------------------------------------------------- |
-| Human-approved scope-versioned bridge contract dated 2026-08-19                               | `LOCAL` | Yes      | Define handshake-free platform/Cardano clients and `xray.app` status. |
-| `package.json`, `package-lock.json`, and `README.md`                                          | `LOCAL` | Yes      | Preserve linked SDK resolution and repository validation.             |
-| `mini-app-cardano-transactions/app/integrations/xray-js/useEffectiveSettings.ts` and `mini-app-cardano-transactions/app/shared/routing/HostRouteSync.tsx` | `LOCAL` | Yes      | Own host settings and route synchronization.                          |
-| `mini-app-cardano-transactions/app/components/pages/Home/index.tsx` and `mini-app-cardano-transactions/app/types/index.ts`                                | `LOCAL` | Yes      | Own transaction Cardano bridge calls and public types.                |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human-approved scope-versioned bridge contract dated 2026-08-19 | `LOCAL` | Yes | Define handshake-free platform/Cardano clients and `xray.app` status. |
+| `package.json`, `package-lock.json`, and `README.md` | `LOCAL` | Yes | Preserve linked SDK resolution and repository validation. |
+| `mini-app-cardano-transactions/app/integrations/xray-js/useEffectiveSettings.ts` and `mini-app-cardano-transactions/app/shared/routing/HostRouteSync.tsx` | `LOCAL` | Yes | Own host settings and route synchronization. |
+| `mini-app-cardano-transactions/app/components/pages/Home/index.tsx` and `mini-app-cardano-transactions/app/types/index.ts` | `LOCAL` | Yes | Own transaction Cardano bridge calls and public types. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -22,13 +27,13 @@ Adopt the scope-versioned bridge client in Transactions without a Provider or ha
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                  | Compatibility                                      | Local owner                                 | Validation                                         |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------- | -------------------------------------------------- |
-| C01       | Replace grouped, legacy, and `/cardano` imports/types with direct platform/Cardano/CIP-30 v1 client and React namespaces actually used.                                                      | Remove retired APIs without shims.                 | Manifest/lockfile, integrations, app types. | Typecheck and import scan pass.                    |
-| C02       | Replace Provider/handshake connection state with lazy platform status and distinguish selected Cardano account, accountless XRAY host, unavailable host, and standalone operation.           | Status does not authorize transaction access.      | Home host/account state.                    | State behavior and build pass.                     |
-| C03       | Migrate theme, currency, hide-balances, and route synchronization to platform/v1 hooks/events without connection gating, preserving local fallbacks and loop prevention.                     | No handshake prerequisite.                         | Effective settings and HostRouteSync.       | Typecheck/build pass.                              |
-| C04       | Migrate every Transactions Cardano request/hook to direct Cardano v1 or CIP-30 v1 APIs while preserving loading, null, error, signing/submission feedback, and transaction display behavior. | Existing host authorization/errors remain visible. | Home transaction integration.               | Operation inventory and production build pass.     |
-| C05       | Remove obsolete Provider, handshake, capability, generic message, grouped-role, and protocol-subpath code/types; update relevant docs.                                                       | No legacy fallback.                                | App source/types and README.                | Stale scan, formatting, typecheck, and build pass. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Replace grouped, legacy, and `/cardano` imports/types with direct platform/Cardano/CIP-30 v1 client and React namespaces actually used. | Remove retired APIs without shims. | Manifest/lockfile, integrations, app types. | Typecheck and import scan pass. |
+| C02 | Replace Provider/handshake connection state with lazy platform status and distinguish selected Cardano account, accountless XRAY host, unavailable host, and standalone operation. | Status does not authorize transaction access. | Home host/account state. | State behavior and build pass. |
+| C03 | Migrate theme, currency, hide-balances, and route synchronization to platform/v1 hooks/events without connection gating, preserving local fallbacks and loop prevention. | No handshake prerequisite. | Effective settings and HostRouteSync. | Typecheck/build pass. |
+| C04 | Migrate every Transactions Cardano request/hook to direct Cardano v1 or CIP-30 v1 APIs while preserving loading, null, error, signing/submission feedback, and transaction display behavior. | Existing host authorization/errors remain visible. | Home transaction integration. | Operation inventory and production build pass. |
+| C05 | Remove obsolete Provider, handshake, capability, generic message, grouped-role, and protocol-subpath code/types; update relevant docs. | No legacy fallback. | App source/types and README. | Stale scan, formatting, typecheck, and build pass. |
 
 ## Implementation steps
 

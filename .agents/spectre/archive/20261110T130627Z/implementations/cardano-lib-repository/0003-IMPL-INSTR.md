@@ -1,7 +1,8 @@
-# Repository implementation 0003 instruction
+# Cardano Lib repository implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-repository/0003
+Target-Path: ./cardano-lib/
 Created: 20260909T114243Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -20,6 +21,10 @@ Snapshot files are local metadata migration inputs, not new upstream behavioral 
 | `.agents/spectre/templates/TEMPLATE_PROVIDER.md` | `LOCAL` | Yes | Unversioned guide and frozen snapshot rules. |
 | `.agents/spectre/providers/uplc/PROVIDER.md` | `LOCAL` | Yes | Provider information and tracking. |
 | `.agents/spectre/providers/uplc/0001/SNAPSHOT.md` | `LOCAL` | Yes | Original capture rules, inventory and migration provenance. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

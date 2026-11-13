@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0012 instruction
+# JS Mini App Bridge implementation 0012 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0012
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260819T063643Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `js/packages/mini-app-bridge/package.json` and `js/packages/runtime/` | `LOCAL` | Yes | Define direct-package and aggregate-runtime public entry points that must expose the explicit v1 surface. |
 | `js/packages/mini-app-bridge/test/bridge.test.ts` | `LOCAL` | Yes | Defines current contract, namespace, request correlation, React ordering, context, and Cardano/CIP-30 behavior to retain apart from the declared handshake change. |
 | `README.md` | `LOCAL` | Yes | Defines the published JavaScript, host, Cardano, CIP-30, and React usage that must document version selection and migration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

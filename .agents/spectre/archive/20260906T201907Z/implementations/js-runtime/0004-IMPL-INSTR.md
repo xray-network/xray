@@ -1,10 +1,11 @@
-# Runtime implementation 0004 instruction
+# JS runtime implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-runtime/0004
+Target-Path: ./js/packages/runtime/
 Created: 20260812T113508Z
 Evidence-Mode: LOCAL
-Depends-On: js-cardano/0007
+Depends-On: ../js-cardano/0007-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Human-approved removal of the duplicate package-root API | `LOCAL` | Yes | Make explicit xray-js subpaths the only public entry points. |
 | Runtime manifest/source/tests, README, and active root consumers | `LOCAL` | Yes | Define and validate the breaking root removal. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

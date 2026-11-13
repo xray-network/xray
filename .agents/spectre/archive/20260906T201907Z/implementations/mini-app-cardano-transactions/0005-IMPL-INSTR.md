@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0005 instruction
+# Mini App Cardano Transactions implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0005
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260811T085802Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Adopt separated platform and Cardano bridge APIs. |
 | `mini-app-cardano-transactions/app/` bridge consumers | `LOCAL` | Yes | Transactions settings, routing, tip, and account usage. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

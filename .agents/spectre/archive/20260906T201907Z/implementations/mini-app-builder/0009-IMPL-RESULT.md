@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0009 result
+# Mini App Builder implementation 0009 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0009
@@ -7,11 +7,11 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                             | Validation                    |
-| --------- | ------------- | ------------------------------------------------------------------------------------------ | ----------------------------- |
-| C01       | `IMPLEMENTED` | Removed React Router Serve, date-fns, and Jazzicon; retained generated-entry dependencies. | Typecheck/build passed.       |
-| C02       | `IMPLEMENTED` | Moved Prettier, Wrangler, SVGR, and WASM plugins to development scope.                     | Installed-tree audit passed.  |
-| C03       | `IMPLEMENTED` | Added Wrangler static preview and pruned the extraneous installation.                      | Script and npm audits passed. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Removed React Router Serve, date-fns, and Jazzicon; retained generated-entry dependencies. | Typecheck/build passed. |
+| C02 | `IMPLEMENTED` | Moved Prettier, Wrangler, SVGR, and WASM plugins to development scope. | Installed-tree audit passed. |
+| C03 | `IMPLEMENTED` | Added Wrangler static preview and pruned the extraneous installation. | Script and npm audits passed. |
 
 ## Outcome
 
@@ -28,9 +28,9 @@ Builder has a smaller runtime manifest, a valid static preview, and no extraneou
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                      | Compatibility                | Downstream action |
-| --------- | ------------------------------------------------------------------------------------ | ---------------------------- | ----------------- |
-| C01       | Runtime manifests exclude only dependencies unnecessary to active or generated code. | SPA builds remain supported. | None.             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Runtime manifests exclude only dependencies unnecessary to active or generated code. | SPA builds remain supported. | None. |
 
 ## Validation
 

@@ -1,4 +1,4 @@
-# TypeScript implementation 0004 result
+# Cardano Lib TypeScript implementation 0004 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0004
@@ -39,7 +39,7 @@ Package-owned typed Data schemas and codecs live under `src/typed_data/` and emi
 `dist/esm/typed_data/`. Root exports and the public `@xray-network/cardano-plutus/data` subpath
 expose the same bindings.
 
-## Artifacts consumed
+## Inputs consumed
 
 - `../../providers/cardano-ledger/0001/artifacts/cddl/eras/byron.cddl` —
   `bc6f7fc1c6295046a2944ad784ce4b5ea544a185400add4aa7b122cd8e46a107`
@@ -258,7 +258,7 @@ validator primitives rather than represented as separate public classes.
 | Typed Data layout review | PASS | Source and emitted modules use `typed_data`; the public `./data` export resolves to `dist/esm/typed_data/index.js`; no stale internal `data` directory exists |
 | `git diff --check` | PASS | No whitespace errors |
 
-## Deviations from plan
+## Deviations from instruction
 
 - The plan grouped rule reconciliation by era but did not prescribe the implementation form.
   Validation is implemented as package-owned runtime combinators layered onto existing nominal

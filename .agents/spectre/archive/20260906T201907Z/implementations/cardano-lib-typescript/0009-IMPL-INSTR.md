@@ -1,21 +1,28 @@
-# TypeScript implementation 0009 instruction
+# Cardano Lib TypeScript implementation 0009 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0009
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0003-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-typescript/0003`](0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted typed Data, UPLC, serialized-script, and Plutus V1/V2/V3 ownership |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable CIP-0057 specification and complete captured meta-schema set |
-| Captured `CIP-0057/README.md` and `schemas/README.md` | `PROVIDER` | Yes | Document structure, vocabulary, validation semantics, and schema inventory |
-| Captured five `CIP-0057/schemas/*.json` files | `PROVIDER` | Yes | Exact blueprint, argument, parameter, Data, and builtin schema constraints |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Immutable CIP-0057 specification and complete captured meta-schema set |
+| Captured `CIP-0057/README.md` and `schemas/README.md` | `PROVIDER` | Yes | Pin `P1`. Document structure, vocabulary, validation semantics, and schema inventory |
+| Captured five `CIP-0057/schemas/*.json` files | `PROVIDER` | Yes | Pin `P1`. Exact blueprint, argument, parameter, Data, and builtin schema constraints |
 | `cardano-lib/libs/typescript/packages/plutus/` and runtime facade | `LOCAL` | Yes | Existing package, Data, script codec, hash, export, and security boundaries |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

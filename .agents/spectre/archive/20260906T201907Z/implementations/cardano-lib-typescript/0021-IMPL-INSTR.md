@@ -1,7 +1,8 @@
-# TypeScript implementation 0021 instruction
+# Cardano Lib TypeScript implementation 0021 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0021
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260803T104819Z
 Evidence-Mode: LOCAL
 Depends-On: ./0004-IMPL-RESULT.md
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | `cardano-lib-typescript/0004` | `IMPLEMENTATION_RESULT` | Yes | Accepted Conway `CostModels` nominal owner |
 | Existing `CostModels.from_json()` / `to_json()` implementation | `LOCAL` | Yes | JSON consumption surface requiring public identity proof |
 | Chain/runtime barrels and packed consumers | `LOCAL` | Yes | Export and packaging boundary |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

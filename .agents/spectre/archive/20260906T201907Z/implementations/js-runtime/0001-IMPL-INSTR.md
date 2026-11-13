@@ -1,7 +1,8 @@
-# Runtime implementation 0001 instruction
+# JS runtime implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-runtime/0001
+Target-Path: ./js/packages/runtime/
 Created: 20260803T150230Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,11 +10,15 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                              | Kind    | Required | Purpose                                                                                                        |
-| ---------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `js/packages/runtime/`                | `LOCAL` | Yes      | Current root package exports and Cardano subpath integration.                                                  |
-| `js/packages/cardano-sdk/`            | `LOCAL` | Yes      | Current local Cardano package contract being replaced in the coordinated repository change.                    |
-| Human request in this conversation | `LOCAL` | Yes      | Requires uppercase `XRAY` as the main multi-chain export with lower-case chain modules such as `XRAY.cardano`. |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| `js/packages/runtime/` | `LOCAL` | Yes | Current root package exports and Cardano subpath integration. |
+| `js/packages/cardano-sdk/` | `LOCAL` | Yes | Current local Cardano package contract being replaced in the coordinated repository change. |
+| Human request in this conversation | `LOCAL` | Yes | Requires uppercase `XRAY` as the main multi-chain export with lower-case chain modules such as `XRAY.cardano`. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -21,13 +26,13 @@ Replace the root Cardano namespace export with an immutable, uppercase, extensib
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                   | Compatibility                                                                     | Local owner                             | Validation                             |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------- |
-| C01       | Export `XRAY` as the main named runtime facade and expose `XRAY.cardano.create(config)`.                                                                                      | Replaces the existing root `Cardano` namespace.                                   | `js/packages/runtime/src`                  | Runtime build and typecheck.           |
-| C02       | Keep `@xray-network/xray-js/cardano` as the direct, fully typed Cardano entry and preserve `/cardano/lib`.                                                                    | Cardano subpath API is intentionally replaced by the new Cardano package exports. | Runtime entrypoints and package exports | Import smoke tests and declarations.   |
-| C03       | Define the minimal chain-module contract and keep runtime-to-chain dependency direction one-way so future `bitcoin`, `midnight`, and other modules can follow the same shape. | New extensibility contract; no non-Cardano implementation is claimed.             | Runtime common/facade modules           | Typecheck and architecture inspection. |
-| C04       | Avoid a mutable global configured client; each chain-module `create` call returns an isolated client.                                                                         | New lifecycle behavior.                                                           | Runtime XRAY facade                     | Runtime tests.                         |
-| C05       | Update root documentation to use `XRAY.cardano` and direct Cardano imports consistently.                                                                                      | Removes legacy root examples.                                                     | `README.md`                             | Documentation search.                  |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Export `XRAY` as the main named runtime facade and expose `XRAY.cardano.create(config)`. | Replaces the existing root `Cardano` namespace. | `js/packages/runtime/src` | Runtime build and typecheck. |
+| C02 | Keep `@xray-network/xray-js/cardano` as the direct, fully typed Cardano entry and preserve `/cardano/lib`. | Cardano subpath API is intentionally replaced by the new Cardano package exports. | Runtime entrypoints and package exports | Import smoke tests and declarations. |
+| C03 | Define the minimal chain-module contract and keep runtime-to-chain dependency direction one-way so future `bitcoin`, `midnight`, and other modules can follow the same shape. | New extensibility contract; no non-Cardano implementation is claimed. | Runtime common/facade modules | Typecheck and architecture inspection. |
+| C04 | Avoid a mutable global configured client; each chain-module `create` call returns an isolated client. | New lifecycle behavior. | Runtime XRAY facade | Runtime tests. |
+| C05 | Update root documentation to use `XRAY.cardano` and direct Cardano imports consistently. | Removes legacy root examples. | `README.md` | Documentation search. |
 
 ## Implementation steps
 

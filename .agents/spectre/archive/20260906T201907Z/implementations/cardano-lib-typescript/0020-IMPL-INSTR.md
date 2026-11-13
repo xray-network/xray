@@ -1,7 +1,8 @@
-# TypeScript implementation 0020 instruction
+# Cardano Lib TypeScript implementation 0020 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0020
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260803T104819Z
 Evidence-Mode: LOCAL
 Depends-On: ./0003-IMPL-RESULT.md, ./0004-IMPL-RESULT.md
@@ -15,6 +16,10 @@ Provider-Evidence: NONE
 | `cardano-lib-typescript/0004` | `IMPLEMENTATION_RESULT` | Yes | Accepted redeemer/transaction/CostModels owners |
 | Plutus phase-two API and chain `RedeemerWitnessKey` | `LOCAL` | Yes | Existing evaluator and typed identity owner |
 | Adjacent xray-js evaluator loop | `LOCAL` | Yes | Read-only manual redeemer tag/index decoding evidence |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

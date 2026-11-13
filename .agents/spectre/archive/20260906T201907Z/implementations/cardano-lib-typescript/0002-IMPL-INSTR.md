@@ -1,17 +1,24 @@
-# TypeScript implementation 0002 instruction
+# Cardano Lib TypeScript implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0002
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260727T084625Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/message-signing/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
-| [`0001-message-signing`](../../providers/message-signing/0001/SNAPSHOT.md) | `PROVIDER` | Yes | CIP-8 wire and signing behavior |
+| [`0001-message-signing`](../../providers/message-signing/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. CIP-8 wire and signing behavior |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `message-signing/0001` | [`.agents/spectre/providers/message-signing/0001/SNAPSHOT.md`](../../providers/message-signing/0001/SNAPSHOT.md) `ac0b4684428dea86d22cf9ff01e8bcfd12bc3678bf5c1412d55edc5cdc319ab9` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

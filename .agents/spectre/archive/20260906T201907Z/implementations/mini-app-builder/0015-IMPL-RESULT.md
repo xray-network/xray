@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0015 result
+# Mini App Builder implementation 0015 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0015
@@ -7,9 +7,9 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                                                                                                                                                          | Validation                                                                 |
-| --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Kept outer React status unchanged and extended nested relay correlation with the request method. Successful platform status responses and status events now require the exact `{ host: "xray.app" }` identity, preserve nullable context, and reject duplicated/invalid payload shapes. | Relay audit, typecheck, production build, stale scan, and diff check pass. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Kept outer React status unchanged and extended nested relay correlation with the request method. Successful platform status responses and status events now require the exact `{ host: "xray.app" }` identity, preserve nullable context, and reject duplicated/invalid payload shapes. | Relay audit, typecheck, production build, stale scan, and diff check pass. |
 
 ## Outcome
 
@@ -26,9 +26,9 @@ request-ID isolation.
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                    | Compatibility                                | Downstream action                                                      |
-| --------- | ---------------------------------------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------- |
-| C01       | Nested status result/event payload is exactly `{ host }`; account remains context. | Other routes and React status are unchanged. | Preview clients may read raw account only from response/event context. |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Nested status result/event payload is exactly `{ host }`; account remains context. | Other routes and React status are unchanged. | Preview clients may read raw account only from response/event context. |
 
 ## Validation
 

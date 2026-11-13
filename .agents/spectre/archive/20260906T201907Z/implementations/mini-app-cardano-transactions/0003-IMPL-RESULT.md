@@ -1,4 +1,4 @@
-# xray-mini-app-transactions implementation 0003 result
+# Mini App Cardano Transactions implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0003
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Transactions consumes provider, protocol, and configuration APIs through their canonical domains.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 

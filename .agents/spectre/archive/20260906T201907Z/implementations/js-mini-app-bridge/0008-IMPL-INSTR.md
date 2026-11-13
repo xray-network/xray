@@ -1,10 +1,11 @@
-# Mini App Bridge implementation 0008 instruction
+# JS Mini App Bridge implementation 0008 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0008
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260812T111145Z
 Evidence-Mode: LOCAL
-Depends-On: js-mini-app-bridge/0007
+Depends-On: ./0007-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Repository README and the compact Mini App Bridge API from `js-mini-app-bridge/0007` | `LOCAL` | Yes | Define distinct examples for framework-free and React consumers. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

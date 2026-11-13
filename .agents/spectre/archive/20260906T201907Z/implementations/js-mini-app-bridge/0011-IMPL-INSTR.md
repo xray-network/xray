@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0011 instruction
+# JS Mini App Bridge implementation 0011 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0011
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260814T112318Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -17,6 +18,10 @@ Provider-Evidence: NONE
 | `js/packages/mini-app-bridge/src/react/` | `LOCAL` | Yes | Own connected host state and nullable context exposure to React consumers. |
 | `js/packages/mini-app-bridge/src/testing/` and `js/packages/mini-app-bridge/test/` | `LOCAL` | Yes | Own deterministic mock behavior and bridge contract verification. |
 
+## Provider pins
+
+NONE
+
 ## Objective
 
 Allow every platform host message to carry a nullable account context so an embedded mini app remains connected to XRAY platform services when no account is selected, while preserving non-null blockchain contexts for chain-specific protocols.
@@ -25,7 +30,7 @@ Allow every platform host message to carry a nullable account context so an embe
 
 | Change ID | Requirement | Compatibility | Local owner | Validation |
 | --- | --- | --- | --- | --- |
-| C01 | Add and export a platform context schema/type equal to `HostContext | null`, and use it for every platform host message type and client parser. | This intentionally changes the platform envelope contract; Cardano Bridge and CIP-30 contexts remain strict and non-null. | Platform protocol/client | Package typecheck and tests. |
+| C01 | Add and export a platform context schema/type equal to `HostContext \| null`, and use it for every platform host message type and client parser. | This intentionally changes the platform envelope contract; Cardano Bridge and CIP-30 contexts remain strict and non-null. | Platform protocol/client | Package typecheck and tests. |
 | C02 | Accept nullable context in platform host send helpers and the generic host transport without weakening public chain-specific helper signatures. | Existing non-null host callers remain valid; platform hosts may now send `null`. | Platform host and transport | Package build and typecheck. |
 | C03 | Keep React `connected` based on receipt of a valid handshake rather than context presence, and allow platform getters/pushes to retain a null context. | `connected: true, context: null` means XRAY host available with no selected account. | React store | Focused accountless-host test. |
 | C04 | Extend mocks, tests, and bridge documentation with the accountless platform-host contract and prove chain-specific parsing remains context-strict. | Protocol version remains 1; no account-presence boolean is added. | Testing and README | Package and monorepo checks. |

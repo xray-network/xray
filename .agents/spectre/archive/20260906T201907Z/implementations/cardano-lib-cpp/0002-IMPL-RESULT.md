@@ -1,4 +1,4 @@
-# C++ implementation 0002 result
+# Cardano Lib C++ implementation 0002 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-cpp/0002

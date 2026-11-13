@@ -1,4 +1,4 @@
-# Cardano implementation 0007 result
+# JS Cardano implementation 0007 result
 
 Result-Version: v1
 Implementation-ID: js-cardano/0007

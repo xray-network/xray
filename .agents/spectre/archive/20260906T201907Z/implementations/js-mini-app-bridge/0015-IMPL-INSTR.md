@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0015 instruction
+# JS Mini App Bridge implementation 0015 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0015
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260820T093921Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | Human-approved open explorer identifier dated 2026-08-20 | `LOCAL` | Yes | Replace the closed Cardano explorer enumeration with a string contract. |
 | `js/packages/mini-app-bridge/src/adapters/cardano/v1/` | `LOCAL` | Yes | Own the Cardano v1 explorer method, event, public type, and React projection. |
 | Mini App Bridge mocks, tests, runtime facade, and package documentation | `LOCAL` | Yes | Prove open identifiers are accepted without changing message routing or response envelopes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

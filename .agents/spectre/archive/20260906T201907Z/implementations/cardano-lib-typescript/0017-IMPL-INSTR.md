@@ -1,7 +1,8 @@
-# TypeScript implementation 0017 instruction
+# Cardano Lib TypeScript implementation 0017 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0017
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260803T104819Z
 Evidence-Mode: LOCAL
 Depends-On: ./0004-IMPL-RESULT.md
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | `cardano-lib-typescript/0004` | `IMPLEMENTATION_RESULT` | Yes | Accepted Conway transaction owner and lossless CBOR contract |
 | `cardano-lib/libs/typescript/packages/chain/src/era/conway/model.ts` | `LOCAL` | Yes | Existing `Transaction`, body, witness, and auxiliary owners |
 | Adjacent xray-js transaction-parts helper | `LOCAL` | Yes | Read-only downstream evidence for the manual CBOR workaround |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

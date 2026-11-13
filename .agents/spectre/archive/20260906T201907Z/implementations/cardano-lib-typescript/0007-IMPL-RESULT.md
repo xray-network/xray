@@ -1,4 +1,4 @@
-# TypeScript implementation 0007 result
+# Cardano Lib TypeScript implementation 0007 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0007
@@ -49,7 +49,7 @@ not a reversible ledger identifier or authorization primitive.
 | Change ID | Semantic change | Compatibility | Downstream action |
 | --- | --- | --- | --- |
 | `C001` | `blake2b160(message)` computes Blake2b configured for a 20-byte digest and returns owned bytes. | Additive; existing Blake2b variants are unchanged. | Reuse this primitive for Cardano protocols requiring Blake2b-160; do not truncate a longer digest. |
-| `C002` | `AssetFingerprint.from_parts(policyId, assetName)` hashes `policy.raw || name.raw`; strict parsing and canonical formatting use HRP `asset`. | Additive; component owners remain `ScriptHash` and `AssetName`. | Replace local CIP-14 codecs while retaining policy/name as the actual ledger identity. |
+| `C002` | `AssetFingerprint.from_parts(policyId, assetName)` hashes `policy.raw \|\| name.raw`; strict parsing and canonical formatting use HRP `asset`. | Additive; component owners remain `ScriptHash` and `AssetName`. | Replace local CIP-14 codecs while retaining policy/name as the actual ledger identity. |
 | `C003` | Focused CIP-14, CIP namespace, runtime CIP facade, and aggregate imports resolve to one nominal binding. | Additive and identity-preserving. | Import from the narrowest package path appropriate to the consumer. |
 
 ## Validation

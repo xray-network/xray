@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0009 result
+# Mini App Cardano Assets implementation 0009 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0009
@@ -7,14 +7,26 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                      | Validation               |
-| --------- | ------------- | ----------------------------------------------------------------------------------- | ------------------------ |
-| C01       | `IMPLEMENTED` | Deleted the unused AssetImage Sass module.                                          | Production build passed. |
-| C02       | `IMPLEMENTED` | Confirmed active source has no Sass files or imports and no direct Sass dependency. | Typecheck/build passed.  |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Deleted the unused AssetImage Sass module. | Production build passed. |
+| C02 | `IMPLEMENTED` | Confirmed active source has no Sass files or imports and no direct Sass dependency. | Typecheck/build passed. |
 
 ## Outcome
 
 Assets no longer contains unused Sass source; AssetImage runtime behavior is unchanged.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 
@@ -25,3 +37,11 @@ Assets no longer contains unused Sass source; AssetImage runtime behavior is unc
 ## Deviations from instruction
 
 None.
+
+## Remaining human review
+
+Not recorded in the original result.
+
+## Reproducibility
+
+Not recorded in the original result.

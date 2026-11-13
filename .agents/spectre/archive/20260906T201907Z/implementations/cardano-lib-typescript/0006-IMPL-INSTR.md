@@ -1,19 +1,26 @@
-# TypeScript implementation 0006 instruction
+# Cardano Lib TypeScript implementation 0006 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0006
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-ledger/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-typescript/0004`](0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted Conway wire models, package ownership, and lossless-codec contract |
-| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official Conway certificate and governance CDDL |
+| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Official Conway certificate and governance CDDL |
 | `cardano-lib/libs/typescript/packages/chain/src/era/conway/` and `cardano-lib/libs/typescript/packages/chain/src/builder/transaction.ts` | `LOCAL` | Yes | Existing nominal owners and builder consumers |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-ledger/0001` | [`.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md`](../../providers/cardano-ledger/0001/SNAPSHOT.md) `2822b83a5cabdf10f3793f3dfd3c9e61e67d14f0b1926e972a304ab38d6effa8` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

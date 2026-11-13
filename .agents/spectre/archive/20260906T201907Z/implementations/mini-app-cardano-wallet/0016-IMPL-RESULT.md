@@ -1,4 +1,4 @@
-# xray-mini-app-wallet implementation 0016 result
+# Mini App Cardano Wallet implementation 0016 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0016
@@ -20,6 +20,18 @@ Evidence-Mode: LOCAL
 Wallet uses the direct versioned bridge for host settings, account data, routes, and submission
 without a handshake prerequisite.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck` — passed.
@@ -34,3 +46,7 @@ None.
 
 Review all host states and exercise asset selection, transaction construction, submission consent,
 errors, preferences, and routes.
+
+## Reproducibility
+
+Not recorded in the original result.

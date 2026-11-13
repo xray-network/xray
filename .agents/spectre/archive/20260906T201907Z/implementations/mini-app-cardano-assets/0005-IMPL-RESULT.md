@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0005 result
+# Mini App Cardano Assets implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0005
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 
 Assets consumes Cardano data only through the explicit Cardano adapter.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck`: PASS.
@@ -28,3 +40,7 @@ None.
 ## Remaining human review
 
 Review Cardano/platform import ownership.
+
+## Reproducibility
+
+Not recorded in the original result.

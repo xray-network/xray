@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0001 instruction
+# JS Mini App Bridge implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0001
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260803T143851Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,10 +10,14 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                      | Kind    | Required | Purpose                                                                       |
-| -------------------------------------------------------------------------- | ------- | -------- | ----------------------------------------------------------------------------- |
-| Current human request to rename the Mini App package to Mini App Bridge    | `LOCAL` | Yes      | Authorizes the workspace, package, runtime subpath, and documentation rename. |
-| `js/packages/mini-app/`, `js/packages/runtime/`, root manifests, and `README.md` | `LOCAL` | Yes      | Defines the existing package and every repository-owned consumer.             |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Current human request to rename the Mini App package to Mini App Bridge | `LOCAL` | Yes | Authorizes the workspace, package, runtime subpath, and documentation rename. |
+| `js/packages/mini-app/`, `js/packages/runtime/`, root manifests, and `README.md` | `LOCAL` | Yes | Defines the existing package and every repository-owned consumer. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -21,12 +26,12 @@ preserving its protocol, client, host, React, testing, and CIP-30 behavior.
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                          | Compatibility                                                                      | Local owner                                              | Validation                                           |
-| --------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------- |
-| `C01`     | Rename `js/packages/mini-app` to `js/packages/mini-app-bridge` and the package to `@xray-network/xray-js-mini-app-bridge`. | Preserve source modules, exports, and public `MiniApp*` symbols.                   | `js/packages/mini-app-bridge/`, root `package.json`         | Workspace build and typecheck.                       |
-| `C02`     | Rename runtime source modules and public subpaths from `mini-app` to `mini-app-bridge`.                              | This is an intentional import-path rename; do not retain old aliases.              | `js/packages/runtime/src/`, `js/packages/runtime/package.json` | Runtime build and repository-wide stale-name scan.   |
-| `C03`     | Update repository dependencies, lockfile links, comments, and documentation to the new name.                         | Installation must resolve the renamed local workspace without stale package links. | `package-lock.json`, `README.md`                         | Offline lockfile reconciliation and stale-name scan. |
-| `C04`     | Preserve behavior and verify all workspaces after the mechanical rename.                                             | No protocol message, API symbol, schema, or runtime behavior change.               | Repository                                               | `npm run check` and `git diff --check`.              |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| `C01` | Rename `js/packages/mini-app` to `js/packages/mini-app-bridge` and the package to `@xray-network/xray-js-mini-app-bridge`. | Preserve source modules, exports, and public `MiniApp*` symbols. | `js/packages/mini-app-bridge/`, root `package.json` | Workspace build and typecheck. |
+| `C02` | Rename runtime source modules and public subpaths from `mini-app` to `mini-app-bridge`. | This is an intentional import-path rename; do not retain old aliases. | `js/packages/runtime/src/`, `js/packages/runtime/package.json` | Runtime build and repository-wide stale-name scan. |
+| `C03` | Update repository dependencies, lockfile links, comments, and documentation to the new name. | Installation must resolve the renamed local workspace without stale package links. | `package-lock.json`, `README.md` | Offline lockfile reconciliation and stale-name scan. |
+| `C04` | Preserve behavior and verify all workspaces after the mechanical rename. | No protocol message, API symbol, schema, or runtime behavior change. | Repository | `npm run check` and `git diff --check`. |
 
 ## Implementation steps
 

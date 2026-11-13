@@ -1,7 +1,8 @@
-# XRAY Mini App Cardano Transactions implementation 0001 instruction
+# Mini App Cardano Transactions implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0001
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260906T201907Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | Current human request to replace XRAY Updates with SPECTRE, accept completed review work, archive terminal history, and preserve planned work. | `LOCAL` | Yes | Authorize installation, migration, review acceptance, archival, and the bootstrap acceptance exception. |
 | [Pinned SPECTRE protocol](../../SPECTRE-PROTOCOL.md) | `LOCAL` | Yes | Define installation, runtime extraction, canonical content, lifecycle storage, and validation. |
 | [Repository README](../../../../mini-app-cardano-transactions/README.md) | `LOCAL` | Yes | Establish repository identity and structure. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

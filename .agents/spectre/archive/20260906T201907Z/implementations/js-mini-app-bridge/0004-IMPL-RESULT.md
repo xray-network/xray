@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0004 result
+# JS Mini App Bridge implementation 0004 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0004
@@ -16,6 +16,14 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Public bridge subpaths are their own module namespaces. The source root contains only the neutral package entrypoint, while implementation ownership stays in nested platform, transport, and adapter directories.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
 
 ## Exported change contract
 
@@ -39,3 +47,7 @@ None.
 ## Remaining human review
 
 Review namespace-import ergonomics and blockchain-neutral README terminology.
+
+## Reproducibility
+
+Not recorded in the original result.

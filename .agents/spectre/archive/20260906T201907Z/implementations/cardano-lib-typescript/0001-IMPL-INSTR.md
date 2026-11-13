@@ -1,17 +1,24 @@
-# TypeScript implementation 0001 instruction
+# Cardano Lib TypeScript implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0001
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260723T122735Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL, historical vectors, provenance, and licensing |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Frozen CDDL, historical vectors, provenance, and licensing |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-multiplatform-lib/0001` | [`.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

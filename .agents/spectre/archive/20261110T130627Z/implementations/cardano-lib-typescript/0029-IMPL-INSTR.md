@@ -1,7 +1,8 @@
-# TypeScript implementation 0029 instruction
+# Cardano Lib TypeScript implementation 0029 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0029
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260909T114243Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -26,6 +27,10 @@ not a normative implementation input. No new upstream conformance claim follows 
 | `cardano-lib/libs/typescript/packages/plutus/test/conformance.test.mjs` | `LOCAL` | Yes | Existing corpus reader, integrity checks and baseline test entry point. |
 | `cardano-lib/libs/typescript/packages/plutus/test/flat.test.mjs` | `LOCAL` | Yes | Owned Flat codec test patterns. |
 | `cardano-lib/libs/typescript/tools/run-tests.mjs` | `LOCAL` | Yes | Workspace test discovery. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

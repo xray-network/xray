@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0003 result
+# Mini App Builder implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0003
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Builder consumes the same grouped Cardano contract as the React template.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 

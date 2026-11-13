@@ -1,7 +1,8 @@
-# C++ implementation 0010 instruction
+# Cardano Lib C++ implementation 0010 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0010
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T120245Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | `cardano-lib/docs/adr/repository/0003-project-identity.md` | `LOCAL` | Yes | Authoritative XRAY Cardano Lib display, manifest, and CMake package identities |
 | `cardano-lib/libs/cpp/` | `LOCAL` | Yes | Owned C++ manifest, CMake package metadata, documentation, examples, and install validation |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

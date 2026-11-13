@@ -1,7 +1,8 @@
-# Runtime implementation 0003 instruction
+# JS runtime implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-runtime/0003
+Target-Path: ./js/packages/runtime/
 Created: 20260812T110024Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | `js/packages/runtime/src`, runtime manifest, Mini App Bridge local package, and the human-approved compact export design | `LOCAL` | Yes | Mirror only the supported bridge entry points through `@xray-network/xray-js`. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

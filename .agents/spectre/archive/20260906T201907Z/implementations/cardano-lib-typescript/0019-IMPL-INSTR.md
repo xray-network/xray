@@ -1,7 +1,8 @@
-# TypeScript implementation 0019 instruction
+# Cardano Lib TypeScript implementation 0019 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0019
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260803T104819Z
 Evidence-Mode: LOCAL
 Depends-On: ./0003-IMPL-RESULT.md, ./0004-IMPL-RESULT.md
@@ -15,6 +16,10 @@ Provider-Evidence: NONE
 | `cardano-lib-typescript/0004` | `IMPLEMENTATION_RESULT` | Yes | Accepted Conway Script/ScriptRef wire owners |
 | Chain script models and Plutus Flat codec | `LOCAL` | Yes | Existing nominal owners and strict decoders |
 | Adjacent xray-js script helpers | `LOCAL` | Yes | Read-only tag-24 and heuristic double-CBOR workaround evidence |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# Cardano implementation 0006 result
+# JS Cardano implementation 0006 result
 
 Result-Version: v1
 Implementation-ID: js-cardano/0006
@@ -19,6 +19,10 @@ Evidence-Mode: LOCAL
 
 The Cardano SDK now exposes a predictable application-level facade while keeping raw ledger,
 crypto, CIP, and Plutus access behind the explicit `/cardano/lib` entry point.
+
+## Inputs consumed
+
+Not recorded in the original result.
 
 ## Project changes
 

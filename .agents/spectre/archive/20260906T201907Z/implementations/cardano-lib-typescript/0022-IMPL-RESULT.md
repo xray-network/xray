@@ -1,4 +1,4 @@
-# TypeScript implementation 0022 result
+# Cardano Lib TypeScript implementation 0022 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0022
@@ -19,6 +19,10 @@ Evidence-Mode: LOCAL
 Cardano Lib now has one explicit owner per domain and a small namespace-only aggregate. Stable CIPs
 and Plutus subdomains are discoverable without flattening thousands of unrelated symbols or
 creating duplicate nominal owners.
+
+## Inputs consumed
+
+Not recorded in the original result.
 
 ## Project changes
 

@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0018 instruction
+# JS Mini App Bridge implementation 0018 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0018
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260825T121147Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `js/packages/mini-app-bridge/src/adapters/cardano-cip30/v1/` | `LOCAL` | Yes | Owns the separate CIP-30 contract whose witness-set result must remain unchanged. |
 | `js/packages/mini-app-bridge/src/testing/mock-host.ts`, `js/packages/mini-app-bridge/test/`, and `js/packages/mini-app-bridge/README-CARDANO*.md` | `LOCAL` | Yes | Define mocks, protocol tests, client examples, and semantic separation between native Cardano and CIP-30. |
 | Coordinated XRAY App native Cardano host behavior requested for `app/0038` | `LOCAL` | Yes | Defines the producer that will return `SignedTransaction.cbor` and `SignedTransaction.hash` through this contract. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

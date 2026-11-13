@@ -1,20 +1,27 @@
-# TypeScript implementation 0007 instruction
+# Cardano Lib TypeScript implementation 0007 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0007
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-typescript/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted package identities, CML compatibility baseline, and browser boundary |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable CIP-0014 definition and eight official vectors |
-| `artifacts/upstream/CIP-0014/README.md` in the declared snapshot | `PROVIDER` | Yes | Exact digest, concatenation, HRP, and vector semantics |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Immutable CIP-0014 definition and eight official vectors |
+| `artifacts/upstream/CIP-0014/README.md` in the declared snapshot | `PROVIDER` | Yes | Pin `P1`. Exact digest, concatenation, HRP, and vector semantics |
 | `cardano-lib/libs/typescript/packages/crypto/`, `chain/`, `cip/`, and `runtime/` | `LOCAL` | Yes | Existing hash, `ScriptHash`, `AssetName`, CIP, and aggregate owners |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

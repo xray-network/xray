@@ -1,7 +1,8 @@
-# TypeScript implementation 0018 instruction
+# Cardano Lib TypeScript implementation 0018 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0018
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260803T104819Z
 Evidence-Mode: LOCAL
 Depends-On: ./0004-IMPL-RESULT.md
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | `cardano-lib-typescript/0004` | `IMPLEMENTATION_RESULT` | Yes | Accepted Conway transaction, certificate, address, and witness wire owners |
 | `cardano-lib/libs/typescript/packages/chain/src/builder/transaction.ts` | `LOCAL` | Yes | Existing `RequiredWitnessSet`, builders, and resolved UTxO owner |
 | Adjacent xray-js signing-key discovery helper | `LOCAL` | Yes | Read-only downstream evidence for covered fields and workarounds |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

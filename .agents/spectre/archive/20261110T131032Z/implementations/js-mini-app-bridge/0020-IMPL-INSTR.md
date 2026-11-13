@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0020 instruction
+# JS Mini App Bridge implementation 0020 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0020
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260909T073948Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -71,6 +72,10 @@ Input paths describe the source before consolidation. During implementation, res
 | `js/packages/mini-app-bridge/README-CARDANO.md` | `LOCAL` | Yes | Update architecture, type imports, and exact executable examples. |
 | `js/packages/mini-app-bridge/README-PLATFORM.md` | `LOCAL` | Yes | Update architecture, type imports, and exact executable examples. |
 | `js/packages/mini-app-bridge/README.md` | `LOCAL` | Yes | Update architecture, type imports, and exact executable examples. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

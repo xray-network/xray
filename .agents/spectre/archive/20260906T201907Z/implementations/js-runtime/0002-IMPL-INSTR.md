@@ -1,7 +1,8 @@
-# Runtime implementation 0002 instruction
+# JS runtime implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-runtime/0002
+Target-Path: ./js/packages/runtime/
 Created: 20260803T180000Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,12 +10,16 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                              | Kind    | Required | Purpose                                                       |
-| ---------------------------------- | ------- | -------- | ------------------------------------------------------------- |
-| `js/packages/runtime/src/xray.ts`     | `LOCAL` | Yes      | Existing asynchronous XRAY chain-module factory.              |
-| `js/packages/runtime/src/common.ts`   | `LOCAL` | Yes      | Existing generic chain-module contract.                       |
-| `js/packages/cardano/`                | `LOCAL` | Yes      | Coordinated synchronous `createCardano` replacement contract. |
-| Human request in this conversation | `LOCAL` | Yes      | Requires `XRAY.cardano.create(config)` to be synchronous.     |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| `js/packages/runtime/src/xray.ts` | `LOCAL` | Yes | Existing asynchronous XRAY chain-module factory. |
+| `js/packages/runtime/src/common.ts` | `LOCAL` | Yes | Existing generic chain-module contract. |
+| `js/packages/cardano/` | `LOCAL` | Yes | Coordinated synchronous `createCardano` replacement contract. |
+| Human request in this conversation | `LOCAL` | Yes | Requires `XRAY.cardano.create(config)` to be synchronous. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -22,11 +27,11 @@ Make the XRAY Cardano module construct its functional client synchronously while
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                      | Compatibility                         | Local owner           | Validation                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | --------------------- | ------------------------------------------------------------------------ |
-| C01       | Change `XrayChainModule.create` to return its client synchronously.                                                                              | Breaking generic contract.            | Runtime common types  | Runtime typecheck.                                                       |
-| C02       | Integrate `createCardano` statically so `XRAY.cardano.create(config)` returns a Cardano value without dynamic-import or protocol-fetch Promises. | Breaking Cardano creation behavior.   | Runtime XRAY facade   | Runtime test proves immediate return and zero initial provider requests. |
-| C03       | Update facade tests and documentation so `await` appears only on provider or wallet effects.                                                     | Replaces async construction examples. | Runtime tests, README | Runtime/root validation.                                                 |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Change `XrayChainModule.create` to return its client synchronously. | Breaking generic contract. | Runtime common types | Runtime typecheck. |
+| C02 | Integrate `createCardano` statically so `XRAY.cardano.create(config)` returns a Cardano value without dynamic-import or protocol-fetch Promises. | Breaking Cardano creation behavior. | Runtime XRAY facade | Runtime test proves immediate return and zero initial provider requests. |
+| C03 | Update facade tests and documentation so `await` appears only on provider or wallet effects. | Replaces async construction examples. | Runtime tests, README | Runtime/root validation. |
 
 ## Implementation steps
 

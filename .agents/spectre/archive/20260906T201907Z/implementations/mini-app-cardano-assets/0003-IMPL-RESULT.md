@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0003 result
+# Mini App Cardano Assets implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0003
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Assets consumes the canonical grouped xray-js Cardano facade without behavior changes.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 

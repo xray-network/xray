@@ -5,6 +5,8 @@ Snapshot: 0001
 Provider: message-signing
 Created: 20260727T084625Z
 Previous-Snapshot: NONE
+Capture-Summary: CAPTURE.md
+Capture-Summary-SHA256: 868b99971f045c03a6be2f0dddde045169f092b15c043a839623b0fd447d6d29
 Source-Type: git
 Source-Repository: https://github.com/Emurgo/message-signing.git
 Source-Commit: f76a82442594c8435fb577cb85da3ad594cf1063

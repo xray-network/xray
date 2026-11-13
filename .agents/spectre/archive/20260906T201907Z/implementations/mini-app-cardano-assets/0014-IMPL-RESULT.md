@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0014 result
+# Mini App Cardano Assets implementation 0014 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0014
@@ -14,6 +14,18 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Assets observes the strict Cardano application/library boundary without behavior changes.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 

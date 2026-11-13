@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0004 instruction
+# Mini App Cardano Transactions implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0004
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260811T082930Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Consume iframe host context. |
 | `mini-app-cardano-transactions/app/integrations/xray-js/useEffectiveSettings.ts` | `LOCAL` | Yes | Owned bridge settings integration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

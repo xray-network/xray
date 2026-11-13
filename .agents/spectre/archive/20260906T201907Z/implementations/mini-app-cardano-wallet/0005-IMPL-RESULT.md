@@ -1,4 +1,4 @@
-# xray-mini-app-wallet implementation 0005 result
+# Mini App Cardano Wallet implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0005
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 
 Wallet submits Cardano transactions through `cardanoClient` and no longer depends on mixed bridge APIs.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck`: PASS.
@@ -28,3 +40,7 @@ None.
 ## Remaining human review
 
 Review the native Cardano transaction request boundary.
+
+## Reproducibility
+
+Not recorded in the original result.

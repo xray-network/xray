@@ -1,7 +1,8 @@
-# Cardano implementation 0005 instruction
+# JS Cardano implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0005
+Target-Path: ./js/packages/cardano/
 Created: 20260807T101108Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,14 +10,18 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                             | Kind    | Required | Purpose                                                                      |
-| --------------------------------------------------------------------------------- | ------- | -------- | ---------------------------------------------------------------------------- |
-| Human request to consume mini-app CIP-67 behavior through xray-js and cardano-lib | `LOCAL` | Yes      | Authorizes the focused Cardano facade export and downstream consolidation.   |
-| `js/packages/cardano/src/index.ts`                                                   | `LOCAL` | Yes      | Owns the public `@xray-network/xray-js/cardano` export surface.              |
-| `js/packages/cardano/package.json`                                                   | `LOCAL` | Yes      | Declares the existing direct Cardano CIP library dependency.                 |
-| Linked `@xray-network/xray-cardano-lib-cip/cip67` declaration and implementation  | `LOCAL` | Yes      | Defines the focused proposal API to expose without reimplementing its codec. |
-| `js/packages/cardano/test/` and `js/packages/runtime/`                                  | `LOCAL` | Yes      | Define public-contract validation and the root runtime re-export boundary.   |
-| `README.md`                                                                       | `LOCAL` | Yes      | Owns the documented direct Cardano import surface and proposal guidance.     |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human request to consume mini-app CIP-67 behavior through xray-js and cardano-lib | `LOCAL` | Yes | Authorizes the focused Cardano facade export and downstream consolidation. |
+| `js/packages/cardano/src/index.ts` | `LOCAL` | Yes | Owns the public `@xray-network/xray-js/cardano` export surface. |
+| `js/packages/cardano/package.json` | `LOCAL` | Yes | Declares the existing direct Cardano CIP library dependency. |
+| Linked `@xray-network/xray-cardano-lib-cip/cip67` declaration and implementation | `LOCAL` | Yes | Defines the focused proposal API to expose without reimplementing its codec. |
+| `js/packages/cardano/test/` and `js/packages/runtime/` | `LOCAL` | Yes | Define public-contract validation and the root runtime re-export boundary. |
+| `README.md` | `LOCAL` | Yes | Owns the documented direct Cardano import surface and proposal guidance. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -24,11 +29,11 @@ Expose focused cardano-lib CIP and UPLC modules through consistent xray-js Carda
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                                             | Compatibility                                                                                                                                                        | Local owner                                       | Validation                                                                                     |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `C01`     | Export and document the focused cardano-lib CIP-67 API as a `cip67` namespace from `@xray-network/xray-js/cardano`.                                                                                                     | Additive only; keep CIP-67 explicitly namespaced because it remains a focused proposal API.                                                                          | Cardano package root, runtime, and README         | Build declarations and import-smoke both package entrypoints.                                  |
-| `C02`     | Add public-contract coverage for official label encoding/decoding and strict invalid-label behavior through the xray-js export.                                                                                         | Do not duplicate the codec or weaken cardano-lib validation.                                                                                                         | Cardano tests                                     | Run Cardano and repository tests, typechecks, and builds.                                      |
-| `C03`     | Replace the misleading `CIP8` and `UPLC` aliases of the complete cardano-lib root with focused lowercase `cip8` and `uplc` namespaces backed by their owning package subpaths; declare every directly imported package. | This intentionally removes two incorrect public aliases before v4 review; `CardanoLib` remains the complete-library namespace and internal imports remain unchanged. | Cardano package root, manifest, tests, and README | Build declarations, test focused symbols, scan for retired exports, and run repository checks. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| `C01` | Export and document the focused cardano-lib CIP-67 API as a `cip67` namespace from `@xray-network/xray-js/cardano`. | Additive only; keep CIP-67 explicitly namespaced because it remains a focused proposal API. | Cardano package root, runtime, and README | Build declarations and import-smoke both package entrypoints. |
+| `C02` | Add public-contract coverage for official label encoding/decoding and strict invalid-label behavior through the xray-js export. | Do not duplicate the codec or weaken cardano-lib validation. | Cardano tests | Run Cardano and repository tests, typechecks, and builds. |
+| `C03` | Replace the misleading `CIP8` and `UPLC` aliases of the complete cardano-lib root with focused lowercase `cip8` and `uplc` namespaces backed by their owning package subpaths; declare every directly imported package. | This intentionally removes two incorrect public aliases before v4 review; `CardanoLib` remains the complete-library namespace and internal imports remain unchanged. | Cardano package root, manifest, tests, and README | Build declarations, test focused symbols, scan for retired exports, and run repository checks. |
 
 ## Implementation steps
 

@@ -1,4 +1,4 @@
-# TypeScript implementation 0013 result
+# Cardano Lib TypeScript implementation 0013 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0013

@@ -1,7 +1,8 @@
-# TypeScript implementation 0028 instruction
+# Cardano Lib TypeScript implementation 0028 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0028
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260909T114243Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -25,6 +26,10 @@ not a normative implementation input. No new upstream conformance claim follows 
 | `cardano-lib/libs/typescript/packages/plutus/package.json` | `LOCAL` | Yes | Plutus package exports and dependencies. |
 | `cardano-lib/libs/typescript/packages/plutus/src/blueprint/index.ts` | `LOCAL` | Yes | Existing local-reference resolution and schema/value validation. |
 | `cardano-lib/libs/typescript/packages/plutus/test/blueprint.test.mjs` | `LOCAL` | Yes | Current blueprint compatibility and security tests. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

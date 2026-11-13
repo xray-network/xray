@@ -1,4 +1,4 @@
-# Typescript implementation 0025 result
+# Cardano Lib TypeScript implementation 0025 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0025

@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0012 instruction
+# Mini App Cardano Transactions implementation 0012 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0012
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260812T110024Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Local bridge imports and the human-approved compact xray-js API | `LOCAL` | Yes | Migrate runtime consumption without behavior changes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

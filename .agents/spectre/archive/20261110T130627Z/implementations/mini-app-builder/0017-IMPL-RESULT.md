@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0017 result
+# Mini App Builder implementation 0017 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0017
@@ -7,15 +7,15 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition | Implementation                                                                                                                                | Validation                                                                                                                                         |
-| --------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C01       | IMPLEMENTED | Stable local UUID records, transactional persistence, version-1 recovery backup, immutable numeric aliases, and hydration/error gates.        | Unit migration/storage failure coverage and browser migration, reload, edit, and deletion tests pass.                                              |
-| C02       | IMPLEMENTED | Local project creation/editing/removal, validated HTTP(S) URLs, and disabled In-browser choice.                                               | Browser lifecycle, invalid input, URL edits, and stable-link checks pass.                                                                          |
-| C03       | IMPLEMENTED | UUID preview URLs and numeric redirects preserve app path/query/hash; route translation remains inside the selected project.                  | Unit route tests plus direct, host, app, keyboard, and browser-history navigation tests pass.                                                      |
-| C04       | IMPLEMENTED | Existing three bridge scopes retain validation and correlation; expected origins/windows, expiry, capacity, and session cleanup are enforced. | Contract tests cover all scopes and rejected traffic; nested browser relay, pending requests during rerenders, reload, and project switching pass. |
-| C05       | IMPLEMENTED | Separate load/SDK/host observations, correlated connection proof, timeout/recovery controls, and bounded responsive event diagnostics.        | Reducer tests and nested/standalone browser tests cover confirmation, failure, timeout, recovery, session changes, pause/clear, and event limits.  |
-| C06       | PARTIAL     | Local-preview permission attribute and troubleshooting are implemented; separate-origin fixtures cover allowed and blocked embedding.         | Automated embedding checks pass. Real deployed HTTPS XRAY/local-server and browser permission acceptance remain unperformed.                       |
-| C07       | IMPLEMENTED | Repository-owned Vitest/Playwright fixtures, non-mutating formatting command, and local-development/recovery documentation.                   | Formatting, typecheck, 44 unit/contract tests, 11 browser tests, production build, dependency inspection, and whitespace checks pass.              |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | IMPLEMENTED | Stable local UUID records, transactional persistence, version-1 recovery backup, immutable numeric aliases, and hydration/error gates. | Unit migration/storage failure coverage and browser migration, reload, edit, and deletion tests pass. |
+| C02 | IMPLEMENTED | Local project creation/editing/removal, validated HTTP(S) URLs, and disabled In-browser choice. | Browser lifecycle, invalid input, URL edits, and stable-link checks pass. |
+| C03 | IMPLEMENTED | UUID preview URLs and numeric redirects preserve app path/query/hash; route translation remains inside the selected project. | Unit route tests plus direct, host, app, keyboard, and browser-history navigation tests pass. |
+| C04 | IMPLEMENTED | Existing three bridge scopes retain validation and correlation; expected origins/windows, expiry, capacity, and session cleanup are enforced. | Contract tests cover all scopes and rejected traffic; nested browser relay, pending requests during rerenders, reload, and project switching pass. |
+| C05 | IMPLEMENTED | Separate load/SDK/host observations, correlated connection proof, timeout/recovery controls, and bounded responsive event diagnostics. | Reducer tests and nested/standalone browser tests cover confirmation, failure, timeout, recovery, session changes, pause/clear, and event limits. |
+| C06 | PARTIAL | Local-preview permission attribute and troubleshooting are implemented; separate-origin fixtures cover allowed and blocked embedding. | Automated embedding checks pass. Real deployed HTTPS XRAY/local-server and browser permission acceptance remain unperformed. |
+| C07 | IMPLEMENTED | Repository-owned Vitest/Playwright fixtures, non-mutating formatting command, and local-development/recovery documentation. | Formatting, typecheck, 44 unit/contract tests, 11 browser tests, production build, dependency inspection, and whitespace checks pass. |
 
 ## Outcome
 
@@ -70,32 +70,32 @@ template checkout, substitute SDK, or external implementation contract was intro
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                    | Compatibility                                                                                                    | Downstream action                                                                                |
-| --------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| C01       | Local project identity survives order changes and edits.           | Existing valid entries, duplicates, and migration-time numeric links are preserved; backup precedes replacement. | Treat IDs as opaque; do not derive identity from list position.                                  |
-| C02       | Name and URL configure a user-operated local project.              | Existing hosted URLs remain usable; removal affects only saved metadata.                                         | Future environments must define their own project variant and lifecycle.                         |
-| C03       | Project route and mini-app route are separate.                     | Deep paths, query strings, fragments, and numeric aliases retain their meaning.                                  | Translate app routes beneath the selected stable project ID.                                     |
-| C04       | Relay traffic belongs to a bounded active preview session.         | Existing platform, Cardano, and CIP-30 v1 methods and host authorization remain unchanged.                       | Use valid existing envelopes and unique outstanding request IDs.                                 |
-| C05       | Connection means an observed successful status round trip.         | Loading, SDK activity, and upstream availability alone do not prove nested connectivity.                         | Request status through the existing SDK; treat the indicator as evidence, not continuous health. |
-| C06       | Local embedding depends on the enclosing host and browser policy.  | No global isolation headers or security bypass are introduced.                                                   | Complete actual HTTPS host/local-network acceptance before claiming browser support.             |
-| C07       | Validation is reproducible with owned fixtures and the locked SDK. | The SPA/deployment envelope and runtime dependency declarations are unchanged.                                   | Keep the sibling SDK build available and run the documented checks.                              |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Local project identity survives order changes and edits. | Existing valid entries, duplicates, and migration-time numeric links are preserved; backup precedes replacement. | Treat IDs as opaque; do not derive identity from list position. |
+| C02 | Name and URL configure a user-operated local project. | Existing hosted URLs remain usable; removal affects only saved metadata. | Future environments must define their own project variant and lifecycle. |
+| C03 | Project route and mini-app route are separate. | Deep paths, query strings, fragments, and numeric aliases retain their meaning. | Translate app routes beneath the selected stable project ID. |
+| C04 | Relay traffic belongs to a bounded active preview session. | Existing platform, Cardano, and CIP-30 v1 methods and host authorization remain unchanged. | Use valid existing envelopes and unique outstanding request IDs. |
+| C05 | Connection means an observed successful status round trip. | Loading, SDK activity, and upstream availability alone do not prove nested connectivity. | Request status through the existing SDK; treat the indicator as evidence, not continuous health. |
+| C06 | Local embedding depends on the enclosing host and browser policy. | No global isolation headers or security bypass are introduced. | Complete actual HTTPS host/local-network acceptance before claiming browser support. |
+| C07 | Validation is reproducible with owned fixtures and the locked SDK. | The SPA/deployment envelope and runtime dependency declarations are unchanged. | Keep the sibling SDK build available and run the documented checks. |
 
 ## Validation
 
 Validated on 2026-09-07, macOS 26.5.2 arm64, Node 24.18.0 / npm 11.16.0,
 Playwright 1.63.0 with Chromium 153.0.8010.12 (Playwright build 1243).
 
-| Check                                                                                 | Actual result                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run format:check`                                                                | PASS; non-mutating source/config/test/README/0017-record formatting.                                                                                                               |
-| `npm run typecheck`                                                                   | PASS; route generation and TypeScript.                                                                                                                                             |
-| `npm run test`                                                                        | PASS; 44 tests across 3 files.                                                                                                                                                     |
-| `PLAYWRIGHT_BROWSERS_PATH=/private/tmp/xray-playwright-browsers npm run test:browser` | PASS; all 11 tests, final run 36.5 seconds.                                                                                                                                        |
-| `npm run build`                                                                       | PASS; client build and SPA index prerender.                                                                                                                                        |
-| `git diff --check`                                                                    | PASS.                                                                                                                                                                              |
-| Dependency/persistence inspection                                                     | Runtime declarations and both XRAY lock records match the baseline. Only test tooling is added; project serialization excludes SDK/account/session state.                          |
-| Mobile visual inspection                                                              | Inspected the 390×844 screenshot; corrected preview height and added a greater-than-400px iframe-height assertion. Keyboard route submit, pause, clear, and drawer dismissal pass. |
-| SPECTRE affected-record checks                                                        | Matching identity/mode/links, one disposition per C01–C07, unique active/archive sequence, and relevant archive hashes checked.                                                    |
+| Check | Actual result |
+| --- | --- |
+| `npm run format:check` | PASS; non-mutating source/config/test/README/0017-record formatting. |
+| `npm run typecheck` | PASS; route generation and TypeScript. |
+| `npm run test` | PASS; 44 tests across 3 files. |
+| `PLAYWRIGHT_BROWSERS_PATH=/private/tmp/xray-playwright-browsers npm run test:browser` | PASS; all 11 tests, final run 36.5 seconds. |
+| `npm run build` | PASS; client build and SPA index prerender. |
+| `git diff --check` | PASS. |
+| Dependency/persistence inspection | Runtime declarations and both XRAY lock records match the baseline. Only test tooling is added; project serialization excludes SDK/account/session state. |
+| Mobile visual inspection | Inspected the 390×844 screenshot; corrected preview height and added a greater-than-400px iframe-height assertion. Keyboard route submit, pause, clear, and drawer dismissal pass. |
+| SPECTRE affected-record checks | Matching identity/mode/links, one disposition per C01–C07, unique active/archive sequence, and relevant archive hashes checked. |
 
 Browser fixtures use HTTP `127.0.0.1:7211` (simulated parent), `:7210` (Builder), and `:7212`
 (mini app). Both relevant fixture iframe boundaries delegate `local-network-access`; the negative

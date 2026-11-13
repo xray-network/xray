@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0016 instruction
+# JS Mini App Bridge implementation 0016 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0016
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260822T072729Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | Human-requested platform `getLocale` method dated 2026-08-22 | `LOCAL` | Yes | Define the new request-only Platform v1 capability and coordinated XRAY App/template rollout. |
 | `js/packages/mini-app-bridge/src/adapters/platform/v1/` | `LOCAL` | Yes | Own the Platform v1 schema, client request, and public client/host types. |
 | Mini App Bridge mocks, tests, runtime facade, and package documentation | `LOCAL` | Yes | Prove the locale request uses existing envelopes and remains available through the aggregate SDK facade. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

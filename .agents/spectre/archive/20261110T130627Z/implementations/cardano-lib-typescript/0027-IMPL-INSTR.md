@@ -1,7 +1,8 @@
-# TypeScript implementation 0027 instruction
+# Cardano Lib TypeScript implementation 0027 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0027
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260909T114243Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -27,6 +28,10 @@ not a normative implementation input. No new upstream conformance claim follows 
 | `cardano-lib/libs/typescript/packages/chain/src/era/shared/validation.ts` | `LOCAL` | Yes | Existing tagged-set wire validation; compatibility boundary. |
 | `cardano-lib/libs/typescript/packages/chain/src/era/shared/models.ts` | `LOCAL` | Yes | Existing duplicate-preserving wire collections. |
 | `cardano-lib/libs/typescript/packages/chain/test/builders.test.mjs` | `LOCAL` | Yes | Builder balances, input uniqueness, witnesses and evaluation tests. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

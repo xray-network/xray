@@ -1,7 +1,8 @@
-# xray-mini-app-wallet implementation 0016 instruction
+# Mini App Cardano Wallet implementation 0016 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0016
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260819T091039Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,12 +10,16 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                                         | Kind    | Required | Purpose                                                               |
-| --------------------------------------------------------------------------------------------- | ------- | -------- | --------------------------------------------------------------------- |
-| Human-approved scope-versioned bridge contract dated 2026-08-19                               | `LOCAL` | Yes      | Define handshake-free platform/Cardano clients and exact XRAY status. |
-| `package.json`, `package-lock.json`, and `README.md`                                          | `LOCAL` | Yes      | Preserve linked SDK resolution and repository validation.             |
-| `mini-app-cardano-wallet/app/integrations/xray-js/useEffectiveSettings.ts` and `mini-app-cardano-wallet/app/shared/routing/HostRouteSync.tsx` | `LOCAL` | Yes      | Own host settings and route synchronization.                          |
-| `mini-app-cardano-wallet/app/components/pages/Home/index.tsx` and `mini-app-cardano-wallet/app/types/index.ts`                                | `LOCAL` | Yes      | Own Wallet's Cardano bridge operations and types.                     |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human-approved scope-versioned bridge contract dated 2026-08-19 | `LOCAL` | Yes | Define handshake-free platform/Cardano clients and exact XRAY status. |
+| `package.json`, `package-lock.json`, and `README.md` | `LOCAL` | Yes | Preserve linked SDK resolution and repository validation. |
+| `mini-app-cardano-wallet/app/integrations/xray-js/useEffectiveSettings.ts` and `mini-app-cardano-wallet/app/shared/routing/HostRouteSync.tsx` | `LOCAL` | Yes | Own host settings and route synchronization. |
+| `mini-app-cardano-wallet/app/components/pages/Home/index.tsx` and `mini-app-cardano-wallet/app/types/index.ts` | `LOCAL` | Yes | Own Wallet's Cardano bridge operations and types. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -22,13 +27,13 @@ Adopt the scope-versioned bridge client in Wallet without a Provider or handshak
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                     | Compatibility                                                           | Local owner                                 | Validation                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------ |
-| C01       | Replace grouped, legacy, and `/cardano` imports/types with direct platform/Cardano/CIP-30 v1 client and React namespaces actually used.                                                         | Remove retired APIs without shims.                                      | Manifest/lockfile, integrations, app types. | Typecheck and import scan pass.                                    |
-| C02       | Replace Provider/handshake state with lazy platform status; distinguish selected Cardano account, accountless `{ host: "xray.app", account: null }`, unavailable host, and standalone behavior. | Status is not wallet authorization.                                     | Home host/account state.                    | State behavior and build pass.                                     |
-| C03       | Migrate theme, currency, hide-balances, and route synchronization to direct platform/v1 hooks/events without connection gating, preserving local fallbacks and route-loop prevention.           | No handshake prerequisite.                                              | Effective settings and HostRouteSync.       | Typecheck/build pass.                                              |
-| C04       | Migrate every Wallet Cardano and CIP-30 request/hook to direct v1 APIs while preserving account state, transaction/signing behavior, loading/null handling, feedback, and host errors.          | Existing host consent and operation authorization remain authoritative. | Home Wallet integration.                    | Complete referenced operation inventory and production build pass. |
-| C05       | Remove obsolete Provider, handshake, capability, generic host-message, grouped-role, and protocol-subpath code/types; update relevant docs.                                                     | No legacy fallback.                                                     | App source/types and README.                | Stale scan, formatting, typecheck, and build pass.                 |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Replace grouped, legacy, and `/cardano` imports/types with direct platform/Cardano/CIP-30 v1 client and React namespaces actually used. | Remove retired APIs without shims. | Manifest/lockfile, integrations, app types. | Typecheck and import scan pass. |
+| C02 | Replace Provider/handshake state with lazy platform status; distinguish selected Cardano account, accountless `{ host: "xray.app", account: null }`, unavailable host, and standalone behavior. | Status is not wallet authorization. | Home host/account state. | State behavior and build pass. |
+| C03 | Migrate theme, currency, hide-balances, and route synchronization to direct platform/v1 hooks/events without connection gating, preserving local fallbacks and route-loop prevention. | No handshake prerequisite. | Effective settings and HostRouteSync. | Typecheck/build pass. |
+| C04 | Migrate every Wallet Cardano and CIP-30 request/hook to direct v1 APIs while preserving account state, transaction/signing behavior, loading/null handling, feedback, and host errors. | Existing host consent and operation authorization remain authoritative. | Home Wallet integration. | Complete referenced operation inventory and production build pass. |
+| C05 | Remove obsolete Provider, handshake, capability, generic host-message, grouped-role, and protocol-subpath code/types; update relevant docs. | No legacy fallback. | App source/types and README. | Stale scan, formatting, typecheck, and build pass. |
 
 ## Implementation steps
 

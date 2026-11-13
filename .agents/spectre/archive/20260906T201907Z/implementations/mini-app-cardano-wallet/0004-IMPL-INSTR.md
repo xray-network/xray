@@ -1,7 +1,8 @@
-# xray-mini-app-wallet implementation 0004 instruction
+# Mini App Cardano Wallet implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0004
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260811T082930Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Consume iframe host context. |
 | `mini-app-cardano-wallet/app/integrations/xray-js/useEffectiveSettings.ts` | `LOCAL` | Yes | Owned bridge settings integration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

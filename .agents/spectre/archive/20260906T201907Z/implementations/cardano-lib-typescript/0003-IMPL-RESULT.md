@@ -1,4 +1,4 @@
-# TypeScript implementation 0003 result
+# Cardano Lib TypeScript implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0003
@@ -32,7 +32,7 @@ to 16 MiB, and defensively copies caller data. Phase-two decoding retains only t
 CBOR-remainder exception, keeps V1's historical Data-leaf behavior, enforces the V2+ 64-byte
 on-wire rule, and applies protocol-11 universe and constructor bounds.
 
-## Artifacts consumed
+## Inputs consumed
 
 - `../../providers/uplc/0001/artifacts/SHA256SUMS`
 - All 24 byte-exact files under `../../providers/uplc/0001/artifacts/cardano-ledger/`
@@ -89,7 +89,7 @@ executing 1,003 UPLC programs. The captured source identities remain official Pl
 | `npm --prefix libs/typescript run check` | PASS | Authoritative build, 137-test workspace suite, and packed-consumer gate passed |
 | `git diff --check` | PASS | No whitespace errors |
 
-## Deviations from plan
+## Deviations from instruction
 
 None.
 

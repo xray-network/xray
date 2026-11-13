@@ -1,18 +1,19 @@
-# C++ implementation 0002 instruction
+# Cardano Lib C++ implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0002
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-ledger/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-cpp/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted builder, ledger-model, error, ownership, and compatibility baseline |
-| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen Conway transaction-body grammar, protocol-parameter field shapes, collateral field shapes, and governance shapes; not phase-one calculations |
+| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Frozen Conway transaction-body grammar, protocol-parameter field shapes, collateral field shapes, and governance shapes; not phase-one calculations |
 | `cardano-lib/libs/cpp/include/cardano/chain/builder.hpp` and `cardano-lib/libs/cpp/src/chain/builder.cpp` | `LOCAL` | Yes | Existing public construction API and implementation to harden |
 | `cardano-lib/libs/cpp/include/cardano/chain/era/conway.hpp` and `cardano-lib/libs/cpp/include/cardano/chain/era/shared/models.hpp` | `LOCAL` | Yes | Existing Conway nominal owners and validated wire models |
 
@@ -20,6 +21,12 @@ The provider authorizes wire shapes only. Collateral calculations, return requir
 rational arithmetic, and rejection rules below deliberately define XRAY Cardano Lib's repository-local
 checked-builder policy; they are not presented as provider-backed or complete phase-one ledger
 validation.
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-ledger/0001` | [`.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md`](../../providers/cardano-ledger/0001/SNAPSHOT.md) `2822b83a5cabdf10f3793f3dfd3c9e61e67d14f0b1926e972a304ab38d6effa8` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

@@ -1,7 +1,8 @@
-# TypeScript implementation 0012 instruction
+# Cardano Lib TypeScript implementation 0012 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0012
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T120245Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -15,6 +16,10 @@ Provider-Evidence: NONE
 | `cardano-lib/docs/adr/typescript/0003-upstream-evidence-and-package-ownership.md` | `LOCAL` | Yes | Authoritative TypeScript package ownership and published package-family identities |
 | `cardano-lib/libs/typescript/` | `LOCAL` | Yes | Owned package metadata, import mappings, documentation, lockfile, source, and tests |
 | `.xray/updates/implementations/typescript/0005-IMPL-INSTR.md` through `0011-IMPL-INSTR.md` | `LOCAL` | Yes | Nonterminal planned work whose package references must use the current identities |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

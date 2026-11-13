@@ -1,10 +1,11 @@
-# Repository implementation 0002 instruction
+# JS repository implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-repository/0002
+Target-Path: ./js/
 Created: 20260812T111739Z
 Evidence-Mode: LOCAL
-Depends-On: js-cardano/0006
+Depends-On: ../js-cardano/0006-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Repository README and current public runtime exports | `LOCAL` | Yes | Organize examples by blockchain without documenting unavailable APIs as live. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0013 instruction
+# JS Mini App Bridge implementation 0013 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0013
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260819T082052Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `js/packages/mini-app-bridge/package.json` and `js/packages/runtime/` | `LOCAL` | Yes | Define direct-package and aggregate-runtime entry points and consumers that must be reduced to the new compact surface. |
 | `js/packages/mini-app-bridge/test/bridge.test.ts` and `js/packages/runtime/test/xray.test.ts` | `LOCAL` | Yes | Define existing request correlation, validation, context, Cardano, CIP-30, React, and public-boundary behavior that must be retained where this instruction does not intentionally replace it. |
 | `README.md` | `LOCAL` | Yes | Defines the current combined documentation to reduce to a basic example and links to adapter-focused guides. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

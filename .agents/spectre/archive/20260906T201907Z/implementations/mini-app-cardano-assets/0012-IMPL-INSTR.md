@@ -1,7 +1,8 @@
-# xray-mini-app-assets implementation 0012 instruction
+# Mini App Cardano Assets implementation 0012 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0012
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260811T213459Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Project manifests, lockfile, Router config, routes, and tooling | `LOCAL` | Yes | Define the React Router 7 contract. |
 | React Router 8.3.0 requirements and human migration request | `LOCAL` | Yes | Define the target dependency/runtime contract. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

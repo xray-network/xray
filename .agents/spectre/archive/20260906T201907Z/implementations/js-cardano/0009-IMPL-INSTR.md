@@ -1,7 +1,8 @@
-# Cardano implementation 0009 instruction
+# JS Cardano implementation 0009 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0009
+Target-Path: ./js/packages/cardano/
 Created: 20260824T092633Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | Human-provided Eternl transaction diagnostic | `LOCAL` | Yes | Identifies the rejected ADA-only output form `[coin, {}]` produced by an XRAY transaction. |
 | `js/packages/cardano/src/transactions/primitives.ts` and transaction builder consumers | `LOCAL` | Yes | Define application values, UTxO conversion, explicit outputs, collateral return, and transaction construction. |
 | Cardano package tests, README, and active XRAY App consumer | `LOCAL` | Yes | Define public behavior, interoperability coverage, and downstream verification. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

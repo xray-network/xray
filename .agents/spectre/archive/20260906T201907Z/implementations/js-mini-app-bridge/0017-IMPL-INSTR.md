@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0017 instruction
+# JS Mini App Bridge implementation 0017 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0017
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260824T102214Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -15,6 +16,10 @@ Provider-Evidence: NONE
 | `js/packages/mini-app-bridge/src/adapters/cardano/v1/` | `LOCAL` | Yes | Owns the Cardano account-state wire schema, client, and React adapter. |
 | `js/packages/mini-app-bridge/src/react/remote-store.ts` | `LOCAL` | Yes | Owns shared subscription, initial refresh, caching, notification, and teardown behavior. |
 | Mini App Bridge mocks, tests, documentation, and active XRAY App/template consumers | `LOCAL` | Yes | Define deterministic protocol coverage, direct-open verification, and coordinated compatibility checks. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

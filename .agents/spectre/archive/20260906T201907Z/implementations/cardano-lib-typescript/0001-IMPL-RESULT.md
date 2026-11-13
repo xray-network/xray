@@ -1,4 +1,4 @@
-# TypeScript implementation 0001 result
+# Cardano Lib TypeScript implementation 0001 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0001
@@ -17,7 +17,7 @@ The frozen CML snapshot now owns both its 38-file CDDL comparison corpus and the
 test vectors required by Cardano Lib's compatibility tests. Package TypeScript remains ordinary
 reviewed source; package tests consume the snapshot artifacts directly.
 
-## Artifacts consumed
+## Inputs consumed
 
 - 38 CDDL files below `../../providers/cardano-multiplatform-lib/0001/artifacts/specs/`.
 - Three CML license files below `../../providers/cardano-multiplatform-lib/0001/artifacts/legal/`.
@@ -58,7 +58,7 @@ storage forms, expected outcomes, source revisions, and license hashes.
 | packed consumer smoke | PASS | 526 intended files; ESM, NodeNext, and bundler consumers passed |
 | `npm --prefix libs/typescript run check` | PASS | Complete TypeScript gate passed |
 
-## Deviations from plan
+## Deviations from instruction
 
 The vector corpus lives under this snapshot's ownership with flattened provider paths, canonical
 manifest paths, and consolidated metadata. Captured upstream bytes and expected outcomes are

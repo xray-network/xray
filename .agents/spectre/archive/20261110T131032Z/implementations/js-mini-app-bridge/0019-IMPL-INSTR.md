@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0019 instruction
+# JS Mini App Bridge implementation 0019 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0019
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260909T071254Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -58,6 +59,10 @@ All paths below are repository-root-relative. The existing source defines the un
 | `js/packages/runtime/src/mini-app-bridge-react.ts` | `LOCAL` | Yes | Existing automatic React re-export. |
 | `js/packages/runtime/src/mini-app-bridge-testing.ts` | `LOCAL` | Yes | Existing automatic testing re-export. |
 | `js/packages/runtime/test/xray.test.ts` | `LOCAL` | Yes | Aggregate export assertions affected by the shared protocol helpers. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,7 +1,8 @@
-# xray-mini-app-builder implementation 0010 instruction
+# Mini App Builder implementation 0010 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-builder/0010
+Target-Path: ./mini-app-builder/
 Created: 20260811T211000Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | `package.json` and `package-lock.json` | `LOCAL` | Yes | Define dependency ownership. |
 | Human request to restore `@react-router/serve` | `LOCAL` | Yes | Authorize restoration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

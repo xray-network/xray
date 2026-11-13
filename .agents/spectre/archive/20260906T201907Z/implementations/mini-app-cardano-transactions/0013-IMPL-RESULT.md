@@ -1,4 +1,4 @@
-# xray-mini-app-transactions implementation 0013 result
+# Mini App Cardano Transactions implementation 0013 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0013
@@ -14,6 +14,18 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 Transactions observes the strict Cardano application/library boundary without behavior changes.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 

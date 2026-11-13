@@ -1,7 +1,8 @@
-# xray-mini-app-builder implementation 0004 instruction
+# Mini App Builder implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-builder/0004
+Target-Path: ./mini-app-builder/
 Created: 20260811T082930Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Consume and relay iframe host context. |
 | `mini-app-builder/app/integrations/xray-js/` and `mini-app-builder/app/components/pages/Code/` | `LOCAL` | Yes | Builder client integration and nested preview host. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

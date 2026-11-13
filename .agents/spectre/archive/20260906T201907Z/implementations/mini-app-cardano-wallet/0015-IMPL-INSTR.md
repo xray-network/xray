@@ -1,17 +1,22 @@
-# xray-mini-app-wallet implementation 0015 instruction
+# Mini App Cardano Wallet implementation 0015 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0015
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260812T114643Z
 Evidence-Mode: LOCAL
-Depends-On: xray-js/cardano/0008
+Depends-On: ../js-cardano/0008-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                       | Kind    | Required | Purpose                                                          |
-| --------------------------- | ------- | -------- | ---------------------------------------------------------------- |
-| Grouped Cardano utility API | `LOCAL` | Yes      | Migrate helpers and provider wiring to the new public namespace. |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Grouped Cardano utility API | `LOCAL` | Yes | Migrate helpers and provider wiring to the new public namespace. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -19,10 +24,10 @@ Consume Cardano helpers through `utilities` from `@xray-network/xray-js/cardano`
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                           | Compatibility                         | Local owner                           | Validation                          |
-| --------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------- | ----------------------------------- |
-| C01       | Replace root helper imports with `utilities.assets`, `utilities.encoding`, and `utilities.addresses`. | Preserve wallet behavior.             | Wallet utilities and Cardano provider | Typecheck, build, and import audit. |
-| C02       | Update dynamic import and provider types for the grouped namespace.                                   | Preserve lazy Cardano initialization. | Cardano provider                      | Typecheck and build.                |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Replace root helper imports with `utilities.assets`, `utilities.encoding`, and `utilities.addresses`. | Preserve wallet behavior. | Wallet utilities and Cardano provider | Typecheck, build, and import audit. |
+| C02 | Update dynamic import and provider types for the grouped namespace. | Preserve lazy Cardano initialization. | Cardano provider | Typecheck and build. |
 
 ## Implementation steps
 

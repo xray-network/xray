@@ -1,26 +1,31 @@
-# Cardano implementation 0001 instruction
+# JS Cardano implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0001
+Target-Path: ./js/packages/cardano/
 Created: 20260803T141031Z
 Evidence-Mode: DERIVED
-Depends-On: [cardano-lib-typescript/0006](../cardano-lib-typescript/0006-IMPL-RESULT.md), [cardano-lib-typescript/0007](../cardano-lib-typescript/0007-IMPL-RESULT.md), [cardano-lib-typescript/0008](../cardano-lib-typescript/0008-IMPL-RESULT.md), [cardano-lib-typescript/0017](../cardano-lib-typescript/0017-IMPL-RESULT.md), [cardano-lib-typescript/0018](../cardano-lib-typescript/0018-IMPL-RESULT.md), [cardano-lib-typescript/0019](../cardano-lib-typescript/0019-IMPL-RESULT.md), [cardano-lib-typescript/0020](../cardano-lib-typescript/0020-IMPL-RESULT.md), [cardano-lib-typescript/0021](../cardano-lib-typescript/0021-IMPL-RESULT.md)
+Depends-On: ../cardano-lib-typescript/0006-IMPL-RESULT.md, ../cardano-lib-typescript/0007-IMPL-RESULT.md, ../cardano-lib-typescript/0008-IMPL-RESULT.md, ../cardano-lib-typescript/0017-IMPL-RESULT.md, ../cardano-lib-typescript/0018-IMPL-RESULT.md, ../cardano-lib-typescript/0019-IMPL-RESULT.md, ../cardano-lib-typescript/0020-IMPL-RESULT.md, ../cardano-lib-typescript/0021-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                                                                              | Kind                    | Required | Purpose                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------- | ---------------------------------------------------------------------------------- |
-| [`cardano-lib-typescript/0006`](../cardano-lib-typescript/0006-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Typed Conway certificate and DRep construction with corrected discriminants.       |
-| [`cardano-lib-typescript/0007`](../cardano-lib-typescript/0007-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Canonical CIP-14 asset fingerprint ownership.                                      |
-| [`cardano-lib-typescript/0008`](../cardano-lib-typescript/0008-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Typed CIP-1852 derivation and focused CIP-129 identity parsing.                    |
-| [`cardano-lib-typescript/0017`](../cardano-lib-typescript/0017-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Typed transaction decomposition and reconstruction.                                |
-| [`cardano-lib-typescript/0018`](../cardano-lib-typescript/0018-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Required-witness discovery and canonical empty required signers.                   |
-| [`cardano-lib-typescript/0019`](../cardano-lib-typescript/0019-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Typed ledger scripts, script references, and explicit serialized Plutus envelopes. |
-| [`cardano-lib-typescript/0020`](../cardano-lib-typescript/0020-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Typed phase-two evaluation and redeemer identity.                                  |
-| [`cardano-lib-typescript/0021`](../cardano-lib-typescript/0021-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes      | Public CostModels JSON consumption identity.                                       |
-| `js/packages/cardano-sdk/src/` and `js/packages/cardano-sdk/test/`                                                                       | `LOCAL`                 | Yes      | Existing SDK public compatibility boundary and validation.                         |
-| Current human request to adopt the updated library without moving application orchestration into it                                | `LOCAL`                 | Yes      | Ownership and implementation authorization.                                        |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| [`cardano-lib-typescript/0006`](../cardano-lib-typescript/0006-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Typed Conway certificate and DRep construction with corrected discriminants. |
+| [`cardano-lib-typescript/0007`](../cardano-lib-typescript/0007-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Canonical CIP-14 asset fingerprint ownership. |
+| [`cardano-lib-typescript/0008`](../cardano-lib-typescript/0008-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Typed CIP-1852 derivation and focused CIP-129 identity parsing. |
+| [`cardano-lib-typescript/0017`](../cardano-lib-typescript/0017-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Typed transaction decomposition and reconstruction. |
+| [`cardano-lib-typescript/0018`](../cardano-lib-typescript/0018-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Required-witness discovery and canonical empty required signers. |
+| [`cardano-lib-typescript/0019`](../cardano-lib-typescript/0019-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Typed ledger scripts, script references, and explicit serialized Plutus envelopes. |
+| [`cardano-lib-typescript/0020`](../cardano-lib-typescript/0020-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Typed phase-two evaluation and redeemer identity. |
+| [`cardano-lib-typescript/0021`](../cardano-lib-typescript/0021-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Public CostModels JSON consumption identity. |
+| `js/packages/cardano-sdk/src/` and `js/packages/cardano-sdk/test/` | `LOCAL` | Yes | Existing SDK public compatibility boundary and validation. |
+| Current human request to adopt the updated library without moving application orchestration into it | `LOCAL` | Yes | Ownership and implementation authorization. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -29,14 +34,14 @@ preserving the SDK's account, provider, connector, DTO, and orchestration bounda
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                   | Compatibility                                                                                                                                                              | Local owner                                                                                                                                 | Validation                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `C01`     | Delegate asset fingerprints, DRep identities, and standard CIP-1852 derivation to their accepted library owners.                                              | Preserve existing SDK utility signatures and account outputs; retain generic legacy derivation only where the typed CIP-1852 API cannot represent an existing public path. | `js/packages/cardano-sdk/src/utils/{asset,governance,keys,address}.ts`                                                                         | Existing fixtures plus strict malformed identity and standard derivation coverage.                                |
-| `C02`     | Replace numeric script construction, tag-24 encoding, and heuristic serialized-script handling with typed Script, ScriptRef, and SerializedPlutusScript APIs. | Preserve SDK Script DTOs and public utility results; reject ambiguous or malformed script envelopes instead of guessing.                                                   | `js/packages/cardano-sdk/src/utils/script.ts`                                                                                                  | Native/Plutus hash, address, reference, envelope, and parameter-application tests.                                |
-| `C03`     | Replace manual transaction decomposition and signing-key discovery with Transaction accessors and discover_required_witnesses.                                | Preserve TxFinalizer public behavior and intersect nominal required hashes with account-owned keys.                                                                        | `js/packages/cardano-sdk/src/core/txFinalizer.ts`, `js/packages/cardano-sdk/src/utils/tx.ts`, `js/packages/cardano-sdk/src/libs/cardanoLib/index.ts` | Typed transaction round trips and required payment/stake signature coverage.                                      |
-| `C04`     | Replace raw numeric certificate/DRep construction and hard-coded empty required-signer CBOR with named Conway factories.                                      | Correct post-pool Conway certificate discriminants while preserving SDK fluent method signatures.                                                                          | `js/packages/cardano-sdk/src/core/txBuilder.ts`, `js/packages/cardano-sdk/src/utils/governance.ts`                                                | Stake and governance construction assertions, including vote delegation and DRep register/unregister/update tags. |
-| `C05`     | Replace manual CostModels maps and raw phase-two redeemer decoding with CostModels.from_json and evaluatePhaseTwo.                                            | Preserve protocol-parameter DTOs, budget ordering, logs, and ex-unit assignment.                                                                                           | `js/packages/cardano-sdk/src/utils/tx.ts`, `js/packages/cardano-sdk/src/core/txBuilder.ts`                                                        | Cost-model conversion and typed evaluation compilation/regression tests.                                          |
-| `C06`     | Remove production dependencies made unnecessary by the typed library adoption and add focused regression tests.                                               | Keep BIP-39 as an SDK-owned mnemonic dependency and retain browser-compatible ESM.                                                                                         | `js/packages/cardano-sdk/package.json`, `package-lock.json`, `js/packages/cardano-sdk/test/`                                                      | Dependency scan, build, tests, typecheck, and repository check.                                                   |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| `C01` | Delegate asset fingerprints, DRep identities, and standard CIP-1852 derivation to their accepted library owners. | Preserve existing SDK utility signatures and account outputs; retain generic legacy derivation only where the typed CIP-1852 API cannot represent an existing public path. | `js/packages/cardano-sdk/src/utils/{asset,governance,keys,address}.ts` | Existing fixtures plus strict malformed identity and standard derivation coverage. |
+| `C02` | Replace numeric script construction, tag-24 encoding, and heuristic serialized-script handling with typed Script, ScriptRef, and SerializedPlutusScript APIs. | Preserve SDK Script DTOs and public utility results; reject ambiguous or malformed script envelopes instead of guessing. | `js/packages/cardano-sdk/src/utils/script.ts` | Native/Plutus hash, address, reference, envelope, and parameter-application tests. |
+| `C03` | Replace manual transaction decomposition and signing-key discovery with Transaction accessors and discover_required_witnesses. | Preserve TxFinalizer public behavior and intersect nominal required hashes with account-owned keys. | `js/packages/cardano-sdk/src/core/txFinalizer.ts`, `js/packages/cardano-sdk/src/utils/tx.ts`, `js/packages/cardano-sdk/src/libs/cardanoLib/index.ts` | Typed transaction round trips and required payment/stake signature coverage. |
+| `C04` | Replace raw numeric certificate/DRep construction and hard-coded empty required-signer CBOR with named Conway factories. | Correct post-pool Conway certificate discriminants while preserving SDK fluent method signatures. | `js/packages/cardano-sdk/src/core/txBuilder.ts`, `js/packages/cardano-sdk/src/utils/governance.ts` | Stake and governance construction assertions, including vote delegation and DRep register/unregister/update tags. |
+| `C05` | Replace manual CostModels maps and raw phase-two redeemer decoding with CostModels.from_json and evaluatePhaseTwo. | Preserve protocol-parameter DTOs, budget ordering, logs, and ex-unit assignment. | `js/packages/cardano-sdk/src/utils/tx.ts`, `js/packages/cardano-sdk/src/core/txBuilder.ts` | Cost-model conversion and typed evaluation compilation/regression tests. |
+| `C06` | Remove production dependencies made unnecessary by the typed library adoption and add focused regression tests. | Keep BIP-39 as an SDK-owned mnemonic dependency and retain browser-compatible ESM. | `js/packages/cardano-sdk/package.json`, `package-lock.json`, `js/packages/cardano-sdk/test/` | Dependency scan, build, tests, typecheck, and repository check. |
 
 ## Implementation steps
 

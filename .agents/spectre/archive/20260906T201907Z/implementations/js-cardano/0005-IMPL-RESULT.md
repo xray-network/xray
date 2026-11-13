@@ -1,4 +1,4 @@
-# Cardano implementation 0005 result
+# JS Cardano implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: js-cardano/0005
@@ -7,11 +7,11 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                                                                                                                                                                            | Validation                                                                                                                           |
-| --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `C01`     | `IMPLEMENTED` | Re-exported the existing `@xray-network/xray-cardano-lib-cip/cip67` module as the focused lowercase `cip67` namespace from the xray-js Cardano package; the runtime Cardano facade forwards it through its existing package re-export, and the README documents its focused status and label-222 example. | Cardano/runtime declaration builds and a root-package ESM import smoke passed.                                                       |
-| `C02`     | `IMPLEMENTED` | Extended the public primitive suite with the official label-222 vector, round-trip decode, and invalid-label rejection through the xray-js namespace.                                                                                                                                                     | `npm run check` passed with 27 Cardano tests passed, one opt-in live test skipped, and all workspace build/typecheck suites passing. |
-| `C03`     | `IMPLEMENTED` | Removed the misleading uppercase `CIP8` and `UPLC` aliases of the complete cardano-lib root; added focused lowercase `cip8` and `uplc` namespaces from their owning package subpaths, declared the Plutus package as a direct dependency, and documented/tested the convention.                           | Focused export smoke, retired-export scan, package-lock inspection, and full repository checks passed.                               |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| `C01` | `IMPLEMENTED` | Re-exported the existing `@xray-network/xray-cardano-lib-cip/cip67` module as the focused lowercase `cip67` namespace from the xray-js Cardano package; the runtime Cardano facade forwards it through its existing package re-export, and the README documents its focused status and label-222 example. | Cardano/runtime declaration builds and a root-package ESM import smoke passed. |
+| `C02` | `IMPLEMENTED` | Extended the public primitive suite with the official label-222 vector, round-trip decode, and invalid-label rejection through the xray-js namespace. | `npm run check` passed with 27 Cardano tests passed, one opt-in live test skipped, and all workspace build/typecheck suites passing. |
+| `C03` | `IMPLEMENTED` | Removed the misleading uppercase `CIP8` and `UPLC` aliases of the complete cardano-lib root; added focused lowercase `cip8` and `uplc` namespaces from their owning package subpaths, declared the Plutus package as a direct dependency, and documented/tested the convention. | Focused export smoke, retired-export scan, package-lock inspection, and full repository checks passed. |
 
 ## Outcome
 
@@ -27,11 +27,11 @@ Updated `js/packages/cardano/src/index.ts`, manifest/lockfile, public tests, and
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                                                                                                | Compatibility                                                                                      | Downstream action                                                                                       |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `C01`     | `@xray-network/xray-js/cardano` exposes `cip67.encode_asset_name_label`, `decode_asset_name_label`, `make_labeled_asset_name`, and `split_labeled_asset_name`. | Additive and namespaced; cardano-lib remains the sole implementation and nominal asset-name owner. | Import `cip67` from the xray-js Cardano facade and remove local codecs/direct cardano-lib dependencies. |
-| `C02`     | The facade guarantees the official label-222 bytes and strict invalid-label rejection.                                                                         | Existing Cardano behavior and entrypoints are unchanged.                                           | Preserve tolerant UI fallback in consumer adapters where invalid labels are expected input.             |
-| `C03`     | Feature namespaces are `cip8`, `cip67`, and `uplc`; only `CardanoLib` exposes the complete cardano-lib root.                                                   | The incorrect `CIP8` and `UPLC` aliases are intentionally removed before v4 acceptance.            | Replace uppercase alias imports with the focused lowercase namespace that owns the required symbol.     |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| `C01` | `@xray-network/xray-js/cardano` exposes `cip67.encode_asset_name_label`, `decode_asset_name_label`, `make_labeled_asset_name`, and `split_labeled_asset_name`. | Additive and namespaced; cardano-lib remains the sole implementation and nominal asset-name owner. | Import `cip67` from the xray-js Cardano facade and remove local codecs/direct cardano-lib dependencies. |
+| `C02` | The facade guarantees the official label-222 bytes and strict invalid-label rejection. | Existing Cardano behavior and entrypoints are unchanged. | Preserve tolerant UI fallback in consumer adapters where invalid labels are expected input. |
+| `C03` | Feature namespaces are `cip8`, `cip67`, and `uplc`; only `CardanoLib` exposes the complete cardano-lib root. | The incorrect `CIP8` and `UPLC` aliases are intentionally removed before v4 acceptance. | Replace uppercase alias imports with the focused lowercase namespace that owns the required symbol. |
 
 ## Validation
 

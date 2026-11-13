@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0007 instruction
+# JS Mini App Bridge implementation 0007 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0007
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260812T110024Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | `js/packages/mini-app-bridge/src`, its manifest/tests, repository README, active local consumers, and the human-approved compact export design | `LOCAL` | Yes | Define the public role namespaces and compatibility boundary. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# Runtime implementation 0005 result
+# JS runtime implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: js-runtime/0005
@@ -16,12 +16,32 @@ Evidence-Mode: LOCAL
 
 The runtime facade mirrors one public Cardano bridge contract subpath.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - Runtime build, tests, and typecheck — passed through `npm run check`.
 - Retired artifact and package-resolution audits — passed.
 - `git diff --check` — passed.
 
+## Deviations from instruction
+
+Not recorded in the original result.
+
 ## Remaining human review
 
 Review the intentional compatibility-path removal.
+
+## Reproducibility
+
+Not recorded in the original result.

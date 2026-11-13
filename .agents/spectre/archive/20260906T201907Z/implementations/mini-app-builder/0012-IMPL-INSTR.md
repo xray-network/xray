@@ -1,7 +1,8 @@
-# xray-mini-app-builder implementation 0012 instruction
+# Mini App Builder implementation 0012 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-builder/0012
+Target-Path: ./mini-app-builder/
 Created: 20260812T110024Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Local bridge relay/imports and the human-approved compact xray-js API | `LOCAL` | Yes | Migrate builder and relay consumption without behavior changes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,11 +1,12 @@
-# C++ implementation 0001 instruction
+# Cardano Lib C++ implementation 0001 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0001
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260730T073858Z
 Evidence-Mode: HYBRID
-Depends-On: ../typescript/0001-IMPL-RESULT.md, ../typescript/0002-IMPL-RESULT.md, ../typescript/0003-IMPL-RESULT.md, ../typescript/0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/message-signing/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md, ../../providers/cardano-ledger/0001/SNAPSHOT.md
+Depends-On: ../cardano-lib-typescript/0001-IMPL-RESULT.md, ../cardano-lib-typescript/0002-IMPL-RESULT.md, ../cardano-lib-typescript/0003-IMPL-RESULT.md, ../cardano-lib-typescript/0004-IMPL-RESULT.md
+Provider-Evidence: P1, P2, P3, P4
 
 ## Inputs and authority
 
@@ -15,11 +16,20 @@ Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, .
 | [`cardano-lib-typescript/0002`](../cardano-lib-typescript/0002-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | CIP-8 COSE, signing, hashing, and user-facing encoding contract |
 | [`cardano-lib-typescript/0003`](../cardano-lib-typescript/0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | UPLC, phase-two valuation, cost-model, context, and additional cryptography contract |
 | [`cardano-lib-typescript/0004`](../cardano-lib-typescript/0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Official era validation and documented historical compatibility contract |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen CDDL comparison corpus, genesis vectors, and historical block vectors |
-| [`0001-message-signing`](../../providers/message-signing/0001/SNAPSHOT.md) | `PROVIDER` | Yes | CIP-8 wire and signing evidence |
-| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official UPLC, conformance, cost-model, cryptography, and phase-two evidence |
-| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official Byron-through-Conway ledger grammar |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Frozen CDDL comparison corpus, genesis vectors, and historical block vectors |
+| [`0001-message-signing`](../../providers/message-signing/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P2`. CIP-8 wire and signing evidence |
+| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P3`. Official UPLC, conformance, cost-model, cryptography, and phase-two evidence |
+| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P4`. Official Byron-through-Conway ledger grammar |
 | `cardano-lib/docs/adr/repository/0001-repository-architecture.md` | `LOCAL` | Yes | Independent workspace, package ownership, evidence, lifecycle, and documentation rules |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-multiplatform-lib/0001` | [`.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
+| `P2` | `SELF` | `message-signing/0001` | [`.agents/spectre/providers/message-signing/0001/SNAPSHOT.md`](../../providers/message-signing/0001/SNAPSHOT.md) `ac0b4684428dea86d22cf9ff01e8bcfd12bc3678bf5c1412d55edc5cdc319ab9` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
+| `P3` | `SELF` | `uplc/0001` | [`.agents/spectre/providers/uplc/0001/SNAPSHOT.md`](../../providers/uplc/0001/SNAPSHOT.md) `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
+| `P4` | `SELF` | `cardano-ledger/0001` | [`.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md`](../../providers/cardano-ledger/0001/SNAPSHOT.md) `2822b83a5cabdf10f3793f3dfd3c9e61e67d14f0b1926e972a304ab38d6effa8` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

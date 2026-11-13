@@ -1,4 +1,4 @@
-# xray-mini-app-transactions implementation 0016 result
+# Mini App Cardano Transactions implementation 0016 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0016
@@ -7,9 +7,9 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                  | Validation                                                    |
-| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Confirmed Transactions consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Confirmed Transactions consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
 
 ## Outcome
 
@@ -25,9 +25,9 @@ Transactions adopts the normalized SDK without changing host states or transacti
 
 ## Exported change contract
 
-| Change ID | Semantic change                                               | Compatibility       | Downstream action |
-| --------- | ------------------------------------------------------------- | ------------------- | ----------------- |
-| C01       | Transactions continues to consume React status account state. | No behavior change. | None.             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Transactions continues to consume React status account state. | No behavior change. | None. |
 
 ## Validation
 

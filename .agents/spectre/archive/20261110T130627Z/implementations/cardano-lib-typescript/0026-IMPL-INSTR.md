@@ -1,7 +1,8 @@
-# TypeScript implementation 0026 instruction
+# Cardano Lib TypeScript implementation 0026 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0026
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260909T114243Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -26,6 +27,10 @@ not a normative implementation input. No new upstream conformance claim follows 
 | `cardano-lib/libs/typescript/packages/cip/src/cip36/metadata.ts` | `LOCAL` | Yes | Registration, deregistration, and metadata-view implementations. |
 | `cardano-lib/libs/typescript/packages/cip/test/cip36.test.mjs` | `LOCAL` | Yes | Existing tests, signing hashes, and compatibility expectations. |
 | `cardano-lib/libs/typescript/packages/core/src/cbor/types.ts` | `LOCAL` | Yes | Owned CBOR value and encoding metadata representation. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

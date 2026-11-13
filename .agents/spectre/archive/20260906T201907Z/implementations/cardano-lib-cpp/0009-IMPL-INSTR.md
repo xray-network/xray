@@ -1,7 +1,8 @@
-# C++ implementation 0009 instruction
+# Cardano Lib C++ implementation 0009 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0009
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T104715Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | `cardano-lib/libs/cpp/CMakeLists.txt` and `cardano-lib/libs/cpp/tests/CMakeLists.txt` | `LOCAL` | Yes | Existing test configuration, target names, dependencies, labels, and repository-wide gates |
 | `cardano-lib/libs/cpp/src/` and `cardano-lib/libs/cpp/tests/` | `LOCAL` | Yes | Current production/test ownership and directory correspondence |
 | `cardano-lib/libs/cpp/README.md` and `cardano-lib/libs/cpp/tests/README.md` | `LOCAL` | Yes | C++ completion command and test-organization documentation |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

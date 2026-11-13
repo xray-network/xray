@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0002 instruction
+# JS Mini App Bridge implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0002
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260811T082930Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Add validated host blockchain context to bridge messages and expose it to mini apps. |
 | `js/packages/mini-app-bridge/src/` | `LOCAL` | Yes | Existing protocol, client, host, React, and testing implementation. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

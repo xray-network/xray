@@ -1,7 +1,8 @@
-# xray-mini-app-wallet implementation 0002 instruction
+# Mini App Cardano Wallet implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0002
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260806T140900Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,15 +10,19 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                                                         | Kind    | Required | Purpose                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Human request to adopt the React template theme and style approach                                            | `LOCAL` | Yes      | Authorizes the theme-system refactor.                                                                                           |
-| `../xray-mini-app-template-react/app/theme/` and related template styles                                      | `LOCAL` | Yes      | Defines the design-token, CSS-variable, host-theme, and Ant Design approach.                                                    |
-| Human request to fold mini-app structural alignment into this non-terminal implementation                     | `LOCAL` | Yes      | Expands the template adoption to store, integration, routing, type, and utility ownership boundaries.                           |
-| `../xray-mini-app-template-react/app/{integrations,shared,store,theme,types,utils}` and `mini-app-cardano-wallet/app/root.tsx`        | `LOCAL` | Yes      | Defines the reference module layout and host-versus-standalone state ownership.                                                 |
-| Human request to npm-link `@xray-network/xray-js`, remove direct legacy dependencies, and reuse its utilities | `LOCAL` | Yes      | Requires the wallet's host bridge, provider, transaction, address, decoding, and type surfaces to use the sibling XRAY runtime. |
-| `../xray-js/packages/runtime` public exports                                                                  | `LOCAL` | Yes      | Defines the mini-app bridge, Cardano factory/client, address, transaction, asset/encoding, configuration, and type surfaces.    |
-| `mini-app-cardano-wallet/app/`                                                                                                        | `LOCAL` | Yes      | Provides the app-specific UI and styles that must remain functional.                                                            |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human request to adopt the React template theme and style approach | `LOCAL` | Yes | Authorizes the theme-system refactor. |
+| `../xray-mini-app-template-react/app/theme/` and related template styles | `LOCAL` | Yes | Defines the design-token, CSS-variable, host-theme, and Ant Design approach. |
+| Human request to fold mini-app structural alignment into this non-terminal implementation | `LOCAL` | Yes | Expands the template adoption to store, integration, routing, type, and utility ownership boundaries. |
+| `../xray-mini-app-template-react/app/{integrations,shared,store,theme,types,utils}` and `mini-app-cardano-wallet/app/root.tsx` | `LOCAL` | Yes | Defines the reference module layout and host-versus-standalone state ownership. |
+| Human request to npm-link `@xray-network/xray-js`, remove direct legacy dependencies, and reuse its utilities | `LOCAL` | Yes | Requires the wallet's host bridge, provider, transaction, address, decoding, and type surfaces to use the sibling XRAY runtime. |
+| `../xray-js/packages/runtime` public exports | `LOCAL` | Yes | Defines the mini-app bridge, Cardano factory/client, address, transaction, asset/encoding, configuration, and type surfaces. |
+| `mini-app-cardano-wallet/app/` | `LOCAL` | Yes | Provides the app-specific UI and styles that must remain functional. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -25,13 +30,13 @@ Adopt the React template design-token, effective-settings, and application-modul
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                                                                                                         | Compatibility                                                                                                                                                                                         | Local owner                                                               | Validation                                                                                                                                                                               |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `C01`     | Establish one typed palette that feeds CSS variables, Tailwind tokens, browser theme color, and Ant Design tokens.                                                                                                                                                                  | Preserve existing semantic colors and dark-mode behavior.                                                                                                                                             | Theme and style modules                                                   | Typecheck/build and inspect generated CSS.                                                                                                                                               |
-| `C02`     | Resolve theme from the XRAY host when connected and from a standalone system/local fallback otherwise.                                                                                                                                                                              | Do not persist host-owned theme values as local preferences.                                                                                                                                          | Theme integration and layout                                              | Typecheck/build; verify host and standalone branches.                                                                                                                                    |
-| `C03`     | Apply the template provider hierarchy and SSR-safe token injection without discarding app-specific styles.                                                                                                                                                                          | Ant Design context APIs and existing style imports must continue working.                                                                                                                             | Theme provider and root/layout                                            | Production build.                                                                                                                                                                        |
-| `C04`     | Declare any direct styling dependencies and remove obsolete duplicate theme code.                                                                                                                                                                                                   | npm remains the only package manager.                                                                                                                                                                 | Manifest and theme files                                                  | npm lock refresh and stale-code scan.                                                                                                                                                    |
-| `C05`     | Align preferences, live host state, Cardano initialization, routing effects, Ant Design escape access, and app types with template boundaries; npm-link `xray-js` as the sole bridge/Cardano facade and reuse its transaction, address, CIP-67, asset/encoding, and config exports. | Preserve the persisted preference key, wallet send-all/normal-send behavior, address validation, tolerant asset-label decoding, and label presentation; host-owned values must not enter persistence. | Manifest/lockfile and `mini-app-cardano-wallet/app/{integrations,shared,store,theme,types,utils}` | Inspect sibling resolution, typecheck/build, and scan for direct legacy dependencies, duplicate CRC/CIP-67 helpers, legacy stores, effects, package/provider names, and CW3 terminology. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| `C01` | Establish one typed palette that feeds CSS variables, Tailwind tokens, browser theme color, and Ant Design tokens. | Preserve existing semantic colors and dark-mode behavior. | Theme and style modules | Typecheck/build and inspect generated CSS. |
+| `C02` | Resolve theme from the XRAY host when connected and from a standalone system/local fallback otherwise. | Do not persist host-owned theme values as local preferences. | Theme integration and layout | Typecheck/build; verify host and standalone branches. |
+| `C03` | Apply the template provider hierarchy and SSR-safe token injection without discarding app-specific styles. | Ant Design context APIs and existing style imports must continue working. | Theme provider and root/layout | Production build. |
+| `C04` | Declare any direct styling dependencies and remove obsolete duplicate theme code. | npm remains the only package manager. | Manifest and theme files | npm lock refresh and stale-code scan. |
+| `C05` | Align preferences, live host state, Cardano initialization, routing effects, Ant Design escape access, and app types with template boundaries; npm-link `xray-js` as the sole bridge/Cardano facade and reuse its transaction, address, CIP-67, asset/encoding, and config exports. | Preserve the persisted preference key, wallet send-all/normal-send behavior, address validation, tolerant asset-label decoding, and label presentation; host-owned values must not enter persistence. | Manifest/lockfile and `mini-app-cardano-wallet/app/{integrations,shared,store,theme,types,utils}` | Inspect sibling resolution, typecheck/build, and scan for direct legacy dependencies, duplicate CRC/CIP-67 helpers, legacy stores, effects, package/provider names, and CW3 terminology. |
 
 ## Implementation steps
 

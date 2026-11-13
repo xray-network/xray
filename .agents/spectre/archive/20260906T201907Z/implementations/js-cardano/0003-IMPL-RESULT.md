@@ -1,4 +1,4 @@
-# Cardano implementation 0003 result
+# JS Cardano implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: js-cardano/0003
@@ -7,13 +7,13 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition | Implementation                                                                                                                                                                                                                                                                         | Validation                                                                                                                                     |
-| --------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| C01       | Implemented | Replaced `CardanoClient.create` with synchronous `createCardano(config)`, a frozen `Cardano` value, and lazy closure-backed protocol-parameter loading.                                                                                                                                | Client tests confirm creation performs zero provider requests and the first explicit parameter request populates the cache.                    |
-| C02       | Implemented | Replaced account and CIP-30 wallet classes with readonly interfaces, closure-backed account capabilities, and `createCip30Wallet`/browser wallet functions. Local account creation is synchronous; wallet discovery effects remain asynchronous where required.                        | Account and message tests pass; private-key message signing is exercised synchronously.                                                        |
-| C03       | Implemented | Added immutable `TransactionPlan` values, readonly tagged unsigned/signed transaction records, functional signing helpers, and client-level submit/observe effects. Each plan operation returns a new plan; building resolves effects, while local private-key signing is synchronous. | Transaction tests cover immutable plans, build, local and account signing, staking, governance, minting, serialization values, and submission. |
-| C04       | Implemented | Replaced owned protocol cache, provider, in-memory provider, transaction executor, and wallet/account class declarations with function-created frozen objects and private closures.                                                                                                    | Strict builds/typechecks pass and the required owned-class search returns no matches.                                                          |
-| C05       | Implemented | Removed public class exports, exported `createCardano`, provider factories, readonly functional types/helpers, and rewrote examples around explicit effect boundaries. Build now clears stale Cardano declarations before compiling.                                                   | Declaration generation, package tests, root tests, documentation formatting, and obsolete API searches pass.                                   |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | Implemented | Replaced `CardanoClient.create` with synchronous `createCardano(config)`, a frozen `Cardano` value, and lazy closure-backed protocol-parameter loading. | Client tests confirm creation performs zero provider requests and the first explicit parameter request populates the cache. |
+| C02 | Implemented | Replaced account and CIP-30 wallet classes with readonly interfaces, closure-backed account capabilities, and `createCip30Wallet`/browser wallet functions. Local account creation is synchronous; wallet discovery effects remain asynchronous where required. | Account and message tests pass; private-key message signing is exercised synchronously. |
+| C03 | Implemented | Added immutable `TransactionPlan` values, readonly tagged unsigned/signed transaction records, functional signing helpers, and client-level submit/observe effects. Each plan operation returns a new plan; building resolves effects, while local private-key signing is synchronous. | Transaction tests cover immutable plans, build, local and account signing, staking, governance, minting, serialization values, and submission. |
+| C04 | Implemented | Replaced owned protocol cache, provider, in-memory provider, transaction executor, and wallet/account class declarations with function-created frozen objects and private closures. | Strict builds/typechecks pass and the required owned-class search returns no matches. |
+| C05 | Implemented | Removed public class exports, exported `createCardano`, provider factories, readonly functional types/helpers, and rewrote examples around explicit effect boundaries. Build now clears stale Cardano declarations before compiling. | Declaration generation, package tests, root tests, documentation formatting, and obsolete API searches pass. |
 
 ## Outcome
 
@@ -36,13 +36,13 @@ Cardano now has a classless functional public architecture. `createCardano` retu
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                                                                                                           | Compatibility                                              | Downstream action                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| C01       | `createCardano(config)` synchronously returns a frozen `Cardano` value and performs no provider request.                                                                  | `CardanoClient` and its async static factory are removed.  | Replace `await CardanoClient.create(config)` with `createCardano(config)`.                                |
-| C02       | Accounts and wallets are readonly capability values created by functions.                                                                                                 | Public constructors and class identity checks are removed. | Obtain accounts from `cardano.accounts`; create or connect wallets through the exported CIP-30 functions. |
-| C03       | Transaction composition returns new immutable plans; build is async, local private-key signing is sync, wallet-capable generic signing is async, and submission is async. | Transaction instance methods are removed.                  | Use `plan.build()`, then `cardano.transactions.sign*` and `cardano.transactions.submit(transaction)`.     |
-| C04       | Provider construction uses `createKoiosProvider`, `createKupmiosProvider`, and `createInMemoryProvider`.                                                                  | `new Provider(...)` construction is removed.               | Replace owned provider constructors with their factory functions.                                         |
-| C05       | Public Cardano exports are functions and readonly types rather than classes.                                                                                              | All class-based Cardano imports are obsolete.              | Import `createCardano` and the functional helpers/types from the Cardano entrypoint.                      |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | `createCardano(config)` synchronously returns a frozen `Cardano` value and performs no provider request. | `CardanoClient` and its async static factory are removed. | Replace `await CardanoClient.create(config)` with `createCardano(config)`. |
+| C02 | Accounts and wallets are readonly capability values created by functions. | Public constructors and class identity checks are removed. | Obtain accounts from `cardano.accounts`; create or connect wallets through the exported CIP-30 functions. |
+| C03 | Transaction composition returns new immutable plans; build is async, local private-key signing is sync, wallet-capable generic signing is async, and submission is async. | Transaction instance methods are removed. | Use `plan.build()`, then `cardano.transactions.sign*` and `cardano.transactions.submit(transaction)`. |
+| C04 | Provider construction uses `createKoiosProvider`, `createKupmiosProvider`, and `createInMemoryProvider`. | `new Provider(...)` construction is removed. | Replace owned provider constructors with their factory functions. |
+| C05 | Public Cardano exports are functions and readonly types rather than classes. | All class-based Cardano imports are obsolete. | Import `createCardano` and the functional helpers/types from the Cardano entrypoint. |
 
 ## Validation
 

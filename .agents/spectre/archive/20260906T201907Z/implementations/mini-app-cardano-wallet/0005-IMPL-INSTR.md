@@ -1,7 +1,8 @@
-# xray-mini-app-wallet implementation 0005 instruction
+# Mini App Cardano Wallet implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0005
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260811T085802Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Adopt separated platform and Cardano bridge APIs. |
 | `mini-app-cardano-wallet/app/` bridge consumers | `LOCAL` | Yes | Wallet settings, routing, account, and transaction bridge usage. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

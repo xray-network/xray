@@ -1,10 +1,11 @@
-# xray-mini-app-wallet implementation 0017 instruction
+# Mini App Cardano Wallet implementation 0017 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0017
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260819T131657Z
 Evidence-Mode: LOCAL
-Depends-On: mini-app-bridge/0014
+Depends-On: ../js-mini-app-bridge/0014-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -13,15 +14,19 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Normalized SDK status contract and Wallet bridge integration | `LOCAL` | Yes | Preserve status-derived account behavior. |
 
+## Provider pins
+
+NONE
+
 ## Objective
 
 Adopt the normalized status SDK with no Wallet behavior change.
 
 ## Changes to implement
 
-| Change ID | Requirement | Compatibility | Validation |
-| --- | --- | --- | --- |
-| C01 | Confirm React status still supplies `{ host, account }`; remove any direct duplicated-account assumptions or update docs if present. | Preserve host states, construction, consent, submission, and errors. | Typecheck, build, scan, and diff check pass. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Confirm React status still supplies `{ host, account }`; remove any direct duplicated-account assumptions or update docs if present. | Preserve host states, construction, consent, submission, and errors. | — | Typecheck, build, scan, and diff check pass. |
 
 ## Implementation steps
 

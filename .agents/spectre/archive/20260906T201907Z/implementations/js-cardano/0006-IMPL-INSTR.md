@@ -1,7 +1,8 @@
-# Cardano implementation 0006 instruction
+# JS Cardano implementation 0006 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0006
+Target-Path: ./js/packages/cardano/
 Created: 20260807T105137Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `js/packages/runtime` facade source, manifest, and tests | `LOCAL` | Yes | Define the canonical `@xray-network/xray-js/cardano` package boundary. |
 | Sibling Cardano Lib domain packages and focused entry points | `LOCAL` | Yes | Own protocol types and behavior re-exported through application namespaces. |
 | Local XRAY App and mini-app consumers | `LOCAL` | Yes | Identify application imports requiring migration to the unreleased facade. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,20 +1,28 @@
-# TypeScript implementation 0004 instruction
+# Cardano Lib TypeScript implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0004
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260723T122735Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md, ./0003-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-ledger/0001/SNAPSHOT.md, ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md
+Provider-Evidence: P1, P2
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
-| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official Byron-through-Conway ledger grammar |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Frozen public compatibility and historical vectors |
+| [`0001-cardano-ledger`](../../providers/cardano-ledger/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Official Byron-through-Conway ledger grammar |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P2`. Frozen public compatibility and historical vectors |
 | [`cardano-lib-typescript/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Existing TypeScript CML baseline |
 | [`cardano-lib-typescript/0003`](0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Existing TypeScript Plutus ownership boundary |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-ledger/0001` | [`.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md`](../../providers/cardano-ledger/0001/SNAPSHOT.md) `2822b83a5cabdf10f3793f3dfd3c9e61e67d14f0b1926e972a304ab38d6effa8` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
+| `P2` | `SELF` | `cardano-multiplatform-lib/0001` | [`.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

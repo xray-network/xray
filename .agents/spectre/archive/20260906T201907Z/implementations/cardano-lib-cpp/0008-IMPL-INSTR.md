@@ -1,19 +1,26 @@
-# C++ implementation 0008 instruction
+# Cardano Lib C++ implementation 0008 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0008
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-cpp/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted lossless CBOR metadata, era validation, transaction, CIP-36, limit, error, and package baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured active CIP-21 interoperability rules and explicitly time-sensitive device appendix |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Captured active CIP-21 interoperability rules and explicitly time-sensitive device appendix |
 | `cardano-lib/libs/cpp/include/cardano/core/cbor.hpp` and `cardano-lib/libs/cpp/include/cardano/chain/era_models.hpp` | `LOCAL` | Yes | Existing preserved-wire and transaction owners used for read-only inspection |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

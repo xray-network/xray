@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0006 result
+# JS Mini App Bridge implementation 0006 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0006
@@ -7,11 +7,11 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                  | Validation                                  |
-| --------- | ------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| C01       | `IMPLEMENTED` | Renamed the public constant to `CARDANO_BRIDGE_PROTOCOL` and its value to `cardano.bridge`.                     | Full monorepo check passed.                 |
-| C02       | `IMPLEMENTED` | Migrated React discovery, mock handshake defaults, contract assertions, and test terminology to Cardano Bridge. | Focused bridge tests and formatting passed. |
-| C03       | `IMPLEMENTED` | Documented both protocol IDs, constant-based discovery, bridge requests, CIP-30 enablement, and connector installation. | README formatting audit passed.             |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Renamed the public constant to `CARDANO_BRIDGE_PROTOCOL` and its value to `cardano.bridge`. | Full monorepo check passed. |
+| C02 | `IMPLEMENTED` | Migrated React discovery, mock handshake defaults, contract assertions, and test terminology to Cardano Bridge. | Focused bridge tests and formatting passed. |
+| C03 | `IMPLEMENTED` | Documented both protocol IDs, constant-based discovery, bridge requests, CIP-30 enablement, and connector installation. | README formatting audit passed. |
 
 ## Outcome
 
@@ -33,11 +33,11 @@ Hosts and mini apps can use the explicit `cardano.bridge` identifier for XRAY's 
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                 | Compatibility                                             | Downstream action                        |
-| --------- | --------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------- |
-| C01       | The Cardano bridge protocol identifier is now `cardano.bridge`. | Intentional pre-release breaking rename; no legacy alias. | Migrate host advertisements and checks. |
-| C02       | React Cardano data hooks check the new protocol identifier.     | Hook signatures and behavior are otherwise unchanged.    | Advertise `cardano.bridge`.              |
-| C03       | README consumers discover protocols through exported constants. | Examples use existing public package subpaths.            | Follow the documented activation flow.  |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | The Cardano bridge protocol identifier is now `cardano.bridge`. | Intentional pre-release breaking rename; no legacy alias. | Migrate host advertisements and checks. |
+| C02 | React Cardano data hooks check the new protocol identifier. | Hook signatures and behavior are otherwise unchanged. | Advertise `cardano.bridge`. |
+| C03 | README consumers discover protocols through exported constants. | Examples use existing public package subpaths. | Follow the documented activation flow. |
 
 ## Validation
 

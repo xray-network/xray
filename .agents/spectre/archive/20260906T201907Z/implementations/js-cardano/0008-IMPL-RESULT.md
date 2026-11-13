@@ -1,4 +1,4 @@
-# Cardano implementation 0008 result
+# JS Cardano implementation 0008 result
 
 Result-Version: v1
 Implementation-ID: js-cardano/0008
@@ -17,6 +17,10 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 The Cardano application entry now exposes reusable helpers only through `utilities`, with names and file ownership that reflect each helper's purpose.
+
+## Inputs consumed
+
+Not recorded in the original result.
 
 ## Project changes
 

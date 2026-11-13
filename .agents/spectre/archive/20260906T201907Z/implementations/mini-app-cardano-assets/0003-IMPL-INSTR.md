@@ -1,7 +1,8 @@
-# xray-mini-app-assets implementation 0003 instruction
+# Mini App Cardano Assets implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0003
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260807T105137Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Human request for the unreleased xray-js Cardano facade restructure | `LOCAL` | Yes | Authorizes migration to grouped exports. |
 | Linked sibling xray-js runtime and active Assets Cardano imports | `LOCAL` | Yes | Define the new facade and affected consumers. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

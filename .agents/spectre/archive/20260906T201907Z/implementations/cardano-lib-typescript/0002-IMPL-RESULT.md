@@ -1,4 +1,4 @@
-# TypeScript implementation 0002 result
+# Cardano Lib TypeScript implementation 0002 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-typescript/0002
@@ -23,7 +23,7 @@ The CIP package owns every new nominal class. The runtime facade and CIP namespa
 those bindings without wrappers. Existing core CBOR, integer, Ed25519, public-key, signature, and
 Blake2b owners are reused, and no production dependency was added.
 
-## Artifacts consumed
+## Inputs consumed
 
 - `../../providers/message-signing/0001/artifacts/upstream/README.md`
 - `../../providers/message-signing/0001/artifacts/upstream/rust/Cargo.toml`
@@ -81,7 +81,7 @@ ownership apply throughout.
 | `shasum -a 256 -c SHA256SUMS` | PASS | All eleven captured upstream artifacts matched |
 | `git diff --check` | PASS | No whitespace errors |
 
-## Deviations from plan
+## Deviations from instruction
 
 None.
 

@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0015 result
+# Mini App Cardano Assets implementation 0015 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0015
@@ -7,13 +7,25 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                      | Validation                                                        |
-| --------- | ------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Migrated asset and encoding helpers to `utilities.assets` and `utilities.encoding`. | Typecheck, production build, import audit, and diff check passed. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Migrated asset and encoding helpers to `utilities.assets` and `utilities.encoding`. | Typecheck, production build, import audit, and diff check passed. |
 
 ## Outcome
 
 Assets consumes the grouped Cardano utility API with unchanged decoding behavior.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
 
 ## Validation
 
@@ -28,3 +40,7 @@ Node 20.18.1 produced the known React Router Node-version warning; validation st
 ## Remaining human review
 
 Review the import-only migration.
+
+## Reproducibility
+
+Not recorded in the original result.

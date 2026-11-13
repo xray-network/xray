@@ -1,7 +1,8 @@
-# TypeScript implementation 0022 instruction
+# Cardano Lib TypeScript implementation 0022 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0022
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260807T105137Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -15,6 +16,10 @@ Provider-Evidence: NONE
 | `cardano-lib/libs/typescript/packages/{core,crypto,chain,cip,plutus,runtime}` source and manifests | `LOCAL` | Yes | Define domain ownership, focused entry points, and the aggregate facade. |
 | TypeScript package READMEs and accepted package-ownership ADR | `LOCAL` | Yes | Define public ownership, browser boundaries, and documentation contracts. |
 | TypeScript package-boundary, import, browser, and packed-consumer tests | `LOCAL` | Yes | Define the required public identity and packaging evidence. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

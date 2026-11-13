@@ -1,19 +1,24 @@
-# Mini App Bridge implementation 0006 instruction
+# JS Mini App Bridge implementation 0006 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0006
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260811T195803Z
 Evidence-Mode: LOCAL
-Depends-On: js-mini-app-bridge/0005
+Depends-On: ./0005-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                      | Kind    | Required | Purpose                                  |
-| ------------------------------------------ | ------- | -------- | ---------------------------------------- |
-| Human request on 2026-08-11                | `LOCAL` | Yes      | Rename the Cardano protocol identifier. |
-| `js/packages/mini-app-bridge/src/cardano/`    | `LOCAL` | Yes      | Owns the protocol constant and hooks.    |
-| `js/packages/mini-app-bridge/src/testing/`    | `LOCAL` | Yes      | Owns the mock handshake contract.        |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human request on 2026-08-11 | `LOCAL` | Yes | Rename the Cardano protocol identifier. |
+| `js/packages/mini-app-bridge/src/cardano/` | `LOCAL` | Yes | Owns the protocol constant and hooks. |
+| `js/packages/mini-app-bridge/src/testing/` | `LOCAL` | Yes | Owns the mock handshake contract. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -21,11 +26,11 @@ Rename the Cardano protocol contract from `cardano.native` to `cardano.bridge`.
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                 | Compatibility                                    | Local owner     | Validation                     |
-| --------- | --------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------------------------------ |
-| C01       | Rename the exported protocol constant and identifier to Cardano Bridge.     | Coordinated pre-release breaking contract rename. | Cardano protocol | Bridge build, types, and tests. |
-| C02       | Update React protocol discovery, mock handshakes, and contract assertions.  | Do not retain the old protocol identifier.        | Hooks/testing    | Bridge tests.                  |
-| C03       | Document Cardano Bridge and CIP-30 discovery and usage in the root README. | Keep examples aligned with public package exports. | Documentation    | README formatting audit.       |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Rename the exported protocol constant and identifier to Cardano Bridge. | Coordinated pre-release breaking contract rename. | Cardano protocol | Bridge build, types, and tests. |
+| C02 | Update React protocol discovery, mock handshakes, and contract assertions. | Do not retain the old protocol identifier. | Hooks/testing | Bridge tests. |
+| C03 | Document Cardano Bridge and CIP-30 discovery and usage in the root README. | Keep examples aligned with public package exports. | Documentation | README formatting audit. |
 
 ## Implementation steps
 

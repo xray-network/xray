@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0007 instruction
+# Mini App Cardano Transactions implementation 0007 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0007
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260811T185345Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,11 +10,15 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                            | Kind    | Required | Purpose                                                |
-| ------------------------------------------------ | ------- | -------- | ------------------------------------------------------ |
-| Human request on 2026-08-11                      | `LOCAL` | Yes      | Standardize clipboard behavior and upgrade Ant Design. |
-| `mini-app-cardano-transactions/app/components/common/Copy/index.tsx`           | `LOCAL` | Yes      | Owns clipboard behavior.                               |
-| `mini-app-cardano-transactions/app/theme/`, `mini-app-cardano-transactions/app/root.tsx`, and `package.json` | `LOCAL` | Yes      | Own Ant Design integration and dependencies.           |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human request on 2026-08-11 | `LOCAL` | Yes | Standardize clipboard behavior and upgrade Ant Design. |
+| `mini-app-cardano-transactions/app/components/common/Copy/index.tsx` | `LOCAL` | Yes | Owns clipboard behavior. |
+| `mini-app-cardano-transactions/app/theme/`, `mini-app-cardano-transactions/app/root.tsx`, and `package.json` | `LOCAL` | Yes | Own Ant Design integration and dependencies. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -21,11 +26,11 @@ Adopt native clipboard handling and Ant Design 6.6.0.
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                              | Compatibility                                 | Local owner       | Validation |
-| --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------- | ---------- |
-| C01       | Replace the copy package with XRAY App's Clipboard API/fallback component.               | Preserve tooltip and child click behavior.    | Common Copy       | Verify.    |
-| C02       | Upgrade Ant Design to 6.6.0 and remove the v5 React patch.                               | Preserve React 19 and theme composition.      | Root/dependencies | Verify.    |
-| C03       | Retain EscapeAntd under App for future context-bound message and notification consumers. | Preserve the shared feedback export contract. | Theme             | Verify.    |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Replace the copy package with XRAY App's Clipboard API/fallback component. | Preserve tooltip and child click behavior. | Common Copy | Verify. |
+| C02 | Upgrade Ant Design to 6.6.0 and remove the v5 React patch. | Preserve React 19 and theme composition. | Root/dependencies | Verify. |
+| C03 | Retain EscapeAntd under App for future context-bound message and notification consumers. | Preserve the shared feedback export contract. | Theme | Verify. |
 
 ## Implementation steps
 

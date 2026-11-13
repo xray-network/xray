@@ -1,4 +1,4 @@
-# XRAY JS implementation 0001 result
+# JS repository implementation 0001 result
 
 Result-Version: v1
 Implementation-ID: js-repository/0001

@@ -1,10 +1,11 @@
-# Cardano implementation 0008 instruction
+# JS Cardano implementation 0008 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0008
+Target-Path: ./js/packages/cardano/
 Created: 20260812T114643Z
 Evidence-Mode: LOCAL
-Depends-On: js-cardano/0007
+Depends-On: ./0007-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Human-approved `utilities` grouping and naming design | `LOCAL` | Yes | Replace seven application-root helper namespaces with one coherent group. |
 | Cardano source/tests, README, and active local consumers | `LOCAL` | Yes | Define and validate the coordinated breaking migration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

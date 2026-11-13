@@ -1,7 +1,8 @@
-# TypeScript implementation 0014 instruction
+# Cardano Lib TypeScript implementation 0014 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0014
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260801T082633Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `cardano-lib/docs/adr/typescript/0003-upstream-evidence-and-package-ownership.md` | `LOCAL` | Yes | CIP package ownership and identity-preserving aggregate export rules |
 | `cardano-lib/libs/typescript/packages/cip/src/cip8/` | `LOCAL` | Yes | Owned COSE models, builders, signing structures, focused exports, and tests |
 | `cardano-lib/libs/typescript/packages/runtime/` | `LOCAL` | Yes | Owned aggregate exports and package-consumer tests |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

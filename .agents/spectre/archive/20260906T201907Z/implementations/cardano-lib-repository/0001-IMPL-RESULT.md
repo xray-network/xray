@@ -1,4 +1,4 @@
-# XRAY Cardano Lib implementation 0001 result
+# Cardano Lib repository implementation 0001 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-repository/0001

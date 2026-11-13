@@ -1,4 +1,4 @@
-# XRAY Mini App Cardano Transactions implementation 0001 result
+# Mini App Cardano Transactions implementation 0001 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0001

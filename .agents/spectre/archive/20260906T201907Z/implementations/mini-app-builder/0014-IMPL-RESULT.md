@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0014 result
+# Mini App Builder implementation 0014 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0014
@@ -20,6 +20,18 @@ Evidence-Mode: LOCAL
 Builder and its nested preview now relay independently versioned bridge requests with no handshake
 or iframe-wide version lock while retaining source isolation and response correlation.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck` — passed.
@@ -37,3 +49,7 @@ schema maps or protocol negotiation were retained.
 
 Embed Builder in XRAY App, load a preview, exercise bidirectional routes and platform preferences,
 then sample native Cardano/CIP-30 success, error, accountless, unavailable, and standalone flows.
+
+## Reproducibility
+
+Not recorded in the original result.

@@ -1,4 +1,4 @@
-# Runtime implementation 0004 result
+# JS runtime implementation 0004 result
 
 Result-Version: v1
 Implementation-ID: js-runtime/0004

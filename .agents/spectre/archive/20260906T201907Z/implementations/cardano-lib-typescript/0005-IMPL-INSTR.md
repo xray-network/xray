@@ -1,7 +1,8 @@
-# TypeScript implementation 0005 instruction
+# Cardano Lib TypeScript implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0005
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -20,6 +21,10 @@ This `LOCAL` instruction defines XRAY Cardano Lib's checked-builder safety polic
 builder configuration and behavior. In particular, its collateral formula, return requirements,
 and rejection rules are repository-local construction guarantees; they are not presented as a
 provider-backed or complete phase-one ledger-validation contract.
+
+## Provider pins
+
+NONE
 
 ## Objective
 

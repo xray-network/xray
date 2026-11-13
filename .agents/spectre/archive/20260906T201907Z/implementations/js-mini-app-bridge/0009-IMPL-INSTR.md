@@ -1,10 +1,11 @@
-# Mini App Bridge implementation 0009 instruction
+# JS Mini App Bridge implementation 0009 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0009
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260812T111418Z
 Evidence-Mode: LOCAL
-Depends-On: js-mini-app-bridge/0008
+Depends-On: ./0008-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Repository README, compact bridge exports, and CIP-30 client API | `LOCAL` | Yes | Separate native Cardano Bridge and CIP-30 documentation by API model. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0019 result
+# JS Mini App Bridge implementation 0019 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0019
@@ -24,7 +24,6 @@ The existing unreleased bridge now uses one response format across all adapter r
 The wire literal remains `v1`, adapter directories and V1 namespace names remain unchanged, and every package manifest and lockfile is unchanged. No legacy parser, dual codec, new adapter version, package dependency, or release was added. The external CIP-30 wallet API retains its standard values and exceptions while using the updated internal envelope.
 
 ## Inputs consumed
-
 
 All paths below are repository-root-relative. The existing source defines the unreleased implementation to update in place; archived results are sequence history, not normative implementation inputs.
 

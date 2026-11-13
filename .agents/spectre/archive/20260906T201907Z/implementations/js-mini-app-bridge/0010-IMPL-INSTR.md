@@ -1,10 +1,11 @@
-# Mini App Bridge implementation 0010 instruction
+# JS Mini App Bridge implementation 0010 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0010
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260812T120134Z
 Evidence-Mode: LOCAL
-Depends-On: js-mini-app-bridge/0009
+Depends-On: ./0009-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Public bridge exports and active CIP-30 consumers | `LOCAL` | Yes | Collapse the redundant nested protocol subpath. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -25,6 +30,10 @@ Publish all shared Cardano and CIP-30 protocol contracts from `/mini-app-bridge/
 | C02 | Remove the public `/cardano/cip30` package export and obsolete barrel. | Intentional breaking path cleanup. | Package exports | Negative resolution and export audit. |
 | C03 | Update documentation and every active consumer. | Preserve host and mini-app behavior. | Repository and downstream apps | Full downstream validation. |
 
+## Implementation steps
+
+Not recorded in the original instruction.
+
 ## Validation
 
 - `npm run check`
@@ -32,6 +41,10 @@ Publish all shared Cardano and CIP-30 protocol contracts from `/mini-app-bridge/
 - public export and retired-path audits
 - downstream typechecks/builds
 - `git diff --check`
+
+## Compatibility and human review
+
+Not recorded in the original instruction.
 
 ## Completion criteria
 

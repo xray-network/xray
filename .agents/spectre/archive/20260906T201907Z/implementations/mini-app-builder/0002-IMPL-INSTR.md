@@ -1,7 +1,8 @@
-# xray-mini-app-builder implementation 0002 instruction
+# Mini App Builder implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-builder/0002
+Target-Path: ./mini-app-builder/
 Created: 20260806T132817Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,14 +10,18 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                                                                                                  | Kind    | Required | Purpose                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Human request to remove Yarn from all JavaScript projects                                              | `LOCAL` | Yes      | Authorizes the package-manager migration to npm.                                                                          |
-| `package.json`                                                                                         | `LOCAL` | Yes      | Defines scripts, dependencies, and the application completion commands.                                                   |
-| `yarn.lock`                                                                                            | `LOCAL` | Yes      | Defines the dependency set to reconcile into an npm lockfile before removal.                                              |
-| Human request to fold template-aligned mini-app structure into this non-terminal implementation        | `LOCAL` | Yes      | Expands the migration to the Builder frontend's shared state and integration boundaries.                                  |
-| `../xray-mini-app-template-react/app/{integrations,shared,store,theme,types,utils}` and `mini-app-builder/app/root.tsx` | `LOCAL` | Yes      | Defines the reference preferences, effective-settings, routing, theme, type, and utility layout.                          |
-| Human request to npm-link `@xray-network/xray-js` and replace direct legacy dependencies everywhere    | `LOCAL` | Yes      | Expands this non-terminal implementation to the Builder host bridge, configuration, dependency, and shared type surfaces. |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Human request to remove Yarn from all JavaScript projects | `LOCAL` | Yes | Authorizes the package-manager migration to npm. |
+| `package.json` | `LOCAL` | Yes | Defines scripts, dependencies, and the application completion commands. |
+| `yarn.lock` | `LOCAL` | Yes | Defines the dependency set to reconcile into an npm lockfile before removal. |
+| Human request to fold template-aligned mini-app structure into this non-terminal implementation | `LOCAL` | Yes | Expands the migration to the Builder frontend's shared state and integration boundaries. |
+| `../xray-mini-app-template-react/app/{integrations,shared,store,theme,types,utils}` and `mini-app-builder/app/root.tsx` | `LOCAL` | Yes | Defines the reference preferences, effective-settings, routing, theme, type, and utility layout. |
+| Human request to npm-link `@xray-network/xray-js` and replace direct legacy dependencies everywhere | `LOCAL` | Yes | Expands this non-terminal implementation to the Builder host bridge, configuration, dependency, and shared type surfaces. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -24,13 +29,13 @@ Migrate xray-mini-app-builder from Yarn to npm and align its shared frontend str
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                                                    | Compatibility                                                                                                                                                                | Local owner                                                               | Validation                                                                                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `C01`     | Declare npm as the package manager and convert package scripts from Yarn to npm.                                                                                                                                               | Preserve the behavior and ordering of development, build, deployment, and verification commands.                                                                             | `package.json`                                                            | Inspect scripts and run the repository completion commands through npm.                                                                                        |
-| `C02`     | Generate `package-lock.json` and remove `yarn.lock`.                                                                                                                                                                           | Resolve the declared dependency ranges without changing application source.                                                                                                  | Root lockfiles                                                            | Run npm lockfile installation and verify no Yarn lockfile remains.                                                                                             |
-| `C03`     | Validate the npm-managed application and final package-manager boundary.                                                                                                                                                       | Do not alter application behavior or introduce another package manager.                                                                                                      | Repository                                                                | Run typecheck/build; run `git diff --check`.                                                                                                                   |
-| `C04`     | Align standalone preferences, effective bridge settings, routing, theme state, app types, and utility ownership with the template structure and local `xray-js` runtime exports.                                               | Preserve the existing persistence key, event-log preference, project store, and nested mini-app bridge behavior; connected host values must not overwrite local preferences. | Manifest/lockfile and `mini-app-builder/app/{integrations,shared,store,theme,types,utils}` | Typecheck/build and legacy app-store/theme-sync scan.                                                                                                          |
-| `C05`     | Resolve `@xray-network/xray-js` from the sibling runtime as the sole public bridge/Cardano facade, remove the direct mini-app SDK dependency, and expose Cardano types/configuration without legacy duplication or CW3 naming. | Preserve Builder and its nested preview-host bridge behavior; the runtime dependency must remain portable as a sibling `file:` declaration.                                  | Manifest, lockfile, integrations, config, shared types                    | Inspect npm resolution/symlink, compile public bridge/Cardano subpaths, typecheck/build, and scan active files for direct legacy dependencies and terminology. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| `C01` | Declare npm as the package manager and convert package scripts from Yarn to npm. | Preserve the behavior and ordering of development, build, deployment, and verification commands. | `package.json` | Inspect scripts and run the repository completion commands through npm. |
+| `C02` | Generate `package-lock.json` and remove `yarn.lock`. | Resolve the declared dependency ranges without changing application source. | Root lockfiles | Run npm lockfile installation and verify no Yarn lockfile remains. |
+| `C03` | Validate the npm-managed application and final package-manager boundary. | Do not alter application behavior or introduce another package manager. | Repository | Run typecheck/build; run `git diff --check`. |
+| `C04` | Align standalone preferences, effective bridge settings, routing, theme state, app types, and utility ownership with the template structure and local `xray-js` runtime exports. | Preserve the existing persistence key, event-log preference, project store, and nested mini-app bridge behavior; connected host values must not overwrite local preferences. | Manifest/lockfile and `mini-app-builder/app/{integrations,shared,store,theme,types,utils}` | Typecheck/build and legacy app-store/theme-sync scan. |
+| `C05` | Resolve `@xray-network/xray-js` from the sibling runtime as the sole public bridge/Cardano facade, remove the direct mini-app SDK dependency, and expose Cardano types/configuration without legacy duplication or CW3 naming. | Preserve Builder and its nested preview-host bridge behavior; the runtime dependency must remain portable as a sibling `file:` declaration. | Manifest, lockfile, integrations, config, shared types | Inspect npm resolution/symlink, compile public bridge/Cardano subpaths, typecheck/build, and scan active files for direct legacy dependencies and terminology. |
 
 ## Implementation steps
 

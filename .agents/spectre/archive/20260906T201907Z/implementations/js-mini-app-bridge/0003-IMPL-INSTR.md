@@ -1,7 +1,8 @@
-# Mini App Bridge implementation 0003 instruction
+# JS Mini App Bridge implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-mini-app-bridge/0003
+Target-Path: ./js/packages/mini-app-bridge/
 Created: 20260811T085802Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -14,6 +15,10 @@ Provider-Evidence: NONE
 | Current human request | `LOCAL` | Yes | Refactor the bridge for multiple blockchains with Cardano as the first chain adapter. |
 | `js/packages/mini-app-bridge/src/` | `LOCAL` | Yes | Existing mixed platform, Cardano-native, and CIP-30 implementation. |
 | `js/packages/runtime/` | `LOCAL` | Yes | Public xray-js bridge facade and subpath exports. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

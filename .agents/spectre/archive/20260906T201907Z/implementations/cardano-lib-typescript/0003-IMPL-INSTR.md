@@ -1,17 +1,24 @@
-# TypeScript implementation 0003 instruction
+# Cardano Lib TypeScript implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0003
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260727T100703Z
 Evidence-Mode: DIRECT
 Depends-On: NONE
-Provider-Evidence: ../../providers/uplc/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
-| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Official Plutus UPLC and Cardano Ledger phase-two evidence |
+| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Official Plutus UPLC and Cardano Ledger phase-two evidence |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `uplc/0001` | [`.agents/spectre/providers/uplc/0001/SNAPSHOT.md`](../../providers/uplc/0001/SNAPSHOT.md) `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

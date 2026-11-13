@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0017 result
+# Mini App Cardano Assets implementation 0017 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0017
@@ -7,9 +7,9 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                            | Validation                                                    |
-| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Confirmed Assets consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Confirmed Assets consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
 
 ## Outcome
 
@@ -25,9 +25,9 @@ Assets builds against the normalized SDK with identical selected, accountless, u
 
 ## Exported change contract
 
-| Change ID | Semantic change                                         | Compatibility       | Downstream action |
-| --------- | ------------------------------------------------------- | ------------------- | ----------------- |
-| C01       | Assets continues to consume React status account state. | No behavior change. | None.             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Assets continues to consume React status account state. | No behavior change. | None. |
 
 ## Validation
 

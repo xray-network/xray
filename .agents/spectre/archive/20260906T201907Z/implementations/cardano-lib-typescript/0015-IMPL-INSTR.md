@@ -1,7 +1,8 @@
-# TypeScript implementation 0015 instruction
+# Cardano Lib TypeScript implementation 0015 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0015
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260801T085101Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `cardano-lib/libs/typescript/packages/chain/src/era/conway/validation.ts` | `LOCAL` | Yes | Existing CostModels language-id and signed-64-bit validation contract |
 | `cardano-lib/libs/typescript/packages/chain/src/era/shared/json-types.ts` | `LOCAL` | Yes | Public numeric-string-key CostModels JSON contract |
 | `cardano-lib/libs/typescript/packages/chain/test/` | `LOCAL` | Yes | Focused Conway model and JSON validation coverage |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

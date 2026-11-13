@@ -1,7 +1,8 @@
-# TypeScript implementation 0016 instruction
+# Cardano Lib TypeScript implementation 0016 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0016
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260801T090457Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -17,6 +18,10 @@ Provider-Evidence: NONE
 | `cardano-lib/libs/typescript/packages/crypto/` | `LOCAL` | Yes | Existing reviewed Blake2b dependency and hash primitive owner |
 | `cardano-lib/libs/typescript/packages/cip/` | `LOCAL` | Yes | CIP-4 focused owner, exports, documentation, and tests |
 | `cardano-lib/libs/typescript/packages/runtime/` | `LOCAL` | Yes | Aggregate export and packed-consumer owner |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

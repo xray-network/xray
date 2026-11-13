@@ -2,6 +2,7 @@
 
 Implementation-Version: v1
 Implementation-ID: repository/0001
+Target-Path: ./
 Created: 20261111T094308Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,8 +13,12 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Current human request to install SPECTRE 2.1.0 at the xray repository root. | `LOCAL` | Yes | Authorize installation and the bootstrap acceptance exception. |
-| [Pinned SPECTRE protocol](../../SPECTRE-PROTOCOL.md) | `LOCAL` | Yes | Define installation, runtime extraction, canonical content, and validation. |
+| [Pinned SPECTRE protocol](../../runtime/SPECTRE-PROTOCOL.md) | `LOCAL` | Yes | Define installation, runtime extraction, canonical content, and validation. |
 | [Repository README](../../../../README.md) | `LOCAL` | Yes | Establish repository identity and structure. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

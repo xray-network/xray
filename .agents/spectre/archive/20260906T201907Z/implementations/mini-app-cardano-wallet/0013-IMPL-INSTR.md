@@ -1,7 +1,8 @@
-# xray-mini-app-wallet implementation 0013 instruction
+# Mini App Cardano Wallet implementation 0013 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0013
+Target-Path: ./mini-app-cardano-wallet/
 Created: 20260812T110024Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Local bridge imports and the human-approved compact xray-js API | `LOCAL` | Yes | Migrate runtime consumption without behavior changes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

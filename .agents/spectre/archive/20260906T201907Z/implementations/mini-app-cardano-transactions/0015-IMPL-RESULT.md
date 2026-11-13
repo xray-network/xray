@@ -1,4 +1,4 @@
-# xray-mini-app-transactions implementation 0015 result
+# Mini App Cardano Transactions implementation 0015 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0015
@@ -20,6 +20,18 @@ Evidence-Mode: LOCAL
 Transactions now consumes the handshake-free versioned bridge while preserving transaction lookup
 and standalone preference fallbacks.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck` — passed.
@@ -33,3 +45,7 @@ None.
 ## Remaining human review
 
 Review all host states, tip/account updates, routes, preferences, and transaction pagination.
+
+## Reproducibility
+
+Not recorded in the original result.

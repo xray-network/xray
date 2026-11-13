@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0011 result
+# JS Mini App Bridge implementation 0011 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0011
@@ -19,6 +19,14 @@ Evidence-Mode: LOCAL
 Mini apps can remain connected to XRAY platform services without a selected account. Platform
 messages carry either the host-selected account context or null; Cardano Bridge and CIP-30 remain
 strictly Cardano-contextual.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
 
 ## Exported change contract
 

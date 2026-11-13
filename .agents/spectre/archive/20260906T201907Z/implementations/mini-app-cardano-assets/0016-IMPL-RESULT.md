@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0016 result
+# Mini App Cardano Assets implementation 0016 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0016
@@ -20,6 +20,18 @@ Evidence-Mode: LOCAL
 Assets consumes only the direct versioned bridge API and remains usable with local preferences when
 no XRAY host responds.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck` — passed.
@@ -33,3 +45,7 @@ None.
 ## Remaining human review
 
 Review selected, accountless, unavailable, and standalone states and live preference/route updates.
+
+## Reproducibility
+
+Not recorded in the original result.

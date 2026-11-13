@@ -1,4 +1,4 @@
-# xray-mini-app-wallet implementation 0017 result
+# Mini App Cardano Wallet implementation 0017 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0017
@@ -7,9 +7,9 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                            | Validation                                                    |
-| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Confirmed Wallet consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Confirmed Wallet consumes only the React `{ host, account }` projection; no raw payload-account assumption or source change was required. | Typecheck, production build, stale scan, and diff check pass. |
 
 ## Outcome
 
@@ -25,9 +25,9 @@ Wallet builds against normalized status without changing construction, consent, 
 
 ## Exported change contract
 
-| Change ID | Semantic change                                         | Compatibility       | Downstream action |
-| --------- | ------------------------------------------------------- | ------------------- | ----------------- |
-| C01       | Wallet continues to consume React status account state. | No behavior change. | None.             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Wallet continues to consume React status account state. | No behavior change. | None. |
 
 ## Validation
 

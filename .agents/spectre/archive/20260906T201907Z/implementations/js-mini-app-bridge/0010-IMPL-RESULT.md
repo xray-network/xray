@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0010 result
+# JS Mini App Bridge implementation 0010 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0010
@@ -16,6 +16,14 @@ Evidence-Mode: LOCAL
 ## Outcome
 
 `/mini-app-bridge/cardano` is now the sole public Cardano protocol-contract entry. Role-specific operations remain at `client.cardano.cip30` and `host.cardano.cip30`.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
 
 ## Exported change contract
 
@@ -40,3 +48,7 @@ Node 20.18.1 produced the known React Router Node 22.22+ warning. All checks and
 ## Remaining human review
 
 Review the intentional removal of the nested public path.
+
+## Reproducibility
+
+Not recorded in the original result.

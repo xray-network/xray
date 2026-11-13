@@ -1,4 +1,4 @@
-# Repository implementation 0002 result
+# JS repository implementation 0002 result
 
 Result-Version: v1
 Implementation-ID: js-repository/0002

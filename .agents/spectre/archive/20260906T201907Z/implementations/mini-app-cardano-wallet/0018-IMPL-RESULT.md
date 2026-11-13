@@ -1,4 +1,4 @@
-# xray-mini-app-wallet implementation 0018 result
+# Mini App Cardano Wallet implementation 0018 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0018
@@ -7,13 +7,13 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                                                                                                                     | Validation                                                                                                                                                                              |
-| --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C01       | `IMPLEMENTED` | Send All now builds from every account UTxO with the validated form recipient as the change destination; the ordinary-send `payTo` and account change path remains intact.                                                                         | Offline SDK regression proves every built output uses a recipient distinct from the source, preserves the native asset, and reconciles destination lovelace plus fee to input lovelace. |
-| C02       | `IMPLEMENTED` | The SDK transaction is inspected from CBOR, Send All aggregates all built outputs for the recipient, asset display decimals are restored from account metadata, and the UI labels the amount as `Recipient Receives` with a non-additive `Tx Fee`. | Regression coverage exercises multi-output token-bearing change and recipient filtering; production build passes.                                                                       |
-| C03       | `IMPLEMENTED` | Form validation is awaited, one stable debounced preview is cancelled on replacement/unmount, request IDs invalidate stale work, edits clear stale preview state, and list mutations no longer depend on timer callbacks.                          | Scoped typecheck has no diagnostics, the negative source scan finds no timer-based async validation, and source review confirms latest-request state guards.                            |
-| C04       | `IMPLEMENTED` | Submission awaits the versioned bridge response payload, permits only one in-flight request, disables the form/toggle, handles missing, failed, and rejected responses, and emits success/error notifications.                                     | Scoped typecheck and production build pass; the negative source scan rejects fire-and-forget bridge submission. Live host outcomes remain for human review.                             |
-| C05       | `IMPLEMENTED` | Added an offline Node test suite and `npm test` script using the installed Cardano in-memory provider, with no package or lockfile dependency change.                                                                                              | `npm test` passes 2 tests with 0 failures.                                                                                                                                              |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Send All now builds from every account UTxO with the validated form recipient as the change destination; the ordinary-send `payTo` and account change path remains intact. | Offline SDK regression proves every built output uses a recipient distinct from the source, preserves the native asset, and reconciles destination lovelace plus fee to input lovelace. |
+| C02 | `IMPLEMENTED` | The SDK transaction is inspected from CBOR, Send All aggregates all built outputs for the recipient, asset display decimals are restored from account metadata, and the UI labels the amount as `Recipient Receives` with a non-additive `Tx Fee`. | Regression coverage exercises multi-output token-bearing change and recipient filtering; production build passes. |
+| C03 | `IMPLEMENTED` | Form validation is awaited, one stable debounced preview is cancelled on replacement/unmount, request IDs invalidate stale work, edits clear stale preview state, and list mutations no longer depend on timer callbacks. | Scoped typecheck has no diagnostics, the negative source scan finds no timer-based async validation, and source review confirms latest-request state guards. |
+| C04 | `IMPLEMENTED` | Submission awaits the versioned bridge response payload, permits only one in-flight request, disables the form/toggle, handles missing, failed, and rejected responses, and emits success/error notifications. | Scoped typecheck and production build pass; the negative source scan rejects fire-and-forget bridge submission. Live host outcomes remain for human review. |
+| C05 | `IMPLEMENTED` | Added an offline Node test suite and `npm test` script using the installed Cardano in-memory provider, with no package or lockfile dependency change. | `npm test` passes 2 tests with 0 failures. |
 
 ## Outcome
 
@@ -42,13 +42,13 @@ Send All now routes spendable UTxO value and native assets to the entered recipi
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                                                                          | Compatibility                                                       | Downstream action                                                                                       |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| C01       | Send All assigns all builder-calculated change to the single validated recipient, never to an input-derived address.                     | Ordinary sends retain explicit outputs and account-owned change.    | Consumers can treat the entered recipient as the sole Send All destination.                             |
-| C02       | Send All preview values come from all built transaction outputs at that recipient, and the fee comes from typed CBOR inspection.         | ADA and native-asset display formats remain unchanged.              | UI reviewers should reconcile recipient lovelace plus fee to spent UTxO lovelace.                       |
-| C03       | Only the latest valid form snapshot may publish preview, fee, validation, or transaction errors.                                         | Debounced feedback remains at 500 ms.                               | Future form mutations must call the shared preview queue so they invalidate stale work.                 |
-| C04       | The bridge operation is one awaited sign-and-submit request with explicit success/failure feedback and one in-flight submission maximum. | The host still receives unsigned builder CBOR through `cardano/v1`. | Host integrations should return the existing response envelope with a discriminated submission payload. |
-| C05       | `npm test` is the offline Send All regression command.                                                                                   | No dependency or lockfile changes are required.                     | Run it with the repository's supported Node version before review.                                      |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | Send All assigns all builder-calculated change to the single validated recipient, never to an input-derived address. | Ordinary sends retain explicit outputs and account-owned change. | Consumers can treat the entered recipient as the sole Send All destination. |
+| C02 | Send All preview values come from all built transaction outputs at that recipient, and the fee comes from typed CBOR inspection. | ADA and native-asset display formats remain unchanged. | UI reviewers should reconcile recipient lovelace plus fee to spent UTxO lovelace. |
+| C03 | Only the latest valid form snapshot may publish preview, fee, validation, or transaction errors. | Debounced feedback remains at 500 ms. | Future form mutations must call the shared preview queue so they invalidate stale work. |
+| C04 | The bridge operation is one awaited sign-and-submit request with explicit success/failure feedback and one in-flight submission maximum. | The host still receives unsigned builder CBOR through `cardano/v1`. | Host integrations should return the existing response envelope with a discriminated submission payload. |
+| C05 | `npm test` is the offline Send All regression command. | No dependency or lockfile changes are required. | Run it with the repository's supported Node version before review. |
 
 ## Validation
 

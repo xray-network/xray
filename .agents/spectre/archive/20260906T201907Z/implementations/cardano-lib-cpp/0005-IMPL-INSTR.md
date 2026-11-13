@@ -1,19 +1,26 @@
-# C++ implementation 0005 instruction
+# Cardano Lib C++ implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0005
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-cpp/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted address, Bech32, key, BIP32, fixed-hash, security, and ownership baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured CIP-5, CIP-16, CIP-19, CIP-105, CIP-129, and CIP-1852 text and CIP-105 vectors |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Captured CIP-5, CIP-16, CIP-19, CIP-105, CIP-129, and CIP-1852 text and CIP-105 vectors |
 | `cardano-lib/libs/cpp/include/cardano/crypto/keys.hpp` and `cardano-lib/libs/cpp/include/cardano/chain/address.hpp` | `LOCAL` | Yes | Existing nominal key/address owners to extend without replacement |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

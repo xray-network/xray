@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0001 result
+# JS Mini App Bridge implementation 0001 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0001
@@ -7,12 +7,12 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition   | Implementation                                                                                                                                                                 | Validation                                                                            |
-| --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| `C01`     | `IMPLEMENTED` | Renamed the workspace directory to `js/packages/mini-app-bridge` and its package identity to `@xray-network/xray-js-mini-app-bridge` without renaming its public `MiniApp*` APIs. | Focused workspace build and typecheck pass under the new package name.                |
-| `C02`     | `IMPLEMENTED` | Renamed all six aggregate runtime entry modules and public subpaths from `mini-app` to `mini-app-bridge`, with no legacy aliases.                                              | Every aggregate bridge subpath imports successfully after a clean runtime rebuild.    |
-| `C03`     | `IMPLEMENTED` | Updated root workspaces, runtime dependency metadata, npm workspace links, lockfile records, source comments, and README imports.                                              | Offline npm reconciliation passes and the active repository stale-name scan is empty. |
-| `C04`     | `IMPLEMENTED` | Preserved the protocol, client, host, React, testing, and CIP-30 source modules as a mechanical workspace rename.                                                              | Complete repository build, test, and typecheck gate passes.                           |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| `C01` | `IMPLEMENTED` | Renamed the workspace directory to `js/packages/mini-app-bridge` and its package identity to `@xray-network/xray-js-mini-app-bridge` without renaming its public `MiniApp*` APIs. | Focused workspace build and typecheck pass under the new package name. |
+| `C02` | `IMPLEMENTED` | Renamed all six aggregate runtime entry modules and public subpaths from `mini-app` to `mini-app-bridge`, with no legacy aliases. | Every aggregate bridge subpath imports successfully after a clean runtime rebuild. |
+| `C03` | `IMPLEMENTED` | Updated root workspaces, runtime dependency metadata, npm workspace links, lockfile records, source comments, and README imports. | Offline npm reconciliation passes and the active repository stale-name scan is empty. |
+| `C04` | `IMPLEMENTED` | Preserved the protocol, client, host, React, testing, and CIP-30 source modules as a mechanical workspace rename. | Complete repository build, test, and typecheck gate passes. |
 
 ## Outcome
 
@@ -37,12 +37,12 @@ The package is now consistently named Mini App Bridge. Direct consumers use
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                                                            | Compatibility                                                                                                                 | Downstream action                                                 |
-| --------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `C01`     | The direct package identity is `@xray-network/xray-js-mini-app-bridge`.                                    | Existing direct imports using `@xray-network/xray-js-mini-app` no longer resolve. Public exported symbol names are unchanged. | Replace the direct package name in dependencies and imports.      |
-| `C02`     | Aggregate runtime paths begin with `@xray-network/xray-js/mini-app-bridge`.                                | Existing `/mini-app` aggregate imports no longer resolve; subpath structure after the renamed prefix is unchanged.            | Replace `/mini-app` with `/mini-app-bridge` in aggregate imports. |
-| `C03`     | Workspace and lockfile identity follow the new bridge name.                                                | Repository-local installation resolves the renamed workspace directly.                                                        | Reinstall dependencies from the updated lockfile.                 |
-| `C04`     | Wire messages, schemas, React APIs, client/host helpers, and testing utilities are behaviorally unchanged. | No source-level migration is needed beyond import/package paths.                                                              | None.                                                             |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| `C01` | The direct package identity is `@xray-network/xray-js-mini-app-bridge`. | Existing direct imports using `@xray-network/xray-js-mini-app` no longer resolve. Public exported symbol names are unchanged. | Replace the direct package name in dependencies and imports. |
+| `C02` | Aggregate runtime paths begin with `@xray-network/xray-js/mini-app-bridge`. | Existing `/mini-app` aggregate imports no longer resolve; subpath structure after the renamed prefix is unchanged. | Replace `/mini-app` with `/mini-app-bridge` in aggregate imports. |
+| `C03` | Workspace and lockfile identity follow the new bridge name. | Repository-local installation resolves the renamed workspace directly. | Reinstall dependencies from the updated lockfile. |
+| `C04` | Wire messages, schemas, React APIs, client/host helpers, and testing utilities are behaviorally unchanged. | No source-level migration is needed beyond import/package paths. | None. |
 
 ## Validation
 

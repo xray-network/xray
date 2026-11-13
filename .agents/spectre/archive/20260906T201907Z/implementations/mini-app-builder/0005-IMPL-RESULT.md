@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0005 result
+# Mini App Builder implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0005
@@ -17,6 +17,18 @@ Evidence-Mode: LOCAL
 
 Builder can relay all current bridge protocol families without merging chain-specific schemas into platform core.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - `npm run typecheck`: PASS.
@@ -30,3 +42,7 @@ Standalone Builder advertises no chain protocol because it has no local native r
 ## Remaining human review
 
 Review nested handshake capability truthfulness and origin hardening for a future deployment pass.
+
+## Reproducibility
+
+Not recorded in the original result.

@@ -1,7 +1,8 @@
-# TypeScript implementation 0024 instruction
+# Cardano Lib TypeScript implementation 0024 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0024
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260825T084339Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -16,6 +17,10 @@ Provider-Evidence: NONE
 | `cardano-lib/libs/typescript/packages/chain/test/{multi-era,conway-foundations,witness-discovery}.test.mjs` | `LOCAL` | Yes | Define current cross-era, transaction decomposition, malformed-input, and witness coverage. |
 | Accepted lossless-CBOR and package-ownership ADRs plus chain/runtime READMEs | `LOCAL` | Yes | Define byte preservation, nominal ownership, browser-safe types, and documentation requirements. |
 | Read-only adjacent xray-js transaction parser and XRAY App approval projection | `LOCAL` | Yes | Demonstrate downstream low-level workarounds and the required intrinsic inspection coverage. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

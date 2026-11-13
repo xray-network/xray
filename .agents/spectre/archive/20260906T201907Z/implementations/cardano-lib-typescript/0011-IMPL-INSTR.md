@@ -1,20 +1,27 @@
-# TypeScript implementation 0011 instruction
+# Cardano Lib TypeScript implementation 0011 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0011
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-typescript/0004`](0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted Byron-through-Conway models, lossless CBOR, and transaction ownership |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable active CIP-0021 transaction restrictions |
-| Captured `CIP-0021/README.md` | `PROVIDER` | Yes | Exact deterministic restrictions and explicitly time-sensitive appendix boundary |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Immutable active CIP-0021 transaction restrictions |
+| Captured `CIP-0021/README.md` | `PROVIDER` | Yes | Pin `P1`. Exact deterministic restrictions and explicitly time-sensitive appendix boundary |
 | `cardano-lib/libs/typescript/packages/{core,chain,cip,runtime}/` | `LOCAL` | Yes | Existing lossless CBOR nodes, transaction owner, package exports, and tests |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

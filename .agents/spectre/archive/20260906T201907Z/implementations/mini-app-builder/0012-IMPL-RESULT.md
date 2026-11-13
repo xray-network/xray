@@ -1,4 +1,4 @@
-# xray-mini-app-builder implementation 0012 result
+# Mini App Builder implementation 0012 result
 
 Result-Version: v1
 Implementation-ID: mini-app-builder/0012

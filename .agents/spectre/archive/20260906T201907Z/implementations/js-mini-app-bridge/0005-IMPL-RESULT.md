@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0005 result
+# JS Mini App Bridge implementation 0005 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0005
@@ -15,6 +15,18 @@ Evidence-Mode: LOCAL
 
 Calling `installConnector()` exposes only the default `window.cardano.xrayBridge` connector.
 
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
 ## Validation
 
 - Bridge typecheck/build/tests: PASS.
@@ -24,3 +36,11 @@ Calling `installConnector()` exposes only the default `window.cardano.xrayBridge
 ## Deviations from instruction
 
 None.
+
+## Remaining human review
+
+Not recorded in the original result.
+
+## Reproducibility
+
+Not recorded in the original result.

@@ -1,7 +1,8 @@
-# xray-mini-app-assets implementation 0005 instruction
+# Mini App Cardano Assets implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0005
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260811T085802Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Adopt separated platform and Cardano bridge APIs. |
 | `mini-app-cardano-assets/app/` bridge consumers | `LOCAL` | Yes | Assets settings, routing, and Cardano account hooks. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

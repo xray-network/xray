@@ -1,7 +1,8 @@
-# xray-mini-app-transactions implementation 0011 instruction
+# Mini App Cardano Transactions implementation 0011 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0011
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260811T213459Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Project manifests, lockfile, Router config, routes, and tooling | `LOCAL` | Yes | Define the React Router 7 contract. |
 | React Router 8.3.0 requirements and human migration request | `LOCAL` | Yes | Define the target dependency/runtime contract. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

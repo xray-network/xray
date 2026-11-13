@@ -1,10 +1,11 @@
-# Cardano implementation 0007 instruction
+# JS Cardano implementation 0007 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0007
+Target-Path: ./js/packages/cardano/
 Created: 20260812T112201Z
 Evidence-Mode: LOCAL
-Depends-On: js-cardano/0006
+Depends-On: ./0006-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Human-approved strict Cardano application/library boundary | `LOCAL` | Yes | Assign all raw Cardano Lib namespaces exclusively to `/cardano/lib`. |
 | Cardano source, runtime facade/tests, README, and active local consumers | `LOCAL` | Yes | Define and validate the breaking export migration. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

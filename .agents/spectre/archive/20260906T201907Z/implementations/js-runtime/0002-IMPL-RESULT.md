@@ -1,4 +1,4 @@
-# Runtime implementation 0002 result
+# JS runtime implementation 0002 result
 
 Result-Version: v1
 Implementation-ID: js-runtime/0002
@@ -7,11 +7,11 @@ Evidence-Mode: LOCAL
 
 ## Change dispositions
 
-| Change ID | Disposition | Implementation                                                                                                                         | Validation                                                                                 |
-| --------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| C01       | Implemented | Changed `XrayChainModule.create` to synchronously return its client value.                                                             | Runtime and root strict typechecks pass.                                                   |
-| C02       | Implemented | Statically integrated `createCardano` so `XRAY.cardano.create(config)` returns immediately without dynamic import or protocol loading. | Runtime test confirms immediate isolated values and zero provider requests after creation. |
-| C03       | Implemented | Removed awaited facade creation from tests and README, and documented synchronous composition versus provider/wallet effects.          | Runtime package and root build/test suites pass.                                           |
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | Implemented | Changed `XrayChainModule.create` to synchronously return its client value. | Runtime and root strict typechecks pass. |
+| C02 | Implemented | Statically integrated `createCardano` so `XRAY.cardano.create(config)` returns immediately without dynamic import or protocol loading. | Runtime test confirms immediate isolated values and zero provider requests after creation. |
+| C03 | Implemented | Removed awaited facade creation from tests and README, and documented synchronous composition versus provider/wallet effects. | Runtime package and root build/test suites pass. |
 
 ## Outcome
 
@@ -32,11 +32,11 @@ The XRAY Cardano facade now constructs isolated functional Cardano values synchr
 
 ## Exported change contract
 
-| Change ID | Semantic change                                                             | Compatibility                                                       | Downstream action                                                                                         |
-| --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| C01       | A chain module's `create(config?)` method returns its client synchronously. | Asynchronous chain-module factories no longer satisfy the contract. | Construct configuration synchronously and defer external effects to client operations.                    |
-| C02       | `XRAY.cardano.create(config)` returns `Cardano`, not `Promise<Cardano>`.    | Awaiting creation is unnecessary and hides the intended boundary.   | Remove `await` from XRAY Cardano creation.                                                                |
-| C03       | Promises identify provider or wallet effects after creation.                | Documentation and call sites change.                                | Await chain queries, builds requiring provider data, wallet operations, submission, and observation only. |
+| Change ID | Semantic change | Compatibility | Downstream action |
+| --- | --- | --- | --- |
+| C01 | A chain module's `create(config?)` method returns its client synchronously. | Asynchronous chain-module factories no longer satisfy the contract. | Construct configuration synchronously and defer external effects to client operations. |
+| C02 | `XRAY.cardano.create(config)` returns `Cardano`, not `Promise<Cardano>`. | Awaiting creation is unnecessary and hides the intended boundary. | Remove `await` from XRAY Cardano creation. |
+| C03 | Promises identify provider or wallet effects after creation. | Documentation and call sites change. | Await chain queries, builds requiring provider data, wallet operations, submission, and observation only. |
 
 ## Validation
 

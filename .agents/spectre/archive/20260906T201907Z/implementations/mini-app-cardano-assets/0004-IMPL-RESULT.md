@@ -1,4 +1,4 @@
-# xray-mini-app-assets implementation 0004 result
+# Mini App Cardano Assets implementation 0004 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-assets/0004

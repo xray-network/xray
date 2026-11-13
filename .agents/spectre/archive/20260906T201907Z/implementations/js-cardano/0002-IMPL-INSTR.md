@@ -1,7 +1,8 @@
-# Cardano implementation 0002 instruction
+# JS Cardano implementation 0002 instruction
 
 Implementation-Version: v1
 Implementation-ID: js-cardano/0002
+Target-Path: ./js/packages/cardano/
 Created: 20260803T150230Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -9,12 +10,16 @@ Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                              | Kind    | Required | Purpose                                                                                                                          |
-| ---------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `js/packages/cardano-sdk/`            | `LOCAL` | Yes      | Current Cardano behavior and feature inventory to preserve behind the replacement API.                                           |
-| `js/packages/runtime/src/cardano.ts`  | `LOCAL` | Yes      | Current Cardano runtime integration boundary.                                                                                    |
-| `README.md`                        | `LOCAL` | Yes      | Current public installation, import, and development documentation.                                                              |
-| Human request in this conversation | `LOCAL` | Yes      | Authorizes a breaking redesign, the `js/packages/cardano` source migration, and removal of all CW3/CardanoWeb3 compatibility names. |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| `js/packages/cardano-sdk/` | `LOCAL` | Yes | Current Cardano behavior and feature inventory to preserve behind the replacement API. |
+| `js/packages/runtime/src/cardano.ts` | `LOCAL` | Yes | Current Cardano runtime integration boundary. |
+| `README.md` | `LOCAL` | Yes | Current public installation, import, and development documentation. |
+| Human request in this conversation | `LOCAL` | Yes | Authorizes a breaking redesign, the `js/packages/cardano` source migration, and removal of all CW3/CardanoWeb3 compatibility names. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -22,16 +27,16 @@ Replace the legacy CardanoWeb3/CW3 architecture with a strict, feature-complete 
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                                                                                                                                                       | Compatibility                                                     | Local owner                               | Validation                                                         |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
-| C01       | Rename `js/packages/cardano-sdk` to `js/packages/cardano` and update workspace/package metadata without rewriting the accepted `cardano-sdk` tracking history.                                                                          | Intentionally breaking source/workspace migration.                | `js/packages/cardano`, root manifests        | Workspace build and lockfile validation.                           |
-| C02       | Replace `CardanoWeb3`, `CW3Types`, `cw3`, connector, explorer, and transaction-finalizer public terminology with `CardanoClient`, direct type exports, Cardano context, CIP-30 wallets, clients, and explicit transaction states. | No legacy aliases or deprecated exports.                          | `js/packages/cardano/src`                    | Typecheck plus repository search for forbidden legacy identifiers. |
-| C03       | Provide an asynchronous `CardanoClient.create` configuration path with remote protocol-parameter loading and a clearly named millisecond cache duration.                                                                          | Replaces synchronous construction and hardcoded-default behavior. | Cardano configuration/client modules      | Unit tests for configuration and protocol-parameter caching.       |
-| C04       | Preserve current account, wallet, message, provider, raw client, primitive, transaction, staking, governance, evaluation, signing, submission, and observation capabilities behind the new API.                                   | Behavior preserved; public method organization may change.        | Cardano feature modules                   | Deterministic tests and integration-test compilation.              |
-| C05       | Remove internal imports through the public barrel, enable strict TypeScript, replace public `any` surfaces where owned, and isolate mutable/private state.                                                                        | Compile-time breaking improvements are authorized.                | `js/packages/cardano/src`, TypeScript config | Strict source and test typechecks.                                 |
-| C06       | Separate unsigned and signed transaction responsibilities and replace `apply*` methods with build/sign/serialize/submit operations.                                                                                               | Intentionally breaking transaction API.                           | Cardano transaction modules               | Transaction and governance behavior tests.                         |
-| C07       | Export deterministic testing support and provider contract fixtures so feature tests do not require live endpoints.                                                                                                               | New supported testing surface.                                    | `js/packages/cardano/src/testing`, tests     | Offline package test suite.                                        |
-| C08       | Update Cardano documentation and examples for direct imports and the XRAY facade.                                                                                                                                                 | Legacy examples are removed.                                      | `README.md`, package documentation        | Documentation search and example typecheck where applicable.       |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Rename `js/packages/cardano-sdk` to `js/packages/cardano` and update workspace/package metadata without rewriting the accepted `cardano-sdk` tracking history. | Intentionally breaking source/workspace migration. | `js/packages/cardano`, root manifests | Workspace build and lockfile validation. |
+| C02 | Replace `CardanoWeb3`, `CW3Types`, `cw3`, connector, explorer, and transaction-finalizer public terminology with `CardanoClient`, direct type exports, Cardano context, CIP-30 wallets, clients, and explicit transaction states. | No legacy aliases or deprecated exports. | `js/packages/cardano/src` | Typecheck plus repository search for forbidden legacy identifiers. |
+| C03 | Provide an asynchronous `CardanoClient.create` configuration path with remote protocol-parameter loading and a clearly named millisecond cache duration. | Replaces synchronous construction and hardcoded-default behavior. | Cardano configuration/client modules | Unit tests for configuration and protocol-parameter caching. |
+| C04 | Preserve current account, wallet, message, provider, raw client, primitive, transaction, staking, governance, evaluation, signing, submission, and observation capabilities behind the new API. | Behavior preserved; public method organization may change. | Cardano feature modules | Deterministic tests and integration-test compilation. |
+| C05 | Remove internal imports through the public barrel, enable strict TypeScript, replace public `any` surfaces where owned, and isolate mutable/private state. | Compile-time breaking improvements are authorized. | `js/packages/cardano/src`, TypeScript config | Strict source and test typechecks. |
+| C06 | Separate unsigned and signed transaction responsibilities and replace `apply*` methods with build/sign/serialize/submit operations. | Intentionally breaking transaction API. | Cardano transaction modules | Transaction and governance behavior tests. |
+| C07 | Export deterministic testing support and provider contract fixtures so feature tests do not require live endpoints. | New supported testing surface. | `js/packages/cardano/src/testing`, tests | Offline package test suite. |
+| C08 | Update Cardano documentation and examples for direct imports and the XRAY facade. | Legacy examples are removed. | `README.md`, package documentation | Documentation search and example typecheck where applicable. |
 
 ## Implementation steps
 

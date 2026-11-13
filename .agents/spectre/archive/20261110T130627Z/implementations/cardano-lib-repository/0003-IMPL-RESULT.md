@@ -1,4 +1,4 @@
-# Repository implementation 0003 result
+# Cardano Lib repository implementation 0003 result
 
 Result-Version: v1
 Implementation-ID: cardano-lib-repository/0003

@@ -1,20 +1,28 @@
-# C++ implementation 0003 instruction
+# Cardano Lib C++ implementation 0003 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0003
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md, ../../providers/uplc/0001/SNAPSHOT.md
+Provider-Evidence: P1, P2
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-cpp/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted workspace, component graph, package, historical-block, UPLC, and completion baseline |
-| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable historical block and genesis benchmark fixtures |
-| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable Flat/text/CEK and phase-two benchmark fixtures |
+| [`0001-cardano-multiplatform-lib`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Immutable historical block and genesis benchmark fixtures |
+| [`0001-uplc`](../../providers/uplc/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P2`. Immutable Flat/text/CEK and phase-two benchmark fixtures |
 | `cardano-lib/libs/cpp/CMakeLists.txt`, `cardano-lib/libs/cpp/CMakePresets.json`, and `cardano-lib/libs/cpp/cmake/` | `LOCAL` | Yes | Current host restrictions, target exports, dependency discovery, and validation workflows |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-multiplatform-lib/0001` | [`.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md`](../../providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
+| `P2` | `SELF` | `uplc/0001` | [`.agents/spectre/providers/uplc/0001/SNAPSHOT.md`](../../providers/uplc/0001/SNAPSHOT.md) `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

@@ -1,11 +1,12 @@
-# TypeScript implementation 0010 instruction
+# Cardano Lib TypeScript implementation 0010 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-typescript/0010
+Target-Path: ./cardano-lib/libs/typescript/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0003-IMPL-RESULT.md, ./0004-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
@@ -13,10 +14,16 @@ Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
 | --- | --- | --- | --- |
 | [`cardano-lib-typescript/0003`](0003-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted typed Plutus Data owner and immutable Data behavior |
 | [`cardano-lib-typescript/0004`](0004-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted `ScriptHash`, `AssetName`, value, and Conway wire owners |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Immutable CIP-0067/0068 specifications, registry, and registry schema |
-| Captured `CIP-0067/README.md`, `registry.json`, and `registry.schema.json` | `PROVIDER` | Yes | Label bits, CRC-8 vectors, proposal status, and registered values |
-| Captured `CIP-0068/README.md` | `PROVIDER` | Yes | Active token relationships, versioned datum shapes, and metadata rules |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Immutable CIP-0067/0068 specifications, registry, and registry schema |
+| Captured `CIP-0067/README.md`, `registry.json`, and `registry.schema.json` | `PROVIDER` | Yes | Pin `P1`. Label bits, CRC-8 vectors, proposal status, and registered values |
+| Captured `CIP-0068/README.md` | `PROVIDER` | Yes | Pin `P1`. Active token relationships, versioned datum shapes, and metadata rules |
 | `cardano-lib/libs/typescript/packages/{cip,chain,plutus,runtime}/` | `LOCAL` | Yes | Existing package, asset, Data, export, browser, and test boundaries |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 

@@ -1,10 +1,11 @@
-# xray-mini-app-transactions implementation 0013 instruction
+# Mini App Cardano Transactions implementation 0013 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-transactions/0013
+Target-Path: ./mini-app-cardano-transactions/
 Created: 20260812T112201Z
 Evidence-Mode: LOCAL
-Depends-On: xray-js/cardano/0007
+Depends-On: ../js-cardano/0007-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
@@ -12,6 +13,10 @@ Provider-Evidence: NONE
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | Transactions utilities and strict xray-js Cardano Lib boundary | `LOCAL` | Yes | Migrate CIP-67 access without behavior changes. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

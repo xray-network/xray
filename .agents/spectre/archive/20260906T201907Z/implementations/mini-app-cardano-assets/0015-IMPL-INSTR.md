@@ -1,17 +1,22 @@
-# xray-mini-app-assets implementation 0015 instruction
+# Mini App Cardano Assets implementation 0015 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-cardano-assets/0015
+Target-Path: ./mini-app-cardano-assets/
 Created: 20260812T114643Z
 Evidence-Mode: LOCAL
-Depends-On: xray-js/cardano/0008
+Depends-On: ../js-cardano/0008-IMPL-RESULT.md
 Provider-Evidence: NONE
 
 ## Inputs and authority
 
-| Input                       | Kind    | Required | Purpose                                                  |
-| --------------------------- | ------- | -------- | -------------------------------------------------------- |
-| Grouped Cardano utility API | `LOCAL` | Yes      | Migrate application helpers to the new public namespace. |
+| Input | Kind | Required | Purpose |
+| --- | --- | --- | --- |
+| Grouped Cardano utility API | `LOCAL` | Yes | Migrate application helpers to the new public namespace. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 
@@ -19,9 +24,9 @@ Consume Cardano helpers through `utilities` from `@xray-network/xray-js/cardano`
 
 ## Changes to implement
 
-| Change ID | Requirement                                                                                    | Compatibility                           | Local owner      | Validation                          |
-| --------- | ---------------------------------------------------------------------------------------------- | --------------------------------------- | ---------------- | ----------------------------------- |
-| C01       | Replace root `assets` and `encoding` imports with `utilities.assets` and `utilities.encoding`. | Preserve asset formatting and decoding. | Assets utilities | Typecheck, build, and import audit. |
+| Change ID | Requirement | Compatibility | Local owner | Validation |
+| --- | --- | --- | --- | --- |
+| C01 | Replace root `assets` and `encoding` imports with `utilities.assets` and `utilities.encoding`. | Preserve asset formatting and decoding. | Assets utilities | Typecheck, build, and import audit. |
 
 ## Implementation steps
 

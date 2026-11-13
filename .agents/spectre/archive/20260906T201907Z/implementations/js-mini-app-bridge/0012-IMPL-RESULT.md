@@ -1,4 +1,4 @@
-# Mini App Bridge implementation 0012 result
+# JS Mini App Bridge implementation 0012 result
 
 Result-Version: v1
 Implementation-ID: js-mini-app-bridge/0012

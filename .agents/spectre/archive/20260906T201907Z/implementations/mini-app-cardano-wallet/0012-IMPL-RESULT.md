@@ -1,4 +1,4 @@
-# xray-mini-app-wallet implementation 0012 result
+# Mini App Cardano Wallet implementation 0012 result
 
 Result-Version: v1
 Implementation-ID: mini-app-cardano-wallet/0012

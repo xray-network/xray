@@ -1,7 +1,8 @@
-# xray-mini-app-builder implementation 0005 instruction
+# Mini App Builder implementation 0005 instruction
 
 Implementation-Version: v1
 Implementation-ID: mini-app-builder/0005
+Target-Path: ./mini-app-builder/
 Created: 20260811T085802Z
 Evidence-Mode: LOCAL
 Depends-On: NONE
@@ -13,6 +14,10 @@ Provider-Evidence: NONE
 | --- | --- | --- | --- |
 | Current human request | `LOCAL` | Yes | Relay separated platform and Cardano bridge protocols. |
 | Builder bridge integrations and Code preview | `LOCAL` | Yes | Nested host parsing, forwarding, handshake, settings, and event log. |
+
+## Provider pins
+
+NONE
 
 ## Objective
 

@@ -1,19 +1,26 @@
-# C++ implementation 0004 instruction
+# Cardano Lib C++ implementation 0004 instruction
 
 Implementation-Version: v1
 Implementation-ID: cardano-lib-cpp/0004
+Target-Path: ./cardano-lib/libs/cpp/
 Created: 20260731T075521Z
 Evidence-Mode: HYBRID
 Depends-On: ./0001-IMPL-RESULT.md
-Provider-Evidence: ../../providers/cardano-cips/0001/SNAPSHOT.md
+Provider-Evidence: P1
 
 ## Inputs and authority
 
 | Input | Kind | Required | Purpose |
 | --- | --- | --- | --- |
 | [`cardano-lib-cpp/0001`](0001-IMPL-RESULT.md) | `IMPLEMENTATION_RESULT` | Yes | Accepted crypto, asset-name, Bech32, CIP component, ownership, and packaging baseline |
-| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Captured CIP-14 algorithm, HRP, size rules, and eight normative vectors |
+| [`0001-cardano-cips`](../../providers/cardano-cips/0001/SNAPSHOT.md) | `PROVIDER` | Yes | Pin `P1`. Captured CIP-14 algorithm, HRP, size rules, and eight normative vectors |
 | `cardano-lib/libs/cpp/include/cardano/crypto/primitives.hpp` and `cardano-lib/libs/cpp/include/cardano/chain/builder.hpp` | `LOCAL` | Yes | Existing primitive and `ScriptHash`/`AssetName` owners to reuse |
+
+## Provider pins
+
+| Pin ID | Evidence repository | Provider/capture ID | SNAPSHOT.md path and SHA-256 | Selected logical artifact paths and SHA-256 |
+| --- | --- | --- | --- | --- |
+| `P1` | `SELF` | `cardano-cips/0001` | [`.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md`](../../providers/cardano-cips/0001/SNAPSHOT.md) `7e6830346c3d2779980560282926ba771a38c7902deb9f6c5e50d807d0d87c53` | The complete logical inventory with SHA-256 values listed in the pinned SNAPSHOT.md |
 
 ## Objective
 
