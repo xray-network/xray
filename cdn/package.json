@@ -6,7 +6,8 @@
   "description": "",
   "author": "XRAY/Network <hello@xray.app>",
   "scripts": {
-    "deploy": "wrangler pages deploy"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "wrangler": "^4.14.4"
