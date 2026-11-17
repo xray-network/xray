@@ -1,10 +1,11 @@
 # Official Plutus UPLC provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0001
 Provider: uplc
 Created: 20260727T100703Z
 Previous-Snapshot: NONE
+Capture-Summary: CAPTURE.md
+Capture-Summary-SHA256: 7f8df6ed021cc8ca436d2dd806c93dd10029fa2563d653a23650683832423247
 Source-Type: git
 Source-Repository: https://github.com/IntersectMBO/plutus.git
 Source-Commit: 91e8c2af9c7bec705b035c6cf8e679c35c4c2ad5

@@ -1,6 +1,5 @@
 # XRAY repository implementation 0001 instruction
 
-Implementation-Version: v1
 Implementation-ID: repository/0001
 Target-Path: ./
 Created: 20261111T094308Z

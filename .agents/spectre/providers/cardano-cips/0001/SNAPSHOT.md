@@ -1,12 +1,11 @@
 # Cardano CIPs provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0001
 Provider: cardano-cips
 Created: 20260731T075521Z
 Previous-Snapshot: NONE
 Capture-Summary: CAPTURE.md
-Capture-Summary-SHA256: f7a28f4114488cd36807cbe19eaaf7ee26d65fba803c57c4929cae3cd6e9b7be
+Capture-Summary-SHA256: 30a187a934c5e654d1ccb959d8cbf6744fdd96996724ecae2dc72b3c7ca5f647
 Source-Type: git
 Source-Repository: https://github.com/cardano-foundation/CIPs.git
 Source-Commit: b491a839708eb0296597008e7b6b093eda5e3363

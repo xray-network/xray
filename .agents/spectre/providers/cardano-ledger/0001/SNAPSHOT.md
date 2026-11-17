@@ -1,12 +1,11 @@
 # Cardano Ledger provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0001
 Provider: cardano-ledger
 Created: 20260723T122735Z
 Previous-Snapshot: NONE
 Capture-Summary: CAPTURE.md
-Capture-Summary-SHA256: 0f391bb6b2ddd9685adc5df9c368052b8c85aeff808fb6462ad4db1e72e83a4e
+Capture-Summary-SHA256: 8d57bd1c1741042cbbfd32906fa7c81dd17227a5036803972f61c887bd1cff11
 Source-Type: git
 Source-Repository: https://github.com/IntersectMBO/cardano-ledger.git
 Source-Commit: a624de4c8db7286a6c065da149679ea55f7d5629

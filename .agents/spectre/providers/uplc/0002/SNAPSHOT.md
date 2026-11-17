@@ -1,11 +1,10 @@
 # Official Plutus UPLC provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0002
 Provider: uplc
 Created: 20260909T153557Z
 Previous-Snapshot: 0001/SNAPSHOT.md
-Previous-Snapshot-SHA256: b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d
+Previous-Snapshot-SHA256: 62c2741b28396144de2836b71b4f6aa9e3477a977fe7acb004ef937465889ee9
 Source-Type: git
 Source-Repository: https://github.com/IntersectMBO/plutus.git
 Source-Commit: 9e17e2404dc6988c908b1fea099dde202df73b6a
@@ -15,7 +14,7 @@ Source-URL: NONE
 Source-SHA256: NONE
 
 Capture-Summary: CAPTURE.md
-Capture-Summary-SHA256: 39b65844f3ed7ba66da8e453b9bfde654591c995cd801cdbb9d3f1997d02cb92
+Capture-Summary-SHA256: 2cebf7a9fd9211fd5bb2a973eea779322a325ff18b57cd6b922c49a3e27ff233
 
 ## Evidence objective
 
@@ -330,7 +329,7 @@ SNAPSHOT.md and CAPTURE.md are immutable metadata, not artifact inventory member
 
 | Earlier snapshot path from provider root | SHA-256 | Role |
 | --- | --- | --- |
-| `0001/SNAPSHOT.md` | `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` | Immediate predecessor and owner of every reused artifact |
+| `0001/SNAPSHOT.md` | `62c2741b28396144de2836b71b4f6aa9e3477a977fe7acb004ef937465889ee9` | Immediate predecessor and owner of every reused artifact |
 
 ### Physical storage counts
 

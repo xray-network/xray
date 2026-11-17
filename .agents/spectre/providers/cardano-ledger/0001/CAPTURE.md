@@ -1,6 +1,5 @@
 # Cardano Ledger capture 0001 summary
 
-Provider-Capture-Version: v1
 Provider: cardano-ledger
 Capture: 0001
 Snapshot: SNAPSHOT.md

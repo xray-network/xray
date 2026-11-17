@@ -1,10 +1,11 @@
 # Cardano Multiplatform Lib provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0001
 Provider: cardano-multiplatform-lib
 Created: 20260723T122735Z
 Previous-Snapshot: NONE
+Capture-Summary: CAPTURE.md
+Capture-Summary-SHA256: 649fba920e57be7debc56dd3a23a33b4d1559375c11d61c12359a08e0903c046
 Source-Type: git
 Source-Repository: https://github.com/dcSpark/cardano-multiplatform-lib.git
 Source-Commit: 39681e0d435a71f7c47a2601507ab16e691abb9e

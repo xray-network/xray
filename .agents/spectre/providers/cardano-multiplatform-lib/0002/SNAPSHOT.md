@@ -1,11 +1,10 @@
 # Cardano Multiplatform Lib provider snapshot
 
-Provider-Snapshot-Version: v1
 Snapshot: 0002
 Provider: cardano-multiplatform-lib
 Created: 20260909T134705Z
 Previous-Snapshot: 0001/SNAPSHOT.md
-Previous-Snapshot-SHA256: 2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182
+Previous-Snapshot-SHA256: 90f8ac38c4505c02db2c94f61e9cd42d7c5c80e0b924159b2e21af7ca6a667ea
 Source-Type: git
 Source-Repository: https://github.com/dcSpark/cardano-multiplatform-lib.git
 Source-Commit: 69b8664c84931cd6632e0d951c2795019597527f
@@ -15,7 +14,7 @@ Source-URL: NONE
 Source-SHA256: NONE
 
 Capture-Summary: CAPTURE.md
-Capture-Summary-SHA256: 869a0360fc7256cc83a5397431dfd831ddfed6ca8ab9ed15151c68de6750fa03
+Capture-Summary-SHA256: a2399fd8233bb7d8c3f76cb95aa78a075cc5bd998c071dccbcfea628f1e64602
 
 ## Evidence objective
 
@@ -276,7 +275,7 @@ SNAPSHOT.md and CAPTURE.md are immutable metadata, not artifact inventory member
 
 | Earlier snapshot path from provider root | SHA-256 | Role |
 | --- | --- | --- |
-| `0001/SNAPSHOT.md` | `2f4c1c955486d1d16a308a5ec7ccd595dafa741ab47415c872efa9e5d8906182` | Immediate predecessor and owner of every reused artifact |
+| `0001/SNAPSHOT.md` | `90f8ac38c4505c02db2c94f61e9cd42d7c5c80e0b924159b2e21af7ca6a667ea` | Immediate predecessor and owner of every reused artifact |
 
 ### Physical storage counts
 

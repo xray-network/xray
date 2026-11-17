@@ -1,10 +1,9 @@
 # uplc capture 0002 summary
 
-Provider-Capture-Version: v1
 Provider: uplc
 Capture: 0002
 Snapshot: SNAPSHOT.md
-Previous-Capture: 0001/SNAPSHOT.md#change-summary
+Previous-Capture: 0001/CAPTURE.md
 
 ## Summary
 

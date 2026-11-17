@@ -1,6 +1,5 @@
 # Cardano CIPs capture 0001 summary
 
-Provider-Capture-Version: v1
 Provider: cardano-cips
 Capture: 0001
 Snapshot: SNAPSHOT.md

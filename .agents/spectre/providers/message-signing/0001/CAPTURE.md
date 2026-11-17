@@ -1,6 +1,5 @@
 # EMURGO Message Signing capture 0001 summary
 
-Provider-Capture-Version: v1
 Provider: message-signing
 Capture: 0001
 Snapshot: SNAPSHOT.md

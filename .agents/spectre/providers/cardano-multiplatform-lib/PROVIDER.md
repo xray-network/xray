@@ -64,7 +64,8 @@ captured old baseline. Plan only demonstrated gaps, with exact evidence and focu
 ## Snapshots
 
 - [0001](0001/SNAPSHOT.md): original frozen capture, with its complete specification,
-  exact artifact inventory and documented development metadata migration.
+  exact artifact inventory and documented development metadata migration;
+  [capture summary](0001/CAPTURE.md) extracted from its advisory sections.
 
 - [0002](0002/SNAPSHOT.md): complete incremental specification and resolved inventory;
   [capture summary](0002/CAPTURE.md) compares with 0001 and the maintained TypeScript implementation.
