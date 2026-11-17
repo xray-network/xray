@@ -203,6 +203,7 @@ html:root {
   --xr-on-action: var(--xr-white);
   --xr-link: var(--xr-blue-500);
   --xr-focus: var(--xr-blue-500);
+  --xr-link-hover: var(--xr-blue-600); /* hover and active text */
   --xr-selection-bg: var(--xr-gray-100);
   --xr-selection-fg: var(--xr-blue-500);
   --xr-success-bg: var(--xr-green-200);
@@ -312,6 +313,8 @@ html:root:is(.rp-dark, .dark) {
   /* One source-palette step brighter for readable small links on dark panels. */
   --xr-link: var(--xr-blue-300);
   --xr-focus: var(--xr-blue-300);
+  /* Hover and active text gets lighter on dark, never one of the darker fill blues. */
+  --xr-link-hover: var(--xr-blue-200);
   --xr-selection-bg: var(--xr-gray-800);
   --xr-selection-fg: var(--xr-white);
   --xr-success-bg: var(--xr-green-950);
