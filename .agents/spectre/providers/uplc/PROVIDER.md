@@ -74,34 +74,3 @@ order. Preserve hashing of original transaction bytes and nominal chain ownershi
 Haskell refactors/future-era extensions from observable maintained behavior. Each proposed change
 needs an exact captured rule, owner, expected output/error, compatibility decision and focused test;
 if no observable difference remains, recommend no implementation change.
-
-## Snapshots
-
-- [0001](0001/SNAPSHOT.md): original frozen capture, with its complete specification,
-  exact artifact inventory and documented development metadata migration;
-  [capture summary](0001/CAPTURE.md) extracted from its advisory sections.
-
-- [0002](0002/SNAPSHOT.md): complete incremental specification and resolved inventory;
-  [capture summary](0002/CAPTURE.md) compares with 0001 and the maintained TypeScript implementation.
-
-## Capture directory migration — 2026-09-09
-
-At the human's request, `0001-uplc/` was renamed to `0001/`.
-This is a repository path migration, not a new upstream capture. All baseline artifact bytes,
-source revisions, selection rules, and lifecycle decisions are preserved. Active references and
-capture metadata use the new path. Immutable archived results and historical documentation retain
-their original paths and hashes; resolve their legacy directory through this mapping.
-
-| Descriptor | SHA-256 before migration | SHA-256 after migration |
-| --- | --- | --- |
-| [0001/SNAPSHOT.md](0001/SNAPSHOT.md) | `614c88a7ae99d209e8328caa873eefa7db6a9140cea8bd9131ec2f4f34a674e5` | `b74c009eb9ebd6f42ae8e63c7fc902dc477a50b9d38563b3fda9bf2c8a82db5d` |
-| [0002/SNAPSHOT.md](0002/SNAPSHOT.md) | `a222826872ecc1138d407621da713f4ace5c8744525a70ecf1cab5dc74e13f44` | `e0eca38dcf564e097bfeb2f7d72da0903389fa0856ad50134f4a60aa22acedad` |
-
-Only path-bearing generated controls changed; captured upstream sources, vectors, licenses, and
-corpus payloads remain byte-identical. Resolved inventories, summary hashes, predecessor pins,
-and checksum inventories were refreshed for the renamed paths.
-
-| Generated control | Previous SHA-256 | Current SHA-256 |
-| --- | --- | --- |
-| [0002/artifacts/SHA256SUMS](0002/artifacts/SHA256SUMS) | `aebab3c73e8c4f4351ac1acedee5a66c656d765d022cc1866f225738bbe18948` | `f34a243d66e20c9ae7dd03a1fcdd7ada482f0a95a1d57cd4bf7b3e0900290f9b` |
-| [0002/artifacts/conformance/README.md](0002/artifacts/conformance/README.md) | `128328b95a79d686a899110856c29142a3d61bda80f1b07f0f7dc4f2003a30eb` | `e78b63737bfe74dd37c4bb46b512699fdcd15f508df235e5ff7bec15b7a1062c` |

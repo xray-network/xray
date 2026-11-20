@@ -1,10 +1,10 @@
 # SPECTRE implementations
 
 Protocol-Version: 1.0.0
-Protocol-SHA256: 8792d72d42e4a70556d250a829ee45cdff86241cbd062e9eb3824062e71d07f4
+Protocol-SHA256: 5a90409736ecc8357b3a4e93530fffd94c8c008bcc3ed48a16351b450eb046a7
 Protocol: [.agents/spectre/runtime/SPECTRE-PROTOCOL.md](.agents/spectre/runtime/SPECTRE-PROTOCOL.md)
 
-This is the live lifecycle ledger and target registry. Archived rows live in .agents/spectre/archive/SPECTRE-ARCHIVE.md.
+This is the live ledger: targets, providers and implementations. Archived rows live in the __archive folders' ARCHIVE.md files.
 
 ## Targets
 
@@ -22,6 +22,50 @@ This is the live lifecycle ledger and target registry. Archived rows live in .ag
 | `mini-app-cardano-transactions` | Mini App Cardano Transactions | `./mini-app-cardano-transactions/` | `ACTIVE` | Used by archived records; path inferred from their source references during the 1.0.0 migration |
 | `mini-app-cardano-wallet` | Mini App Cardano Wallet | `./mini-app-cardano-wallet/` | `ACTIVE` | Used by archived records; path inferred from their source references during the 1.0.0 migration |
 | `repository` | Repository | `./` | `ACTIVE` | Repository governance bootstrap |
+
+## Providers
+
+### `cardano-cips`
+
+[Provider guide](.agents/spectre/providers/cardano-cips/PROVIDER.md)
+
+| Capture | Captured | Upstream | Snapshot | Summary | Pinned by |
+| --- | --- | --- | --- | --- | --- |
+| `cardano-cips/0001` | 2026-07-31 | `b491a839708eb0296597008e7b6b093eda5e3363` | [Snapshot](.agents/spectre/providers/cardano-cips/0001/SNAPSHOT.md) | [Summary](.agents/spectre/providers/cardano-cips/0001/CAPTURE.md) | — |
+
+### `cardano-ledger`
+
+[Provider guide](.agents/spectre/providers/cardano-ledger/PROVIDER.md)
+
+| Capture | Captured | Upstream | Snapshot | Summary | Pinned by |
+| --- | --- | --- | --- | --- | --- |
+| `cardano-ledger/0001` | 2026-07-23 | `a624de4c8db7286a6c065da149679ea55f7d5629` | [Snapshot](.agents/spectre/providers/cardano-ledger/0001/SNAPSHOT.md) | [Summary](.agents/spectre/providers/cardano-ledger/0001/CAPTURE.md) | — |
+
+### `cardano-multiplatform-lib`
+
+[Provider guide](.agents/spectre/providers/cardano-multiplatform-lib/PROVIDER.md)
+
+| Capture | Captured | Upstream | Snapshot | Summary | Pinned by |
+| --- | --- | --- | --- | --- | --- |
+| `cardano-multiplatform-lib/0001` | 2026-07-23 | `39681e0d435a71f7c47a2601507ab16e691abb9e` | [Snapshot](.agents/spectre/providers/cardano-multiplatform-lib/0001/SNAPSHOT.md) | [Summary](.agents/spectre/providers/cardano-multiplatform-lib/0001/CAPTURE.md) | — |
+| `cardano-multiplatform-lib/0002` | 2026-09-09 | `69b8664c84931cd6632e0d951c2795019597527f` | [Snapshot](.agents/spectre/providers/cardano-multiplatform-lib/0002/SNAPSHOT.md) | [Summary](.agents/spectre/providers/cardano-multiplatform-lib/0002/CAPTURE.md) | — |
+
+### `message-signing`
+
+[Provider guide](.agents/spectre/providers/message-signing/PROVIDER.md)
+
+| Capture | Captured | Upstream | Snapshot | Summary | Pinned by |
+| --- | --- | --- | --- | --- | --- |
+| `message-signing/0001` | 2026-07-27 | `1.1.0` | [Snapshot](.agents/spectre/providers/message-signing/0001/SNAPSHOT.md) | [Summary](.agents/spectre/providers/message-signing/0001/CAPTURE.md) | — |
+
+### `uplc`
+
+[Provider guide](.agents/spectre/providers/uplc/PROVIDER.md)
+
+| Capture | Captured | Upstream | Snapshot | Summary | Pinned by |
+| --- | --- | --- | --- | --- | --- |
+| `uplc/0001` | 2026-07-27 | `1.66.0.0` | [Snapshot](.agents/spectre/providers/uplc/0001/SNAPSHOT.md) | [Summary](.agents/spectre/providers/uplc/0001/CAPTURE.md) | — |
+| `uplc/0002` | 2026-09-09 | `1.68.0.0` | [Snapshot](.agents/spectre/providers/uplc/0002/SNAPSHOT.md) | [Summary](.agents/spectre/providers/uplc/0002/CAPTURE.md) | — |
 
 ## Implementations
 

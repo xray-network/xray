@@ -58,20 +58,3 @@ escaped references and non-identity titles against the existing blueprint implem
 local regression coverage. Map remaining verified gaps to the blueprint owner/tests above.
 Preserve local-only resolution and resource bounds; a naming parser or remote schema resolver
 is not implied. No implementation plan or future capture ID is reserved by this guidance.
-
-## Snapshots
-
-- [0001](0001/SNAPSHOT.md): original frozen capture, with its complete specification,
-  exact artifact inventory and documented development metadata migration.
-
-## Capture directory migration — 2026-09-09
-
-At the human's request, `0001-cardano-cips/` was renamed to `0001/`.
-This is a repository path migration, not a new upstream capture. All baseline artifact bytes,
-source revisions, selection rules, and lifecycle decisions are preserved. Active references and
-capture metadata use the new path. Immutable archived results and historical documentation retain
-their original paths and hashes; resolve their legacy directory through this mapping.
-
-| Descriptor | SHA-256 before migration | SHA-256 after migration |
-| --- | --- | --- |
-| [0001/SNAPSHOT.md](0001/SNAPSHOT.md) | `c3aed766fcd1f5eedaf60ac6e4bb283a55478998d5bc498b66c7e94752892413` | `64642a35aba1952af4e9d80ed5eaec4b4649861c3356df9a67d1310f0f9689dc` |

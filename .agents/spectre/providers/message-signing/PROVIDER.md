@@ -50,20 +50,3 @@ TypeScript. C++ remains unmaintained and opt-in; no automatic cross-language par
 | CIP-8 signing and COSE serialization | `cip/src/cip8/` | `cip/test/cip8.test.mjs` |
 
 Use focused package checks and `npm --prefix libs/typescript run check` for consumer changes.
-
-## Snapshots
-
-- [0001](0001/SNAPSHOT.md): original frozen capture, with its complete specification,
-  exact artifact inventory and documented development metadata migration.
-
-## Capture directory migration — 2026-09-09
-
-At the human's request, `0001-message-signing/` was renamed to `0001/`.
-This is a repository path migration, not a new upstream capture. All baseline artifact bytes,
-source revisions, selection rules, and lifecycle decisions are preserved. Active references and
-capture metadata use the new path. Immutable archived results and historical documentation retain
-their original paths and hashes; resolve their legacy directory through this mapping.
-
-| Descriptor | SHA-256 before migration | SHA-256 after migration |
-| --- | --- | --- |
-| [0001/SNAPSHOT.md](0001/SNAPSHOT.md) | `db8340138ee183c19443f3bd952a7a2323d27a7e45111a75848a8a3c0950f17b` | `70e67e36d1e9d585965d5c26bb75d19decd91349155ecab8c4e73e7cae21a666` |

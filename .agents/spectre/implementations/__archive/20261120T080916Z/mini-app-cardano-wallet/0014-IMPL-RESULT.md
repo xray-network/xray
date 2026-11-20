@@ -1,0 +1,45 @@
+# Mini App Cardano Wallet implementation 0014 result
+
+Implementation-ID: mini-app-cardano-wallet/0014
+Instruction: ./0014-IMPL-INSTR.md
+Evidence-Mode: LOCAL
+
+## Change dispositions
+
+| Change ID | Disposition | Implementation | Validation |
+| --- | --- | --- | --- |
+| C01 | `IMPLEMENTED` | Moved CIP-67 decoding to `cardanoLib.cips` from `/cardano/lib`. | Typecheck, production build, import audit, and diff check passed. |
+
+## Outcome
+
+Wallet observes the strict Cardano application/library boundary without behavior changes.
+
+## Inputs consumed
+
+Not recorded in the original result.
+
+## Project changes
+
+Not recorded in the original result.
+
+## Exported change contract
+
+Not recorded in the original result.
+
+## Validation
+
+- `npm run typecheck` — passed.
+- `npm run build` — passed with local prerender server permission.
+- Retired-import audit and `git diff --check` — passed.
+
+## Deviations from instruction
+
+The available Node 20.18.1 runtime is below React Router's requirement; validation still passed.
+
+## Remaining human review
+
+Review the import-only migration.
+
+## Reproducibility
+
+Run the recorded typecheck, build, import audit, and diff check.

@@ -50,20 +50,3 @@ TypeScript. C++ remains unmaintained and opt-in; no automatic cross-language par
 | Era-specific wire formats and historical compatibility | `chain/src/` | `chain/test/` |
 
 Use focused package checks and `npm --prefix libs/typescript run check` for consumer changes.
-
-## Snapshots
-
-- [0001](0001/SNAPSHOT.md): original frozen capture, with its complete specification,
-  exact artifact inventory and documented development metadata migration.
-
-## Capture directory migration — 2026-09-09
-
-At the human's request, `0001-cardano-ledger/` was renamed to `0001/`.
-This is a repository path migration, not a new upstream capture. All baseline artifact bytes,
-source revisions, selection rules, and lifecycle decisions are preserved. Active references and
-capture metadata use the new path. Immutable archived results and historical documentation retain
-their original paths and hashes; resolve their legacy directory through this mapping.
-
-| Descriptor | SHA-256 before migration | SHA-256 after migration |
-| --- | --- | --- |
-| [0001/SNAPSHOT.md](0001/SNAPSHOT.md) | `2a66d9cd46e2e52f53084d0209716bb25fec17c8b95d5b708caeef6224ad3505` | `4fe8ab553abce8ecee0a7e242ac6327415743dabd4638b41d53a230b1e5a7d4b` |
